@@ -61,3 +61,70 @@ By default, if no digits follow, no decimal point is written.
 the result is padded with blank spaces. The value is not truncated even if the result is larger.
 *	The width is not specified in the format string, but as an additional integer
 value argument preceding the argument that has to be formatted.
+
+- va_list
+
+
+CONVERT the things into other things
+
+char *convert(unsigned int num, int base)
+{
+    static char Representation[]= "0123456789ABCDEF";
+    static char buffer[50];
+    char *ptr;
+
+    ptr = &buffer[49];
+    *ptr = '\0';
+
+    do
+    {
+        *--ptr = Representation[num%base];
+        num /= base;
+    }while(num != 0);
+
+    return(ptr);
+}
+
+
+printf formatting is controlled by 'format identifiers' which, are shown below in their simplest form.
+
+%d %i     Decimal signed integer.
+    %o	      Octal integer.
+    %x %X     Hex integer.
+    %u	      Unsigned integer.
+    %c	      Character.
+    %s	      String. See below.
+    %f	      double
+    %e %E     double.
+    %g %G     double.
+    %p        pointer.
+    %n	      Number of characters written by this printf.
+              No argument expected.
+    %%	      %. No argument expected.
+
+%           Flags       Minimum fi.Wid      Period      Precision Max fi.Wid    Argument type
+Required    Optional    Optional            Optional    Optional                Required
+
+
+Flags
+-      Left justify.
+   0  	  Field is padded with 0's instead of blanks.
+   +	  Sign of number always O/P.
+   blank  Positive values begin with a blank.
+   # 	  Various uses:
+	  %#o (Octal) 0 prefix inserted.
+	  %#x (Hex)   0x prefix added to non-zero values.
+	  %#X (Hex)   0X prefix added to non-zero values.
+	  %#e         Always show the decimal point.
+	  %#E         Always show the decimal point.
+	  %#f         Always show the decimal point.
+	  %#g         Always show the decimal point trailing
+	  	      zeros not removed.
+	  %#G         Always show the decimal point trailing
+		      zeros not removed.
+
+ex. of more than one flag being used
+    printf(" %-10d \n", number);
+        printf(" %010d \n", number);
+        printf(" %-#10x \n", number);
+        printf(" %#x \n", number);

@@ -1,36 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   val_flag.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/26 13:25:21 by ssettle           #+#    #+#             */
-/*   Updated: 2019/04/29 10:39:58 by ssettle          ###   ########.fr       */
+/*   Created: 2019/04/29 10:42:43 by ssettle           #+#    #+#             */
+/*   Updated: 2019/04/29 13:02:22 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-//that one due had ... as a way to handle multiple formal parameters that havent been made yet
-
-int	ft_printf(char *format, ...)
+int		is_flag(char c)
 {
-	int		count;
-	va_list	ap;  //
+	return (c == '#' || c == '-' || c == '+' || c == ' ' || c == '0');
+}
 
-	count = 0;
-	va_start(ap, format); //va_start????
-	while (*format != '\0')
-	{
-		//if (is_normal(*format))
-		//{
-			//dispatch_normal(&str);
-			//count++;
-		//}
-		//else
-		//	count += dispatch_flagged(&format, ap, 0);
-	}
-	va_end(ap);
-	return(count);
+void	add_flag(t_flags *flags, char c)
+{
+	if (c == '#')
+		flags->pound = 1;
+	else if (c == '-')
+		flags->minus = 1;
+	else if (c == '+')
+		flags->plus = 1;
+	else if (c == ' ')
+		flags->space = 1;
+	else if (c == '0')
+		flags->zero = 1;
 }
