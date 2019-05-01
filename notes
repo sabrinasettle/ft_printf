@@ -128,3 +128,7 @@ ex. of more than one flag being used
         printf(" %010d \n", number);
         printf(" %-#10x \n", number);
         printf(" %#x \n", number);
+
+
+very good example
+https://github.com/vvysotsk/ft_printf/blob/master/src/ft_printf.c
