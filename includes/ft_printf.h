@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/01 15:01:16 by ssettle           #+#    #+#             */
-/*   Updated: 2019/05/01 18:02:02 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/05/01 19:39:52 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ typedef struct				s_flags
 	int						space;
 	int						zero;
 	int						pound;
+	char					*key
 }							t_flags;
 
 typedef struct				s_opts
@@ -43,7 +44,7 @@ typedef struct				s_opts
 	t_flags					flags;
 	size_t					length;
 	size_t					precision;
-	size_t					fied_width;
+	size_t					f_width;
 
 }							t_opts;
 
@@ -63,4 +64,29 @@ void	add_flag(t_flags *flags, char c);
 int		ft_printf(char *format, ...);
 int		is_flag(char c);
 
+/*
+** BONUSES
+*/
+
+t_bool	ft_coloring(t_opts *p_out, char **str);
+
+
 #endif
+
+
+// typedef struct	s_flags
+// {
+// 	int			alt;
+// 	int			zero;
+// 	int			minus;
+// 	int			plus;
+// 	int			space;
+// 	int			prec;
+// 	int			width;
+// 	int			strlen;
+// 	char		*key;
+// 	char		*flagstr;
+// }				t_flags;
+
+// t_flags			*free_flags(t_flags *flags);
+// t_flags			*new_flags(void);
