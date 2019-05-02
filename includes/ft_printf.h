@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/01 15:01:16 by ssettle           #+#    #+#             */
-/*   Updated: 2019/05/01 15:01:20 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/05/01 18:02:02 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ typedef enum				e_bool
 	false,
 	true
 }							t_bool;
+
 /*
 ** FUNCTIONS
 */

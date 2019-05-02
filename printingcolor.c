@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/01 14:16:02 by ssettle           #+#    #+#             */
-/*   Updated: 2019/05/01 16:13:56 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/05/01 19:11:51 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,3 +74,6 @@ t_bool	ft_coloring(t_opts *p_out, char **str)
 }
 
 //https://github.com/vvysotsk/ft_printf/blob/master/src/bonus.c
+
+//if (**format == '{' && (ft_color(f_out, format) == true))
+		// return ;

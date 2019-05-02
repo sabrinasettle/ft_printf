@@ -18,3 +18,4 @@ then test to your hearts content
 image from Wikipedia
 
 Print_f is a function from the stdio.h C library
+from the man: "In between there may be (in this order) zero or more flags, an optional minimum field width, an optional precision and an optional length modifier."
