@@ -1,33 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   convert_start.c                                    :+:      :+:    :+:   */
+/*   dispatch_table.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/01 19:37:27 by ssettle           #+#    #+#             */
-/*   Updated: 2019/05/02 11:49:34 by ssettle          ###   ########.fr       */
+/*   Created: 2019/05/02 12:12:04 by ssettle           #+#    #+#             */
+/*   Updated: 2019/05/02 12:30:23 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/ft_printf.h"
-
-int	conv_perc(t_flags *flags)
+t_convert_table	g_convert_table[]
 {
-	char *res;
-	int len;
-
-	res =
-	if (res)
-		res =
-}
-
-int	convert(t_flags *flags, va_list *ap)
-{
-	char c;
-
-	c = *flags->key;
-	if (c == '%')
-		return (conv_perc(flags)); //conv perc???
-	else if (c == '')
+	{'c', &convert_char},
+	{'d', &convert_int}
+	{'f', &convert_float}
+	{'i', &convert_int}
+	{'o', &convert_octal},
+	{'p', &convert_pointer},
+	{'s', &convert_str},
+	{'u', &convert_uint},
+	{'x', &convert_hex},
+	{'X', &convert_upper_hex},
 }

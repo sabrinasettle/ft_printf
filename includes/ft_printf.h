@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/01 15:01:16 by ssettle           #+#    #+#             */
-/*   Updated: 2019/05/01 19:39:52 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/05/02 12:07:06 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,11 +41,10 @@ typedef struct				s_flags
 
 typedef struct				s_opts
 {
-	t_flags					flags;
+	// t_flags					flags;
 	size_t					length;
 	size_t					precision;
-	size_t					f_width;
-
+	size_t					width;
 }							t_opts;
 
 typedef enum				e_bool
@@ -54,6 +53,14 @@ typedef enum				e_bool
 	true
 }							t_bool;
 
+typedef struct	s_data
+{
+	char flags;
+	char length;
+	char spec;
+	int width;
+	int precision;
+}				t_data;
 /*
 ** FUNCTIONS
 */

@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/29 10:38:53 by ssettle           #+#    #+#             */
-/*   Updated: 2019/05/01 18:58:05 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/05/02 12:09:15 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@
 static t_flags	getz_theflagz(char **str)
 {
 	t_flags		flags;
-	// int 		index
 
 	flags.plus = 0;
 	flags.minus = 0;
@@ -57,7 +56,7 @@ static int		getz_width(char **str, va_list ap)
 	width = 0;
 	if(IS_DIGIT(**str))
 	{
-		flags-> atoi(str)
+
 	}
 	return ();
 }
