@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/29 10:38:53 by ssettle           #+#    #+#             */
-/*   Updated: 2019/05/06 09:38:32 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/05/06 11:45:06 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,8 @@ static int		getz_width(char **str, va_list ap)
 ** conversions, the maximum number of significant digits for g and G
 ** conversions, or the maximum number of characters to be printed from a
 ** string for s and S conversions.
+**
+** ex: ft_printf("%8.2f", 10.3456) = '   10.35'
 */
 
 static int		getz_theprecision(char **str, va_list ap)
@@ -78,6 +80,10 @@ static int		getz_theprecision(char **str, va_list ap)
 
 	return ();
 }
+
+/*
+** Length Modifiers
+*/
 
 static int	getz_thelength(char **str)
 {

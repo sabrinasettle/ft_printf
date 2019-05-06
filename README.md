@@ -23,7 +23,34 @@ from the man: "In between there may be (in this order) zero or more flags, an op
 When using printf the function you must insert the appropiate conversion charcters in the *controlString*. These conversions are anounced by a percentage sign:
 > %c
 
-%c is the conversion for a char charcter. But there many others to convert such as:
-- %i and %d
-- %s
-- %f
+%c is the conversion specifier for a char charcter. But there many others to convert. the Ft_printf printf recreation was built to handle these conversions, any others are bonuses for the project:
+- %i : integar (base 10)
+- %d : decimal (integar) number (base 10)
+- %s : string of characters
+- %f : floating-point number
+- %o : octal bumber (base 8)
+- %u : unsigned decimal (integar) number
+- %x %X : number in hexadecimal (base 16)
+- %% : print a precent sign
+
+Along with conversions printf handles flags which can deteremine where or whether you will have padding.
+Printf flags:
+- '-' : creates a left justifying printf output
+- '0' : integar zero-fill, left-pads the number with zeros instead of spaces
+- '+' : means when used it will print a plus sign before the output
+- '#' : Used with the specifiers the value is precceeded with 0, 0x or 0X for values different than 0
+- ' ': If no sign is going to be written, a blank space is inserted before the value.
+
+Width is determined for integars by placing a number after the persent sign and before the specifier flag. like so:
+> printf("%5d", 10)
+> result : '   10'
+
+for strings it is similar:
+> printf("%10s","Hello")
+> result : '     Hello'
+
+Some absolutely great references:
+- https://alvinalexander.com/programming/printf-format-cheat-sheet
+- http://www.cplusplus.com/reference/cstdio/printf/
+- https://linux.die.net/man/3/printf
+

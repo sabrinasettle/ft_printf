@@ -18,7 +18,7 @@ You have to manage the following conversion: f with the following flags : l and 
 You must manage %%
 You must manage the flags #0-+ and space
 You must manage the minium field-width
-You mus manage the precision
+You must manage the precision
 You must manage the flags hh, h, l, ll , j, and z //42 file checker checks for j and z
 
 
