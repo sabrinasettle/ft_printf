@@ -27,6 +27,7 @@ When using printf the function you must insert the appropiate conversion charcte
 - %i : integar (base 10)
 - %d : decimal (integar) number (base 10)
 - %s : string of characters
+- %p : pointer address
 - %f : floating-point number
 - %o : octal bumber (base 8)
 - %u : unsigned decimal (integar) number
@@ -43,10 +44,12 @@ Printf flags:
 
 Width is determined for integars by placing a number after the persent sign and before the specifier flag. like so:
 > printf("%5d", 10)
+
 > result : '   10'
 
 for strings it is similar:
 > printf("%10s","Hello")
+
 > result : '     Hello'
 
 Some absolutely great references:
