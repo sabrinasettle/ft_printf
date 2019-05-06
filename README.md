@@ -50,7 +50,7 @@ Width is determined for integars by placing a number after the persent sign and 
 for strings it is similar:
 > printf("%10s","Hello")
 
-> result : '     Hello'
+> result : 'Hello'
 
 Some absolutely great references:
 - https://alvinalexander.com/programming/printf-format-cheat-sheet
