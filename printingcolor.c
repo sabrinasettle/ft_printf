@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/01 14:16:02 by ssettle           #+#    #+#             */
-/*   Updated: 2019/05/01 19:27:17 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/05/02 14:43:14 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 ** Defines the color codes. BUT WHAT IS bred?? or any b for that matter?
 */
 
-t_table g_colors[]
+t_table g_colors[] =
 {
 	{"{red}", "\033[31m"},
 	{"{bred}", "\033[31;1m"},
@@ -50,8 +50,8 @@ t_table g_colors[]
 	{"{b_bblack}", "\033[40;1m"},
 	{"{b_white}", "\033[47m"},
 	{"{b_bwhite}", "\033[47;1m"},
-	{"{eoc}", "\033[0m"}
-	{NULL, NULL},
+	{"{eoc}", "\033[0m"},
+	{NULL, NULL}
 };
 
 t_bool	ft_coloring(t_opts *p_out, char **str)
@@ -63,12 +63,12 @@ t_bool	ft_coloring(t_opts *p_out, char **str)
 	{
 		if (ft_strnstr(*str, g_colors[index][0], \
 				ft_strlen(g_colors[index][0])) != 0)
-			{
-				ft_set_data(p_out, g_colors); //what where??
-				*str = *str + ft_strlen(g_colors[index][0]);
-				return (true);
-			}
-			index++;
+		{
+			ft_set_data(p_out, g_colors); //what where??
+			*str = *str + ft_strlen(g_colors[index][0]);
+			return (true);
+		}
+		index++;
 	}
 	return (false);
 }
@@ -76,4 +76,4 @@ t_bool	ft_coloring(t_opts *p_out, char **str)
 //https://github.com/vvysotsk/ft_printf/blob/master/src/bonus.c
 
 //if (**format == '{' && (ft_color(f_out, format) == true))
-		// return ;
+	// return ;

@@ -6,14 +6,16 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/29 10:38:53 by ssettle           #+#    #+#             */
-/*   Updated: 2019/05/02 12:09:15 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/05/06 09:38:32 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
 /*
-** This function gets the flags
+** This function gets the flags and accesses the struct that contains them.
+** It then sets the flag varibles to 0 and then valiadates the flags via the
+** the functions in the vad_flag file
 */
 
 static t_flags	getz_theflagz(char **str)
@@ -79,7 +81,23 @@ static int		getz_theprecision(char **str, va_list ap)
 
 static int	getz_thelength(char **str)
 {
+	int len;
 
+	len = 0;
+	if (**str == 'h' && *(*str + 1) != 'h')
+		len = 104;
+	else if (**str == 'h' && *(*str + 1) == 'h')
+		len = (int)('h' + 'h');
+	else if (**str == 'l' &&)
+		len = 108;
+	else if (**str == 'l' &&)
+		len = 216;
+	else if (**str == 'j')
+		len = 106;
+	else if (**str == 'z')
+		len = 122;
+	if (len > 0)
+		(*str) += (l >= 130 ? 2 : 1);
 	return ();
 }
 

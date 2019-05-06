@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/01 15:01:16 by ssettle           #+#    #+#             */
-/*   Updated: 2019/05/02 12:07:06 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/05/02 15:19:34 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,12 +36,13 @@ typedef struct				s_flags
 	int						space;
 	int						zero;
 	int						pound;
-	char					*key
+	char					*key;
+	char					*flagsstr; //maybe??
 }							t_flags;
 
 typedef struct				s_opts
 {
-	// t_flags					flags;
+	t_flags					flags;
 	size_t					length;
 	size_t					precision;
 	size_t					width;
@@ -53,19 +54,27 @@ typedef enum				e_bool
 	true
 }							t_bool;
 
-typedef struct	s_data
-{
-	char flags;
-	char length;
-	char spec;
-	int width;
-	int precision;
-}				t_data;
+// typedef struct	s_data
+// {
+// 	char flags;
+// 	char length;
+// 	char spec;
+// 	int width;
+// 	int precision;
+// }				t_data;
+
+/*
+**	Global
+*/
+
+t_convert_table		g_convert_table[];
+
 /*
 ** FUNCTIONS
 */
 
-void	add_flag(t_flags *flags, char c);
+
+void	add_flags(t_flags *flags, char c);
 
 
 int		ft_printf(char *format, ...);
@@ -80,7 +89,7 @@ t_bool	ft_coloring(t_opts *p_out, char **str);
 
 #endif
 
-
+// https://github.com/jkimminau/ft_printf
 // typedef struct	s_flags
 // {
 // 	int			alt;

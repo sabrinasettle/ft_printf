@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/01 19:37:27 by ssettle           #+#    #+#             */
-/*   Updated: 2019/05/02 11:49:34 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/05/02 12:54:19 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	conv_perc(t_flags *flags)
 	char *res;
 	int len;
 
-	res =
+	res = ft_strdup("%");
 	if (res)
 		res =
 }

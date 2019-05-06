@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/29 10:42:43 by ssettle           #+#    #+#             */
-/*   Updated: 2019/05/01 16:20:49 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/05/02 14:19:25 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int		is_flag(char c)
 	return (c == '#' || c == '-' || c == '+' || c == ' ' || c == '0');
 }
 
-void	add_flag(t_flags *flags, char c)
+void	add_flags(t_flags *flags, char c)
 {
 	if (c == '#')
 		flags->pound = 1;

@@ -132,3 +132,16 @@ ex. of more than one flag being used
 
 very good example
 https://github.com/vvysotsk/ft_printf/blob/master/src/ft_printf.c
+
+printf("%s %d %f %c\n", "Sam, 14, -8.76, 'X')
+
+prints this:
+Sam 14 -8.760000 X
+
+another example
+
+printf("%f %.3f %.2f %.1f", 4.5678, 4.5678, 4.5678, 4.5678)
+
+should print out:
+
+4.567800 4.5678 4.57 4.6
