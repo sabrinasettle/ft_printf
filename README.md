@@ -21,7 +21,7 @@ Print_f is a function from the stdio.h C library
 from the man: "In between there may be (in this order) zero or more flags, an optional minimum field width, an optional precision and an optional length modifier."
 
 When using printf the function you must insert the appropiate conversion charcters in the *controlString*. These conversions are anounced by a percentage sign:
->%c
+>%c<
 %c is the conversion for a char charcter. But there many others to convert such as:
 - %i and %d
 - %s
