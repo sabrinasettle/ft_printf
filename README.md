@@ -48,8 +48,10 @@ Width is determined for integars by placing a number after the persent sign and 
 for strings it is similar:
 > printf("%10s","Hello")
 
+%[flag][min width][precision][length modifier][conversion specifier]
+
 Some absolutely great references:
 - https://alvinalexander.com/programming/printf-format-cheat-sheet
 - http://www.cplusplus.com/reference/cstdio/printf/
 - https://linux.die.net/man/3/printf
-
+- https://www.cprogramming.com/tutorial/c/lesson17.html

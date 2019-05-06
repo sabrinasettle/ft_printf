@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/29 10:38:53 by ssettle           #+#    #+#             */
-/*   Updated: 2019/05/06 11:45:06 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/05/06 16:07:35 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 ** the functions in the vad_flag file
 */
 
-static t_flags	getz_theflagz(char **str)
+static t_flags		getz_theflagz(char **str)
 {
 	t_flags		flags;
 
@@ -27,7 +27,6 @@ static t_flags	getz_theflagz(char **str)
 	flags.space = 0;
 	flags.zero = 0;
 	flags.pound = 0;
-
 	while (is_flag(**str))
 	{
 		add_flag(&flags, **str);
@@ -51,16 +50,25 @@ static t_flags	getz_theflagz(char **str)
 ** to contain the conversion result.
 */
 
-static int		getz_width(char **str, va_list ap)
+static int			getz_width(char **str, va_list ap)
 {
-	int 	width;
+	int		width;
 
 	width = 0;
-	if(IS_DIGIT(**str))
+	if (!IS_DIGIT(**str))
+		return (false);
+	if (IS_DIGIT(**str))
 	{
-
+		width = ft_atoi(*str);
+		while (IS_DIGIT(**str))
+			(*str)++;
 	}
-	return ();
+	else if (**str == '*')
+	{
+		width = va_arg(ap, int);
+		(*str)++;
+	}
+	return (width);
 }
 
 /*
@@ -77,34 +85,65 @@ static int		getz_width(char **str, va_list ap)
 
 static int		getz_theprecision(char **str, va_list ap)
 {
+	int		mod_prec;
 
-	return ();
+	mod_prec = -1;
+	if (**str != '.')
+		return (false);
+	if (**str == '.')
+	{
+		mod_prec = 0;
+		(*str)++;
+		if (IS_DIGIT(**str))
+		{
+			while (IS_DIGIT(**str))
+				*str++;
+		}
+		else if (**str == '*')
+		{
+			mod_prec = va_arg(ap, int);
+			*str++;
+		}
+	}
+	return (precision);
 }
 
 /*
-** Length Modifiers
+** Length Modifiers specifies the size of the argument
 */
 
-static int	getz_thelength(char **str)
+static int		getz_thelength(char **str)
 {
-	int len;
+	int		len;
 
 	len = 0;
-	if (**str == 'h' && *(*str + 1) != 'h')
-		len = 104;
-	else if (**str == 'h' && *(*str + 1) == 'h')
-		len = (int)('h' + 'h');
-	else if (**str == 'l' &&)
-		len = 108;
-	else if (**str == 'l' &&)
-		len = 216;
-	else if (**str == 'j')
-		len = 106;
-	else if (**str == 'z')
-		len = 122;
-	if (len > 0)
-		(*str) += (l >= 130 ? 2 : 1);
-	return ();
+	while (IS_LEN_OPT(**str))
+	{
+		if (**str == 'h' && *(*str + 1) != 'h')
+			len = 104;
+		else if (**str == 'h' && *(*str + 1) == 'h')
+			len = 208;
+		else if (**str == 'l' && *(*str + 1) != 'l')
+			len = 108;
+		else if (**str == 'l' && *(*str + 1) == 'l')
+			len = 216;
+		else if (**str == 'j')
+			len = 106;
+		else if (**str == 'z')
+			len = 122;
+		if (len > 0)
+			(*str) += (l >= 130 ? 2 : 1);
+	}
+	return (len);
 }
 
-//t_opts		getz_theoptions(char **str, va_list ap)
+t_opts			getz_theoptions(char **str, va_list ap)
+{
+	t_opt	options;
+
+	options.flags = getz_theflagz(str);
+	options.length = getz_thelength();
+	options.precision = getz_theprecision();
+	options.width = getz_width();
+	return (options);
+}

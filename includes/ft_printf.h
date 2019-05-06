@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/01 15:01:16 by ssettle           #+#    #+#             */
-/*   Updated: 2019/05/02 15:19:34 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/05/06 13:27:35 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
 */
 
 # define IS_DIGIT(c)		((c >= '0' && c <= '9') ? 1 : 0)
-
+# define IS_LEN_OPT(c)		(c == 'h' || c == 'l' || c == 'j' || c == 'z')
 /*
 ** STRUCTS
 */
@@ -50,8 +50,8 @@ typedef struct				s_opts
 
 typedef enum				e_bool
 {
-	false,
-	true
+	false = 0,
+	true = 1
 }							t_bool;
 
 // typedef struct	s_data

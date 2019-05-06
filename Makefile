@@ -6,14 +6,15 @@
 #    By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/04/28 15:08:21 by ssettle           #+#    #+#              #
-#    Updated: 2019/05/02 13:01:22 by ssettle          ###   ########.fr        #
+#    Updated: 2019/05/06 13:33:44 by ssettle          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libftprintf.a
 
 SOURCES = ft_printf.c \
-
+	dispatch_table.c \
+	options.c \
 
 CONVERT = convert_char.c \
 	convert_float.c \
