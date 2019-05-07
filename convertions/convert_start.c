@@ -6,12 +6,14 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/01 19:37:27 by ssettle           #+#    #+#             */
-/*   Updated: 2019/05/07 15:52:21 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/05/07 15:57:10 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/ft_printf.h"
 
+
+// https://github.com/jkimminau/ft_printf/blob/master/src/conv_special.c
 int	conv_percent(t_flags *flags) //or (t_opts f_opts, va_list ap)
 {
 	char *res;
@@ -27,6 +29,7 @@ int	conv_percent(t_flags *flags) //or (t_opts f_opts, va_list ap)
 	//return (0);
 }
 
+// https://github.com/jkimminau/ft_printf/blob/master/src/ft_printf_conv.c
 int	convert(t_flags *flags, char **str, va_list *ap)
 {
 
