@@ -1,45 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   dispatch_conv.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/26 13:25:21 by ssettle           #+#    #+#             */
-/*   Updated: 2019/05/07 15:23:26 by ssettle          ###   ########.fr       */
+/*   Created: 2019/05/07 13:41:32 by ssettle           #+#    #+#             */
+/*   Updated: 2019/05/07 15:33:40 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
+#include "ft_printf.h"
 
-static int	dispatch_normal(char **str)
+
+int		dispatch_flags(char **str , va_list ap)
 {
-	ft_putchar(*str);
-	(*str)++;
-	return (1);
+
 }
 
-/*
-** The main printf function
-*/
-
-int			ft_printf(char *str, ...)
+void	handle_ouput(t_opts f_opts, char **str, va_list ap)
 {
-	int		count;
-	va_list	ap;
-
-	count = 0;
-	va_start(ap, str);
-	while (*format != '\0')
+	if (**str == '{' && (ft_coloring(f_opts, str) == true))
+		return ;
+	while (true)
 	{
-		if (*str == '%')
-		{
-			count += dispatch_flags(&str, ap);
-			str++;
-		}
-		else
-			count += dispatch_normal(&str);
+		if (getz_theflags(str))
+			continue ;
+		if (getz_thewidth(str, ap))
+			continue ;
+		if (getz_theprescion(str, ap))
+			continue ;
+		if (getz_thelength(str))
+			continue ;
+		if (**str == '\0')
+			return ;
+
 	}
-	va_end(ap);
-	return (count);
+
 }

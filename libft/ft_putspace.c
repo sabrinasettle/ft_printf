@@ -1,33 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   convert_char.c                                     :+:      :+:    :+:   */
+/*   ft_putspace.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/29 10:39:33 by ssettle           #+#    #+#             */
-/*   Updated: 2019/05/06 18:08:04 by ssettle          ###   ########.fr       */
+/*   Created: 2019/05/06 17:42:56 by ssettle           #+#    #+#             */
+/*   Updated: 2019/05/06 17:44:21 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
+#include "libft.h"
 
-/*
-** 1 width we print only the c, with 2 width we print
-** a space AND the c.
-*/
-
-
-// static void	padding(char c, int size, int left_align)
-// {
-// 	if (!left_align && size)
-// 		ft_putspaces(size - 1);
-// 	ft_putchar(c);
-// 	if (left_align && size)
-// 		ft_putspaces(size - 1);
-// }
-
-int						convert_char(t_opts options, va_list ap)
+void	ft_putspace(int size)
 {
+	int i;
 
+	i = 0;
+	while (i < size)
+	{
+		ft_putchar(' ');
+		i++;
+	}
 }

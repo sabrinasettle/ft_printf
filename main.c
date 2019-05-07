@@ -2,6 +2,8 @@
 #include "ft_printf.h"
 #include <stdio.h>
 
+//https://github.com/agavrel/42-ft_printf/blob/master/misc/main.c
+
 int	main(void)
 {
 	ft_printf("Characters: %c %c \n", 'a', 65);

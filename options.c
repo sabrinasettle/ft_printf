@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/29 10:38:53 by ssettle           #+#    #+#             */
-/*   Updated: 2019/05/06 16:07:35 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/05/07 15:13:04 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 /*
 ** This function gets the flags and accesses the struct that contains them.
 ** It then sets the flag varibles to 0 and then valiadates the flags via the
-** the functions in the vad_flag file
+** the functions in the vad_flag file. This is accessed through the (.) member
+** access operator using the ~struct.anditsvarble~
 */
 
 static t_flags		getz_theflagz(char **str)
@@ -109,7 +110,9 @@ static int		getz_theprecision(char **str, va_list ap)
 }
 
 /*
-** Length Modifiers specifies the size of the argument
+** Length Modifiers specifies the size of the argument.
+** converts into short, shortshort, long, long long, int_max, size_t depending
+** on the input, respectively : h, hh, l, ll, j, z
 */
 
 static int		getz_thelength(char **str)
@@ -142,8 +145,8 @@ t_opts			getz_theoptions(char **str, va_list ap)
 	t_opt	options;
 
 	options.flags = getz_theflagz(str);
-	options.length = getz_thelength();
-	options.precision = getz_theprecision();
-	options.width = getz_width();
+	options.length = getz_thelength(str);
+	options.precision = getz_theprecision(str, ap);
+	options.width = getz_width(str, ap);
 	return (options);
 }

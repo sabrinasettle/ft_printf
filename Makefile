@@ -6,7 +6,7 @@
 #    By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/04/28 15:08:21 by ssettle           #+#    #+#              #
-#    Updated: 2019/05/06 13:33:44 by ssettle          ###   ########.fr        #
+#    Updated: 2019/05/07 15:35:54 by ssettle          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,6 +14,7 @@ NAME = libftprintf.a
 
 SOURCES = ft_printf.c \
 	dispatch_table.c \
+	dispatch_conv.c \
 	options.c \
 
 CONVERT = convert_char.c \
@@ -25,7 +26,8 @@ CONVERT = convert_char.c \
 	convert_str.c \
 	convert_uint.c \
 	convert_upper_hex.c \
-	convert_upper_uint.c
+	convert_upper_uint.c \
+	convert_start.c \
 
 LIBFT_SRCS = ft_atoi.c \
 	ft_lstdel.c \

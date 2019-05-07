@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/12 15:19:36 by ssettle           #+#    #+#             */
-/*   Updated: 2019/04/28 15:04:42 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/05/06 17:45:06 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,7 @@ void			ft_putendl(char const *s);
 void			ft_putendl_fd(char const *s, int fd);
 void			ft_putnbr(int n);
 void			ft_putnbr_fd(int n, int fd);
+void			ft_putspace(int size);
 void			ft_putstr(char const *str);
 void			ft_putstr_fd(char const *s, int fd);
 void			ft_strclr(char *s);
