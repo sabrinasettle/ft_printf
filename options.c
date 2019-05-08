@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/29 10:38:53 by ssettle           #+#    #+#             */
-/*   Updated: 2019/05/07 15:13:04 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/05/08 12:28:15 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 ** access operator using the ~struct.anditsvarble~
 */
 
-static t_flags		getz_theflagz(char **str)
+static t_flags		getz_theflagz(char **format)
 {
 	t_flags		flags;
 
@@ -28,10 +28,10 @@ static t_flags		getz_theflagz(char **str)
 	flags.space = 0;
 	flags.zero = 0;
 	flags.pound = 0;
-	while (is_flag(**str))
+	while (is_special_flag(**format))
 	{
-		add_flag(&flags, **str);
-		(*str)++;
+		add_flags(&flags, **format);
+		(*format)++;
 	}
 	return (flags);
 }
@@ -51,23 +51,23 @@ static t_flags		getz_theflagz(char **str)
 ** to contain the conversion result.
 */
 
-static int			getz_width(char **str, va_list ap)
+static int			getz_width(char **format, va_list ap)
 {
 	int		width;
 
 	width = 0;
-	if (!IS_DIGIT(**str))
+	if (!IS_DIGIT(**format))
 		return (false);
-	if (IS_DIGIT(**str))
+	if (IS_DIGIT(**format))
 	{
-		width = ft_atoi(*str);
-		while (IS_DIGIT(**str))
-			(*str)++;
+		width = ft_atoi(*format);
+		while (IS_DIGIT(**format))
+			(*format)++;
 	}
-	else if (**str == '*')
+	else if (**format == '*')
 	{
 		width = va_arg(ap, int);
-		(*str)++;
+		(*format)++;
 	}
 	return (width);
 }
@@ -84,29 +84,29 @@ static int			getz_width(char **str, va_list ap)
 ** ex: ft_printf("%8.2f", 10.3456) = '   10.35'
 */
 
-static int		getz_theprecision(char **str, va_list ap)
+static int			getz_theprecision(char **format, va_list ap)
 {
 	int		mod_prec;
 
 	mod_prec = -1;
-	if (**str != '.')
+	if (**format != '.')
 		return (false);
-	if (**str == '.')
+	if (**format == '.')
 	{
 		mod_prec = 0;
-		(*str)++;
-		if (IS_DIGIT(**str))
+		(*format)++;
+		if (IS_DIGIT(**format))
 		{
-			while (IS_DIGIT(**str))
-				*str++;
+			while (IS_DIGIT(**format))
+				(*format)++;
 		}
-		else if (**str == '*')
+		else if (**format == '*')
 		{
 			mod_prec = va_arg(ap, int);
-			*str++;
+			(*format)++;
 		}
 	}
-	return (precision);
+	return (mod_prec);
 }
 
 /*
@@ -115,38 +115,38 @@ static int		getz_theprecision(char **str, va_list ap)
 ** on the input, respectively : h, hh, l, ll, j, z
 */
 
-static int		getz_thelength(char **str)
+static int			getz_thelength(char **format)
 {
 	int		len;
 
 	len = 0;
-	while (IS_LEN_OPT(**str))
+	while (IS_LEN_OPT(**format))
 	{
-		if (**str == 'h' && *(*str + 1) != 'h')
+		if (**format == 'h' && *(*format + 1) != 'h')
 			len = 104;
-		else if (**str == 'h' && *(*str + 1) == 'h')
+		else if (**format == 'h' && *(*format + 1) == 'h')
 			len = 208;
-		else if (**str == 'l' && *(*str + 1) != 'l')
+		else if (**format == 'l' && *(*format + 1) != 'l')
 			len = 108;
-		else if (**str == 'l' && *(*str + 1) == 'l')
+		else if (**format == 'l' && *(*format + 1) == 'l')
 			len = 216;
-		else if (**str == 'j')
+		else if (**format == 'j')
 			len = 106;
-		else if (**str == 'z')
+		else if (**format == 'z')
 			len = 122;
 		if (len > 0)
-			(*str) += (l >= 130 ? 2 : 1);
+			(*format) += (len >= 130 ? 2 : 1);
 	}
 	return (len);
 }
 
-t_opts			getz_theoptions(char **str, va_list ap)
+t_opts				getz_theoptionz(char **format, va_list ap)
 {
-	t_opt	options;
+	t_opts	options;
 
-	options.flags = getz_theflagz(str);
-	options.length = getz_thelength(str);
-	options.precision = getz_theprecision(str, ap);
-	options.width = getz_width(str, ap);
+	options.flags = getz_theflagz(format);
+	options.length = getz_thelength(format);
+	options.precision = getz_theprecision(format, ap);
+	options.width = getz_width(format, ap);
 	return (options);
 }

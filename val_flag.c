@@ -6,13 +6,13 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/29 10:42:43 by ssettle           #+#    #+#             */
-/*   Updated: 2019/05/02 14:19:25 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/05/08 11:14:25 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-int		is_flag(char c)
+int		is_special_flag(char c)
 {
 	return (c == '#' || c == '-' || c == '+' || c == ' ' || c == '0');
 }

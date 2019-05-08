@@ -6,13 +6,13 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/02 12:12:04 by ssettle           #+#    #+#             */
-/*   Updated: 2019/05/06 15:14:29 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/05/08 12:20:52 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/libft.h"
+#include "../includes/ft_printf.h"
 
-t_convert_table		g_convert_table[] = {
+const	t_convert_table		g_convert_table[] = {
 	{'c', &convert_char},
 	{'d', &convert_int},
 	{'f', &convert_float},
