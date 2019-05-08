@@ -6,8 +6,13 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/02 12:34:06 by ssettle           #+#    #+#             */
-/*   Updated: 2019/05/02 14:33:52 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/05/08 12:53:49 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
+
+int				convert_upper_hex(t_opts f_opts, va_list ap)
+{
+
+}

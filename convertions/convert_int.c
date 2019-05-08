@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/02 12:33:44 by ssettle           #+#    #+#             */
-/*   Updated: 2019/05/07 13:38:44 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/05/08 12:41:38 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 ** Conversion for i and d.
 */
 
-int		convert_int()
+int		convert_int(t_opts f_opts, va_list ap)
 {
 
 
