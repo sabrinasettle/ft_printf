@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/01 15:01:16 by ssettle           #+#    #+#             */
-/*   Updated: 2019/05/09 17:50:55 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/05/10 09:07:53 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,6 +92,13 @@ int					convert_str(t_opts f_opts, va_list ap);
 int					convert_uint(t_opts f_opts, va_list ap);
 int					convert_upper_hex(t_opts f_opts, va_list ap);
 int					convert_upper_uint(t_opts f_opts, va_list ap);
+
+/*
+** TOOLS
+*/
+
+void				pf_putchar(char c);
+
 
 /*
 ** OPTION FUNCTIONS

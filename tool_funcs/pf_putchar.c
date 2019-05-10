@@ -1,45 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   pf_putchar.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/26 13:25:21 by ssettle           #+#    #+#             */
-/*   Updated: 2019/05/10 09:06:46 by ssettle          ###   ########.fr       */
+/*   Created: 2019/05/10 09:11:59 by ssettle           #+#    #+#             */
+/*   Updated: 2019/05/10 09:12:55 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-static int	dispatch_normal(char **format)
+void	pf_putchar(char c)
 {
-	pf_putchar(**format);
-	(*format)++;
-	return (1);
-}
-
-/*
-** The main printf function
-*/
-
-int			ft_printf(char *format, ...)
-{
-	int		count;
-	va_list	ap;
-
-	count = 0;
-	va_start(ap, format);
-	while (*format != '\0')
-	{
-		if (*format == '%')
-		{
-			count += convert_args(&format, ap);
-			format++;
-		}
-		else
-			count += dispatch_normal(&format);
-	}
-	va_end(ap);
-	return (count);
+	write(1, &c, 1);
 }
