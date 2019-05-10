@@ -6,19 +6,23 @@
 #    By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/04/28 15:08:21 by ssettle           #+#    #+#              #
-#    Updated: 2019/05/09 17:28:21 by ssettle          ###   ########.fr        #
+#    Updated: 2019/05/09 20:16:43 by ssettle          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libftprintf.a
 
+NEW_DIR = mkdir -p $(@)
+
 SRC_DIR = ./sources/
 INC_DIR = ./includes/
 CNVT_DIR = ./convertions/
+OBJ_DIR = ./objects/
 
 SRCS = $(addprefix $(SRC_DIR),$(SOURCES))
 INC = $(addprefix -I,$(INC_DIR))
 CNVT = $(addprefix $(CNVT_DIR),$(CONVERT))
+OBJS = $(addprefix $(OBJ_DIR),$(OBJECTS))
 
 SOURCES = sources/ft_printf.c \
 	sources/dispatch_table.c \
@@ -37,9 +41,9 @@ CONVERT = convert_char.c \
 	convert_upper_uint.c \
 	convert_percent.c \
 
-TOOLS =
+#TOOLS =
 
-OBJECTS = $(addprefix $(SRC_DIR),$(SOURCES:.c=.o))
+OBJECTS = $(SOURCES:.c=.o),$(CONVERT:.c=.o)
 
 FLAGS = -Wall -Werror -Wextra
 
@@ -48,7 +52,8 @@ INCLUDES = includes/
 all: $(NAME)
 
 $(NAME):
-	make -C ./libft
+	@make -C ./libft
+	@echo Made the libft!
 	@gcc $(FLAGS) -c $(SOURCES) -I $(INCLUDES)
 	@gcc $(FLAGS) -o $(NAME)
 	@ar -rcs $(NAME) $(OBJECTS)
