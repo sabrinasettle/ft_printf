@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/29 10:39:33 by ssettle           #+#    #+#             */
-/*   Updated: 2019/05/08 10:49:38 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/05/08 17:19:33 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,17 @@
 // 	if (left_align && size)
 // 		ft_putspaces(size - 1);
 // }
+void	padding(char , int , int left_align) //three parameters
+{
+
+}
 
 int						convert_char(t_opts f_opts, va_list ap)
 {
+	unsigned char c;
 
+	c = (unsigned char)va_arg(ap, int);
+	padding(c, f_opts.width, f_opts.flags.minus);
+	write(1, &c, 1);
+	return (1);
 }

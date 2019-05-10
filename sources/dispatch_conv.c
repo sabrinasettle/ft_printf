@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/07 13:41:32 by ssettle           #+#    #+#             */
-/*   Updated: 2019/05/08 12:22:59 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/05/09 17:43:51 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int		convert_args(char **format , va_list ap)
 	while(++i > CON_NUM)
 	{
 		if(g_convert_table[i].form_convert == **format)
-			c = g_convert_table[i].f(options, ap);
+			c = g_convert_table[i].f(options, ap); // not f anymore
 	}
 	if(!g_convert_table[i].form_convert)
 		exit(1);

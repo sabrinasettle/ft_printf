@@ -55,3 +55,6 @@ Some absolutely great references:
 - http://www.cplusplus.com/reference/cstdio/printf/
 - https://linux.die.net/man/3/printf
 - https://www.cprogramming.com/tutorial/c/lesson17.html
+
+Great article on dispatch tables:
+- https://blog.alicegoldfuss.com/function-dispatch-tables/

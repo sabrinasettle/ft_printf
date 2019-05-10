@@ -6,11 +6,22 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/29 10:42:43 by ssettle           #+#    #+#             */
-/*   Updated: 2019/05/08 11:14:25 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/05/09 11:06:18 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
+
+/*
+** '-' : Left-justify within the given field width
+** '+' : Forces to preceed the result with a plus or minus sign
+** ' ' : A blank space is inserted before the result
+** '#' : Used with o, x or X specifiers the value is preceeded with 0, 0x or
+**       0X respectively for values different than zero. Used with a, A, e, E,
+**		 f, F, g or G it forces the written output to contain a decimal point
+**		 even if no more digits follow.
+** '0' : Left-pads the number with zeroes (0) instead of spaces when padding.
+*/
 
 int		is_special_flag(char c)
 {
