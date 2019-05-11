@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/01 15:01:16 by ssettle           #+#    #+#             */
-/*   Updated: 2019/05/10 09:07:53 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/05/10 11:55:38 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ typedef struct				s_flags
 typedef struct				s_opts
 {
 	t_flags					flags;
-	size_t					length;
+	size_t					field_length;
 	size_t					precision;
 	size_t					width;
 }							t_opts;
@@ -98,6 +98,7 @@ int					convert_upper_uint(t_opts f_opts, va_list ap);
 */
 
 void				pf_putchar(char c);
+int					pf_atoi(const char *str)
 
 
 /*
