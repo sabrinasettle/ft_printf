@@ -6,7 +6,7 @@
 #    By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/12 16:46:59 by ssettle           #+#    #+#              #
-#    Updated: 2019/05/06 17:46:54 by ssettle          ###   ########.fr        #
+#    Updated: 2019/05/12 10:17:34 by ssettle          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -107,6 +107,7 @@ ft_putendl.o\
 ft_putendl_fd.o\
 ft_putnbr.o\
 ft_putnbr_fd.o\
+ft_putspace.o\
 ft_putstr.o\
 ft_putstr_fd.o\
 ft_strcat.o\

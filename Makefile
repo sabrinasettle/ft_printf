@@ -6,7 +6,7 @@
 #    By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/04/28 15:08:21 by ssettle           #+#    #+#              #
-#    Updated: 2019/05/10 09:54:34 by ssettle          ###   ########.fr        #
+#    Updated: 2019/05/12 11:28:37 by ssettle          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,16 +25,23 @@ CONVERT = conversions/convert_char \
 	# convert_int.c \
 	# convert_octal.c \
 	# convert_pointer.c \
-	# convert_str.c \
+	convert_str.c \
 	# convert_uint.c \
 	# convert_upper_hex.c \
 	conversions/convert_upper_uint.c \
 	conversions/convert_percent.c \
 
+# PADDING = padding/pad_hex.c \
+	# padding/pad_int.c \
+	# padding/pad_octal.c \
+	# padding/pad_pointer.c \
+	# padding/pad_uint.c
+
+
 TOOLS = tools/pf_putchar.c \
 	# tools/pf_atoi.c
 
-VPATH=conversions:includes:sources:tools
+VPATH=conversions:includes:sources:tools:padding
 OBJECTS = $(addsuffix .o, $(addprefix $(OBJ_DIR)/, $(SOURCES)))
 # OBJECTS += $(patsubst %.c,%.o,$(CONVERT))
 # OBJECTS += $(patsubst %.c,%.o,$(TOOLS))

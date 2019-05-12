@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/01 15:01:16 by ssettle           #+#    #+#             */
-/*   Updated: 2019/05/10 11:55:38 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/05/12 11:33:24 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
 
 # define MAX_CONVERT_NUM 9
 # define IS_DIGIT(c)		((c >= '0' && c <= '9') ? 1 : 0)
-# define IS_LEN_OPT(c)		(c == 'h' || c == 'l' || c == 'j' || c == 'z')
+// # define IS_LEN_OPT(c)		(c == 'h' || c == 'l' || c == 'j' || c == 'z')
 
 /*
 ** STRUCTS
@@ -53,9 +53,9 @@ typedef enum				e_bool
 	true = 1
 }							t_bool;
 
-typedef int		(*f_conv)(t_opts, va_list);
+typedef int					(*f_conv)(t_opts, va_list);
 
-typedef struct s_convert_table
+typedef struct	s_convert_table
 {
 	char 			form_convert;
 	const f_conv	convert;
@@ -66,7 +66,7 @@ typedef struct s_convert_table
 **	Global Varibles
 */
 
-extern const		t_convert_table g_convert_table[];
+extern const				t_convert_table g_convert_table[];
 
 /*
 *******************************   FUNCTIONS   *******************************
@@ -94,21 +94,24 @@ int					convert_upper_hex(t_opts f_opts, va_list ap);
 int					convert_upper_uint(t_opts f_opts, va_list ap);
 
 /*
+** PADDING
+*/
+
+
+
+/*
 ** TOOLS
 */
 
 void				pf_putchar(char c);
-int					pf_atoi(const char *str)
+int					pf_atoi(const char *str);
+size_t				pf_strlen(const char *str);
 
 
 /*
-** OPTION FUNCTIONS
+** OPTION FUNCTION
 */
 
-// static t_flags		getz_theflagz(char **format);
-// static int			getz_width(char **format, va_list ap);
-// static int			getz_theprecision(char **format, va_list ap);
-// static int			getz_thelength(char **format);
 t_opts				getz_theoptionz(char **format, va_list ap);
 
 /*
