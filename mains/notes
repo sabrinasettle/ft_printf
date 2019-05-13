@@ -1,0 +1,147 @@
+dispatcher in C via the use of an array of a functions's pointers
+
+
+your function must be called ft_printf
+
+Makefile will compile a libftprintf.an
+
+allowed to use the functions write, malloc, free, exit
+
+
+Mandatory part:
+
+recode libc printf function
+no buffer management in the printf function
+You have to manage the following conversions: csp
+You have to manage the following conversions: diouxX with the following flags hh, h, l , and ll
+You have to manage the following conversion: f with the following flags : l and L
+You must manage %%
+You must manage the flags #0-+ and space
+You must manage the minium field-width
+You must manage the precision
+You must manage the flags hh, h, l, ll , j, and z //42 file checker checks for j and z
+
+
+man 3 printf
+
+
+d or i	Signed decimal integer													392
+u	Unsigned decimal integer													7235
+o	Unsigned octal																610
+x	Unsigned hexadecimal integer												7fa
+X	Unsigned hexadecimal integer (uppercase)									7FA
+f	Decimal floating point, lowercase											392.65
+F	Decimal floating point, uppercase											392.65
+e	Scientific notation (mantissa/exponent), lowercase							3.9265e+2
+E	Scientific notation (mantissa/exponent), uppercase							3.9265E+2
+g	Use the shortest representation: %e or %f									392.65
+G	Use the shortest representation: %E or %F									392.65
+a	Hexadecimal floating point, lowercase										-0xc.90fep-2
+A	Hexadecimal floating point, uppercase										-0XC.90FEP-2
+c	Character																	a
+s	String of characters														sample
+p	Pointer address																b8000000
+n	Nothing printed.
+The corresponding argument must be a pointer to a signed int.
+The number of characters written so far is stored in the pointed location.
+%	A % followed by another % character will write a single % to the stream.	%
+
+
+-	Left-justify within the given field width; Right justification is the default (see width sub-specifier).
++	Forces to preceed the result with a plus or minus sign (+ or -) even for positive numbers.
+By default, only negative numbers are preceded with a - sign.
+(space)	If no sign is going to be written, a blank space is inserted before the value.
+#	Used with o, x or X specifiers the value is preceeded with 0, 0x or 0X respectively for values different than zero.
+Used with a, A, e, E, f, F, g or G it forces the written output to contain a decimal point even if no more digits follow.
+By default, if no digits follow, no decimal point is written.
+0	Left-pads the number with zeroes (0) instead of spaces when padding is specified (see width sub-specifier).
+
+
+(number)	Minimum number of characters to be printed. If the value to be printed is shorter than this number,
+the result is padded with blank spaces. The value is not truncated even if the result is larger.
+*	The width is not specified in the format string, but as an additional integer
+value argument preceding the argument that has to be formatted.
+
+- va_list
+
+
+CONVERT the things into other things
+
+char *convert(unsigned int num, int base)
+{
+    static char Representation[]= "0123456789ABCDEF";
+    static char buffer[50];
+    char *ptr;
+
+    ptr = &buffer[49];
+    *ptr = '\0';
+
+    do
+    {
+        *--ptr = Representation[num%base];
+        num /= base;
+    }while(num != 0);
+
+    return(ptr);
+}
+
+
+printf formatting is controlled by 'format identifiers' which, are shown below in their simplest form.
+
+%d %i     Decimal signed integer.
+    %o	      Octal integer.
+    %x %X     Hex integer.
+    %u	      Unsigned integer.
+    %c	      Character.
+    %s	      String. See below.
+    %f	      double
+    %e %E     double.
+    %g %G     double.
+    %p        pointer.
+    %n	      Number of characters written by this printf.
+              No argument expected.
+    %%	      %. No argument expected.
+
+%           Flags       Minimum fi.Wid      Period      Precision Max fi.Wid    Argument type
+Required    Optional    Optional            Optional    Optional                Required
+
+
+Flags
+-      Left justify.
+   0  	  Field is padded with 0's instead of blanks.
+   +	  Sign of number always O/P.
+   blank  Positive values begin with a blank.
+   # 	  Various uses:
+	  %#o (Octal) 0 prefix inserted.
+	  %#x (Hex)   0x prefix added to non-zero values.
+	  %#X (Hex)   0X prefix added to non-zero values.
+	  %#e         Always show the decimal point.
+	  %#E         Always show the decimal point.
+	  %#f         Always show the decimal point.
+	  %#g         Always show the decimal point trailing
+	  	      zeros not removed.
+	  %#G         Always show the decimal point trailing
+		      zeros not removed.
+
+ex. of more than one flag being used
+    printf(" %-10d \n", number);
+        printf(" %010d \n", number);
+        printf(" %-#10x \n", number);
+        printf(" %#x \n", number);
+
+
+very good example
+https://github.com/vvysotsk/ft_printf/blob/master/src/ft_printf.c
+
+printf("%s %d %f %c\n", "Sam, 14, -8.76, 'X')
+
+prints this:
+Sam 14 -8.760000 X
+
+another example
+
+printf("%f %.3f %.2f %.1f", 4.5678, 4.5678, 4.5678, 4.5678)
+
+should print out:
+
+4.567800 4.5678 4.57 4.6
