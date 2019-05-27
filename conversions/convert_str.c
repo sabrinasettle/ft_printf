@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/02 12:33:59 by ssettle           #+#    #+#             */
-/*   Updated: 2019/05/12 10:49:24 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/05/15 11:48:15 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,6 @@ static int parse(t_opts f_opts, int j, char *str)
 	return (i);
 
 }
-
 
 //will need to put null terminator at the end of the string as usual
 int			convert_str(t_opts f_opts, va_list ap)

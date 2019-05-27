@@ -6,20 +6,19 @@
 #    By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/04/28 15:08:21 by ssettle           #+#    #+#              #
-#    Updated: 2019/05/12 11:28:37 by ssettle          ###   ########.fr        #
+#    Updated: 2019/05/15 12:00:33 by ssettle          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libftprintf.a
 
-
 SOURCES = ft_printf \
 	dispatch_table \
-	# sources/dispatch_conv.c \
+	dispatch_conv \
 	# sources/options.c \
 	# sources/val_flag.c \
 
-CONVERT = conversions/convert_char \
+CONVERT = convert_char \
 	# convert_float.c \
 	# convert_hex.c \
 	# convert_int.c \
@@ -38,13 +37,15 @@ CONVERT = conversions/convert_char \
 	# padding/pad_uint.c
 
 
-TOOLS = tools/pf_putchar.c \
-	# tools/pf_atoi.c
+TOOLS = pf_putchar \
+	pf_atoi \
+	pf_strlen \
 
-VPATH=conversions:includes:sources:tools:padding
+VPATH=conversions:includes:srcs:tools:padding
 OBJECTS = $(addsuffix .o, $(addprefix $(OBJ_DIR)/, $(SOURCES)))
-# OBJECTS += $(patsubst %.c,%.o,$(CONVERT))
-# OBJECTS += $(patsubst %.c,%.o,$(TOOLS))
+OBJECTS += $(addsuffix .o, $(addprefix $(OBJ_DIR)/, $(CONVERT)))
+OBJECTS += $(addsuffix .o, $(addprefix $(OBJ_DIR)/, $(TOOLS)))
+# OBJECTS += $(addsuffix .o, $(addprefix $(OBJ_DIR)/, $(PADDING)))
 
 # $(add_suffix .o, $(addprefix $(OBJ_DIR)/, $(SOURCES))
 

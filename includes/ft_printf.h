@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/01 15:01:16 by ssettle           #+#    #+#             */
-/*   Updated: 2019/05/12 11:33:24 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/05/15 11:55:55 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@
 
 # define MAX_CONVERT_NUM 9
 # define IS_DIGIT(c)		((c >= '0' && c <= '9') ? 1 : 0)
-// # define IS_LEN_OPT(c)		(c == 'h' || c == 'l' || c == 'j' || c == 'z')
 
 /*
 ** STRUCTS

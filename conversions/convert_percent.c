@@ -6,11 +6,11 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/08 13:59:31 by ssettle           #+#    #+#             */
-/*   Updated: 2019/05/10 09:16:35 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/05/15 11:50:39 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/ft_printf.h"
+#include "../includes/ft_printf.h"
 
 /*
 ** A % followed by another % character will write a single % to the stream.
