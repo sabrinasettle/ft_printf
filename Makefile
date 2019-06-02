@@ -6,7 +6,7 @@
 #    By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/04/28 15:08:21 by ssettle           #+#    #+#              #
-#    Updated: 2019/05/15 12:00:33 by ssettle          ###   ########.fr        #
+#    Updated: 2019/06/01 21:53:13 by ssettle          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,8 +15,8 @@ NAME = libftprintf.a
 SOURCES = ft_printf \
 	dispatch_table \
 	dispatch_conv \
-	# sources/options.c \
-	# sources/val_flag.c \
+	options \
+	val_flag \
 
 CONVERT = convert_char \
 	# convert_float.c \

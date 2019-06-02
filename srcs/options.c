@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/29 10:38:53 by ssettle           #+#    #+#             */
-/*   Updated: 2019/05/15 11:51:03 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/06/01 21:55:23 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,7 +112,8 @@ static int			getz_theprecision(char **format, va_list ap)
 /*
 ** Length Modifiers specifies the size of the argument.
 ** converts into short, shortshort, long, long long, int_max, size_t depending
-** on the input, respectively : h, hh, l, ll, j, z
+** on the input, respectively : h, hh, l, ll, j, z. This nabs the
+** ascii value of the flags together and creates the length from the addition
 */
 
 static int			getz_thelength(char **format)
@@ -120,8 +121,8 @@ static int			getz_thelength(char **format)
 	int		len;
 
 	len = 0;
-	while (IS_LEN_OPT(**format))
-	{
+	// while (IS_LEN_OPT(**format))
+	// {
 		if (**format == 'h' && *(*format + 1) != 'h')
 			len = 104;
 		else if (**format == 'h' && *(*format + 1) == 'h')
@@ -136,7 +137,7 @@ static int			getz_thelength(char **format)
 			len = 122;
 		if (len > 0)
 			(*format) += (len >= 130 ? 2 : 1);
-	}
+	// }
 	return (len);
 }
 

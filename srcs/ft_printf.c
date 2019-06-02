@@ -6,18 +6,18 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/26 13:25:21 by ssettle           #+#    #+#             */
-/*   Updated: 2019/05/13 10:04:07 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/06/01 21:43:50 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-static int	dispatch_normal(char **format)
-{
-	pf_putchar(**format);
-	(*format)++;
-	return (1);
-}
+// static int	dispatch_normal(char **format)
+// {
+// 	pf_putchar(**format);
+// 	(*format)++;
+// 	return (1);
+// }
 
 /*
 ** The main printf function which uses the va_start macro. Which takes a
@@ -40,8 +40,8 @@ int			ft_printf(char *format, ...)
 			count += convert_args(&format, ap);
 			format++;
 		}
-		else
-			count += dispatch_normal(&format);
+		// else
+		// 	count += dispatch_normal(&format);
 	}
 	va_end(ap);
 	return (count);
