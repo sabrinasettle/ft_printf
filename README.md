@@ -50,11 +50,19 @@ for strings it is similar:
 
 %[flag][min width][precision][length modifier][conversion specifier]
 
+**Recreation**
+The printf is incredibly useful, especially in considration to the fact that in the 42 pedagogy one can not use the function until it has been recreated. The function itself is called as such:
+
+> printf (const char *format, ...);
+
+it uses a va_list to access a stack of previously undefined parameters. The va_ family of macros uses a stack pointer, which points to the beginning of a varible list thence 'va_list'. This list is accessed from the arg passed to the 'va_start', the beginning of the stack, and then the 'va_args' nabs values from the stack as it goes through stack or list of potential arguements.
+
 Some absolutely great references:
 - https://alvinalexander.com/programming/printf-format-cheat-sheet
 - http://www.cplusplus.com/reference/cstdio/printf/
 - https://linux.die.net/man/3/printf
 - https://www.cprogramming.com/tutorial/c/lesson17.html
+- https://oded.blog/2017/05/24/printf/
 
 Great article on dispatch tables:
 - https://blog.alicegoldfuss.com/function-dispatch-tables/

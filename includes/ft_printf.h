@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/01 15:01:16 by ssettle           #+#    #+#             */
-/*   Updated: 2019/06/01 22:37:07 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/06/02 12:34:57 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,20 +80,25 @@ int							is_special_flag(char c);
 ** CONVERSION SPECIFER FUNCTIONS
 */
 
-int							convert_char(t_opts f_opts, va_list ap);
-int							convert_float(t_opts f_opts, va_list ap);
-int							convert_hex(t_opts f_opts, va_list ap);
-int							convert_int(t_opts f_opts, va_list ap);
-int							convert_octal(t_opts f_opts, va_list ap);
-int							convert_pointer(t_opts f_opts, va_list ap);
-int							convert_str(t_opts f_opts, va_list ap);
-int							convert_uint(t_opts f_opts, va_list ap);
-int							convert_upper_hex(t_opts f_opts, va_list ap);
-int							convert_upper_uint(t_opts f_opts, va_list ap);
+int							convert_char(t_opts options, va_list ap);
+int							convert_float(t_opts options, va_list ap);
+int							convert_hex(t_opts options, va_list ap);
+int							convert_int(t_opts options, va_list ap);
+int							convert_octal(t_opts options, va_list ap);
+int							convert_pointer(t_opts options, va_list ap);
+int							convert_str(t_opts options, va_list ap);
+int							convert_uint(t_opts options, va_list ap);
+int							convert_upper_hex(t_opts options, va_list ap);
+int							convert_upper_uint(t_opts options, va_list ap);
 
 /*
 ** PADDING
 */
+
+char						*padding_octal(char *s, int len, t_opts options)
+char						*padding_p(char *s, t_opts options);
+char						*padding_l_an_u_h(char *s, int len, t_opts options);
+
 
 /*
 ** TOOLS

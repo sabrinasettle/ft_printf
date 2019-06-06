@@ -6,31 +6,23 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/12 19:49:55 by ssettle           #+#    #+#             */
-/*   Updated: 2019/06/02 11:24:04 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/06/02 12:33:45 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-char	*padding_p(char *s, t_opts opts)
+char	*padding_l_an_u_h(char *s, int len, t_opts options)
 {
 	char	*str;
 
-	if (!(str = (char *)pf_strnew(opts.width)))
+	if (!(str = (char *)pf_strnew(options.width)))
 		return ();
-	pf_memset(str, ' ', opts.width);
-	if (opts.flags.minus)
-		pf_strncpy(str, s, 14);
+	pf_memset(str, ' ', options.width);
+	if (options.flags.minus)
+		pf_strncpy(str, s, len);
 	else
-		pf_strncpy(&str[opts.width - 14], s, 14);
-	free(s);
+		pf_strncpy(&str[options.width - len], s, len);
+	free (s);
 	return (str);
-}
-
-char	*padding_lh(char *s, int len, t_opts opts)
-{
-	char	*str;
-
-	if (!(str = (char *)))
-
 }

@@ -6,14 +6,38 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/02 12:33:46 by ssettle           #+#    #+#             */
-/*   Updated: 2019/05/08 12:43:38 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/06/02 12:38:36 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-int			convert_octal(t_opts f_opts, va_list ap)
+char	*octal_create(iptr_t int_ptr)
 {
+	int		i;
+	char	*res;
+	char	*octal
 
+	if (!(res = (char *)malloc(sizeof(char) * )))
+	octal = "01234567";
+	if (!int_ptr)
+		res[i] = '0';
+	while (int_ptr)
+	{
+		res[i] = octal[int_ptr % 8];
+		int_ptr /= 8;
+		i++;
+	}
+	res = pf_strlen(res);
+	return (res);
+}
 
+int			convert_octal(t_opts options, va_list ap)
+{
+	char res;
+	char octal;
+	int len;
+
+	if (opts.width > len)
+		res = pad_octal(s, len, options);
 }
