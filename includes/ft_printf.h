@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/01 15:01:16 by ssettle           #+#    #+#             */
-/*   Updated: 2019/06/02 12:34:57 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/06/26 13:35:59 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,7 @@ int							convert_upper_uint(t_opts options, va_list ap);
 ** PADDING
 */
 
-char						*padding_octal(char *s, int len, t_opts options)
+char						*padding_octal(char *s, int len, t_opts options);
 char						*padding_p(char *s, t_opts options);
 char						*padding_l_an_u_h(char *s, int len, t_opts options);
 

@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/29 10:38:53 by ssettle           #+#    #+#             */
-/*   Updated: 2019/06/01 21:55:23 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/06/06 14:42:50 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -137,6 +137,16 @@ static int			getz_thelength(char **format)
 			len = 122;
 		if (len > 0)
 			(*format) += (len >= 130 ? 2 : 1);
+		// if (length > 0)
+		// {
+		// 	if (length >= 'h' + 'h')
+		// 		(*str) += 2;
+		// 	else
+		// 		(*str) += 1;
+		// }
+		// while (length && get_undef_length(**str))
+		// 	(*str) += 1;
+
 	// }
 	return (len);
 }

@@ -6,9 +6,11 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/12 19:49:58 by ssettle           #+#    #+#             */
-/*   Updated: 2019/06/01 21:45:27 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/06/06 14:40:04 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
+
+char	padding_int()
 

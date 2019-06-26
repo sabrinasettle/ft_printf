@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/02 12:33:59 by ssettle           #+#    #+#             */
-/*   Updated: 2019/05/15 11:48:15 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/06/06 15:23:21 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,9 +39,7 @@ static int parse(t_opts f_opts, int j, char *str)
 		}
 	}
 	else
-	{
-			i += (int)write(1, str, pf_strlen((char *)str));
-	}
+		i += (int)write(1, str, pf_strlen((char *)str));
 	return (i);
 
 }
