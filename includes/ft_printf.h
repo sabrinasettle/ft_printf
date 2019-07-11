@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/01 15:01:16 by ssettle           #+#    #+#             */
-/*   Updated: 2019/06/26 13:35:59 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/07/10 20:39:06 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,9 +41,9 @@ typedef struct				s_flags
 typedef struct				s_opts
 {
 	t_flags					flags;
-	size_t					field_length;
-	size_t					precision;
-	size_t					width;
+	int					field_length;
+	int					precision;
+	int					width;
 }							t_opts;
 
 typedef enum				e_bool
@@ -90,6 +90,7 @@ int							convert_str(t_opts options, va_list ap);
 int							convert_uint(t_opts options, va_list ap);
 int							convert_upper_hex(t_opts options, va_list ap);
 int							convert_upper_uint(t_opts options, va_list ap);
+int							convert_percent(t_opts f_opts, va_list ap);
 
 /*
 ** PADDING

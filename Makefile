@@ -6,7 +6,7 @@
 #    By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/04/28 15:08:21 by ssettle           #+#    #+#              #
-#    Updated: 2019/06/01 21:53:13 by ssettle          ###   ########.fr        #
+#    Updated: 2019/07/10 20:40:32 by ssettle          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,16 +19,18 @@ SOURCES = ft_printf \
 	val_flag \
 
 CONVERT = convert_char \
-	# convert_float.c \
-	# convert_hex.c \
-	# convert_int.c \
-	# convert_octal.c \
-	# convert_pointer.c \
+	convert_str \
+	convert_percent \
+	# convert_float \
+	# convert_hex \
+	# convert_int \
+	# convert_octal \
+	# convert_pointer \
 	convert_str.c \
 	# convert_uint.c \
 	# convert_upper_hex.c \
-	conversions/convert_upper_uint.c \
-	conversions/convert_percent.c \
+	convert_upper_uint.c \
+
 
 # PADDING = padding/pad_hex.c \
 	# padding/pad_int.c \

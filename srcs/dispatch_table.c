@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/02 12:12:04 by ssettle           #+#    #+#             */
-/*   Updated: 2019/05/09 18:23:05 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/07/09 18:54:58 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,6 @@ const	t_convert_table		g_convert_table[] = {
 	{'o', &convert_octal},
 	{'u', &convert_uint},
 	{'x', &convert_hex},
-	{'X', &convert_upper_hex}
+	{'X', &convert_upper_hex},
+	{'%', &convert_percent}
 };

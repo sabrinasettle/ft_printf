@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/29 10:38:53 by ssettle           #+#    #+#             */
-/*   Updated: 2019/06/06 14:42:50 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/07/09 14:16:18 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ static int			getz_width(char **format, va_list ap)
 		return (false);
 	if (IS_DIGIT(**format))
 	{
-		width = ft_atoi(*format);
+		width = pf_atoi(*format);
 		while (IS_DIGIT(**format))
 			(*format)++;
 	}

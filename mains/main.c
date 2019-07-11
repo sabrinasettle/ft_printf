@@ -30,6 +30,9 @@ int	main()
 	// ft_printf ("%s \n", "A string");
 	// printf ("%s \n", "A string");
 
+	ft_printf("%%\n");
+	printf("%%\n");
+
 	return 0;
 }
 
