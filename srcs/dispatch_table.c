@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/02 12:12:04 by ssettle           #+#    #+#             */
-/*   Updated: 2019/07/09 18:54:58 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/07/11 20:11:06 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,13 @@
 const	t_convert_table		g_convert_table[] = {
 	{'c', &convert_char},
 	{'s', &convert_str},
-	{'p', &convert_pointer},
-	{'d', &convert_int},
-	{'f', &convert_float},
-	{'i', &convert_int},
-	{'o', &convert_octal},
-	{'u', &convert_uint},
-	{'x', &convert_hex},
-	{'X', &convert_upper_hex},
-	{'%', &convert_percent}
+	// {'p', &convert_pointer},
+	// {'d', &convert_int},
+	// {'f', &convert_float},
+	// {'i', &convert_int},
+	// {'o', &convert_octal},
+	// {'u', &convert_uint},
+	// {'x', &convert_hex},
+	// {'X', &convert_upper_hex},
+	// {'%', &convert_percent} //proably not working
 };

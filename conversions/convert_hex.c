@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/02 12:33:39 by ssettle           #+#    #+#             */
-/*   Updated: 2019/05/13 13:10:39 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/07/11 19:55:40 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,6 @@
 // https://github.com/MagicHatJo/-42-ft_printf/blob/master/type/d_x.c
 
 
-static void error_check(t_opts f_opts)
-{
-	(void)f_opts;
-}
 
 int		convert_hex(t_opts f_opts, va_list ap)
 {

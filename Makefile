@@ -6,7 +6,7 @@
 #    By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/04/28 15:08:21 by ssettle           #+#    #+#              #
-#    Updated: 2019/07/10 20:40:32 by ssettle          ###   ########.fr        #
+#    Updated: 2019/07/11 20:16:38 by ssettle          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,23 +19,24 @@ SOURCES = ft_printf \
 	val_flag \
 
 CONVERT = convert_char \
-	convert_str \
-	convert_percent \
+	# convert_str \
+	# convert_percent \
+	# convert_octal \
 	# convert_float \
+	convert_pointer \
 	# convert_hex \
 	# convert_int \
 	# convert_octal \
-	# convert_pointer \
 	convert_str.c \
 	# convert_uint.c \
 	# convert_upper_hex.c \
 	convert_upper_uint.c \
 
 
-# PADDING = padding/pad_hex.c \
+# PADDING = pad_pointer \
 	# padding/pad_int.c \
 	# padding/pad_octal.c \
-	# padding/pad_pointer.c \
+	padding/pad_pointer.c \
 	# padding/pad_uint.c
 
 
@@ -51,7 +52,7 @@ OBJECTS += $(addsuffix .o, $(addprefix $(OBJ_DIR)/, $(TOOLS)))
 
 # $(add_suffix .o, $(addprefix $(OBJ_DIR)/, $(SOURCES))
 
-FLAGS = -Wall -Werror -Wextra
+FLAGS = -Wall -Werror -Wextra -g
 
 INCLUDES = includes/ft_printf.h
 

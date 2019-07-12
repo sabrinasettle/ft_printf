@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/07 13:41:32 by ssettle           #+#    #+#             */
-/*   Updated: 2019/06/01 22:22:41 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/07/11 20:22:15 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int		convert_args(char **format , va_list ap)
 	options = getz_theoptionz(format, ap);
 	i = -1;
 	c= 0;
-	while(++i > MAX_CONVERT_NUM)
+	while(++i < MAX_CONVERT_NUM)
 	{
 		if(g_convert_table[i].form_convert == **format)
 			c = g_convert_table[i].convert(options, ap);

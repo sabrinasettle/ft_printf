@@ -6,8 +6,8 @@
 
 int	main()
 {
-	ft_printf("Characters: %c %c \n", 'a', 65);
-	printf ("Characters: %c %c \n", 'a', 65);
+	ft_printf("mine Characters: %c %c \n", 'a', 65);
+	printf ("actual Characters: %c %c \n", 'a', 65);
 
 	// ft_printf ("Decimals: %d %ld\n", 1977, 650000L);
 	// printf ("Decimals: %d %ld\n", 1977, 650000L);
@@ -29,7 +29,7 @@ int	main()
 
 	// ft_printf ("%s \n", "A string");
 	// printf ("%s \n", "A string");
-
+	ft_printf("hello, %s,", "gavin");
 	ft_printf("%%\n");
 	printf("%%\n");
 

@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/26 13:25:21 by ssettle           #+#    #+#             */
-/*   Updated: 2019/07/09 17:53:10 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/07/11 20:23:51 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,10 +36,8 @@ int			ft_printf(char *format, ...)
 	while (*format != '\0')
 	{
 		if (*format == '%')
-		{
 			count += convert_args(&format, ap);
-			format++;
-		}
+		format++;
 	}
 	va_end(ap);
 	return (count);
