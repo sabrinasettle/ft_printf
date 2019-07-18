@@ -6,11 +6,11 @@
 #    By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/04/28 15:08:21 by ssettle           #+#    #+#              #
-#    Updated: 2019/07/11 20:16:38 by ssettle          ###   ########.fr        #
+#    Updated: 2019/07/17 16:35:05 by ssettle          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = libftprintf.a
+NAME = test
 
 SOURCES = ft_printf \
 	dispatch_table \
@@ -18,7 +18,7 @@ SOURCES = ft_printf \
 	options \
 	val_flag \
 
-CONVERT = convert_char \
+# CONVERT = convert_char \
 	# convert_str \
 	# convert_percent \
 	# convert_octal \
@@ -40,44 +40,43 @@ CONVERT = convert_char \
 	# padding/pad_uint.c
 
 
-TOOLS = pf_putchar \
-	pf_atoi \
-	pf_strlen \
+SOURCES_D = ./srcs
+CONVER_D = ./conversions
+PAD_D = ./padding
 
-VPATH=conversions:includes:srcs:tools:padding
-OBJECTS = $(addsuffix .o, $(addprefix $(OBJ_DIR)/, $(SOURCES)))
-OBJECTS += $(addsuffix .o, $(addprefix $(OBJ_DIR)/, $(CONVERT)))
-OBJECTS += $(addsuffix .o, $(addprefix $(OBJ_DIR)/, $(TOOLS)))
-# OBJECTS += $(addsuffix .o, $(addprefix $(OBJ_DIR)/, $(PADDING)))
-
-# $(add_suffix .o, $(addprefix $(OBJ_DIR)/, $(SOURCES))
+OBJECTS = $(addsuffix .o, $(addprefix $(SOURCES_D)/, $(SOURCES)))
+OBJECTS += $(addsuffix .o, $(addprefix $(CONVER_D)/, $(CONVERT)))
+OBJECTS += $(addsuffix .o, $(addprefix $(PAD_D)/, $(PADDING)))
 
 FLAGS = -Wall -Werror -Wextra -g
 
 INCLUDES = includes/ft_printf.h
 
-OBJ_DIR = objects
+LIBFT = $(addprefix $(LIBFT_D),libft.a)
+LIBFT_D = ./libft/
 
-all: $(OBJ_DIR) $(NAME)
+# OBJ_DIR = objects
 
-$(OBJ_DIR):
-	@mkdir -p $(OBJ_DIR)
+all: $(LIBFT) $(NAME)
 
-$(OBJ_DIR)/%.o:%.c
-	@gcc $(FLAGS) -I $(INCLUDES) -c $< -o $@
+$(LIBFT):
+	@make -C $(LIBFT_D)
 
-$(NAME): $(OBJECTS)
+# $(OBJ_DIR)/%.o:%.c
+# 	@gcc $(FLAGS) -I $(INCLUDES) -c $< -o $@
+
+$(NAME): $(LIBFT) $(OBJECTS)
 	@ar -rcs $@ $^
-	@echo Library made!
+	@echo =====Library made!=====
 
 clean:
 	@rm -rf $(OBJECTS)
-	@echo Project cleaned!
+	@echo ===Project cleaned!===
 
 fclean: clean
-	@rm -rf $(OBJ_DIR)
 	@rm -f $(NAME)
-	@echo Project fcleaned!
+	@make fclean -C $(LIBFT_D)
+	@echo ==Project fcleaned!==
 
 re: clean all
 

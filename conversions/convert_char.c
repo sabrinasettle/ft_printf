@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/29 10:39:33 by ssettle           #+#    #+#             */
-/*   Updated: 2019/05/10 11:58:51 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/07/17 14:35:13 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,14 +27,14 @@ int						convert_char(t_opts f_opts, va_list ap)
 	c = (unsigned char)va_arg(ap, int);
 	while (f_opts.field_length > 1 && !flags.minus)
 	{
-		pf_putchar(' ');
+		ft_putchar(' ');
 		f_opts.field_length--;
 		length++;
 	}
 	write(1, &c, 1);
 	while (f_opts.field_length > 1 && flags.minus)
 	{
-		pf_putchar(' ');
+		ft_putchar(' ');
 		f_opts.field_length--;
 		length++;
 	}

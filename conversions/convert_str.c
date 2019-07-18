@@ -6,14 +6,14 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/02 12:33:59 by ssettle           #+#    #+#             */
-/*   Updated: 2019/06/06 15:23:21 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/07/17 14:35:13 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
 // https://github.com/spitox/ft_printf/blob/master/srcs/print_s.c
-// https://github.com/NicoGGG/ft_printf.2/blob/master/src/pf_putstr.c
+// https://github.com/NicoGGG/ft_printf.2/blob/master/src/ft_putstr.c
 // https://github.com/MagicHatJo/-42-ft_printf/blob/master/type/d_s.c
 // https://github.com/cbg119/42-ft_printf/blob/master/conversions/convert_s.c
 
@@ -25,21 +25,21 @@ static int parse(t_opts f_opts, int j, char *str)
 	i = 0;
 	while (f_opts.field_length && f_opts.field_length - i > j && !(flags.minus))
 	{
-		pf_putchar(flags.zero ? '0' : ' ');
+		ft_putchar(flags.zero ? '0' : ' ');
 		i++;
 	}
 	j = 0;
-	if ((int)pf_strlen(str) > f_opts.field_length && f_opts.precision != -1)
+	if ((int)ft_strlen(str) > f_opts.field_length && f_opts.precision != -1)
 	{
 		while (j < f_opts.precision && str[j])
 		{
-			pf_putchar(str[j]);
+			ft_putchar(str[j]);
 			i++;
 			j++;
 		}
 	}
 	else
-		i += (int)write(1, str, pf_strlen((char *)str));
+		i += (int)write(1, str, ft_strlen((char *)str));
 	return (i);
 
 }
@@ -62,12 +62,12 @@ int			convert_str(t_opts f_opts, va_list ap)
 		f_opts.precision = 0;
 	else if (f_opts.precision == 0)
 		f_opts.precision = -1;
-	j = ((int)pf_strlen(s) > f_opts.precision && f_opts.precision != -1) ?
-		f_opts.precision : (int)pf_strlen(s);
+	j = ((int)ft_strlen(s) > f_opts.precision && f_opts.precision != -1) ?
+		f_opts.precision : (int)ft_strlen(s);
 	i += parse(f_opts, j, s);
 	while (f_opts.field_length && f_opts.width > j && flags.minus)
 	{
-		pf_putchar(' ');
+		ft_putchar(' ');
 		f_opts.field_length--;
 		i++;
 	}

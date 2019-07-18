@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/29 10:38:53 by ssettle           #+#    #+#             */
-/*   Updated: 2019/07/09 14:16:18 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/07/17 16:53:18 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ static int			getz_width(char **format, va_list ap)
 		return (false);
 	if (IS_DIGIT(**format))
 	{
-		width = pf_atoi(*format);
+		width = ft_atoi(*format);
 		while (IS_DIGIT(**format))
 			(*format)++;
 	}
@@ -151,13 +151,12 @@ static int			getz_thelength(char **format)
 	return (len);
 }
 
-t_opts				getz_theoptionz(char **format, va_list ap)
+t_opts				getz_theoptionz(char *format, va_list ap)
 {
 	t_opts	options;
 
-	options.flags = getz_theflagz(format);
-	options.field_length = getz_thelength(format);
-	options.precision = getz_theprecision(format, ap);
-	options.width = getz_width(format, ap);
+	options.flags = getz_theflagz(&format);
+	options.field_length = getz_thelength(&format);
+	options.width = getz_width(&format, ap);
 	return (options);
 }

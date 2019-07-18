@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/07 13:41:32 by ssettle           #+#    #+#             */
-/*   Updated: 2019/07/11 20:22:15 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/07/17 17:13:47 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,22 +21,27 @@
 ** arguments of char and t_conv(t_opts, va_list).
 */
 
-int		convert_args(char **format , va_list ap)
-{
-	t_opts options;
-	int i;
-	int c;
+// int		convert_args(const char **format , va_list ap)
+// {
+// 	t_opts options;
+// 	int i;
+// 	int c;
 
-	(*format)++;
-	options = getz_theoptionz(format, ap);
-	i = -1;
-	c= 0;
-	while(++i < MAX_CONVERT_NUM)
-	{
-		if(g_convert_table[i].form_convert == **format)
-			c = g_convert_table[i].convert(options, ap);
-	}
-	if(!g_convert_table[i].form_convert)
-		exit(1);
-	return (c);
+// 	(*format)++;
+// 	options = getz_theoptionz(&format, ap);
+// 	i = -1;
+// 	c= 0;
+// 	while(++i < MAX_CONVERT_NUM)
+// 	{
+// 		if(g_convert_table[i].form_convert == *format)
+// 			c = g_convert_table[i].convert(options, ap);
+// 	}
+// 	if(!g_convert_table[i].form_convert)
+// 		exit(1);
+// 	return (c);
+// }
+
+int		convert_args(const char **format , va_list ap)
+{
+	return(0);
 }

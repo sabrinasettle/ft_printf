@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/02 12:33:46 by ssettle           #+#    #+#             */
-/*   Updated: 2019/07/11 19:57:37 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/07/17 14:35:13 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ char	*octal_create(iptr_t int_ptr)
 		int_ptr /= 8;
 		i++;
 	}
-	res = pf_strlen(res);
+	res = ft_strlen(res);
 	return (res);
 }
 

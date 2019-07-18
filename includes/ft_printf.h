@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/01 15:01:16 by ssettle           #+#    #+#             */
-/*   Updated: 2019/07/10 20:39:06 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/07/17 17:14:09 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,10 +41,18 @@ typedef struct				s_flags
 typedef struct				s_opts
 {
 	t_flags					flags;
-	int					field_length;
-	int					precision;
-	int					width;
+	int						field_length;
+	int						precision;
+	int						width;
 }							t_opts;
+
+//all added becuase of sam
+typedef struct				s_env
+{
+	int						total_length;
+	char					*whatever_you_want; //jk just messing with sam, suppose to be a GREAT large str??
+	t_opts					options;
+}							t_env;
 
 typedef enum				e_bool
 {
@@ -72,8 +80,8 @@ extern const				t_convert_table g_convert_table[];
 
 void						add_flags(t_flags *flags, char c);
 
-int							convert_args(char **format, va_list ap);
-int							ft_printf(char *format, ...);
+int							convert_args(const char **format, va_list ap);
+int							ft_printf(const char *format, ...);
 int							is_special_flag(char c);
 
 /*
@@ -101,22 +109,22 @@ char						*padding_p(char *s, t_opts options);
 char						*padding_l_an_u_h(char *s, int len, t_opts options);
 
 
-/*
-** TOOLS
-*/
+// /*
+// ** TOOLS
+// */
 
-char						*pf_strdup(const char *src);
-char						*pf_itoa(int n);
-void						pf_putchar(char c);
-void						pf_putstr(char *str);
-int							pf_atoi(const char *str);
-size_t						pf_strlen(const char *str);
+// char						*ft_strdup(const char *src);
+// char						*ft_itoa(int n);
+// void						ft_putchar(char c);
+// void						ft_putstr(char *str);
+// int							ft_atoi(const char *str);
+// size_t						ft_strlen(const char *str);
 
 /*
 ** OPTION FUNCTION
 */
 
-t_opts						getz_theoptionz(char **format, va_list ap);
+t_opts						getz_theoptionz(char *format, va_list ap);
 
 /*
 ** BONUSES

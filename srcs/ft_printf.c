@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/26 13:25:21 by ssettle           #+#    #+#             */
-/*   Updated: 2019/07/11 20:23:51 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/07/17 17:12:19 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 // static int	dispatch_normal(char **format)
 // {
-// 	pf_putchar(**format);
+// 	ft_putchar(**format);
 // 	(*format)++;
 // 	return (1);
 // }
@@ -26,7 +26,7 @@
 ** the addtional arguments accessed through va_arg.
 */
 
-int			ft_printf(char *format, ...)
+int			ft_printf(const char *format, ...)
 {
 	int		count;
 	va_list	ap;

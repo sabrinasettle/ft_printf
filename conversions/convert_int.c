@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/02 12:33:44 by ssettle           #+#    #+#             */
-/*   Updated: 2019/06/02 12:09:49 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/07/17 14:35:13 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ int		convert_int(t_opts options, va_list ap)
 {
 	char res;
 
-	res = pf_itoa(va_arg(options, int))
+	res = ft_itoa(va_arg(options, int))
 	res = padding(str, options, neg);
 
-	pf_putstr(res)
+	ft_putstr(res)
 	free(res)
 }
