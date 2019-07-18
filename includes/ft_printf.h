@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/01 15:01:16 by ssettle           #+#    #+#             */
-/*   Updated: 2019/07/17 17:14:09 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/07/18 09:46:27 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,11 +54,11 @@ typedef struct				s_env
 	t_opts					options;
 }							t_env;
 
-typedef enum				e_bool
-{
-	false = 0,
-	true = 1
-}							t_bool;
+// typedef enum				e_bool //do I use this??
+// {
+// 	false = 0,
+// 	true = 1
+// }							t_bool;
 
 typedef int					(*t_conv)(t_opts, va_list); //eli says could be void as well
 

@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/29 10:39:33 by ssettle           #+#    #+#             */
-/*   Updated: 2019/07/17 14:35:13 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/07/18 09:21:23 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 int						convert_char(t_opts f_opts, va_list ap)
 {
 	t_flags			flags;
-	unsigned char	c;
+	wchar_t			c;
 	int				length;
 
 	length = 1;
@@ -40,3 +40,10 @@ int						convert_char(t_opts f_opts, va_list ap)
 	}
 	return (length);
 }
+
+// could also use wchar or wint_t due to the unicode and code points
+
+// if (ft_strcmp(tab->argument_flag, "l") == 0)
+// 		c = (unsigned long)va_arg(tab->args, unsigned long);
+// 	else if (tab->specifier_flag == 'C')
+// 		c = (wchar_t)va_arg(tab->args, wint_t);
