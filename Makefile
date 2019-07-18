@@ -6,11 +6,11 @@
 #    By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/04/28 15:08:21 by ssettle           #+#    #+#              #
-#    Updated: 2019/07/17 16:35:05 by ssettle          ###   ########.fr        #
+#    Updated: 2019/07/17 17:16:30 by ssettle          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = test
+NAME = libftprintf.a
 
 SOURCES = ft_printf \
 	dispatch_table \
