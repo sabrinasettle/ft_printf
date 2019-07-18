@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/01 15:01:16 by ssettle           #+#    #+#             */
-/*   Updated: 2019/07/18 09:46:27 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/07/18 13:57:34 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 /*
 ** MACROS
 */
-
+# define IS_CON_TYPE(x)		(x == 's' || x == 'S')	//equal to any of the c conversion char types
 # define MAX_CONVERT_NUM 9
 # define IS_DIGIT(c)		((c >= '0' && c <= '9') ? 1 : 0)
 // # define IS_LEN_OPT(c)	if (c =
@@ -54,18 +54,18 @@ typedef struct				s_env
 	t_opts					options;
 }							t_env;
 
-// typedef enum				e_bool //do I use this??
-// {
-// 	false = 0,
-// 	true = 1
-// }							t_bool;
+typedef enum				e_bool //do I use this??
+{
+	false = 0,
+	true = 1
+}							t_bool;
 
 typedef int					(*t_conv)(t_opts, va_list); //eli says could be void as well
 
 typedef struct				s_convert_table
 {
 	char					form_convert;
-	const t_conv			convert;
+	const t_conv			convert; //here lies the issue I think...
 }							t_convert_table;
 
 /*
@@ -79,8 +79,8 @@ extern const				t_convert_table g_convert_table[];
 */
 
 void						add_flags(t_flags *flags, char c);
-
-int							convert_args(const char **format, va_list ap);
+int 						v_parse(const char *format, va_list ap);
+int							convert_args(const char *format, va_list ap);
 int							ft_printf(const char *format, ...);
 int							is_special_flag(char c);
 
@@ -113,18 +113,12 @@ char						*padding_l_an_u_h(char *s, int len, t_opts options);
 // ** TOOLS
 // */
 
-// char						*ft_strdup(const char *src);
-// char						*ft_itoa(int n);
-// void						ft_putchar(char c);
-// void						ft_putstr(char *str);
-// int							ft_atoi(const char *str);
-// size_t						ft_strlen(const char *str);
 
 /*
 ** OPTION FUNCTION
 */
 
-t_opts						getz_theoptionz(char *format, va_list ap);
+t_opts						getz_theoptionz(const char *format, va_list ap);
 
 /*
 ** BONUSES

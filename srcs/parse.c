@@ -6,24 +6,31 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/18 09:34:34 by ssettle           #+#    #+#             */
-/*   Updated: 2019/07/18 09:42:06 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/07/18 13:52:18 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-int v_parse(const char *format, va_list arg)
+int v_parse(const char *format, va_list ap)
 {
     size_t i;
     size_t len;
     char *string;
-    char *str;
+    t_opts options;
+    // char *str; do I need??
 
     i = 0;
     len = 0;
-    
-
-    len += convert_args()
+    string = ft_strdup(format);
+    while (string[i] != '\0')
+    {
+        if(string[i] == '%' && options.field_length != NULL) //is equal to any of the flags for conversion type
+        {
+            len += convert_args(*format, ap);
+        }
+        
+    }
 }
 
 

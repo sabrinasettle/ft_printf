@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/29 10:38:53 by ssettle           #+#    #+#             */
-/*   Updated: 2019/07/17 16:53:18 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/07/18 13:56:32 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,39 +124,31 @@ static int			getz_thelength(char **format)
 	// while (IS_LEN_OPT(**format))
 	// {
 		if (**format == 'h' && *(*format + 1) != 'h')
-			len = 104;
+			len = 'h';
 		else if (**format == 'h' && *(*format + 1) == 'h')
-			len = 208;
+			len = 'h' + 'h';
 		else if (**format == 'l' && *(*format + 1) != 'l')
-			len = 108;
+			len = 'l';
 		else if (**format == 'l' && *(*format + 1) == 'l')
-			len = 216;
+			len = 'l' + 'l';
 		else if (**format == 'j')
-			len = 106;
+			len = 'j';
 		else if (**format == 'z')
-			len = 122;
+			len = 'z';
 		if (len > 0)
 			(*format) += (len >= 130 ? 2 : 1);
-		// if (length > 0)
-		// {
-		// 	if (length >= 'h' + 'h')
-		// 		(*str) += 2;
-		// 	else
-		// 		(*str) += 1;
-		// }
-		// while (length && get_undef_length(**str))
-		// 	(*str) += 1;
-
-	// }
 	return (len);
 }
 
-t_opts				getz_theoptionz(char *format, va_list ap)
+t_opts				getz_theoptionz(const char *format, va_list ap)
 {
 	t_opts	options;
 
 	options.flags = getz_theflagz(&format);
-	options.field_length = getz_thelength(&format);
+	options.field_length = getz_thelength(&format); //maybe wont work because of the double pointer in the parameters
 	options.width = getz_width(&format, ap);
 	return (options);
 }
+
+// interesting way to do length to tke note on
+//https://github.com/roblabla42/ft_printf/blob/master/src/utils/get_unsigned_from_length.c
