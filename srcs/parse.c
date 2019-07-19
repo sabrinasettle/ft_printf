@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/18 09:34:34 by ssettle           #+#    #+#             */
-/*   Updated: 2019/07/18 16:12:47 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/07/19 15:44:26 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int v_parse(const char *format, va_list ap)
     size_t i;
     size_t len;
     char *string;
-    t_opts options;
+    t_opts *options;
     // char *str; do I need??
 
     i = 0;
@@ -27,9 +27,11 @@ int v_parse(const char *format, va_list ap)
     {
         if(string[i] == '%') //is equal to any of the flags for conversion type
         {
+            //inner parse???
             len += convert_args(format, ap);
         }
-        
+        // else if (string[i] == '{') //add when done calls a non exist function
+            // ft_coloring(options, format);
     }
     return(len);
 }

@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/01 14:16:02 by ssettle           #+#    #+#             */
-/*   Updated: 2019/05/09 10:34:13 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/07/19 15:43:26 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ t_table g_colors[] =
 	{NULL, NULL}
 };
 
-t_bool	ft_coloring(t_opts *p_out, char **str)
+t_bool	ft_coloring(t_opts *p_out, const char *str)
 {
 	int index;
 
@@ -64,13 +64,30 @@ t_bool	ft_coloring(t_opts *p_out, char **str)
 		if (ft_strnstr(*str, g_colors[index][0], \
 				ft_strlen(g_colors[index][0])) != 0)
 		{
-			ft_set_data(p_out, g_colors); //what where??
-			*str = *str + ft_strlen(g_colors[index][0]);
+			ft_set_data(p_out, g_colors); //what where?? set data really? you called a fuction that does not exist??
+			str = *str + ft_strlen(g_colors[index][0]);
 			return (true);
 		}
 		index++;
 	}
 	return (false);
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 //https://github.com/vvysotsk/ft_printf/blob/master/src/bonus.c

@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/01 15:01:16 by ssettle           #+#    #+#             */
-/*   Updated: 2019/07/18 17:54:02 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/07/19 15:39:57 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,6 +126,6 @@ t_opts						getz_theoptionz(const char *format, va_list ap);
 ** BONUSES
 */
 
-// t_bool				ft_coloring(t_opts *p_out, char **format);
+t_bool						ft_coloring(t_opts *p_out, const char *str);
 
 #endif
