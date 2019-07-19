@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/07 13:41:32 by ssettle           #+#    #+#             */
-/*   Updated: 2019/07/18 13:59:11 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/07/18 16:43:22 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,21 +18,19 @@
 ** arguments of char and t_conv(t_opts, va_list).
 */
 
-int		convert_args(const char **format , va_list ap)
+int		convert_args(const char *format , va_list ap)
 {
 	t_opts options;
 	int i;
 	int c;
 
-	(*format)++;
-	options = getz_theoptionz(&format, ap);
+	(format)++;
+	options = getz_theoptionz(format, ap);
 	i = 0;
 	c = 0;
 // 	while(++i < MAX_CONVERT_NUM)
-// 	{
-		if(g_convert_table[i].form_convert == *format)
-			c = g_convert_table[i].convert(options, ap);
-// 	}
+	if(g_convert_table[i].form_convert == *format)
+		c = g_convert_table[i].convert(options, ap);
 	if(!g_convert_table[i].form_convert)
 	{
 		write(1, "exiting\n", 8);

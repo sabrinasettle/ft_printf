@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/01 15:01:16 by ssettle           #+#    #+#             */
-/*   Updated: 2019/07/18 13:57:34 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/07/18 17:54:02 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,11 @@
 /*
 ** MACROS
 */
-# define IS_CON_TYPE(x)		(x == 's' || x == 'S')	//equal to any of the c conversion char types
-# define MAX_CONVERT_NUM 9
+// # define IS_CON_TYPE(x)		(x == 's' || x == 'S')	//equal to any of the c conversion char types
+// # define MAX_CONVERT_NUM 9
 # define IS_DIGIT(c)		((c >= '0' && c <= '9') ? 1 : 0)
 // # define IS_LEN_OPT(c)	if (c =
+
 /*
 ** STRUCTS
 */
@@ -79,10 +80,10 @@ extern const				t_convert_table g_convert_table[];
 */
 
 void						add_flags(t_flags *flags, char c);
-int 						v_parse(const char *format, va_list ap);
 int							convert_args(const char *format, va_list ap);
 int							ft_printf(const char *format, ...);
 int							is_special_flag(char c);
+int 						v_parse(const char *format, va_list ap);
 
 /*
 ** CONVERSION SPECIFER FUNCTIONS
@@ -93,12 +94,13 @@ int							convert_float(t_opts options, va_list ap);
 int							convert_hex(t_opts options, va_list ap);
 int							convert_int(t_opts options, va_list ap);
 int							convert_octal(t_opts options, va_list ap);
+int							convert_percent(t_opts f_opts, va_list ap);
 int							convert_pointer(t_opts options, va_list ap);
 int							convert_str(t_opts options, va_list ap);
 int							convert_uint(t_opts options, va_list ap);
 int							convert_upper_hex(t_opts options, va_list ap);
 int							convert_upper_uint(t_opts options, va_list ap);
-int							convert_percent(t_opts f_opts, va_list ap);
+
 
 /*
 ** PADDING

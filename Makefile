@@ -6,7 +6,7 @@
 #    By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/04/28 15:08:21 by ssettle           #+#    #+#              #
-#    Updated: 2019/07/17 17:16:30 by ssettle          ###   ########.fr        #
+#    Updated: 2019/07/18 16:32:12 by ssettle          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,11 +15,12 @@ NAME = libftprintf.a
 SOURCES = ft_printf \
 	dispatch_table \
 	dispatch_conv \
-	options \
 	val_flag \
+	options \
+	parse \
 
-# CONVERT = convert_char \
-	# convert_str \
+CONVERT = convert_char \
+	convert_str \
 	# convert_percent \
 	# convert_octal \
 	# convert_float \
@@ -71,12 +72,12 @@ $(NAME): $(LIBFT) $(OBJECTS)
 
 clean:
 	@rm -rf $(OBJECTS)
-	@echo ===Project cleaned!===
+	@echo *==Project cleaned!===*
 
 fclean: clean
 	@rm -f $(NAME)
 	@make fclean -C $(LIBFT_D)
-	@echo ==Project fcleaned!==
+	@echo  *==Project fcleaned!==*
 
 re: clean all
 

@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/29 10:38:53 by ssettle           #+#    #+#             */
-/*   Updated: 2019/07/18 13:56:32 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/07/18 16:02:42 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,19 +19,19 @@
 ** access operator using the ~struct.anditsvarble~
 */
 
-static t_flags		getz_theflagz(char **format)
+static t_flags		getz_theflagz(const char *format)
 {
 	t_flags		flags;
 
-	flags.plus = 0;
 	flags.minus = 0;
+	flags.plus = 0;
+	flags.pound = 0;
 	flags.space = 0;
 	flags.zero = 0;
-	flags.pound = 0;
-	while (is_special_flag(**format))
+	while (is_special_flag(*format))
 	{
-		add_flags(&flags, **format);
-		(*format)++;
+		add_flags(&flags, *format);
+		(format)++;
 	}
 	return (flags);
 }
@@ -51,23 +51,23 @@ static t_flags		getz_theflagz(char **format)
 ** to contain the conversion result.
 */
 
-static int			getz_width(char **format, va_list ap)
+static int			getz_width(const char *format, va_list ap)
 {
 	int		width;
 
 	width = 0;
-	if (!IS_DIGIT(**format))
+	if (!IS_DIGIT(*format))
 		return (false);
-	if (IS_DIGIT(**format))
+	if (IS_DIGIT(*format))
 	{
-		width = ft_atoi(*format);
-		while (IS_DIGIT(**format))
-			(*format)++;
+		width = ft_atoi(format);
+		while (IS_DIGIT(*format))
+			(format)++;
 	}
-	else if (**format == '*')
+	else if (*format == '*')
 	{
 		width = va_arg(ap, int);
-		(*format)++;
+		(format)++;
 	}
 	return (width);
 }
@@ -84,26 +84,26 @@ static int			getz_width(char **format, va_list ap)
 ** ex: ft_printf("%8.2f", 10.3456) = '   10.35'
 */
 
-static int			getz_theprecision(char **format, va_list ap)
+static int			getz_theprecision(const char *format, va_list ap)
 {
 	int		mod_prec;
 
 	mod_prec = -1;
-	if (**format != '.')
+	if (*format != '.')
 		return (false);
-	if (**format == '.')
+	if (*format == '.')
 	{
 		mod_prec = 0;
-		(*format)++;
-		if (IS_DIGIT(**format))
+		(format)++;
+		if (IS_DIGIT(*format))
 		{
-			while (IS_DIGIT(**format))
-				(*format)++;
+			while (IS_DIGIT(*format))
+				(format)++;
 		}
-		else if (**format == '*')
+		else if (*format == '*')
 		{
 			mod_prec = va_arg(ap, int);
-			(*format)++;
+			(format)++;
 		}
 	}
 	return (mod_prec);
@@ -116,27 +116,27 @@ static int			getz_theprecision(char **format, va_list ap)
 ** ascii value of the flags together and creates the length from the addition
 */
 
-static int			getz_thelength(char **format)
+static int			getz_thelength(const char *format)
 {
 	int		len;
 
 	len = 0;
 	// while (IS_LEN_OPT(**format))
 	// {
-		if (**format == 'h' && *(*format + 1) != 'h')
+		if (*format == 'h' && (*format + 1) != 'h')
 			len = 'h';
-		else if (**format == 'h' && *(*format + 1) == 'h')
+		else if (*format == 'h' && (*format + 1) == 'h')
 			len = 'h' + 'h';
-		else if (**format == 'l' && *(*format + 1) != 'l')
+		else if (*format == 'l' && (*format + 1) != 'l')
 			len = 'l';
-		else if (**format == 'l' && *(*format + 1) == 'l')
+		else if (*format == 'l' && (*format + 1) == 'l')
 			len = 'l' + 'l';
-		else if (**format == 'j')
+		else if (*format == 'j')
 			len = 'j';
-		else if (**format == 'z')
+		else if (*format == 'z')
 			len = 'z';
 		if (len > 0)
-			(*format) += (len >= 130 ? 2 : 1);
+			(format) += (len >= 130 ? 2 : 1);
 	return (len);
 }
 
@@ -144,9 +144,9 @@ t_opts				getz_theoptionz(const char *format, va_list ap)
 {
 	t_opts	options;
 
-	options.flags = getz_theflagz(&format);
-	options.field_length = getz_thelength(&format); //maybe wont work because of the double pointer in the parameters
-	options.width = getz_width(&format, ap);
+	options.flags = getz_theflagz(format);
+	options.field_length = getz_thelength(format); //maybe wont work because of the double pointer in the parameters
+	options.width = getz_width(format, ap);
 	return (options);
 }
 

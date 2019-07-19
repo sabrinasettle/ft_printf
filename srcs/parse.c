@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/18 09:34:34 by ssettle           #+#    #+#             */
-/*   Updated: 2019/07/18 13:52:18 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/07/18 16:12:47 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,13 @@ int v_parse(const char *format, va_list ap)
     string = ft_strdup(format);
     while (string[i] != '\0')
     {
-        if(string[i] == '%' && options.field_length != NULL) //is equal to any of the flags for conversion type
+        if(string[i] == '%') //is equal to any of the flags for conversion type
         {
-            len += convert_args(*format, ap);
+            len += convert_args(format, ap);
         }
         
     }
+    return(len);
 }
 
 
