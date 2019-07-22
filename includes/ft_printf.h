@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/01 15:01:16 by ssettle           #+#    #+#             */
-/*   Updated: 2019/07/19 15:39:57 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/07/22 14:46:07 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include <stdarg.h>
 # include <unistd.h>
 # include <stdlib.h>
-# include "../libft/libft.h"
+# include "../libft/libft.h" //to be taken out later after pf_tool functions created
 
 /*
 ** MACROS
@@ -42,9 +42,9 @@ typedef struct				s_flags
 typedef struct				s_opts
 {
 	t_flags					flags;
-	int						field_length;
-	int						precision;
-	int						width;
+	uint32_t				field_length;
+	int32_t						precision;
+	uint32_t						width;
 }							t_opts;
 
 //all added becuase of sam
@@ -63,24 +63,24 @@ typedef enum				e_bool //do I use this??
 
 typedef int					(*t_conv)(t_opts, va_list); //eli says could be void as well
 
-typedef struct				s_convert_table
+typedef struct				s_dispatch_table
 {
 	char					form_convert;
 	const t_conv			convert; //here lies the issue I think...
-}							t_convert_table;
+}							t_dispatch_table;
 
 /*
 **	Global Varibles
 */
 
-extern const				t_convert_table g_convert_table[];
+extern const				t_dispatch_table g_convert_table[];
 
 /*
 *******************************   FUNCTIONS   *******************************
 */
 
 void						add_flags(t_flags *flags, char c);
-int							convert_args(const char *format, va_list ap);
+int							convert_args(const char **format, va_list ap);
 int							ft_printf(const char *format, ...);
 int							is_special_flag(char c);
 int 						v_parse(const char *format, va_list ap);
@@ -111,10 +111,15 @@ char						*padding_p(char *s, t_opts options);
 char						*padding_l_an_u_h(char *s, int len, t_opts options);
 
 
-// /*
-// ** TOOLS
-// */
+/*
+** TOOLS
+*/
 
+char						*pf_strcpy(char *s1, const char *s2);
+char						*pf_strdup(const char *src);
+int							pf_atoi(const char *str);
+size_t						pf_strlen(const char *str);
+void						pf_putchar(char c);
 
 /*
 ** OPTION FUNCTION

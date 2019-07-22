@@ -1,28 +1,51 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   convert_int.c                                      :+:      :+:    :+:   */
+/*   pf_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/02 12:33:44 by ssettle           #+#    #+#             */
-/*   Updated: 2019/07/22 14:31:21 by ssettle          ###   ########.fr       */
+/*   Created: 2019/02/14 09:04:49 by ssettle           #+#    #+#             */
+/*   Updated: 2019/07/22 14:48:38 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-/*
-** Conversion for i and d. Really only has a difference if you are using scanf.
-*/
 
-// int		convert_int(t_opts options, va_list ap)
-// {
-// 	char res;
+size_t	pf_strlen(const char *str)
+{
+	int c;
 
-// 	res = pf_itoa(va_arg(options, int)) //itoa does not exist yet
-// 	res = padding(str, options, neg);
+	c = 0;
+	while (str[c] != '\0')
+		c++;
+	return (c);
+}
 
-// 	pf_putstr(res)
-// 	free(res)
-// }
+char	*pf_strcpy(char *s1, const char *s2)
+{
+	int i;
+
+	i = 0;
+	while (s2[i] != '\0')
+	{
+		s1[i] = s2[i];
+		i++;
+	}
+	s1[i] = '\0';
+	return (s1);
+}
+
+char		*pf_strdup(const char *src)
+{
+	char	*s2;
+
+	s2 = (char*)malloc(sizeof(*s2) * (pf_strlen(src) + 1));
+	if (!s2)
+	{
+		return (NULL);
+	}
+	s2 = pf_strcpy(s2, src);
+	return (s2);
+}

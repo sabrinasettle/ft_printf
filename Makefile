@@ -5,80 +5,62 @@
 #                                                     +:+ +:+         +:+      #
 #    By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2019/04/28 15:08:21 by ssettle           #+#    #+#              #
-#    Updated: 2019/07/18 16:32:12 by ssettle          ###   ########.fr        #
+#    Created: 2019/07/22 13:48:05 by ssettle           #+#    #+#              #
+#    Updated: 2019/07/22 14:33:31 by ssettle          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libftprintf.a
 
-SOURCES = ft_printf \
-	dispatch_table \
-	dispatch_conv \
-	val_flag \
-	options \
-	parse \
+SRCS = srcs/dispatch_conv.c \
+	srcs/dispatch_table.c \
+	srcs/ft_printf.c \
+	srcs/options.c \
+	srcs/parse.c \
+	srcs/val_flag.c \
+	# srcs/printingcolor.c 
 
-CONVERT = convert_char \
-	convert_str \
-	# convert_percent \
-	# convert_octal \
-	# convert_float \
-	convert_pointer \
-	# convert_hex \
-	# convert_int \
-	# convert_octal \
-	convert_str.c \
-	# convert_uint.c \
-	# convert_upper_hex.c \
-	convert_upper_uint.c \
+CONVERT = conversions/convert_char.c \
+			#conversions/convert_str.c  \
+			#conversions/convert_float.c \
+			conversions/convert_hex.c \
+			conversions/convert_int.c \
+			conversions/convert_octal.c \
+			conversions/convert_percent.c \
+			conversions/convert_pointer.c \
+			conversions/convert_str.c  \
+			conversions/convert_uint.c \
+			conversions/convert_upper_uint.c \
+ 			conversions/convert_upper_hex.c 
 
+TOOLS = tools/pf_atoi.c \
+		tools/pf_putchar.c \
+		tools/pf_strdup.c \
 
-# PADDING = pad_pointer \
-	# padding/pad_int.c \
-	# padding/pad_octal.c \
-	padding/pad_pointer.c \
-	# padding/pad_uint.c
+OBJ = *.o
 
+INC = includes/ft_printf.h
 
-SOURCES_D = ./srcs
-CONVER_D = ./conversions
-PAD_D = ./padding
+CC = gcc
 
-OBJECTS = $(addsuffix .o, $(addprefix $(SOURCES_D)/, $(SOURCES)))
-OBJECTS += $(addsuffix .o, $(addprefix $(CONVER_D)/, $(CONVERT)))
-OBJECTS += $(addsuffix .o, $(addprefix $(PAD_D)/, $(PADDING)))
+CFLAGS = -Wall -Werror -Wextra -g
 
-FLAGS = -Wall -Werror -Wextra -g
+all: $(NAME)
 
-INCLUDES = includes/ft_printf.h
-
-LIBFT = $(addprefix $(LIBFT_D),libft.a)
-LIBFT_D = ./libft/
-
-# OBJ_DIR = objects
-
-all: $(LIBFT) $(NAME)
-
-$(LIBFT):
-	@make -C $(LIBFT_D)
-
-# $(OBJ_DIR)/%.o:%.c
-# 	@gcc $(FLAGS) -I $(INCLUDES) -c $< -o $@
-
-$(NAME): $(LIBFT) $(OBJECTS)
-	@ar -rcs $@ $^
-	@echo =====Library made!=====
+$(NAME):
+	@echo "\033[32mCreating library...\033[0m"
+	@$(CC) $(CFLAGS) -c $(SRCS) $(CONVERT) $(TOOLS) -I $(INC)
+	@ar -rc $(NAME) $(OBJ)
+	@ranlib $(NAME)
 
 clean:
-	@rm -rf $(OBJECTS)
-	@echo *==Project cleaned!===*
+	@echo "\033[33mCleaning objects...\033[0m"
+	@/bin/rm -rf $(OBJ)
 
 fclean: clean
-	@rm -f $(NAME)
-	@make fclean -C $(LIBFT_D)
-	@echo  *==Project fcleaned!==*
+	@echo "\033[33mCleaning objects and library...\033[0m"
+	@/bin/rm -rf $(NAME)
 
-re: clean all
+re: fclean all
 
-.PHONY: make, all, clean, fclean, re, test
+.PHONY: all clean fclean re test

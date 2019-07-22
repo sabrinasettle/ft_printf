@@ -1,28 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   convert_int.c                                      :+:      :+:    :+:   */
+/*   ft_strcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/02 12:33:44 by ssettle           #+#    #+#             */
-/*   Updated: 2019/07/22 14:31:21 by ssettle          ###   ########.fr       */
+/*   Created: 2019/02/11 17:29:35 by ssettle           #+#    #+#             */
+/*   Updated: 2019/07/22 14:45:22 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-/*
-** Conversion for i and d. Really only has a difference if you are using scanf.
-*/
+char	*pf_strcpy(char *s1, const char *s2)
+{
+	int i;
 
-// int		convert_int(t_opts options, va_list ap)
-// {
-// 	char res;
-
-// 	res = pf_itoa(va_arg(options, int)) //itoa does not exist yet
-// 	res = padding(str, options, neg);
-
-// 	pf_putstr(res)
-// 	free(res)
-// }
+	i = 0;
+	while (s2[i] != '\0')
+	{
+		s1[i] = s2[i];
+		i++;
+	}
+	s1[i] = '\0';
+	return (s1);
+}

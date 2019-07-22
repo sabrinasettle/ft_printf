@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/26 13:25:21 by ssettle           #+#    #+#             */
-/*   Updated: 2019/07/18 13:07:46 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/07/22 13:34:41 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,8 @@
 int			ft_printf(const char *format, ...)
 {
 	va_list	ap;
-	int done;
-	
+	int 	done;
+
 	va_start(ap, format);
 	done = v_parse(format, ap);
 	va_end(ap);

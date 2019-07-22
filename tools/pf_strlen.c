@@ -1,28 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   convert_int.c                                      :+:      :+:    :+:   */
+/*   pf_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/02 12:33:44 by ssettle           #+#    #+#             */
-/*   Updated: 2019/07/22 14:31:21 by ssettle          ###   ########.fr       */
+/*   Created: 2019/02/13 13:23:55 by ssettle           #+#    #+#             */
+/*   Updated: 2019/07/22 14:42:28 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-/*
-** Conversion for i and d. Really only has a difference if you are using scanf.
-*/
+size_t	pf_strlen(const char *str)
+{
+	int c;
 
-// int		convert_int(t_opts options, va_list ap)
-// {
-// 	char res;
-
-// 	res = pf_itoa(va_arg(options, int)) //itoa does not exist yet
-// 	res = padding(str, options, neg);
-
-// 	pf_putstr(res)
-// 	free(res)
-// }
+	c = 0;
+	while (str[c] != '\0')
+		c++;
+	return (c);
+}

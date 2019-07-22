@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/29 10:39:33 by ssettle           #+#    #+#             */
-/*   Updated: 2019/07/18 09:21:23 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/07/22 14:29:57 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,14 +27,14 @@ int						convert_char(t_opts f_opts, va_list ap)
 	c = (unsigned char)va_arg(ap, int);
 	while (f_opts.field_length > 1 && !flags.minus)
 	{
-		ft_putchar(' ');
+		pf_putchar(' ');
 		f_opts.field_length--;
 		length++;
 	}
 	write(1, &c, 1);
 	while (f_opts.field_length > 1 && flags.minus)
 	{
-		ft_putchar(' ');
+		pf_putchar(' ');
 		f_opts.field_length--;
 		length++;
 	}
@@ -43,7 +43,7 @@ int						convert_char(t_opts f_opts, va_list ap)
 
 // could also use wchar or wint_t due to the unicode and code points
 
-// if (ft_strcmp(tab->argument_flag, "l") == 0)
+// if (pf_strcmp(tab->argument_flag, "l") == 0)
 // 		c = (unsigned long)va_arg(tab->args, unsigned long);
 // 	else if (tab->specifier_flag == 'C')
 // 		c = (wchar_t)va_arg(tab->args, wint_t);

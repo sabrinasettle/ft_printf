@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/07 13:41:32 by ssettle           #+#    #+#             */
-/*   Updated: 2019/07/19 16:32:49 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/07/22 13:36:50 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,22 +20,22 @@
 ** conversion.
 */
 
-int		convert_args(const char *format , va_list ap)
+int		convert_args(const char **format , va_list ap)
 {
 	t_opts options;
 	int i;
 	int c;
 
-	(format)++;
-	options = getz_theoptionz(format, ap);
+	// format++;
+	options = getz_theoptionz(*format, ap);
 	i = 0;
 	c = 0;
 	// while of some sort
-	if(g_convert_table[i].form_convert == *format)
+	if(g_convert_table[i].form_convert)
 		c = g_convert_table[i].convert(options, ap);
 	if(!g_convert_table[i].form_convert)
 	{
-		write(1, "exiting\n", 8);
+		write(1, "exiting\n", 8); //says putstr?
 		exit(1);
 	}
 	return (c);
@@ -70,6 +70,54 @@ int		convert_args(const char *format , va_list ap)
 // 	*res += len > 0 ? len : 0;
 // 	*s += 1;
 // }
+
+
+
+
+
+
+
+// chris ford
+
+
+// int		ft_printf_dispatch(t_format variable, int fd)
+// {
+// 	int		size;
+// 	int		i;
+
+// 	size = 0;
+// 	i = 0;
+// 	while (i < 10)
+// 	{
+// 		if (g_table[i].c & variable.spec)
+// 		{
+// 			size = g_table[i].function(variable, fd);
+// 			break ;
+// 		}
+// 		i++;
+// 	}
+// 	return (size);
+// }
+
+
+
+// int			convert_args(const char **format, va_list ap)
+// {
+// 	int		i;
+// 	t_flag	flag;
+
+// 	i = 0;
+// 	flag = get_flags(format);
+// 	while (g_conv[i].format_conv && g_conv[i].format_conv != **format)
+// 		i++;
+// 	if (!g_conv[i].format_conv)
+// 		exit(1);
+// 	return (g_conv[i].f(ap, flag));
+// }
+
+
+
+
 
 
 

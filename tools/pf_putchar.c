@@ -1,28 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   convert_int.c                                      :+:      :+:    :+:   */
+/*   pf_putchar.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/02 12:33:44 by ssettle           #+#    #+#             */
-/*   Updated: 2019/07/22 14:31:21 by ssettle          ###   ########.fr       */
+/*   Created: 2019/02/12 15:30:48 by ssettle           #+#    #+#             */
+/*   Updated: 2019/07/22 14:39:20 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-/*
-** Conversion for i and d. Really only has a difference if you are using scanf.
-*/
-
-// int		convert_int(t_opts options, va_list ap)
-// {
-// 	char res;
-
-// 	res = pf_itoa(va_arg(options, int)) //itoa does not exist yet
-// 	res = padding(str, options, neg);
-
-// 	pf_putstr(res)
-// 	free(res)
-// }
+void	pf_putchar(char c)
+{
+	write(1, &c, 1);
+}
