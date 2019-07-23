@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/01 15:01:16 by ssettle           #+#    #+#             */
-/*   Updated: 2019/07/22 14:46:07 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/07/22 20:28:25 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,9 +42,9 @@ typedef struct				s_flags
 typedef struct				s_opts
 {
 	t_flags					flags;
-	uint32_t				field_length;
-	int32_t						precision;
-	uint32_t						width;
+	uint32_t				field_width;
+	int32_t					precision;
+	uint32_t				width;
 }							t_opts;
 
 //all added becuase of sam
@@ -131,6 +131,6 @@ t_opts						getz_theoptionz(const char *format, va_list ap);
 ** BONUSES
 */
 
-t_bool						ft_coloring(t_opts *p_out, const char *str);
+// t_bool						ft_coloring(t_opts *p_out, const char *str);
 
 #endif

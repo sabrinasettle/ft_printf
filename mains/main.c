@@ -32,7 +32,8 @@ int	main()
 	// ft_printf("Mine: hello, %s" , "gavin");
 	// ft_printf("%%\n");
 	// printf("%%\n");
-
+	
+	// system("leaks test"); FOR LATER
 	return 0;
 }
 

@@ -63,6 +63,7 @@ Some absolutely great references:
 - https://linux.die.net/man/3/printf
 - https://www.cprogramming.com/tutorial/c/lesson17.html
 - https://oded.blog/2017/05/24/printf/
+- https://www.menie.org/georges/embedded/small_printf_source_code.html
 
 Great article on dispatch tables:
 - https://blog.alicegoldfuss.com/function-dispatch-tables/
