@@ -50,7 +50,7 @@ for strings it is similar:
 
 %[flag][min width][precision][length modifier][conversion specifier]
 
-Flags are demonstrated very well in this chart from http://www.cplusplus.com/reference/cstdio/printf/
+Length flags are demonstrated very well in this chart from http://www.cplusplus.com/reference/cstdio/printf/
 <img width="672" alt="Screen Shot 2019-07-22 at 8 29 39 PM" src="https://user-images.githubusercontent.com/22520221/61680806-c841d780-acbf-11e9-9921-0c24b2e6db6e.png">
 
 
