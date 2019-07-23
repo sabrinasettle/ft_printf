@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/02 12:12:04 by ssettle           #+#    #+#             */
-/*   Updated: 2019/07/22 14:47:24 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/07/22 19:53:16 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@
 const	t_dispatch_table		g_convert_table[] = {
 	{'c', &convert_char},
 	// {'s', &convert_str},
+	// {'f', &convert_float},
 	// {'p', &convert_pointer},
 	// {'d', &convert_int},
-	// {'f', &convert_float},
 	// {'i', &convert_int},
 	// {'o', &convert_octal},
 	// {'u', &convert_uint},

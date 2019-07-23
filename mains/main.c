@@ -29,7 +29,7 @@ int	main()
 
 	// ft_printf ("%s \n", "A string");
 	// printf ("%s \n", "A string");
-	ft_printf("Mine: hello, %s" , "gavin");
+	// ft_printf("Mine: hello, %s" , "gavin");
 	// ft_printf("%%\n");
 	// printf("%%\n");
 
