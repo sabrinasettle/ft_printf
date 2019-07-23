@@ -11,7 +11,7 @@ git clone this code
 
 and use the make command in the terminal :)
 
-then test to your hearts content
+then test to your hearts content with the main.c provided in the mains folder
 
 # Print_f function
 ![700px-Printf svg](https://user-images.githubusercontent.com/22520221/57039545-c8c35880-6c11-11e9-9fb3-3053424749e5.png)
@@ -70,6 +70,8 @@ Some absolutely great references:
 - https://www.cprogramming.com/tutorial/c/lesson17.html
 - https://oded.blog/2017/05/24/printf/
 - https://www.menie.org/georges/embedded/small_printf_source_code.html
+- https://alvinalexander.com/programming/printf-format-cheat-sheet
+- http://www.ryanjuckett.com/programming/printing-floating-point-numbers/
 
 Great article on dispatch tables:
 - https://blog.alicegoldfuss.com/function-dispatch-tables/
