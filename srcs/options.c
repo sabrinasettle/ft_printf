@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/29 10:38:53 by ssettle           #+#    #+#             */
-/*   Updated: 2019/07/22 14:41:00 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/07/24 13:40:58 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,30 +84,30 @@ static int			getz_width(const char *format, va_list ap)
 ** ex: ft_printf("%8.2f", 10.3456) = '   10.35'
 */
 
-// static int			getz_theprecision(const char *format, va_list ap)
-// {
-// 	int		mod_prec;
+static int			getz_theprecision(const char *format, va_list ap)
+{
+	int		mod_prec;
 
-// 	mod_prec = -1;
-// 	if (*format != '.')
-// 		return (false);
-// 	if (*format == '.')
-// 	{
-// 		mod_prec = 0;
-// 		(format)++;
-// 		if (IS_DIGIT(*format))
-// 		{
-// 			while (IS_DIGIT(*format))
-// 				(format)++;
-// 		}
-// 		else if (*format == '*')
-// 		{
-// 			mod_prec = va_arg(ap, int);
-// 			(format)++;
-// 		}
-// 	}
-// 	return (mod_prec);
-// }
+	mod_prec = -1;
+	if (*format != '.')
+		return (false);
+	if (*format == '.')
+	{
+		mod_prec = 0;
+		(format)++;
+		if (IS_DIGIT(*format))
+		{
+			while (IS_DIGIT(*format))
+				(format)++;
+		}
+		else if (*format == '*')
+		{
+			mod_prec = va_arg(ap, int);
+			(format)++;
+		}
+	}
+	return (mod_prec);
+}
 
 /*
 ** Length Modifiers specifies the size of the argument.
@@ -145,7 +145,8 @@ t_opts				getz_theoptionz(const char *format, va_list ap)
 	t_opts	options;
 
 	options.flags = getz_theflagz(format);
-	options.field_length = getz_thelength(format); //maybe wont work because of the double pointer in the parameters
+	options.field_width = getz_thelength(format); //maybe wont work because of the double pointer in the parameters
+	options.precision = getz_theprecision(format, ap);
 	options.width = getz_width(format, ap);
 	return (options);
 }
