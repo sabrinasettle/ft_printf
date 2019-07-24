@@ -6,11 +6,22 @@
 
 int	main()
 {
-	printf ("printf Characters: %c %c \n", 'a', 65);
-	ft_printf("mine Characters: %c %c \n", 'a', 65);
 
-	// ft_printf ("Decimals: %d %ld\n", 1977, 650000L);
-	// printf ("Decimals: %d %ld\n", 1977, 650000L);
+	// Char tests
+	printf ("printf: %c %c \n", 'a', 65);
+	ft_printf("mine: %c %c \n", 'a', 65);
+	puts(" ");
+	printf ("printf: %c \n", 'a');
+	ft_printf("mine: %c \n", 'a');
+	puts(" ");
+	printf("printf: %5c\n", '$');
+	ft_printf("mine: %5c\n", '$');
+	puts(" ");
+	printf("printf 2 minus: %-5c\n", '$');
+	ft_printf("mine 2 minus: %-5c\n", '$');
+	puts(" ");
+	// ft_printf ("printf: %d %ld\n", 1977, 650000L);
+	// printf ("mine: %d %ld\n", 1977, 650000L);
 
 	// ft_printf("Preceding with blanks: %10d \n", 1977);
 	// printf ("Preceding with blanks: %10d \n", 1977);
@@ -30,8 +41,11 @@ int	main()
 	// ft_printf ("%s \n", "A string");
 	// printf ("%s \n", "A string");
 	// ft_printf("Mine: hello, %s" , "gavin");
-	// ft_printf("%%\n");
-	// printf("%%\n");
+
+	//percent sign
+	printf("printf: %%\n");
+	ft_printf("mine: %%\n");
+	ft_printf("mine:  %c %%\n", 'a');
 	
 	// system("leaks test"); FOR LATER
 	return 0;
