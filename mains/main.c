@@ -10,16 +10,16 @@ int	main()
 	// Char tests
 	printf ("printf: %c %c \n", 'a', 65);
 	ft_printf("mine: %c %c \n", 'a', 65);
-	puts(" ");
+	pf_putchar('\n');
 	printf ("printf: %c \n", 'a');
 	ft_printf("mine: %c \n", 'a');
-	puts(" ");
+	pf_putchar('\n');
 	printf("printf: %5c\n", '$');
 	ft_printf("mine: %5c\n", '$');
-	puts(" ");
+	pf_putchar('\n');
 	printf("printf 2 minus: %-5c\n", '$');
 	ft_printf("mine 2 minus: %-5c\n", '$');
-	puts(" ");
+	pf_putchar('\n');
 	// ft_printf ("printf: %d %ld\n", 1977, 650000L);
 	// printf ("mine: %d %ld\n", 1977, 650000L);
 

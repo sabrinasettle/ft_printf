@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/29 10:38:53 by ssettle           #+#    #+#             */
-/*   Updated: 2019/07/24 13:40:58 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/07/25 12:51:33 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ static int			getz_width(const char *format, va_list ap)
 ** ex: ft_printf("%8.2f", 10.3456) = '   10.35'
 */
 
-static int			getz_theprecision(const char *format, va_list ap)
+static int			getz_theprecision(const char *format)
 {
 	int		mod_prec;
 
@@ -102,7 +102,7 @@ static int			getz_theprecision(const char *format, va_list ap)
 		}
 		else if (*format == '*')
 		{
-			mod_prec = va_arg(ap, int);
+			// mod_prec = va_arg(ap, int); not made???
 			(format)++;
 		}
 	}
@@ -146,10 +146,47 @@ t_opts				getz_theoptionz(const char *format, va_list ap)
 
 	options.flags = getz_theflagz(format);
 	options.field_width = getz_thelength(format); //maybe wont work because of the double pointer in the parameters
-	options.precision = getz_theprecision(format, ap);
+	options.precision = getz_theprecision(format);
 	options.width = getz_width(format, ap);
 	return (options);
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // interesting way to do length to tke note on
 //https://github.com/roblabla42/ft_printf/blob/master/src/utils/get_unsigned_from_length.c

@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/07 13:41:32 by ssettle           #+#    #+#             */
-/*   Updated: 2019/07/22 20:20:05 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/07/25 15:41:25 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,18 +27,36 @@ int		convert_args(const char **format , va_list ap)
 	int		c;
 
 	options = getz_theoptionz(*format, ap);
-	i = 0;
+	i = -1;
 	c = 0;
-	// while of some sort // or not????
-	if(g_convert_table[i].form_convert)
-		c = g_convert_table[i].convert(options, ap);
-	else if(!g_convert_table[i].form_convert)
+	while(++i < 2)
 	{
-		write(1, "exiting\n", 8); //says putstr?
-		exit(1);
+		if(g_convert_table[i].form_convert)
+			c = g_convert_table[i].convert(options, ap);
 	}
-	return (c);
+	// if(!(g_convert_table[i].form_convert))
+	// {
+	// 	write(1, "exiting\n", 8); //says putstr?
+	// 	exit(1);
+	// }
+	return (c); //should be returning options? length of options
 }
+
+
+
+// int			convert_args(const char **format, va_list ap)
+// {
+// 	int		i;
+// 	t_flag	flag;
+
+// 	i = 0;
+// 	flag = get_flags(format);
+// 	while (g_conv[i].format_conv && g_conv[i].format_conv != **format)
+// 		i++;
+// 	if (!g_conv[i].format_conv)
+// 		exit(1);
+// 	return (g_conv[i].f(ap, flag));
+// }
 
 
 

@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/12 15:30:48 by ssettle           #+#    #+#             */
-/*   Updated: 2019/07/22 14:39:20 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/07/25 13:48:26 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,4 +15,10 @@
 void	pf_putchar(char c)
 {
 	write(1, &c, 1);
+}
+
+int		int_putchar(char c)
+{
+	write(1, &c, 1);
+	return (1);
 }
