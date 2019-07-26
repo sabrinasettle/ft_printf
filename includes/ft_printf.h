@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/01 15:01:16 by ssettle           #+#    #+#             */
-/*   Updated: 2019/07/25 13:48:52 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/07/25 15:44:52 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,15 +45,16 @@ typedef struct				s_opts
 	uint32_t				field_width;
 	int32_t					precision;
 	uint32_t				width;
+	int						total_length_opts;
 }							t_opts;
 
-//all added becuase of sam
-typedef struct				s_env
-{
-	int						total_length;
-	char					*whatever_you_want; //jk just messing with sam, suppose to be a GREAT large str??
-	t_opts					options;
-}							t_env;
+// //all added becuase of sam
+// typedef struct				s_env
+// {
+// 	int						total_length;
+// 	char					*whatever_you_want; //jk just messing with sam, suppose to be a GREAT large str??
+// 	t_opts					options;
+// }							t_env;
 
 typedef enum				e_bool //do I use this??
 {

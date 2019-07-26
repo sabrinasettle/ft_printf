@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/07 13:41:32 by ssettle           #+#    #+#             */
-/*   Updated: 2019/07/25 15:41:25 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/07/25 17:13:26 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,18 @@ int		convert_args(const char **format , va_list ap)
 	options = getz_theoptionz(*format, ap);
 	i = -1;
 	c = 0;
-	while(++i < 2)
+	while(++i < 12)
 	{
-		if(g_convert_table[i].form_convert)
+		if (g_convert_table[i].form_convert == **format)
 			c = g_convert_table[i].convert(options, ap);
+		if (c)
+			break ;
+		// pf_putchar(**format);
+		// while(g_convert_table[i].form_convert && g_convert_table[i].form_convert != **format)
+		// 	i++;
+		// c = g_convert_table[i].convert(options, ap);
 	}
+	// pf_putchar(**format);
 	// if(!(g_convert_table[i].form_convert))
 	// {
 	// 	write(1, "exiting\n", 8); //says putstr?

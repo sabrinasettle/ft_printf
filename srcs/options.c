@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/29 10:38:53 by ssettle           #+#    #+#             */
-/*   Updated: 2019/07/25 12:51:33 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/07/25 15:46:33 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -148,6 +148,7 @@ t_opts				getz_theoptionz(const char *format, va_list ap)
 	options.field_width = getz_thelength(format); //maybe wont work because of the double pointer in the parameters
 	options.precision = getz_theprecision(format);
 	options.width = getz_width(format, ap);
+	//something that gets the the total length of specifiers
 	return (options);
 }
 

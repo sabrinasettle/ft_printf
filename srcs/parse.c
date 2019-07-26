@@ -6,11 +6,18 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/18 09:34:34 by ssettle           #+#    #+#             */
-/*   Updated: 2019/07/25 15:42:40 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/07/25 17:06:10 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
+
+// int print_normally(char **format)
+// {
+//     pf_putchar(**format);
+//     (*format)++;
+//     return(1);
+// }
 
 
 
@@ -18,26 +25,26 @@ int v_parse(const char *format, va_list ap)
 {
     size_t i;
     size_t len;
-    char *string;
-    // t_opts *options;
-    // char *str; do I need??
+    // char *string;
 
     i = 0;
     len = 0;
-    string = pf_strdup(format);
-    while (string[i] != '\0')
+    // string = pf_strdup(format);
+    while (*format != '\0')
     {
-        if(string[i] == '%') //is equal to any of the flags for conversion type
+        if(*format == '%') //is equal to any of the flags for conversion type
         {
+            format++;
             // string++;
             len += convert_args(&format, ap);
-            i++;
+            // i += len;
         }
         // else if (string[i] == '{') //add when done calls a non exist function
             // ft_coloring(options, format);
         else
-            pf_putchar(string[i]);
-        i++;
+            // len += print_normally((char **)format);
+            len += int_putchar(*format);
+        format++;
     }
     return(len);
 }
