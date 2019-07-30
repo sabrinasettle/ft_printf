@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/29 10:39:33 by ssettle           #+#    #+#             */
-/*   Updated: 2019/07/30 13:10:32 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/07/30 16:04:22 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,38 +17,39 @@
 ** a space AND the c. The only flag for char is l which creates a wint_t.
 */
 
-int						converstion_method(t_opts options, va_list ap)
+// still needs to work with l... but padding works
+
+
+
+int						add_width_and_convert(t_opts options, va_list ap)
 {
-	// t_flags			flags;
-	wchar_t			c;
+	char			c;
 	int				length;
 
 	length = 1;
-	c = (unsigned char)va_arg(ap, int);
+	if (options.content_size == 0)
+		c = va_arg(ap, int);
+	else if (options.content_size == 108) //does not work
+		c = va_arg(ap, wchar_t);
 	while (options.width_field >= 1 && !options.flags.minus)
 	{
 		pf_putchar(' ');
 		options.width_field--;
 		length++;
 	}
+	write(1, &c, 1);
 	while (options.width_field >= 1 && options.flags.minus)
 	{
 		pf_putchar(' ');
 		options.width_field--;
 		length++;
-		// pf_putchar('z'); 
 	}
-	// (void)options;
-	
-	write(1, &c, 1);
 	return (length);
 }
 
 int		convert_char(t_opts options, va_list ap)
 {
-	converstion_method(options, ap);
-	if (options.width_field > 1)
-		return (options.width_field);
+	add_width_and_convert(options, ap);
 	return (0);
 }
 

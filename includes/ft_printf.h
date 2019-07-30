@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/01 15:01:16 by ssettle           #+#    #+#             */
-/*   Updated: 2019/07/30 12:50:40 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/07/30 15:19:56 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ typedef struct				s_opts
 	t_flags					flags;
 	uint32_t				width_field;
 	int32_t					precision;
-	uint32_t				width;
+	uint32_t				content_size;
 	int						total_length_opts;
 }							t_opts;
 

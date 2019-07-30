@@ -1,8 +1,6 @@
-// #include "../libft.h"
+
 #include "../includes/ft_printf.h"
 #include <stdio.h>
-
-//https://github.com/agavrel/42-ft_printf/blob/master/misc/main.c
 
 int	main()
 {
@@ -14,14 +12,17 @@ int	main()
 	printf ("printf: %c \n", 'a');
 	ft_printf("mine: %c \n", 'a');
 	pf_putchar('\n');
+	printf ("l test printf: %lc \n", 'a'); 
+	ft_printf("l test mine: %lc \n", 'a'); //returns c rather than 
+	pf_putchar('\n');
 	printf("printf: %5c\n", '$');
 	ft_printf("mine: %5c\n", '$');
 	pf_putchar('\n');
 	printf("printf: %10c\n", '$');
 	ft_printf("mine: %10c\n", '$');
 	pf_putchar('\n');
-	printf("printf 2 minus:	%-5c %c\n", '$', '%');
-	ft_printf("mine 2 minus: %-5c %c\n", '$', '%');
+	printf("printf minus:	%-5c %c\n", '$', '%');
+	ft_printf("mine minus: %-5c %c\n", '$', '%');
 	pf_putchar('\n');
 	// ft_printf ("printf: %d %ld\n", 1977, 650000L);
 	// printf ("mine: %d %ld\n", 1977, 650000L);
@@ -45,13 +46,16 @@ int	main()
 	printf ("printf: %s \n", "A string");
 	ft_printf ("mine: %s \n", "A string");
 	pf_putchar('\n');
+	printf ("printf string minus: %-10s %c\n", "A string", 'c');
+	ft_printf ("mine string minus: %-10s %c\n", "A string", 'c');
+	pf_putchar('\n');
 	printf("printf: hello, %s \n" , "gavin");
 	ft_printf("mine: hello, %s \n" , "gavin");
 	pf_putchar('\n');
 	//percent sign
 	printf("printf: %%\n");
 	ft_printf("mine: %%\n");
-	
+
 	// system("leaks test"); FOR LATER
 	return 0;
 }

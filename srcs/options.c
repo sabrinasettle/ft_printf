@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/29 10:38:53 by ssettle           #+#    #+#             */
-/*   Updated: 2019/07/30 13:09:46 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/07/30 16:03:51 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,11 +37,8 @@ static int			getz_min_width(const char **format, va_list ap)
 	if (IS_DIGIT(**format)) //so it sees the digit 
 	{
 		width = pf_atoi(*format);
-		pf_putstr("test for digit");
 		while (IS_DIGIT(**format))
-		{
 			(*format)++;
-		}
 	}
 	else if (**format == '*')
 	{
@@ -96,29 +93,29 @@ static int			getz_theprecision(const char **format, va_list ap)
 ** ascii value of the flags together and creates the length from the addition
 */
 
-// static int			getz_thelength(const char **format)
-// {
-// 	int		len;
+static int			getz_thesize(const char **format)
+{
+	int		len;
 
-// 	len = 0;
-// 	// while (IS_LEN_OPT(**format))
-// 	// {
-// 		if (*format == 'h' && (*format + 1) != 'h')
-// 			len = 'h';
-// 		else if (*format == 'h' && (*format + 1) == 'h')
-// 			len = 'h' + 'h';
-// 		else if (*format == 'l' && (*format + 1) != 'l')
-// 			len = 'l';
-// 		else if (*format == 'l' && (*format + 1) == 'l')
-// 			len = 'l' + 'l';
-// 		else if (*format == 'j')
-// 			len = 'j';
-// 		else if (*format == 'z')
-// 			len = 'z';
-// 		if (len > 0)
-// 			(format) += (len >= 130 ? 2 : 1);
-// 	return (len);
-// }
+	len = 0;
+	// while (IS_LEN_OPT(**format))
+	// {
+		if (**format == 'h' && (**format + 1) != 'h')
+			len = 'h';
+		else if (**format == 'h' && (**format + 1) == 'h')
+			len = 'h' + 'h';
+		if (**format == 'l' && (**format + 1) != 'l')
+			len = (uint32_t)('l');
+		else if (**format == 'l' && (**format + 1) == 'l')
+			len = (uint32_t)('l' + 'l');
+		if (**format == 'j')
+			len = 'j';
+		if (**format == 'z')
+			len = 'z';
+		if (len > 0)
+			(*format) += (len >= 130 ? 2 : 1); //*format prints nothing, but maybe better than just c?
+	return (len);
+}
 
 /*
 ** This function gets the flags and accesses the struct that contains them.
@@ -141,6 +138,7 @@ static t_flags		getz_theflagz(const char **format)
 		add_flags(&flags, **format);
 		(*format)++;
 	}
+	// printf("\nThe value of test is: %d ", flags.minus);
 	// pf_putstr("test for special flag read");
 	return (flags);
 }
@@ -152,10 +150,11 @@ t_opts				getz_theoptionz(const char **format, va_list ap)
 	options.flags = getz_theflagz(format);
 	options.width_field = getz_min_width(format, ap); //maybe wont work because of the double pointer in the parameters
 	options.precision = getz_theprecision(format, ap);
-	// options.width = getz_thelength(format);
+	options.content_size = getz_thesize(format);
 	//something that gets the the total length of specifiers
 	return (options);
 }
+
 
 
 

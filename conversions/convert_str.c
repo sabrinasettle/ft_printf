@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/02 12:33:59 by ssettle           #+#    #+#             */
-/*   Updated: 2019/07/29 13:29:31 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/07/30 16:06:04 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,10 @@
 ** The only flag for str is l which creates a wchar_t.
 */
 
-
+// if (options.content_size == 0)
+// 		c = va_arg(ap, int);
+// 	else if (options.content_size == 108) //does not work
+// 		c = va_arg(ap, wchar_t);
 
 
 
