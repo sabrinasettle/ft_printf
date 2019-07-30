@@ -6,7 +6,7 @@
 #    By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/07/22 13:48:05 by ssettle           #+#    #+#              #
-#    Updated: 2019/07/25 14:29:14 by ssettle          ###   ########.fr        #
+#    Updated: 2019/07/29 16:20:08 by ssettle          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ SRCS = srcs/dispatch_conv.c \
 
 CONVERT = conversions/convert_char.c \
 			conversions/convert_percent.c \
-			# conversions/convert_str.c
+			conversions/convert_str.c
 			#conversions/convert_float.c \
 			conversions/convert_hex.c \
 			conversions/convert_int.c \
@@ -38,6 +38,7 @@ TOOLS = tools/pf_atoi.c \
 		tools/pf_putchar.c \
 		tools/pf_strdup.c \
 		tools/pf_strcpy.c \
+		tools/pf_putstr.c \
 		
 
 OBJ = *.o

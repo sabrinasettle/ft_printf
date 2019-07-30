@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/07 13:41:32 by ssettle           #+#    #+#             */
-/*   Updated: 2019/07/25 17:13:26 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/07/29 17:34:20 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,26 +26,27 @@ int		convert_args(const char **format , va_list ap)
 	int		i;
 	int		c;
 
-	options = getz_theoptionz(*format, ap);
+	options = getz_theoptionz(format, ap);
 	i = -1;
 	c = 0;
-	while(++i < 12)
+	while(++i < 12) // this is the amount of converstions in the dispatch table
 	{
 		if (g_convert_table[i].form_convert == **format)
-			c = g_convert_table[i].convert(options, ap);
+			c = g_convert_table[i].convert(options, ap); //definately talks to options as the tests printed
 		if (c)
 			break ;
-		// pf_putchar(**format);
+
+		// if(!(g_convert_table[i].form_convert))
+		// {
+		// 	write(1, "exiting\n", 8); //says putstr?
+		// 	exit(1);
+		// }
+		// pf_putchar(**format); //testing
 		// while(g_convert_table[i].form_convert && g_convert_table[i].form_convert != **format)
 		// 	i++;
 		// c = g_convert_table[i].convert(options, ap);
 	}
-	// pf_putchar(**format);
-	// if(!(g_convert_table[i].form_convert))
-	// {
-	// 	write(1, "exiting\n", 8); //says putstr?
-	// 	exit(1);
-	// }
+	// pf_putchar(**format); //testing
 	return (c); //should be returning options? length of options
 }
 

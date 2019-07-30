@@ -38,14 +38,16 @@ int	main()
 	// ft_printf("Width trick: %*d \n", 5, 10);
 	// printf ("Width trick: %*d \n", 5, 10);
 
-	// ft_printf ("%s \n", "A string");
-	// printf ("%s \n", "A string");
-	// ft_printf("Mine: hello, %s" , "gavin");
-
+	
+	printf ("printf: %s \n", "A string");
+	ft_printf ("mine: %s \n", "A string");
+	pf_putchar('\n');
+	printf("printf: hello, %s \n" , "gavin");
+	ft_printf("mine: hello, %s \n" , "gavin");
+	pf_putchar('\n');
 	//percent sign
 	printf("printf: %%\n");
 	ft_printf("mine: %%\n");
-	ft_printf("mine:  %c %%\n", 'a');
 	
 	// system("leaks test"); FOR LATER
 	return 0;

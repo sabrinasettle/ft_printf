@@ -6,35 +6,11 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/29 10:38:53 by ssettle           #+#    #+#             */
-/*   Updated: 2019/07/25 15:46:33 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/07/29 17:45:41 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
-
-/*
-** This function gets the flags and accesses the struct that contains them.
-** It then sets the flag varibles to 0 and then valiadates the flags via the
-** the functions in the vad_flag file. This is accessed through the (.) member
-** access operator using the ~struct.anditsvarble~
-*/
-
-static t_flags		getz_theflagz(const char *format)
-{
-	t_flags		flags;
-
-	flags.minus = 0;
-	flags.plus = 0;
-	flags.pound = 0;
-	flags.space = 0;
-	flags.zero = 0;
-	while (is_special_flag(*format))
-	{
-		add_flags(&flags, *format);
-		(format)++;
-	}
-	return (flags);
-}
 
 /*
 ** The field width: An optional decimal digit string (with nonzero first
@@ -51,24 +27,30 @@ static t_flags		getz_theflagz(const char *format)
 ** to contain the conversion result.
 */
 
-static int			getz_width(const char *format, va_list ap)
+static int			getz_min_width(const char **format, va_list ap)
 {
 	int		width;
 
 	width = 0;
-	if (!IS_DIGIT(*format))
-		return (false);
-	if (IS_DIGIT(*format))
+	// if (!IS_DIGIT(*format));
+	if (IS_DIGIT(**format))
 	{
-		width = pf_atoi(format);
-		while (IS_DIGIT(*format))
-			(format)++;
+		width = pf_atoi(*format);
+		while (IS_DIGIT(**format))
+		{
+			(*format)++;
+			width = **format;
+		}
 	}
-	else if (*format == '*')
+	else if (**format == '*')
 	{
+		(*format)++;
 		width = va_arg(ap, int);
-		(format)++;
 	}
+	else
+		return (false);
+	// return (false);
+	// pf_putstr("test for width number read");
 	return (width);
 }
 
@@ -84,26 +66,26 @@ static int			getz_width(const char *format, va_list ap)
 ** ex: ft_printf("%8.2f", 10.3456) = '   10.35'
 */
 
-static int			getz_theprecision(const char *format)
+static int			getz_theprecision(const char **format, va_list ap)
 {
 	int		mod_prec;
 
 	mod_prec = -1;
-	if (*format != '.')
+	if (**format != '.')
 		return (false);
-	if (*format == '.')
+	if (**format == '.')
 	{
 		mod_prec = 0;
-		(format)++;
-		if (IS_DIGIT(*format))
+		(*format)++;
+		if (IS_DIGIT(**format))
 		{
-			while (IS_DIGIT(*format))
-				(format)++;
+			while (IS_DIGIT(**format))
+				(*format)++;
 		}
-		else if (*format == '*')
+		else if (**format == '*')
 		{
-			// mod_prec = va_arg(ap, int); not made???
-			(format)++;
+			mod_prec = va_arg(ap, int);
+			(*format)++;
 		}
 	}
 	return (mod_prec);
@@ -116,38 +98,63 @@ static int			getz_theprecision(const char *format)
 ** ascii value of the flags together and creates the length from the addition
 */
 
-static int			getz_thelength(const char *format)
-{
-	int		len;
+// static int			getz_thelength(const char **format)
+// {
+// 	int		len;
 
-	len = 0;
-	// while (IS_LEN_OPT(**format))
-	// {
-		if (*format == 'h' && (*format + 1) != 'h')
-			len = 'h';
-		else if (*format == 'h' && (*format + 1) == 'h')
-			len = 'h' + 'h';
-		else if (*format == 'l' && (*format + 1) != 'l')
-			len = 'l';
-		else if (*format == 'l' && (*format + 1) == 'l')
-			len = 'l' + 'l';
-		else if (*format == 'j')
-			len = 'j';
-		else if (*format == 'z')
-			len = 'z';
-		if (len > 0)
-			(format) += (len >= 130 ? 2 : 1);
-	return (len);
+// 	len = 0;
+// 	// while (IS_LEN_OPT(**format))
+// 	// {
+// 		if (*format == 'h' && (*format + 1) != 'h')
+// 			len = 'h';
+// 		else if (*format == 'h' && (*format + 1) == 'h')
+// 			len = 'h' + 'h';
+// 		else if (*format == 'l' && (*format + 1) != 'l')
+// 			len = 'l';
+// 		else if (*format == 'l' && (*format + 1) == 'l')
+// 			len = 'l' + 'l';
+// 		else if (*format == 'j')
+// 			len = 'j';
+// 		else if (*format == 'z')
+// 			len = 'z';
+// 		if (len > 0)
+// 			(format) += (len >= 130 ? 2 : 1);
+// 	return (len);
+// }
+
+/*
+** This function gets the flags and accesses the struct that contains them.
+** It then sets the flag varibles to 0 and then valiadates the flags via the
+** the functions in the vad_flag file. This is accessed through the (.) member
+** access operator using the ~struct.anditsvarble~
+*/
+
+static t_flags		getz_theflagz(const char **format)
+{
+	t_flags		flags;
+
+	flags.minus = 0;
+	flags.plus = 0;
+	flags.pound = 0;
+	flags.space = 0;
+	flags.zero = 0;
+	while (is_special_flag(**format))
+	{
+		add_flags(&flags, **format);
+		(*format)++;
+	}
+	// pf_putstr("test for special flag read");
+	return (flags);
 }
 
-t_opts				getz_theoptionz(const char *format, va_list ap)
+t_opts				getz_theoptionz(const char **format, va_list ap)
 {
 	t_opts	options;
-
+	
 	options.flags = getz_theflagz(format);
-	options.field_width = getz_thelength(format); //maybe wont work because of the double pointer in the parameters
-	options.precision = getz_theprecision(format);
-	options.width = getz_width(format, ap);
+	options.field_width = getz_min_width(format, ap); //maybe wont work because of the double pointer in the parameters
+	options.precision = getz_theprecision(format, ap);
+	// options.width = getz_thelength(format);
 	//something that gets the the total length of specifiers
 	return (options);
 }

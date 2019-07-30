@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/01 15:01:16 by ssettle           #+#    #+#             */
-/*   Updated: 2019/07/25 15:44:52 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/07/29 17:27:30 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,12 +122,13 @@ int							pf_atoi(const char *str);
 int							int_putchar(char c);
 size_t						pf_strlen(const char *str);
 void						pf_putchar(char c);
+void 						pf_putstr(char *str);
 
 /*
 ** OPTION FUNCTION
 */
 
-t_opts						getz_theoptionz(const char *format, va_list ap);
+t_opts						getz_theoptionz(const char **format, va_list ap);
 
 /*
 ** BONUSES

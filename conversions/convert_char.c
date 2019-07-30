@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/29 10:39:33 by ssettle           #+#    #+#             */
-/*   Updated: 2019/07/25 17:14:09 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/07/29 16:08:14 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,31 +14,41 @@
 
 /*
 ** 1 width we print only the c, with 2 width we print
-** a space AND the c.
+** a space AND the c. The only flag for char is l which creates a wint_t.
 */
 
-int						convert_char(t_opts f_opts, va_list ap)
+int						converstion_method(t_opts options, va_list ap)
 {
-	t_flags			flags;
+	// t_flags			flags;
 	wchar_t			c;
 	int				length;
 
 	length = 1;
 	c = (unsigned char)va_arg(ap, int);
-	while (f_opts.field_width > 1 && !flags.minus)
+	while (options.field_width >= 1 && !options.flags.minus)
+	{
+	// 	pf_putchar(' ');
+	// 	options.field_width--;
+	// 	length++;
+	}
+	while (options.field_width >= 1 && options.flags.minus)
 	{
 		pf_putchar(' ');
-		f_opts.field_width--;
+		options.field_width--;
 		length++;
 	}
+	// (void)options;
+	
 	write(1, &c, 1);
-	while (f_opts.field_width > 1 && flags.minus)
-	{
-		pf_putchar(' ');
-		f_opts.field_width--;
-		length++;
-	}
 	return (length);
+}
+
+int		convert_char(t_opts options, va_list ap)
+{
+	converstion_method(options, ap);
+	if (options.field_width > 1)
+		return (options.field_width);
+	return (0);
 }
 
 // could also use wchar or wint_t due to the unicode and code points
@@ -47,3 +57,6 @@ int						convert_char(t_opts f_opts, va_list ap)
 // 		c = (unsigned long)va_arg(tab->args, unsigned long);
 // 	else if (tab->specifier_flag == 'C')
 // 		c = (wchar_t)va_arg(tab->args, wint_t);
+
+// *com = ft_strcmp(flags->length, "l") == 0 ?
+// 		va_arg(options, wint_t) : va_arg(options, int);
