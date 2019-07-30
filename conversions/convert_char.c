@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/29 10:39:33 by ssettle           #+#    #+#             */
-/*   Updated: 2019/07/29 16:08:14 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/07/30 13:10:32 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,17 +25,18 @@ int						converstion_method(t_opts options, va_list ap)
 
 	length = 1;
 	c = (unsigned char)va_arg(ap, int);
-	while (options.field_width >= 1 && !options.flags.minus)
-	{
-	// 	pf_putchar(' ');
-	// 	options.field_width--;
-	// 	length++;
-	}
-	while (options.field_width >= 1 && options.flags.minus)
+	while (options.width_field >= 1 && !options.flags.minus)
 	{
 		pf_putchar(' ');
-		options.field_width--;
+		options.width_field--;
 		length++;
+	}
+	while (options.width_field >= 1 && options.flags.minus)
+	{
+		pf_putchar(' ');
+		options.width_field--;
+		length++;
+		// pf_putchar('z'); 
 	}
 	// (void)options;
 	
@@ -46,8 +47,8 @@ int						converstion_method(t_opts options, va_list ap)
 int		convert_char(t_opts options, va_list ap)
 {
 	converstion_method(options, ap);
-	if (options.field_width > 1)
-		return (options.field_width);
+	if (options.width_field > 1)
+		return (options.width_field);
 	return (0);
 }
 

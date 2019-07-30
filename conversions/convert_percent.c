@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/08 13:59:31 by ssettle           #+#    #+#             */
-/*   Updated: 2019/07/25 14:09:58 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/07/30 12:47:03 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,10 @@
 ** A % followed by another % character will write a single % to the stream.
 */
 
-int	convert_percent(t_opts f_opts, va_list ap)
+int	convert_percent(t_opts options, va_list ap)
 {
-	(void)f_opts;
-	(void)ap;
 	pf_putchar('%');
+	(void)options;
+	(void)ap;
 	return (0);
 }

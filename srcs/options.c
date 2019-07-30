@@ -6,11 +6,12 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/29 10:38:53 by ssettle           #+#    #+#             */
-/*   Updated: 2019/07/29 17:45:41 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/07/30 13:09:46 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
+#include <stdio.h>
 
 /*
 ** The field width: An optional decimal digit string (with nonzero first
@@ -33,13 +34,13 @@ static int			getz_min_width(const char **format, va_list ap)
 
 	width = 0;
 	// if (!IS_DIGIT(*format));
-	if (IS_DIGIT(**format))
+	if (IS_DIGIT(**format)) //so it sees the digit 
 	{
 		width = pf_atoi(*format);
+		pf_putstr("test for digit");
 		while (IS_DIGIT(**format))
 		{
 			(*format)++;
-			width = **format;
 		}
 	}
 	else if (**format == '*')
@@ -47,10 +48,7 @@ static int			getz_min_width(const char **format, va_list ap)
 		(*format)++;
 		width = va_arg(ap, int);
 	}
-	else
-		return (false);
-	// return (false);
-	// pf_putstr("test for width number read");
+	// printf("\nThe Value of width is: %d ", width);
 	return (width);
 }
 
@@ -152,7 +150,7 @@ t_opts				getz_theoptionz(const char **format, va_list ap)
 	t_opts	options;
 	
 	options.flags = getz_theflagz(format);
-	options.field_width = getz_min_width(format, ap); //maybe wont work because of the double pointer in the parameters
+	options.width_field = getz_min_width(format, ap); //maybe wont work because of the double pointer in the parameters
 	options.precision = getz_theprecision(format, ap);
 	// options.width = getz_thelength(format);
 	//something that gets the the total length of specifiers

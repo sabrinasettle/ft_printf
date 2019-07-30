@@ -17,8 +17,11 @@ int	main()
 	printf("printf: %5c\n", '$');
 	ft_printf("mine: %5c\n", '$');
 	pf_putchar('\n');
-	printf("printf 2 minus: %-5c\n", '$');
-	ft_printf("mine 2 minus: %-5c\n", '$');
+	printf("printf: %10c\n", '$');
+	ft_printf("mine: %10c\n", '$');
+	pf_putchar('\n');
+	printf("printf 2 minus:	%-5c %c\n", '$', '%');
+	ft_printf("mine 2 minus: %-5c %c\n", '$', '%');
 	pf_putchar('\n');
 	// ft_printf ("printf: %d %ld\n", 1977, 650000L);
 	// printf ("mine: %d %ld\n", 1977, 650000L);

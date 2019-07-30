@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/01 15:01:16 by ssettle           #+#    #+#             */
-/*   Updated: 2019/07/29 17:27:30 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/07/30 12:50:40 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ typedef struct				s_flags
 typedef struct				s_opts
 {
 	t_flags					flags;
-	uint32_t				field_width;
+	uint32_t				width_field;
 	int32_t					precision;
 	uint32_t				width;
 	int						total_length_opts;
@@ -95,7 +95,7 @@ int							convert_float(t_opts options, va_list ap);
 int							convert_hex(t_opts options, va_list ap);
 int							convert_int(t_opts options, va_list ap);
 int							convert_octal(t_opts options, va_list ap);
-int							convert_percent(t_opts f_opts, va_list ap);
+int							convert_percent(t_opts options, va_list ap);
 int							convert_pointer(t_opts options, va_list ap);
 int							convert_str(t_opts options, va_list ap);
 int							convert_uint(t_opts options, va_list ap);
