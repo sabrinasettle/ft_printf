@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/02 12:33:59 by ssettle           #+#    #+#             */
-/*   Updated: 2019/07/30 16:06:04 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/07/30 16:45:02 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,69 @@
 // 		c = va_arg(ap, int);
 // 	else if (options.content_size == 108) //does not work
 // 		c = va_arg(ap, wchar_t);
+
+// if (pf_strcmp(tab->argument_flag, "l") == 0)
+// 		c = (unsigned long)va_arg(tab->args, unsigned long);
+// 	else if (tab->specifier_flag == 'C')
+// 		c = (wchar_t)va_arg(tab->args, wint_t);
+
+// *com = ft_strcmp(flags->length, "l") == 0 ?
+// 		va_arg(options, wint_t) : va_arg(options, int);
+
+int		add_width_and_convert(t_opts options, va_list ap)
+{
+	if (options.content_size == 0)
+		c = va_arg(ap, int);
+	else if (options.content_size == 108) //does not work
+		c = va_arg(ap, wchar_t);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

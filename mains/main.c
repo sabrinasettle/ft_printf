@@ -6,29 +6,31 @@ int	main()
 {
 
 	// Char tests
-	printf ("printf: %c %c \n", 'a', 65);
-	ft_printf("mine: %c %c \n", 'a', 65);
-	pf_putchar('\n');
-	printf ("printf: %c \n", 'a');
-	ft_printf("mine: %c \n", 'a');
-	pf_putchar('\n');
-	printf ("l test printf: %lc \n", 'a'); 
-	ft_printf("l test mine: %lc \n", 'a'); //returns c rather than 
-	pf_putchar('\n');
-	printf("printf: %5c\n", '$');
-	ft_printf("mine: %5c\n", '$');
-	pf_putchar('\n');
-	printf("printf: %10c\n", '$');
-	ft_printf("mine: %10c\n", '$');
-	pf_putchar('\n');
-	printf("printf minus:	%-5c %c\n", '$', '%');
-	ft_printf("mine minus: %-5c %c\n", '$', '%');
-	pf_putchar('\n');
+	// printf ("printf: %c %c \n", 'a', 65);
+	// ft_printf("mine: %c %c \n", 'a', 65);
+	// pf_putchar('\n');
+	// printf ("printf: %c \n", 'a');
+	// ft_printf("mine: %c \n", 'a');
+	// pf_putchar('\n');
+	// printf ("l test printf: %lc \n", 'a'); 
+	// ft_printf("l test mine: %lc \n", 'a'); //returns c rather than 
+	// pf_putchar('\n');
+	// printf("printf: %5c\n", '$');
+	// ft_printf("mine: %5c\n", '$');
+	// pf_putchar('\n');
+	// printf("printf: %10c\n", '$');
+	// ft_printf("mine: %10c\n", '$');
+	// pf_putchar('\n');
+	// printf("printf minus: %-5c %c\n", '$', '%');
+	// ft_printf("mine minus: %-5c %c\n", '$', '%');
+	// pf_putchar('\n');
+
+	// Ints and Ds 
 	// ft_printf ("printf: %d %ld\n", 1977, 650000L);
 	// printf ("mine: %d %ld\n", 1977, 650000L);
-
-	// ft_printf("Preceding with blanks: %10d \n", 1977);
-	// printf ("Preceding with blanks: %10d \n", 1977);
+	pf_putchar('\n');
+	ft_printf("Preceding with blanks: %10d \n", 1977);
+	printf ("Preceding with blanks: %10d \n", 1977);
 
 	// ft_printf("Preceding with zeros: %010d \n", 1977);
 	// printf ("Preceding with zeros: %010d \n", 1977);
