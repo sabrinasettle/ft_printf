@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/29 10:39:33 by ssettle           #+#    #+#             */
-/*   Updated: 2019/07/30 16:18:52 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/07/31 17:51:27 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,15 @@
 ** a space AND the c. The only flag for char is l which creates a wint_t.
 */
 
-int						add_width_and_convert(t_opts options, va_list ap)
+int		contentsize_width_and_convert(t_opts options, va_list ap)
 {
-	char			c;
-	int				length;
+	char	c;
+	int		length;
 
 	length = 1;
 	if (options.content_size == 0)
 		c = va_arg(ap, int);
-	else if (options.content_size == 108) //does not work
+	else if (options.content_size == 108)
 		c = va_arg(ap, wchar_t);
 	while (options.width_field >= 1 && !options.flags.minus)
 	{
@@ -45,7 +45,6 @@ int						add_width_and_convert(t_opts options, va_list ap)
 
 int		convert_char(t_opts options, va_list ap)
 {
-	add_width_and_convert(options, ap);
-	return(options.content_size > 1 ? options.content_size : 1);
-	// return (0);
+	contentsize_width_and_convert(options, ap);
+	return (options.content_size > 1 ? options.content_size : 1);
 }

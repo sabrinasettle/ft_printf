@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/01 15:01:16 by ssettle           #+#    #+#             */
-/*   Updated: 2019/07/30 15:19:56 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/07/30 19:22:14 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,8 @@
 /*
 ** MACROS
 */
-// # define IS_CON_TYPE(x)		(x == 's' || x == 'S')	//equal to any of the c conversion char types
-// # define MAX_CONVERT_NUM 9
+
 # define IS_DIGIT(c)		((c >= '0' && c <= '9') ? 1 : 0)
-// # define IS_LEN_OPT(c)	if (c =
 
 /*
 ** STRUCTS
@@ -67,7 +65,7 @@ typedef int					(*t_conv)(t_opts, va_list); //eli says could be void as well
 typedef struct				s_dispatch_table
 {
 	char					form_convert;
-	const t_conv			convert; //here lies the issue I think...
+	const t_conv			convert; 
 }							t_dispatch_table;
 
 /*

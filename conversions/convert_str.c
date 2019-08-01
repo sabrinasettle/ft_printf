@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/02 12:33:59 by ssettle           #+#    #+#             */
-/*   Updated: 2019/07/30 16:45:02 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/07/31 17:35:07 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,28 +16,44 @@
 ** The only flag for str is l which creates a wchar_t.
 */
 
-// if (options.content_size == 0)
-// 		c = va_arg(ap, int);
-// 	else if (options.content_size == 108) //does not work
-// 		c = va_arg(ap, wchar_t);
-
 // if (pf_strcmp(tab->argument_flag, "l") == 0)
 // 		c = (unsigned long)va_arg(tab->args, unsigned long);
 // 	else if (tab->specifier_flag == 'C')
 // 		c = (wchar_t)va_arg(tab->args, wint_t);
+// why did he cast as such????
 
-// *com = ft_strcmp(flags->length, "l") == 0 ?
-// 		va_arg(options, wint_t) : va_arg(options, int);
 
-int		add_width_and_convert(t_opts options, va_list ap)
+int		change_data_type(t_opts options, va_list ap)
 {
+	char *c;
+	
 	if (options.content_size == 0)
-		c = va_arg(ap, int);
-	else if (options.content_size == 108) //does not work
-		c = va_arg(ap, wchar_t);
+		c = va_arg(ap, char*);
+	else if (options.content_size == 108)
+		c = (wchar_t)va_arg(ap, wchar_t);
+	return((int)(c); //return is wrong for the function
 }
 
 
+// Sam says to see if there is prec and len gets set by the default of the prec. 
+//Oterwise you allowed the entire str, ft_strsub
+int		convert_str(t_opts options, va_list ap)
+{
+	int		len;
+	char	*new_str;
+	
+	if (options.content_size >= 0)
+		new_str = change_data_type(options, ap);
+	
+	len = pf_strlen(new_str);
+	if (options.precision < len && options.precision)
+	{
+		
+	}
+	while (--len)
+		pf_putstr(new_str);
+	// free(new_string); proably will need this
+}
 
 
 
