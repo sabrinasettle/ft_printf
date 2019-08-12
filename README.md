@@ -72,6 +72,7 @@ Some absolutely great references:
 - https://www.menie.org/georges/embedded/small_printf_source_code.html
 - https://alvinalexander.com/programming/printf-format-cheat-sheet
 - http://www.ryanjuckett.com/programming/printing-floating-point-numbers/
+- https://www.cprogramming.com/tutorial/printf-format-strings.html
 
 Great article on dispatch tables:
 - https://blog.alicegoldfuss.com/function-dispatch-tables/
