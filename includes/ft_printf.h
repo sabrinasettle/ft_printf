@@ -6,12 +6,15 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/01 15:01:16 by ssettle           #+#    #+#             */
-/*   Updated: 2019/07/30 19:22:14 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/08/12 13:17:21 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
+
+# include <stdio.h> //testing
+
 
 # include <stdarg.h>
 # include <unistd.h>

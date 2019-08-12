@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/29 10:38:53 by ssettle           #+#    #+#             */
-/*   Updated: 2019/07/30 16:03:51 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/08/12 13:53:28 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,25 +64,35 @@ static int			getz_min_width(const char **format, va_list ap)
 static int			getz_theprecision(const char **format, va_list ap)
 {
 	int		mod_prec;
+	(void)ap; //testing
 
 	mod_prec = -1;
 	if (**format != '.')
+	{
+		printf("precision no flag detected\n");
 		return (false);
+	}
 	if (**format == '.')
 	{
+		printf("precision flag detected\n");
 		mod_prec = 0;
 		(*format)++;
 		if (IS_DIGIT(**format))
 		{
+			printf("found a digit\n");
 			while (IS_DIGIT(**format))
+			{
 				(*format)++;
+				mod_prec++; //is now counting the digits found, but only that so how to get the value of that digit to be applied???
+			}
 		}
-		else if (**format == '*')
-		{
-			mod_prec = va_arg(ap, int);
-			(*format)++;
-		}
+		// else if (**format == '*')
+		// {
+		// 	mod_prec = va_arg(ap, int);
+		// 	(*format)++;
+		// }
 	}
+	printf("mod_prec: %d", mod_prec);
 	return (mod_prec);
 }
 

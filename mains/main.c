@@ -25,11 +25,12 @@ int	main()
 	printf("printf minus: %-5c %c\n", '$', '%');
 	ft_printf("mine minus: %-5c %c\n", '$', '%');
 	pf_putchar('\n');
-	i = printf("|%c| \n", '\0');
+	i = printf("|%c| \n", '\0'); //checks for null character
 	printf("Return value: %d\n", i);
 	i = ft_printf("|%c| \n", '\0');
-	printf("Return value: %d\n", i);
+	printf("Return value: %d\n", i); //checks for null character
 	pf_putchar('\n');
+
 	// Ints and Ds 
 	// ft_printf ("printf: %d %ld\n", 1977, 650000L);
 	// printf ("mine: %d %ld\n", 1977, 650000L);
@@ -50,8 +51,12 @@ int	main()
 	// printf ("Width trick: %*d \n", 5, 10);
 
 	
-	// /* printf ("printf: %s \n", "A string");
-	// ft_printf ("mine: %s \n", "A string");
+	printf ("printf: %s \n", "A string");
+	ft_printf ("mine: %s \n", "A string"); //printing a zero, null terminating char??
+	pf_putchar('\n');
+	printf ("printf: %.5s \n", "abcdefg");
+	ft_printf ("mine: %.5s \n", "abcdefg"); //printing a zero, null terminating char??
+	ft_printf ("mine: %.10s \n", "abcdefg");
 	// pf_putchar('\n');
 	// printf ("printf string minus: %-10s %c\n", "A string", 'c');
 	// ft_printf ("mine string minus: %-10s %c\n", "A string", 'c');
@@ -59,9 +64,10 @@ int	main()
 	// printf("printf: hello, %s \n" , "gavin");
 	// ft_printf("mine: hello, %s \n" , "gavin");
 	// pf_putchar('\n'); */
+
 	//percent sign
-	printf("printf: %%\n");
-	ft_printf("mine: %%\n");
+	// printf("printf: %%\n");
+	// ft_printf("mine: %%\n");
 
 	// system("leaks test"); FOR LATER
 	return 0;

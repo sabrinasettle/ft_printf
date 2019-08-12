@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/02 12:33:59 by ssettle           #+#    #+#             */
-/*   Updated: 2019/07/31 17:35:07 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/08/12 13:40:27 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,16 +23,20 @@
 // why did he cast as such????
 
 
-int		change_data_type(t_opts options, va_list ap)
-{
-	char *c;
+// char		change_data_type(t_opts options, va_list ap)
+// {
+// 	char *c;
 	
-	if (options.content_size == 0)
-		c = va_arg(ap, char*);
-	else if (options.content_size == 108)
-		c = (wchar_t)va_arg(ap, wchar_t);
-	return((int)(c); //return is wrong for the function
-}
+// 	if (options.content_size == 0)
+// 		c = va_arg(ap, char*);
+// 	else
+// 		c = (wchar_t)va_arg(ap, wchar_t);
+// 	return(*c); //return is wrong for the function
+// }
+
+
+
+// if presicion exists (.) then the len designated from that is applied to the str. so 5 on abcdefg becomes abcde
 
 
 // Sam says to see if there is prec and len gets set by the default of the prec. 
@@ -40,19 +44,32 @@ int		change_data_type(t_opts options, va_list ap)
 int		convert_str(t_opts options, va_list ap)
 {
 	int		len;
-	char	*new_str;
+	// char	*new_str;
+	char	*str;
+	int		i;
 	
-	if (options.content_size >= 0)
-		new_str = change_data_type(options, ap);
+	len = 0; //testing
+	str = (char *)va_arg(ap, char *);
+	i = 0;
+	while (str[i] != '\0')
+		write(1, &str[i++], 1);
+	// if (options.content_size >= 0)
+	// 	new_str = change_data_type(options, ap);
+	// printf("content size: %d", options.content_size); //testing
 	
-	len = pf_strlen(new_str);
+
+	
+	printf("presion size: %d", options.precision);
+	// len = pf_strlen(new_str);
+	
 	if (options.precision < len && options.precision)
 	{
 		
 	}
-	while (--len)
-		pf_putstr(new_str);
+	// while (--len)
+		// pf_putstr(new_str);
 	// free(new_string); proably will need this
+	return (i);
 }
 
 
