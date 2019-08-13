@@ -44,35 +44,40 @@
 int		convert_str(t_opts options, va_list ap)
 {
 	int		len;
-	// char	*new_str;
+	int		new_len;
+	char	*new_str;
 	char	*str;
 	int		i;
 	
 	len = 0; //testing
 	str = (char *)va_arg(ap, char *);
 	i = 0;
-	while (str[i] != '\0')
-		write(1, &str[i++], 1);
 	// if (options.content_size >= 0)
 	// 	new_str = change_data_type(options, ap);
 	// printf("content size: %d", options.content_size); //testing
 	
-
-	
 	printf("presion size: %d", options.precision);
-	// len = pf_strlen(new_str);
-	
+	len = pf_strlen(str);
+	printf("str len: %d", len);
+	// str = pf_strdup(str, len);
 	if (options.precision < len && options.precision)
 	{
-		
+		new_len = options.precision;
+		printf("new_len: %d", new_len);
+		new_str = pf_strsub(str, 0, new_len);
+		pf_putstr(new_str);
 	}
+	// while (str[i] != '\0')
+		// write(1, &str[i++], 1); //prints the str just fine
+	pf_putstr(str);
 	// while (--len)
 		// pf_putstr(new_str);
 	// free(new_string); proably will need this
+	// free (str);
 	return (i);
 }
 
-
+//praticce with strsub
 
 
 

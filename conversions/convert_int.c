@@ -34,9 +34,9 @@
 // j = intmax_t 106
 // z = size_t 122
 
-int     content_sizing(t_opts options, va_list ap)
+int     content_sizing(t_opts options, va_list ap) //instead of options-> int?
 {
-    char c;
+    int64_t c;
     
 	if (options.content_size == 0)
 		c = va_arg(ap, int);
@@ -55,7 +55,31 @@ int     content_sizing(t_opts options, va_list ap)
     return(c);
 }
 
+
+void	put_sign()
+{
+
+}
+
 int     content_int(t_opts options, va_list ap)
 {
-    
+	char	*str;
+	int		str_len;
+	int 	n;
+	int		neg;
+
+	n = content_sizing(options, ap);
+	neg = (n < 0) ? 1 : 0;
+	str = pf_itoa(va_arg(options, int); //abs?
+	if ()
+		// str =padd_string_left(string, &length, special, str);
+	if ()
+		// str = padd_string_right(string, length, special, str);
+	if ()
+		
+    pf_putstr(str);
+	str_len = ft_strlen(str);
+	// free(str);
+	return(str_len);
+
 }
