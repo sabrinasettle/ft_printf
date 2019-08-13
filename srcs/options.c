@@ -63,10 +63,10 @@ static int			getz_min_width(const char **format, va_list ap)
 
 static int			getz_theprecision(const char **format, va_list ap)
 {
-	int		mod_prec;
+	int		prec;
 	(void)ap; //testing
 
-	mod_prec = -1;
+	prec = -1;
 	if (**format != '.')
 	{
 		printf("precision no flag detected\n");
@@ -79,11 +79,12 @@ static int			getz_theprecision(const char **format, va_list ap)
 		(*format)++;
 		if (IS_DIGIT(**format))
 		{
+			prec = atoi(*format);
 			printf("found a digit\n");
 			while (IS_DIGIT(**format))
 			{
 				(*format)++;
-				mod_prec++; //is now counting the digits found, but only that so how to get the value of that digit to be applied???
+				prec++; //is now counting the digits found, but only that so how to get the value of that digit to be applied???
 			}
 		}
 		// else if (**format == '*')
@@ -92,8 +93,8 @@ static int			getz_theprecision(const char **format, va_list ap)
 		// 	(*format)++;
 		// }
 	}
-	printf("mod_prec: %d", mod_prec);
-	return (mod_prec);
+	printf("prec: %d", prec);
+	return (prec);
 }
 
 /*
