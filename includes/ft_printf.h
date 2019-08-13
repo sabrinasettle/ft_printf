@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/01 15:01:16 by ssettle           #+#    #+#             */
-/*   Updated: 2019/08/12 13:17:21 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/08/13 10:08:23 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,6 +117,7 @@ char						*padding_l_an_u_h(char *s, int len, t_opts options);
 ** TOOLS
 */
 
+char						*pf_strsub(char const *s, unsigned int start, size_t len);
 char						*pf_strcpy(char *s1, const char *s2);
 char						*pf_strdup(const char *src);
 int							pf_atoi(const char *str);

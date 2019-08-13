@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/02 12:33:59 by ssettle           #+#    #+#             */
-/*   Updated: 2019/08/12 13:40:27 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/08/13 11:41:48 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,14 +26,14 @@
 // char		change_data_type(t_opts options, va_list ap)
 // {
 // 	char *c;
-	
-// 	if (options.content_size == 0)
-// 		c = va_arg(ap, char*);
-// 	else
+// 	c = (char *)va_arg(ap, char *);
+// 	if (options.content_size > 0)
 // 		c = (wchar_t)va_arg(ap, wchar_t);
-// 	return(*c); //return is wrong for the function
+// 	return(&c); //return is wrong for the function
 // }
 
+
+// if minus is is true then padd on the right
 
 
 // if presicion exists (.) then the len designated from that is applied to the str. so 5 on abcdefg becomes abcde
@@ -52,33 +52,37 @@ int		convert_str(t_opts options, va_list ap)
 	len = 0; //testing
 	str = (char *)va_arg(ap, char *);
 	i = 0;
-	// if (options.content_size >= 0)
-	// 	new_str = change_data_type(options, ap);
+	// if (options.content_size > 0)
+	// 	str = change_data_type(options, ap);
 	// printf("content size: %d", options.content_size); //testing
 	
-	printf("presion size: %d", options.precision);
+	// printf("presion size: %d\n", options.precision); //comes back correct
 	len = pf_strlen(str);
-	printf("str len: %d", len);
-	// str = pf_strdup(str, len);
-	if (options.precision < len && options.precision)
+	// printf("str len: %d\n", len);
+	if (options.precision <= len && options.precision)
 	{
 		new_len = options.precision;
-		printf("new_len: %d", new_len);
+		// printf("new_len: %d\n", new_len);
 		new_str = pf_strsub(str, 0, new_len);
 		pf_putstr(new_str);
 	}
-	// while (str[i] != '\0')
-		// write(1, &str[i++], 1); //prints the str just fine
-	pf_putstr(str);
-	// while (--len)
-		// pf_putstr(new_str);
+	else
+		pf_putstr(str);
+	printf("length:%d", options.width_field);
+
+	//strjoin subract the len from the width ELIIII
+	
+	
+
+
+
+	
 	// free(new_string); proably will need this
 	// free (str);
 	return (i);
 }
 
 //praticce with strsub
-
 
 
 

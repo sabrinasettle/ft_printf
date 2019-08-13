@@ -6,7 +6,7 @@
 #    By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/07/22 13:48:05 by ssettle           #+#    #+#              #
-#    Updated: 2019/08/12 13:22:54 by ssettle          ###   ########.fr        #
+#    Updated: 2019/08/13 10:09:21 by ssettle          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,6 +41,7 @@ TOOLS = tools/pf_atoi.c \
 		tools/pf_strdup.c \
 		tools/pf_strcpy.c \
 		tools/pf_putstr.c \
+		tools/pf_strsub.c
 		
 OBJ = *.o
 

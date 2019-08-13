@@ -56,10 +56,14 @@ int	main()
 	pf_putchar('\n');
 	printf ("printf: %.5s \n", "abcdefg");
 	ft_printf ("mine: %.5s \n", "abcdefg"); //printing a zero, null terminating char??
-	ft_printf ("mine: %.10s \n", "abcdefg");
-	// pf_putchar('\n');
-	// printf ("printf string minus: %-10s %c\n", "A string", 'c');
-	// ft_printf ("mine string minus: %-10s %c\n", "A string", 'c');
+	pf_putchar('\n');
+	// printf ("printf: %lls \n", "abcdefg");
+	// ft_printf ("mine: %lls \n", "abcdefg");
+	printf ("printf: %10s \n", "abcdefg");
+	ft_printf ("mine: %10s \n", "abcdefg");
+	pf_putchar('\n');
+	printf ("printf string minus: %-10s%c\n", "A string",'c');
+	ft_printf ("mine string minus: %-10s%c\n", "A string",'c');
 	// pf_putchar('\n');
 	// printf("printf: hello, %s \n" , "gavin");
 	// ft_printf("mine: hello, %s \n" , "gavin");
