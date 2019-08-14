@@ -73,6 +73,7 @@ Some absolutely great references:
 - https://alvinalexander.com/programming/printf-format-cheat-sheet
 - http://www.ryanjuckett.com/programming/printing-floating-point-numbers/
 - https://www.cprogramming.com/tutorial/printf-format-strings.html
+- https://www.cypress.com/file/54441/download
 
 Great article on dispatch tables:
 - https://blog.alicegoldfuss.com/function-dispatch-tables/
