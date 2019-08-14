@@ -31,23 +31,30 @@
 // 		c = (wchar_t)va_arg(ap, wchar_t);
 // 	return(&c); //return is wrong for the function
 // }
-
+// int		padding_str_right(t_opts options, char *str)
+// {
+	
+// }
 
 // if minus is is true then padd on the right
-int		padding_str(t_opts options, char *str)
+char		padding_str(t_opts options, char *str)
 {
 	int wd_len;
 	int len;
 	int new_len;
+	char *new_str;
 
 	len = ft_strlen(str);
 	wd_len = options.width_field;
-	new_len = wd_len;
-	while (options.width_field != -1 && options.flags.minus)
-	{
-		
-	}
-
+	pf_memset(new_str, ' ', wd_len);
+	new_str[wd_len] = '\0';
+	if (options.flags.minus)
+		pf_strncpy(new_str, str, len);
+	else
+		new_len = wd_len - len;
+		pf_strncpy(&new_str[new_len], str, len)
+	free(str);
+	return(new_str);
 }
 // if presicion exists (.) then the len designated from that is applied to the str. so 5 on abcdefg becomes abcde
 
@@ -58,13 +65,11 @@ int		convert_str(t_opts options, va_list ap)
 {
 	int		len;
 	int		new_len;
-	// char	*new_str;
+	char	*new_str;
+	char	*dup_str;
 	char	*str;
-	int		i;
 	
-	len = 0; //testing
 	str = (char *)va_arg(ap, char *);
-	i = 0;
 	// if (options.content_size > 0)
 	// 	str = change_data_type(options, ap);
 	// printf("content size: %d", options.content_size); //testing
@@ -73,6 +78,8 @@ int		convert_str(t_opts options, va_list ap)
 	len = pf_strlen(str);
 	// printf("str len: %d\n", len);
 	// printf("length1:%d\n", options.width_field);
+
+	//ok so this needs to be sandwiched between the padding
 	if (options.precision <= len && options.precision)
 	{
 		len = options.precision;
@@ -80,6 +87,13 @@ int		convert_str(t_opts options, va_list ap)
 		(void)options.flags.minus;
 		new_str = pf_strsub(str, 0, len);
 		pf_putstr(new_str);
+		free(new_str); //maybe?
+	}
+	// pf_putstr(str);
+	pf_strdup(str);
+	if (options.width_field > len)
+	{
+		str = padding_str(options, str);
 	}
 	
 	// printf("length:%d\n", options.width_field);
@@ -90,6 +104,7 @@ int		convert_str(t_opts options, va_list ap)
 
 
 	pf_putstr(str);
+	len = pf_strlen(str);
 	// free(new_string); proably will need this
 	// free (str);
 	// printf("new_len: %d\n", new_len);
