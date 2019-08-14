@@ -34,14 +34,21 @@
 
 
 // if minus is is true then padd on the right
-// int		padding_str(t_opts options)
-// {
-// 	while (options.width_field != 0 && options.flags.minus)
-// 	{
-		
-// 	}
+int		padding_str(t_opts options, char *str)
+{
+	int wd_len;
+	int len;
+	int new_len;
 
-// }
+	len = ft_strlen(str);
+	wd_len = options.width_field;
+	new_len = wd_len;
+	while (options.width_field != -1 && options.flags.minus)
+	{
+		
+	}
+
+}
 // if presicion exists (.) then the len designated from that is applied to the str. so 5 on abcdefg becomes abcde
 
 
@@ -51,7 +58,7 @@ int		convert_str(t_opts options, va_list ap)
 {
 	int		len;
 	int		new_len;
-	char	*new_str;
+	// char	*new_str;
 	char	*str;
 	int		i;
 	
@@ -66,22 +73,6 @@ int		convert_str(t_opts options, va_list ap)
 	len = pf_strlen(str);
 	// printf("str len: %d\n", len);
 	// printf("length1:%d\n", options.width_field);
-	new_len = options.width_field;
-	// printf("new_len: %d", new_len);
-	while (new_len > 1)
-	{
-		new_len--;
-		pf_putchar(' ');
-	}
-	// new_len = options.width_field - len;
-	// printf("new_len: %d", new_len);
-	while (new_len > 1 && options.flags.minus)
-	{
-		new_len--;
-		// options.width_field--;
-		pf_putchar(' ');
-		// len++;
-	}
 	if (options.precision <= len && options.precision)
 	{
 		len = options.precision;
@@ -98,8 +89,7 @@ int		convert_str(t_opts options, va_list ap)
 	
 
 
-	else
-		pf_putstr(str);
+	pf_putstr(str);
 	// free(new_string); proably will need this
 	// free (str);
 	// printf("new_len: %d\n", new_len);
