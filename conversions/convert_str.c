@@ -66,7 +66,7 @@ int		convert_str(t_opts options, va_list ap)
 	int		len;
 	int		new_len;
 	char	*new_str;
-	char	*dup_str;
+	// char	*dup_str;
 	char	*str;
 	
 	str = (char *)va_arg(ap, char *);

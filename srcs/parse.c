@@ -12,15 +12,6 @@
 
 #include "../includes/ft_printf.h"
 
-// int print_normally(char **format)
-// {
-//     pf_putchar(**format);
-//     (*format)++;
-//     return(1);
-// }
-
-
-
 int v_parse(const char *format, va_list ap)
 {
     size_t i;
