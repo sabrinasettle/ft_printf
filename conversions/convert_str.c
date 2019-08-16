@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/02 12:33:59 by ssettle           #+#    #+#             */
-/*   Updated: 2019/08/16 12:11:10 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/08/16 12:56:10 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,18 @@
 	
 // }
 
+char	*str_prec(t_opts options, char *str)
+{
+	int32_t		len;
+	char 		*new_str;
+
+	len = options.precision;
+	(void)options.flags.minus;
+	new_str = pf_strsub(str, 0, len);
+	return(new_str);
+	// free(new_str);
+}
+
 // if minus is is true then padd on the right
 char		*padding_str(t_opts options, char *str)
 {
@@ -50,26 +62,20 @@ char		*padding_str(t_opts options, char *str)
 	new_str = pf_strdup(str);
 	pf_memset(new_str, ' ', wd_len);
 	new_str[wd_len] = '\0';
-	if (options.flags.minus > 0)
+	if (options.flags.minus >= 1)
 		pf_strncpy(new_str, str, len);
 	else
 		new_len = wd_len - len;
 		pf_strncpy(&new_str[new_len], str, len);
-	// free(str);
 	return(new_str);
+	// free(str);
 }
-// if presicion exists (.) then the len designated from that is applied to the str. so 5 on abcdefg becomes abcde
 
-
-// Sam says to see if there is prec and len gets set by the default of the prec. 
-//Oterwise you allowed the entire str, ft_strsub
 int		convert_str(t_opts options, va_list ap)
 {
 	int32_t		len;
-	// int				new_len;
-	char			*new_str;
-	// char	*dup_str;
-	char			*str;
+	char		*new_str;
+	char		*str;
 	
 	str = (char *)va_arg(ap, char *);
 	// if (options.content_size > 0)
@@ -77,38 +83,25 @@ int		convert_str(t_opts options, va_list ap)
 	// printf("content size: %d", options.content_size); //testing
 	
 	len = pf_strlen(str);
-	//ok so this needs to be sandwiched between the padding
-	if (options.precision <= len && options.precision)
-	{
-		len = options.precision;
-		// printf("new_len: %d\n", new_len);
-		(void)options.flags.minus;
-		new_str = pf_strsub(str, 0, len);
-		pf_putstr(new_str);
-		free(new_str); //maybe?
-		// free(str);
-	}
-	// pf_putstr(str);
-	// pf_strdup(str);
 	if (options.width_field > len)
 	{
-		 new_str = padding_str(options, str);
-		 pf_putstr(new_str);
+		new_str = padding_str(options, str);
+		if (options.precision <= len && options.precision)
+			new_str = padding_str(options, str_prec(options, str));
+		pf_putstr(new_str);
 	}
-	
-	// printf("length:%d\n", options.width_field);
-
-	//strjoin subract the len from the width ELIIII
-	
-	
-
-
-	// pf_putstr(str);
+	else if (options.precision <= len && options.precision)
+	{
+		new_str = str_prec(options, str);
+		pf_putstr(new_str);
+		free(new_str);
+		// free(str);
+	}
+	else 
+		pf_putstr(str);
 	len = pf_strlen(str);
 	// free(new_string); proably will need this
 	// free (str);
-	// printf("new_len: %d\n", new_len);
-	// printf("\nlen: %d\n", len);
 	return (len);
 }
 
