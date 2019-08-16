@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/02 12:33:59 by ssettle           #+#    #+#             */
-/*   Updated: 2019/08/13 14:11:00 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/08/16 12:11:10 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,23 +37,25 @@
 // }
 
 // if minus is is true then padd on the right
-char		padding_str(t_opts options, char *str)
+char		*padding_str(t_opts options, char *str)
 {
 	int wd_len;
 	int len;
 	int new_len;
 	char *new_str;
 
-	len = ft_strlen(str);
+	new_len = 0;
+	len = pf_strlen(str);
 	wd_len = options.width_field;
+	new_str = pf_strdup(str);
 	pf_memset(new_str, ' ', wd_len);
 	new_str[wd_len] = '\0';
-	if (options.flags.minus)
+	if (options.flags.minus > 0)
 		pf_strncpy(new_str, str, len);
 	else
 		new_len = wd_len - len;
-		pf_strncpy(&new_str[new_len], str, len)
-	free(str);
+		pf_strncpy(&new_str[new_len], str, len);
+	// free(str);
 	return(new_str);
 }
 // if presicion exists (.) then the len designated from that is applied to the str. so 5 on abcdefg becomes abcde
@@ -63,22 +65,18 @@ char		padding_str(t_opts options, char *str)
 //Oterwise you allowed the entire str, ft_strsub
 int		convert_str(t_opts options, va_list ap)
 {
-	int		len;
-	int		new_len;
-	char	*new_str;
+	int32_t		len;
+	// int				new_len;
+	char			*new_str;
 	// char	*dup_str;
-	char	*str;
+	char			*str;
 	
 	str = (char *)va_arg(ap, char *);
 	// if (options.content_size > 0)
 	// 	str = change_data_type(options, ap);
 	// printf("content size: %d", options.content_size); //testing
 	
-	// printf("presion size: %d\n", options.precision); //comes back correct
 	len = pf_strlen(str);
-	// printf("str len: %d\n", len);
-	// printf("length1:%d\n", options.width_field);
-
 	//ok so this needs to be sandwiched between the padding
 	if (options.precision <= len && options.precision)
 	{
@@ -88,12 +86,14 @@ int		convert_str(t_opts options, va_list ap)
 		new_str = pf_strsub(str, 0, len);
 		pf_putstr(new_str);
 		free(new_str); //maybe?
+		// free(str);
 	}
 	// pf_putstr(str);
-	pf_strdup(str);
+	// pf_strdup(str);
 	if (options.width_field > len)
 	{
-		str = padding_str(options, str);
+		 new_str = padding_str(options, str);
+		 pf_putstr(new_str);
 	}
 	
 	// printf("length:%d\n", options.width_field);
@@ -103,7 +103,7 @@ int		convert_str(t_opts options, va_list ap)
 	
 
 
-	pf_putstr(str);
+	// pf_putstr(str);
 	len = pf_strlen(str);
 	// free(new_string); proably will need this
 	// free (str);

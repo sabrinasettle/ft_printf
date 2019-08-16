@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/01 15:01:16 by ssettle           #+#    #+#             */
-/*   Updated: 2019/08/13 10:08:23 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/08/16 11:54:36 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ typedef struct				s_flags
 typedef struct				s_opts
 {
 	t_flags					flags;
-	uint32_t				width_field;
+	int						width_field;
 	int32_t					precision;
 	uint32_t				content_size;
 	int						total_length_opts;
@@ -119,11 +119,13 @@ char						*padding_l_an_u_h(char *s, int len, t_opts options);
 
 char						*pf_strsub(char const *s, unsigned int start, size_t len);
 char						*pf_strcpy(char *s1, const char *s2);
+char						*pf_strncpy(char *s1, const char *s2, size_t n);
 char						*pf_strdup(const char *src);
 int							pf_atoi(const char *str);
 int							int_putchar(char c);
 size_t						pf_strlen(const char *str);
 void						pf_putchar(char c);
+void						*pf_memset(void *b, int c, size_t ln);
 void 						pf_putstr(char *str);
 
 /*
