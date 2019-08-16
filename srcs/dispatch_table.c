@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/02 12:12:04 by ssettle           #+#    #+#             */
-/*   Updated: 2019/08/12 13:22:05 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/08/16 13:55:28 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ const	t_dispatch_table		g_convert_table[] = {
 	{'S', &convert_str},
 	// {'f', &convert_float},		//with the flags l and L
 	// {'p', &convert_pointer},
-	// {'d', &convert_int},			//with the flags hh, h, l, and ll
-	// {'i', &convert_int},			//with the flags hh, h, l, and ll
+	{'d', &convert_int},			//with the flags hh, h, l, and ll
+	{'i', &convert_int},			//with the flags hh, h, l, and ll
 	// {'o', &convert_octal},		//with the flags hh, h, l, and ll
 	// {'u', &convert_uint},		//with the flags hh, h, l, and ll
 	// {'x', &convert_hex},			//with the flags hh, h, l, and ll

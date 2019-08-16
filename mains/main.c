@@ -7,6 +7,9 @@ int	main()
 	int		i;
 
 	// Char tests
+	printf("%15s", "CHAR");
+	pf_putchar('\n');
+	pf_putchar('\n');
 	printf ("prin: %c %c \n", 'a', 65);
 	ft_printf("mine: %c %c \n", 'a', 65);
 	pf_putchar('\n');
@@ -32,15 +35,15 @@ int	main()
 	pf_putchar('\n');
 
 	// Ints and Ds 
-	// ft_printf ("printf: %d %ld\n", 1977, 650000L);
-	// printf ("mine: %d %ld\n", 1977, 650000L);
-	// pf_putchar('\n');
-	// ft_printf("Preceding with blanks: %10d \n", 1977);
-	// printf ("Preceding with blanks: %10d \n", 1977);
-
-	// ft_printf("Preceding with zeros: %010d \n", 1977);
-	// printf ("Preceding with zeros: %010d \n", 1977);
-
+	printf ("pf: %d %ld\n", 1977, 650000L);
+	// ft_printf ("me: %d %ld\n", 1977, 650000L);
+	pf_putchar('\n');
+	printf ("pf preceding with blanks: %10d \n", 1977);
+	// ft_printf("me preceding with blanks: %10d \n", 1977);
+	pf_putchar('\n');
+	printf ("pf preceding with zeros: %010d \n", 1977);
+	// ft_printf("me preceding with zeros: %010d \n", 1977);
+	pf_putchar('\n');
 	// ft_printf("Some different radices: %d %x %o %#x %#o \n", 100, 100, 100, 100, 100);
 	// printf ("Some different radices: %d %x %o %#x %#o \n", 100, 100, 100, 100, 100);
 
@@ -50,31 +53,36 @@ int	main()
 	// ft_printf("Width trick: %*d \n", 5, 10);
 	// printf ("Width trick: %*d \n", 5, 10);
 
-	
-	printf ("prin: %s \n", "A string");
-	ft_printf ("mine: %s \n", "A string"); //printing a zero, null terminating char??
+	printf("%15s", "STRINGS");
 	pf_putchar('\n');
-	printf ("prin: %.5s \n", "abcdefg");
-	ft_printf ("mine: %.5s \n", "abcdefg"); //printing a zero, null terminating char??
 	pf_putchar('\n');
-	printf ("prin: %-10.5s %c\n", "abcdefg", 's');
-	ft_printf ("mine: %-10.5s %c\n", "abcdefg", 's'); //printing a zero, null terminating char??
+	printf ("pf a simple string: %s \n", "A string");
+	ft_printf ("me a simple string: %s \n", "A string"); //printing a zero, null terminating char??
+	pf_putchar('\n');
+	printf ("pf prec test: %.5s \n", "abcdefg");
+	ft_printf ("me prec test: %.5s \n", "abcdefg"); //printing a zero, null terminating char??
+	pf_putchar('\n');
+	printf ("pf prec and pad: %-10.5s %c\n", "abcdefg", 's');
+	ft_printf ("me prec and pad: %-10.5s %c\n", "abcdefg", 's'); //printing a zero, null terminating char??
+	pf_putchar('\n');
+	printf ("pf 10 pad: %10s \n", "abcdefg");
+	ft_printf ("me 10 pad: %10s \n", "abcdefg");
+	pf_putchar('\n');
+	printf ("pf string minus pad: %-10s%c\n", "A string",'c');
+	ft_printf ("me string minus pad: %-10s%c\n", "A string",'c');
+	pf_putchar('\n');
+	printf("pf: hello, %s \n" , "gavin");
+	ft_printf("me: hello, %s \n" , "gavin");
 	pf_putchar('\n');
 	// printf ("printf: %lls \n", "abcdefg");
 	// ft_printf ("mine: %lls \n", "abcdefg");
-	printf ("prin 10 padding: %10s \n", "abcdefg");
-	ft_printf ("mine 10 padding: %10s \n", "abcdefg");
-	pf_putchar('\n');
-	printf ("prin string minus: %-10s%c\n", "A string",'c');
-	ft_printf ("mine string minus: %-10s%c\n", "A string",'c');
-	pf_putchar('\n');
-	// printf("printf: hello, %s \n" , "gavin");
-	// ft_printf("mine: hello, %s \n" , "gavin");
-	// pf_putchar('\n'); */
 
 	// percent sign
-	printf("prin: %%\n");
-	ft_printf("mine: %%\n");
+	printf("%15s", "PERCENT");
+	pf_putchar('\n');
+	pf_putchar('\n');
+	printf("pf percent: %%\n");
+	ft_printf("me percent: %%\n");
 
 	// system("leaks test"); FOR LATER
 	return 0;

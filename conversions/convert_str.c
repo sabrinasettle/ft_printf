@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/02 12:33:59 by ssettle           #+#    #+#             */
-/*   Updated: 2019/08/16 12:56:10 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/08/16 13:17:47 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,6 @@ char	*str_prec(t_opts options, char *str)
 	// free(new_str);
 }
 
-// if minus is is true then padd on the right
 char		*padding_str(t_opts options, char *str)
 {
 	int wd_len;

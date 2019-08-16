@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/02 12:33:44 by ssettle           #+#    #+#             */
-/*   Updated: 2019/07/30 18:30:19 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/08/16 14:03:33 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ int     content_sizing(t_opts options, va_list ap) //instead of options-> int?
 }
 
 
-void	put_sign()
+void	put_sign(t_opts options, )
 {
 
 }
@@ -70,8 +70,11 @@ int     content_int(t_opts options, va_list ap)
 
 	n = content_sizing(options, ap);
 	neg = (n < 0) ? 1 : 0;
-	str = pf_itoa(va_arg(options, int); //abs?
-	if ()
+	str = pf_itoa((char *)va_arg(options, int); //abs?
+	if (neg)
+	{
+		pf_putchar('-');
+	}
 		// str =padd_string_left(string, &length, special, str);
 	if ()
 		// str = padd_string_right(string, length, special, str);
