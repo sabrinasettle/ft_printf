@@ -48,5 +48,4 @@ int		convert_hex(t_opts f_opts, va_list ap)
 	// len = 
 
 
-	error_check(f_opts);
 }

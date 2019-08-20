@@ -31,10 +31,7 @@
 // 		c = (wchar_t)va_arg(ap, wchar_t);
 // 	return(&c); //return is wrong for the function
 // }
-// int		padding_str_right(t_opts options, char *str)
-// {
-	
-// }
+
 
 char	*str_prec(t_opts options, char *str)
 {
