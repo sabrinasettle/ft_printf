@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/02 12:33:44 by ssettle           #+#    #+#             */
-/*   Updated: 2019/08/16 14:03:33 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/08/22 10:11:38 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,21 +91,17 @@
 
 // padding with zeros needs to happen as well
 
+
 int     convert_int(t_opts options, va_list ap)
 {
 	char		*str;
 	int			str_len;
-	int64_t 	n;
-	int			neg;
+	// int64_t 	n;
+	// int			neg;
+	(void)options;
 
-	// n = content_sizing(options, ap);
-	neg = (n < 0) ? 1 : 0; //could be macro???
-	str = pf_itoa((char *)va_arg(options, int); //abs?
-	if (neg)
-	{
-		pf_putchar('-');
-		ft_printf("I returned negative!");
-	}
+	str = pf_itoa(va_arg(ap, int)); //abs?
+	
 	// if (options.width_field > len)
 	// {
 	// 	new_str = padding_str(options, str);
@@ -122,7 +118,7 @@ int     convert_int(t_opts options, va_list ap)
 	// }
 	// else 
 	pf_putstr(str);
-	str_len = ft_strlen(str);
+	str_len = pf_strlen(str);
 	// free(str);
 	return(str_len);
 

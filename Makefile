@@ -6,7 +6,7 @@
 #    By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/07/22 13:48:05 by ssettle           #+#    #+#              #
-#    Updated: 2019/08/16 13:56:06 by ssettle          ###   ########.fr        #
+#    Updated: 2019/08/22 09:57:07 by ssettle          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,9 +27,7 @@ CONVERT = conversions/convert_char.c \
 			#conversions/convert_float.c \
 			conversions/convert_hex.c \
 			conversions/convert_octal.c \
-			conversions/convert_percent.c \
 			conversions/convert_pointer.c \
-			conversions/convert_str.c  \
 			#conversions/convert_uint.c \
 			conversions/convert_upper_uint.c \
  			conversions/convert_upper_hex.c 
@@ -42,6 +40,7 @@ TOOLS = tools/pf_atoi.c \
 		tools/pf_strsub.c \
 		tools/pf_memset.c \
 		tools/pf_strncpy.c \
+		tools/pf_itoa.c \
 		
 OBJ = *.o
 

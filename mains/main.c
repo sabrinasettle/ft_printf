@@ -7,7 +7,7 @@ int	main()
 	int		i;
 
 	// Char tests
-	printf("%15s", "CHAR");
+	// printf("%15s", "CHAR\n");
 	pf_putchar('\n');
 	pf_putchar('\n');
 	printf ("prin: %c %c \n", 'a', 65);
@@ -35,15 +35,21 @@ int	main()
 	pf_putchar('\n');
 
 	// Ints and Ds 
-	printf ("pf: %d %ld\n", 1977, 650000L);
+	printf("pf: %d, %d\n", 42, 21);
+	ft_printf("me: %d, %d\n", 42, 21);
+	pf_putchar('\n');
+	printf("pf: %d\n", -42);
+	ft_printf("me: %d\n", -42);
+	pf_putchar('\n');
+	// printf ("pf: %d %ld\n", 1977, 650000L);
 	// ft_printf ("me: %d %ld\n", 1977, 650000L);
-	pf_putchar('\n');
-	printf ("pf preceding with blanks: %10d \n", 1977);
+	// pf_putchar('\n');
+	// printf ("pf preceding with blanks: %10d \n", 1977);
 	// ft_printf("me preceding with blanks: %10d \n", 1977);
-	pf_putchar('\n');
-	printf ("pf preceding with zeros: %010d \n", 1977);
+	// pf_putchar('\n');
+	// printf ("pf preceding with zeros: %010d \n", 1977);
 	// ft_printf("me preceding with zeros: %010d \n", 1977);
-	pf_putchar('\n');
+	// pf_putchar('\n');
 	// ft_printf("Some different radices: %d %x %o %#x %#o \n", 100, 100, 100, 100, 100);
 	// printf ("Some different radices: %d %x %o %#x %#o \n", 100, 100, 100, 100, 100);
 
@@ -53,7 +59,7 @@ int	main()
 	// ft_printf("Width trick: %*d \n", 5, 10);
 	// printf ("Width trick: %*d \n", 5, 10);
 
-	printf("%15s", "STRINGS");
+	// printf("%15s\n", "STRINGS\n");
 	pf_putchar('\n');
 	pf_putchar('\n');
 	printf ("pf a simple string: %s \n", "A string");
@@ -78,7 +84,7 @@ int	main()
 	// ft_printf ("mine: %lls \n", "abcdefg");
 
 	// percent sign
-	printf("%15s", "PERCENT");
+	// printf("%15s", "PERCENT");
 	pf_putchar('\n');
 	pf_putchar('\n');
 	printf("pf percent: %%\n");

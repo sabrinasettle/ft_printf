@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/01 15:01:16 by ssettle           #+#    #+#             */
-/*   Updated: 2019/08/16 11:54:36 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/08/22 10:05:39 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -127,6 +127,8 @@ size_t						pf_strlen(const char *str);
 void						pf_putchar(char c);
 void						*pf_memset(void *b, int c, size_t ln);
 void 						pf_putstr(char *str);
+char						*pf_itoa(int n);
+
 
 /*
 ** OPTION FUNCTION
