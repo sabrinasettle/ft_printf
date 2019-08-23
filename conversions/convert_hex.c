@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/02 12:33:39 by ssettle           #+#    #+#             */
-/*   Updated: 2019/07/30 18:37:53 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/08/23 10:09:40 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,10 +42,11 @@ int		convert_hex(t_opts f_opts, va_list ap)
 {
 	int	len;
 	unsigned int num;
+	char		str;
 
 	len = 0;
-	num = va_arg(ap, unsigned int);
+	str = pf_itoa(va_arg(ap, unsigned int));
 	// len = 
-
+	pf_putstr(str);
 
 }

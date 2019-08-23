@@ -33,6 +33,7 @@ int	main()
 	i = ft_printf("|%c| \n", '\0');
 	printf("Return value: %d\n", i); //checks for null character
 	pf_putchar('\n');
+	pf_putchar('\n');
 
 	// Ints and Ds 
 	printf("pf: %d, %d\n", 42, 21);
@@ -41,15 +42,33 @@ int	main()
 	printf("pf: %d\n", -42);
 	ft_printf("me: %d\n", -42);
 	pf_putchar('\n');
-	// printf ("pf: %d %ld\n", 1977, 650000L);
-	// ft_printf ("me: %d %ld\n", 1977, 650000L);
-	// pf_putchar('\n');
-	// printf ("pf preceding with blanks: %10d \n", 1977);
-	// ft_printf("me preceding with blanks: %10d \n", 1977);
-	// pf_putchar('\n');
-	// printf ("pf preceding with zeros: %010d \n", 1977);
-	// ft_printf("me preceding with zeros: %010d \n", 1977);
-	// pf_putchar('\n');
+	printf("pf: %d, %d, %d, %ld\n", 42, -21, 69,  -2174963257925);
+	ft_printf("me: %d, %d, %d, %ld\n", 42, -21, 69, -2174963257925);
+	pf_putchar('\n');
+	printf("pf: %03d\n", 1993);
+	ft_printf("pf: %.3d\n", 1993);
+	pf_putchar('\n');
+	printf("pf: %.3d\n", -1993);
+	ft_printf("pf: %.3d\n", -1993);
+	pf_putchar('\n');
+	printf ("pf: %d %ld\n", 1977, 650000L);
+	ft_printf ("me: %d %ld\n", 1977, 650000L);
+	pf_putchar('\n');
+	printf ("pf preceding with blanks: %10d \n", 1977);
+	ft_printf("me preceding with blanks: %10d \n", 1977);
+	pf_putchar('\n');
+	printf ("pf: %10d \n", -1977);
+	ft_printf("me: %10d \n", -1977);
+	pf_putchar('\n');
+	printf ("pf: %-10d \n", 1977);
+	ft_printf("me: %-10d \n", 1977);
+	pf_putchar('\n');
+	printf ("pf: %-10d \n", -1977);
+	ft_printf("me: %-10d \n", -1977);
+	pf_putchar('\n');
+	printf ("pf preceding with zeros: %010d \n", 1977);
+	ft_printf("me preceding with zeros: %010d \n", 1977);
+	pf_putchar('\n');
 	// ft_printf("Some different radices: %d %x %o %#x %#o \n", 100, 100, 100, 100, 100);
 	// printf ("Some different radices: %d %x %o %#x %#o \n", 100, 100, 100, 100, 100);
 
@@ -91,6 +110,22 @@ int	main()
 	ft_printf("me percent: %%\n");
 
 	// system("leaks test"); FOR LATER
+
+	// int a = 42;
+	// pf_putchar('\n');
+	// pf_putchar('\n');
+	// printf("%p\n", (void *) &a);
+
+
+
+
+
+
+
+
+
+	// while(1)
+	system("leaks test");
 	return 0;
 }
 

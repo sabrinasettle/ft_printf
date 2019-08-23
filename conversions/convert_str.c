@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/02 12:33:59 by ssettle           #+#    #+#             */
-/*   Updated: 2019/08/16 13:17:47 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/08/23 10:54:10 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,6 @@ char	*str_prec(t_opts options, char *str)
 	(void)options.flags.minus;
 	new_str = pf_strsub(str, 0, len);
 	return(new_str);
-	// free(new_str);
 }
 
 char		*padding_str(t_opts options, char *str)
@@ -61,10 +60,12 @@ char		*padding_str(t_opts options, char *str)
 	if (options.flags.minus >= 1)
 		pf_strncpy(new_str, str, len);
 	else
+	{
 		new_len = wd_len - len;
 		pf_strncpy(&new_str[new_len], str, len);
+	}
+	free(new_str);
 	return(new_str);
-	// free(str);
 }
 
 int		convert_str(t_opts options, va_list ap)
@@ -91,13 +92,11 @@ int		convert_str(t_opts options, va_list ap)
 		new_str = str_prec(options, str);
 		pf_putstr(new_str);
 		free(new_str);
-		// free(str);
 	}
 	else 
 		pf_putstr(str);
 	len = pf_strlen(str);
-	// free(new_string); proably will need this
-	// free (str);
+	// free(str); //proably will need this
 	return (len);
 }
 
