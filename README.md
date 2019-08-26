@@ -74,6 +74,8 @@ Some absolutely great references:
 - http://www.ryanjuckett.com/programming/printing-floating-point-numbers/
 - https://www.cprogramming.com/tutorial/printf-format-strings.html
 - https://www.cypress.com/file/54441/download
+- https://stackoverflow.com/questions/14733761/printf-formatting-for-hex
+- https://www.lix.polytechnique.fr/~liberti/public/computing/prog/c/C/FUNCTIONS/format.html
 
 Great article on dispatch tables:
 - https://blog.alicegoldfuss.com/function-dispatch-tables/

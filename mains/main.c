@@ -8,7 +8,7 @@ int	main()
 
 	// Char tests
 	// printf("%15s", "CHAR\n");
-	pf_putchar('\n');
+	printf("---------------------- CHAR ----------------------------- \n");
 	pf_putchar('\n');
 	printf ("prin: %c %c \n", 'a', 65);
 	ft_printf("mine: %c %c \n", 'a', 65);
@@ -28,22 +28,26 @@ int	main()
 	printf("prin minus: %-5c %c\n", '$', '%');
 	ft_printf("mine minus: %-5c %c\n", '$', '%');
 	pf_putchar('\n');
-	i = printf("|%c| \n", '\0'); //checks for null character
+	//Check for null character
+	i = printf("|%c| \n", '\0');
 	printf("Return value: %d\n", i);
 	i = ft_printf("|%c| \n", '\0');
-	printf("Return value: %d\n", i); //checks for null character
+	printf("Return value: %d\n", i);
 	pf_putchar('\n');
 	pf_putchar('\n');
 
+
 	// Ints and Ds 
+	printf("---------------------- I & D ----------------------------- \n");
+	pf_putchar('\n');
 	printf("pf: %d, %d\n", 42, 21);
 	ft_printf("me: %d, %d\n", 42, 21);
 	pf_putchar('\n');
 	printf("pf: %d\n", -42);
 	ft_printf("me: %d\n", -42);
 	pf_putchar('\n');
-	printf("pf: %d, %d, %d, %ld\n", 42, -21, 69,  -2174963257925);
-	ft_printf("me: %d, %d, %d, %ld\n", 42, -21, 69, -2174963257925);
+	printf("pf: %d, %d, %d, %ld\n", 42, -21, 69,  -2174963257925); 
+	ft_printf("me: %d, %d, %d, %ld\n", 42, -21, 69, -2174963257925); //delivers a different alue than printf
 	pf_putchar('\n');
 	printf("pf: %03d\n", 1993);
 	ft_printf("pf: %.3d\n", 1993);
@@ -69,17 +73,66 @@ int	main()
 	printf ("pf preceding with zeros: %010d \n", 1977);
 	ft_printf("me preceding with zeros: %010d \n", 1977);
 	pf_putchar('\n');
-	// ft_printf("Some different radices: %d %x %o %#x %#o \n", 100, 100, 100, 100, 100);
-	// printf ("Some different radices: %d %x %o %#x %#o \n", 100, 100, 100, 100, 100);
+	pf_putchar('\n');
 
+
+	//FLOATS
+	// printf("")
 	// ft_printf("floats: %4.2f %+.0e %E \n", 3.1416, 3.1416, 3.1416);
 	// printf ("floats: %4.2f %+.0e %E \n", 3.1416, 3.1416, 3.1416);
 
 	// ft_printf("Width trick: %*d \n", 5, 10);
 	// printf ("Width trick: %*d \n", 5, 10);
 
-	// printf("%15s\n", "STRINGS\n");
+	//OCT
+	printf("---------------------- OCT ----------------------------- \n");
 	pf_putchar('\n');
+	printf("pf: %o \n", 1977);
+	ft_printf("me: %o \n", 1977);
+	pf_putchar('\n');
+	printf("pf neg: %-5o %c\n", 1977, '.');
+	ft_printf("me neg: %-5o %c\n", 1977, '.');
+	pf_putchar('\n');
+	printf("pf neg: %o \n", 2);
+	ft_printf("me neg: %o \n", 2); //delivers wrong ouput
+	pf_putchar('\n');
+	printf("pf: %010o\n", 7);
+	ft_printf("me: %010o\n", 7);
+	pf_putchar('\n');
+	printf("pf: 0x%08o\n", 7);
+	ft_printf("me: 0x%08o\n", 7);
+	pf_putchar('\n');
+	printf("pf hash: %#8o\n", 7);
+	ft_printf("me hash: %#8o\n", 7);
+	pf_putchar('\n');
+
+	//HEX
+	printf("---------------------- HEX ----------------------------- \n");
+	pf_putchar('\n');
+	printf("pf: %-x \n", 1600);
+	ft_printf("me: %-x \n", 1600);
+	pf_putchar('\n');
+	printf("pf: %-5x %c \n", 1600, '.');
+	ft_printf("me: %-5x %c \n", 1600, '.');
+	pf_putchar('\n');
+	printf("pf: %#x \n", 1600);
+	// ft_printf("me: %#x \n", 1600);
+	pf_putchar('\n');
+	printf("pf: %#010x\n", 7);
+	// printf("me: %#010x\n", 7);
+	pf_putchar('\n');
+	printf("pf: 0x%08x\n", 7);
+	// printf("me: 0x%08x\n", 7);
+	pf_putchar('\n');
+	printf("pf: %#08x\n", 7);
+	// printf("me: %#08x\n", 7);
+	pf_putchar('\n');
+	pf_putchar('\n');
+
+
+
+	// printf("%15s\n", "STRINGS\n");
+	printf("---------------------- STRINGS ----------------------------- \n");
 	pf_putchar('\n');
 	printf ("pf a simple string: %s \n", "A string");
 	ft_printf ("me a simple string: %s \n", "A string"); //printing a zero, null terminating char??
@@ -99,17 +152,20 @@ int	main()
 	printf("pf: hello, %s \n" , "gavin");
 	ft_printf("me: hello, %s \n" , "gavin");
 	pf_putchar('\n');
+	pf_putchar('\n');
 	// printf ("printf: %lls \n", "abcdefg");
 	// ft_printf ("mine: %lls \n", "abcdefg");
 
+
+
 	// percent sign
 	// printf("%15s", "PERCENT");
-	pf_putchar('\n');
+	printf("---------------------- PERCENT ----------------------------- \n");
 	pf_putchar('\n');
 	printf("pf percent: %%\n");
 	ft_printf("me percent: %%\n");
-
-	// system("leaks test"); FOR LATER
+	pf_putchar('\n');
+	pf_putchar('\n');
 
 	// int a = 42;
 	// pf_putchar('\n');
@@ -119,13 +175,13 @@ int	main()
 
 
 
+	// ft_printf("Some different radices: %d %x %o %#x %#o \n", 100, 100, 100, 100, 100);
+	// printf ("Some different radices: %d %x %o %#x %#o \n", 100, 100, 100, 100, 100);
 
 
 
 
-
-	// while(1)
-	system("leaks test");
+	// system("leaks test");
 	return 0;
 }
 

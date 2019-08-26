@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/14 09:04:49 by ssettle           #+#    #+#             */
-/*   Updated: 2019/07/22 14:48:38 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/08/26 13:09:35 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,20 +21,6 @@ size_t	pf_strlen(const char *str)
 	while (str[c] != '\0')
 		c++;
 	return (c);
-}
-
-char	*pf_strcpy(char *s1, const char *s2)
-{
-	int i;
-
-	i = 0;
-	while (s2[i] != '\0')
-	{
-		s1[i] = s2[i];
-		i++;
-	}
-	s1[i] = '\0';
-	return (s1);
 }
 
 char		*pf_strdup(const char *src)
