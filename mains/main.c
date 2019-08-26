@@ -87,8 +87,8 @@ int	main()
 	printf ("pf prec test: %.5s \n", "abcdefg");
 	ft_printf ("me prec test: %.5s \n", "abcdefg"); //printing a zero, null terminating char??
 	pf_putchar('\n');
-	printf ("pf prec and pad: %-10.5s %c\n", "abcdefg", 's');
-	ft_printf ("me prec and pad: %-10.5s %c\n", "abcdefg", 's'); //printing a zero, null terminating char??
+	printf ("pf prec and right pad: %-10.5s %c\n", "abcdefg", 's');
+	ft_printf ("me prec and right pad: %-10.5s %c\n", "abcdefg", 's'); //printing a zero, null terminating char??
 	pf_putchar('\n');
 	printf ("pf 10 pad: %10s \n", "abcdefg");
 	ft_printf ("me 10 pad: %10s \n", "abcdefg");
