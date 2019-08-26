@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/02 12:33:46 by ssettle           #+#    #+#             */
-/*   Updated: 2019/08/26 13:17:25 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/08/26 13:55:52 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@
 //     return(c);
 // }
 
-char *append(char *subject, char *insert, int pos) 
+char *pf_append(char *subject, char *insert, int pos) 
 {
 	char *new_str;
     char *buf;
@@ -46,6 +46,7 @@ char *append(char *subject, char *insert, int pos)
     len += pf_strlen(insert);
 	pf_strcpy(buf + len, subject + pos);
     new_str = pf_strcpy(subject, buf);
+	free(buf);
 	return(new_str);
 }
 
@@ -77,23 +78,15 @@ char		*padding_oct(t_opts options, char *str)
 	return(new_str);
 }
 
-// minus flag does somehting interesting, dont understand it at all for the most part
+// minus numbers does somehting interesting, dont understand it at all for the most part
 // pf neg: 37777774107
 // me neg: 3671
-
-// if (options.flags.minus >= 1)
-		// pf_strncpy(new_str, str, len);
-	// else
-
 
 int			convert_octal(t_opts options, va_list ap)
 {
 	char		*str;
 	int			len;
 	char		*new_str;
-	(void)options;
-
-	//will need special function for neg
 	
 	// if (options.content_size > 0)
 		// str = content_sizing(options, ap);
@@ -103,18 +96,14 @@ int			convert_octal(t_opts options, va_list ap)
 	{
 		new_str = padding_oct(options, str);
 		if (options.flags.pound >= 1)
-		{
-			printf("before: %zu", pf_strlen(new_str));
-			new_str = append(new_str, "0" , pf_strlen(new_str) - 1);
-			printf("after: %zu", pf_strlen(new_str));
-		}
+			new_str = pf_append(new_str, "0" , pf_strlen(new_str) - 1);
 		pf_putstr(new_str);
-		// free(new_str);
+		free(new_str);
 	}
 	else 
 		pf_putstr(str);
 	len = pf_strlen(str);
-	// free(str);
+	free(str);
 	return(len);
 }
 
