@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/02 12:33:46 by ssettle           #+#    #+#             */
-/*   Updated: 2019/08/26 13:55:52 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/08/26 16:07:04 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@
 //     return(c);
 // }
 
-char *pf_append(char *subject, char *insert, int pos) 
+char *pf_append_oct(char *subject, char *insert, int pos) 
 {
 	char *new_str;
     char *buf;
@@ -74,7 +74,6 @@ char		*padding_oct(t_opts options, char *str)
 	else
 		new_len = wd_len - len;
 		pf_strncpy(&new_str[new_len], str, len);
-	// free(new_str);
 	return(new_str);
 }
 
@@ -96,7 +95,7 @@ int			convert_octal(t_opts options, va_list ap)
 	{
 		new_str = padding_oct(options, str);
 		if (options.flags.pound >= 1)
-			new_str = pf_append(new_str, "0" , pf_strlen(new_str) - 1);
+			new_str = pf_append_oct(new_str, "0" , pf_strlen(new_str) - 1);
 		pf_putstr(new_str);
 		free(new_str);
 	}

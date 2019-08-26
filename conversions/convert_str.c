@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/02 12:33:59 by ssettle           #+#    #+#             */
-/*   Updated: 2019/08/26 14:43:39 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/08/26 14:55:07 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,21 +50,11 @@ char		*padding_str(t_opts options, char *str)
 		pf_strncpy(new_str, str, len); //no malloc
 	else
 	{
+		(void)options.flags.minus;
 		new_len = wd_len - len;
 		pf_strncpy(&new_str[new_len], str, len); //no malloc
 	}
 	return(new_str);
-}
-
-char	*str_prec(t_opts options, char *str)
-{
-	int32_t		len;
-	// char 		*new_str;
-
-	len = options.precision;
-	(void)options.flags.minus;
-	// new_str = pf_strsub(str, 0, len); //malloc
-	return(pf_strsub(str, 0, len));
 }
 
 void	padding_and_prec(t_opts options, char *str)
@@ -72,7 +62,7 @@ void	padding_and_prec(t_opts options, char *str)
 	char *p_str;
 	char *new_str2;
 	
-	p_str = str_prec(options, str);
+	p_str = (pf_strsub(str, 0, options.precision));
 	new_str2 = padding_str(options, p_str);
 	pf_putstr(new_str2);
 	free(p_str);
@@ -98,7 +88,8 @@ int		convert_str(t_opts options, va_list ap)
 	}
 	else if (options.precision <= len && options.precision)
 	{
-		new_str = str_prec(options, str);
+		(void)options.flags.minus;
+		new_str = (pf_strsub(str, 0, options.precision));
 		pf_putstr(new_str);
 		free(new_str);
 	}

@@ -116,16 +116,16 @@ int	main()
 	ft_printf("me: %-5x %c \n", 1600, '.');
 	pf_putchar('\n');
 	printf("pf: %#x \n", 1600);
-	// ft_printf("me: %#x \n", 1600);
+	ft_printf("me: %#x \n", 1600);
 	pf_putchar('\n');
 	printf("pf: %#010x\n", 7);
-	// printf("me: %#010x\n", 7);
+	ft_printf("me: %#010x\n", 7);
 	pf_putchar('\n');
 	printf("pf: 0x%08x\n", 7);
-	// printf("me: 0x%08x\n", 7);
+	ft_printf("me: 0x%08x\n", 7);
 	pf_putchar('\n');
 	printf("pf: %#08x\n", 7);
-	// printf("me: %#08x\n", 7);
+	ft_printf("me: %#08x\n", 7);
 	pf_putchar('\n');
 	pf_putchar('\n');
 
