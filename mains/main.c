@@ -118,11 +118,17 @@ int	main()
 	printf("pf: %#x \n", 1600);
 	ft_printf("me: %#x \n", 1600);
 	pf_putchar('\n');
+	printf("pf: %#-x \n", 1600);
+	ft_printf("me: %#-x \n", 1600);
+	pf_putchar('\n');
+	printf("pf: %010x\n", 7);
+	ft_printf("me: %010x\n", 7);
+	pf_putchar('\n');
+	printf("pf pre 0x str: 0x%08x\n", 7);
+	ft_printf("me pre 0x str: 0x%08x\n", 7);
+	pf_putchar('\n');
 	printf("pf: %#010x\n", 7);
 	ft_printf("me: %#010x\n", 7);
-	pf_putchar('\n');
-	printf("pf: 0x%08x\n", 7);
-	ft_printf("me: 0x%08x\n", 7);
 	pf_putchar('\n');
 	printf("pf: %#08x\n", 7);
 	ft_printf("me: %#08x\n", 7);
@@ -181,7 +187,7 @@ int	main()
 
 
 
-	// system("leaks test");
+	system("leaks test");
 	return 0;
 }
 

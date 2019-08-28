@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/02 12:33:39 by ssettle           #+#    #+#             */
-/*   Updated: 2019/08/26 16:24:44 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/08/27 17:38:04 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,14 @@ char		*padding_hex(t_opts options, char *str)
 	new_str[wd_len] = '\0';
 	if (options.flags.zero >= 1)
 	{
-		(void)options.flags.minus;
-		pf_memset(new_str, '0', wd_len);	
+		(void)options.flags.minus;	
+		if (options.flags.pound >= 1)
+		{
+			pf_putstr("0x");
+			wd_len -= 2;
+			pf_memset(new_str, '0', wd_len);
+		}
+		pf_memset(new_str, '0', wd_len);
 	}
 	if (options.flags.minus >= 1)
 		pf_strncpy(new_str, str, len);
@@ -59,7 +65,11 @@ char		*padding_hex(t_opts options, char *str)
 	return(new_str);
 }
 
-int		convert_hex(t_opts options, va_list ap)
+// minus numbers does somehting interesting, dont understand it at all for the most part
+// pf neg: 37777774107
+// me neg: 3671
+
+int			convert_hex(t_opts options, va_list ap)
 {
 	char		*str;
 	int			len;
@@ -67,27 +77,20 @@ int		convert_hex(t_opts options, va_list ap)
 	
 	// if (options.content_size > 0)
 		// str = content_sizing(options, ap);
-	str = pf_itoa_hex(va_arg(ap, int)); //abs?
+	str = pf_itoa_octal(va_arg(ap, int)); //abs?
 	len = pf_strlen(str);
 	if (options.width_field > len)
 	{
-		if (options.flags.pound >= 1)
-			pf_putstr("0x");
 		new_str = padding_hex(options, str);
 		pf_putstr(new_str);
 		free(new_str);
 	}
-	else
-	{
-		if (options.flags.pound >= 1)
-			pf_putstr("0x");
+	else 
 		pf_putstr(str);
-	}
 	len = pf_strlen(str);
 	free(str);
 	return(len);
 }
-
 
 
 
