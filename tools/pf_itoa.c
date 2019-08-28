@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/22 09:55:49 by ssettle           #+#    #+#             */
-/*   Updated: 2019/08/28 14:14:42 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/08/28 15:02:19 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,11 @@
 ** the other side of it
 **basiclly how long the string needs to be
 */
+
+char	*pf_itoa(int n)
+{
+	return (pf_itoa_base(n, 10));
+}
 
 char			*pf_itoa_base(int value, int base)
 {

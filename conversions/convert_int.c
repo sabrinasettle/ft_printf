@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/02 12:33:44 by ssettle           #+#    #+#             */
-/*   Updated: 2019/08/28 09:31:15 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/08/28 15:49:14 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,23 @@
 
 
 // prec works as such if number is greater than the len than it prints zeros
+
+char *pf_append_int(char *subject, char *insert, int pos) 
+{
+	char *new_str;
+    char *buf;
+	int len;
+	
+	buf = pf_strnew(pf_strlen(subject));
+    pf_strncpy(buf, subject, pos); 
+    len = strlen(buf);
+    pf_strcpy(buf + len, insert);
+    len += pf_strlen(insert);
+	pf_strcpy(buf + len, subject + pos);
+    new_str = pf_strcpy(subject, buf);
+	free(buf);
+	return(new_str);
+}
 
 char		*padding_nbr(t_opts options, char *str)
 {
@@ -67,6 +84,8 @@ int     convert_int(t_opts options, va_list ap)
 	len = pf_strlen(str);
 	if (options.precision > len)
 		write(1, "0", ((options.precision - len) + 1));
+	if (options.flags.plus == 1)
+		pf_append(str, "+", 0);
 	if (options.width_field > len)
 	{
 		new_str = padding_nbr(options, str);

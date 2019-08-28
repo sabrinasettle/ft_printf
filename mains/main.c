@@ -99,6 +99,12 @@ int	main()
 	printf ("pf: %-10d \n", -1977);
 	ft_printf("me: %-10d \n", -1977);
 	pf_putchar('\n');
+	printf ("pf plus flag: %+i \n", 1977);
+	ft_printf("me plus flag: %+i \n", 1977);
+	pf_putchar('\n');
+	printf ("pf plus flag: %+10d \n", 1977);
+	ft_printf("me plus flag: %+10d \n", 1977);
+	pf_putchar('\n');
 	printf ("pf preceding with zeros: %010d \n", 1977);
 	ft_printf("me preceding with zeros: %010d \n", 1977);
 	pf_putchar('\n');
@@ -211,8 +217,48 @@ int	main()
 	pf_putchar('\n');
 	pf_putchar('\n');
 
+	//UINT
+	printf("---------------------- UINT ----------------------------- \n");
+	pf_putchar('\n');
 
+	printf("pf no flags: %u\n", 153);
+	ft_printf("me no flags: %u\n", 153);
+	pf_putchar('\n');
+	printf("pf width: %5u\n", 153);
+    ft_printf("me width: %5u\n", 153);
+	pf_putchar('\n');
+    printf("pf precision: %.5u\n", 153);
+    ft_printf("me precision: %.5u\n", 153);
+	pf_putchar('\n');
+    printf("pf zero: %07u\n", 153);
+    ft_printf("me zero: %07u\n", 153);
+	pf_putchar('\n');
+   	printf("pf minus: %-5u %c\n", 153, '.');
+    ft_printf("me minus: %-5u %c\n", 153, '.');
+    // printf("pf l: %lu\n", 9999999999);
+    // ft_printf("me l: %lu\n", 9999999999);
+	pf_putchar('\n');
+	pf_putchar('\n');
 
+	printf("---------------------- FLOATS ----------------------------- \n");
+	pf_putchar('\n');
+
+	printf("pf no flags: %f\n", 153.0);
+	// ft_printf("me no flags: %f\n", 153.0);
+	pf_putchar('\n');
+	printf("pf: %f\n", 4.5678);
+	// ft_printf("me: %f\n", 4.5678);
+	pf_putchar('\n');
+	printf("pf: %.4f\n", 4.5678);
+	// ft_printf("me: %.4f\n", 4.5678);
+	pf_putchar('\n');
+	printf("pf: %.4f\n", -4.5678);
+	// ft_printf("me: %.4f\n", -4.5678);
+	pf_putchar('\n');
+	printf("pf multiple: %f %.3f %.2f %.1f\n", 4.5678, 4.5678, 4.5678, 4.5678);
+	// ft_printf("me multiple: %f %.3f %.2f %.1f\n", 4.5678, 4.5678, 4.5678, 4.5678);
+	pf_putchar('\n');
+	pf_putchar('\n');
 	
 	// printf ("pf some different radices: %d %x %o %#x %#o \n", 100, 100, 100, 100, 100);
 	// ft_printf("me some different radices: %d %x %o %#x %#o \n", 100, 100, 100, 100, 100);

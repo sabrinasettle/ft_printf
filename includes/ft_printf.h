@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/01 15:01:16 by ssettle           #+#    #+#             */
-/*   Updated: 2019/08/28 14:13:04 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/08/28 15:49:06 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,6 +116,7 @@ char						*pf_itoa_hex(int n);
 char						*pf_itoa_p(intptr_t value);
 char						*pf_strcat(char *dest, const char *src);
 char						*pf_strjoin(char const *s1, char const *s2);
+char 						*pf_append(char *subject, char *insert, int pos); 
 
 /*
 ** OPTION FUNCTION
