@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/02 12:34:06 by ssettle           #+#    #+#             */
-/*   Updated: 2019/08/27 18:53:37 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/08/28 09:34:27 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ char		*padding_upper_hex(t_opts options, char *str)
 		(void)options.flags.minus;	
 		if (options.flags.pound >= 1)
 		{
-			pf_putstr("0x");
+			pf_putstr("0X");
 			wd_len -= 2;
 			pf_memset(new_str, '0', wd_len);
 		}
@@ -75,6 +75,10 @@ int				convert_upper_hex(t_opts options, va_list ap)
 		// str = content_sizing(options, ap);
 	str = pf_itoa_hex(va_arg(ap, int)); //abs?
 	len = pf_strlen(str);
+	if (options.precision > len)
+		write(1, "0", ((options.precision - len) + 1));
+	if (options.flags.pound >= 1)
+		pf_putstr("0X");
 	if (options.width_field > len)
 	{
 		new_str = padding_upper_hex(options, str);

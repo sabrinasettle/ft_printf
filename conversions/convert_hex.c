@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/02 12:33:39 by ssettle           #+#    #+#             */
-/*   Updated: 2019/08/27 18:49:56 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/08/28 09:33:22 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,8 +75,10 @@ int			convert_hex(t_opts options, va_list ap)
 		// str = content_sizing(options, ap);
 	str = pf_itoa_hex(va_arg(ap, int)); //abs?
 	len = pf_strlen(str);
+	if (options.precision > len)
+		write(1, "0", ((options.precision - len) + 1));
 	if (options.flags.pound >= 1)
-			pf_putstr("0x");
+		pf_putstr("0x");
 	if (options.width_field > len)
 	{
 		new_str = padding_hex(options, str);

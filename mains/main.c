@@ -194,10 +194,10 @@ int	main()
 	pf_putchar('\n');
 	pf_putchar('\n');
 
-	// int a = 42;
-	// pf_putchar('\n');
-	// pf_putchar('\n');
-	// printf("%p\n", (void *) &a);
+	printf("---------------------- POINTER ----------------------------- \n");
+	pf_putchar('\n');
+	int a = 42;
+	printf("The address of a is: %p\n", (void *) &a);
 
 
 
