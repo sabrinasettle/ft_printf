@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/02 12:33:59 by ssettle           #+#    #+#             */
-/*   Updated: 2019/08/26 14:55:07 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/08/27 18:49:24 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,9 +75,10 @@ int		convert_str(t_opts options, va_list ap)
 	char		*new_str;
 	char		*str;
 	
-	str = (char *)va_arg(ap, char *);
+	
 	// if (options.content_size > 0) //dont need???
 		// str = change_data_type(options, ap);
+	str = (char *)va_arg(ap, char *);
 	len = pf_strlen(str);
 	if (options.width_field > len)
 	{

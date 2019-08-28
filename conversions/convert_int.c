@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/02 12:33:44 by ssettle           #+#    #+#             */
-/*   Updated: 2019/08/26 09:41:01 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/08/27 19:19:07 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@
 // 	return(new_str);
 // 	// free(new_str);
 // }
+
+// prec works as such if number is greater than the len than it prints zeros
 
 char		*padding_nbr(t_opts options, char *str)
 {
@@ -77,13 +79,14 @@ int     convert_int(t_opts options, va_list ap)
 		// str = content_sizing(options, ap);
 	str = pf_itoa(va_arg(ap, int)); //abs?
 	len = pf_strlen(str);
+	if (len < options.precision)
+			pf_memset(str, '0', (options.precision + len));
 	if (options.width_field > len)
 	{
 		new_str = padding_nbr(options, str);
 		pf_putstr(new_str);
 		free(new_str);
 	}
-	
 	else 
 		pf_putstr(str);
 	len = pf_strlen(str);

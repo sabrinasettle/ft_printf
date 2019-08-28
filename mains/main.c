@@ -29,12 +29,41 @@ int	main()
 	ft_printf("mine minus: %-5c %c\n", '$', '%');
 	pf_putchar('\n');
 	//Check for null character
-	i = printf("|%c| \n", '\0');
+	i = printf("|%c|\n", '\0');
 	printf("Return value: %d\n", i);
-	i = ft_printf("|%c| \n", '\0');
+	i = ft_printf("|%c|\n", '\0');
 	printf("Return value: %d\n", i);
 	pf_putchar('\n');
 	pf_putchar('\n');
+
+	printf("---------------------- STRINGS ----------------------------- \n");
+	pf_putchar('\n');
+	printf ("pf a simple string: %s \n", "A string");
+	ft_printf ("me a simple string: %s \n", "A string"); //printing a zero, null terminating char??
+	pf_putchar('\n');
+	printf ("pf prec test: %.5s \n", "abcdefg");
+	ft_printf ("me prec test: %.5s \n", "abcdefg"); //printing a zero, null terminating char??
+	pf_putchar('\n');
+	printf ("pf prec and right pad: %-10.5s %c\n", "abcdefg", 's');
+	ft_printf ("me prec and right pad: %-10.5s %c\n", "abcdefg", 's'); //printing a zero, null terminating char??
+	pf_putchar('\n');
+	printf ("pf 10 pad: %10s \n", "abcdefg");
+	ft_printf ("me 10 pad: %10s \n", "abcdefg");
+	pf_putchar('\n');
+	printf ("pf string minus pad: %-10s%c\n", "A string",'c');
+	ft_printf ("me string minus pad: %-10s%c\n", "A string",'c');
+	pf_putchar('\n');
+	printf("pf: hello, %s \n" , "gavin");
+	ft_printf("me: hello, %s \n" , "gavin");
+	//NULL Character check
+	i = printf("|%s|\n", "\0");
+	printf("Return value: %d\n", i);
+	i = ft_printf("|%s|\n", "\0");
+	printf("Return value: %d\n", i);
+	pf_putchar('\n');
+	pf_putchar('\n');
+	// printf ("printf: %lls \n", "abcdefg");
+	// ft_printf ("mine: %lls \n", "abcdefg");
 
 
 	// Ints and Ds 
@@ -73,6 +102,9 @@ int	main()
 	printf ("pf preceding with zeros: %010d \n", 1977);
 	ft_printf("me preceding with zeros: %010d \n", 1977);
 	pf_putchar('\n');
+	printf("pf prec: %.6d\n", 1993);
+	ft_printf("me prec: %.6d\n", 1993);
+	pf_putchar('\n');
 	pf_putchar('\n');
 
 
@@ -90,6 +122,9 @@ int	main()
 	printf("pf: %o \n", 1977);
 	ft_printf("me: %o \n", 1977);
 	pf_putchar('\n');
+	printf("pf: %.2o \n", 1977);
+	ft_printf("me: %.2o \n", 1977);
+	pf_putchar('\n');
 	printf("pf neg: %-5o %c\n", 1977, '.');
 	ft_printf("me neg: %-5o %c\n", 1977, '.');
 	pf_putchar('\n');
@@ -105,12 +140,18 @@ int	main()
 	printf("pf hash: %#8o\n", 7);
 	ft_printf("me hash: %#8o\n", 7);
 	pf_putchar('\n');
+	printf ("pf: %#o \n", 100);
+	ft_printf("me: %#o \n", 100);
+	pf_putchar('\n');
 
 	//HEX
 	printf("---------------------- HEX ----------------------------- \n");
 	pf_putchar('\n');
 	printf("pf: %-x \n", 1600);
 	ft_printf("me: %-x \n", 1600);
+	pf_putchar('\n');
+	printf("pf: %.7x \n", 1600);
+	ft_printf("me: %.7x \n", 1600);
 	pf_putchar('\n');
 	printf("pf: %-5x %c \n", 1600, '.');
 	ft_printf("me: %-5x %c \n", 1600, '.');
@@ -121,8 +162,8 @@ int	main()
 	printf("pf: %#-x \n", 1600);
 	ft_printf("me: %#-x \n", 1600);
 	pf_putchar('\n');
-	printf("pf: %010x\n", 7);
-	ft_printf("me: %010x\n", 7);
+	printf("pf just zeros: %010x\n", 7);
+	ft_printf("me just zeros: %010x\n", 7);
 	pf_putchar('\n');
 	printf("pf pre 0x str: 0x%08x\n", 7);
 	ft_printf("me pre 0x str: 0x%08x\n", 7);
@@ -135,32 +176,12 @@ int	main()
 	pf_putchar('\n');
 	pf_putchar('\n');
 
+	//UINT
+	// printf("---------------------- UINT ----------------------------- \n");
+	// pf_putchar('\n');
 
 
 	// printf("%15s\n", "STRINGS\n");
-	printf("---------------------- STRINGS ----------------------------- \n");
-	pf_putchar('\n');
-	printf ("pf a simple string: %s \n", "A string");
-	ft_printf ("me a simple string: %s \n", "A string"); //printing a zero, null terminating char??
-	pf_putchar('\n');
-	printf ("pf prec test: %.5s \n", "abcdefg");
-	ft_printf ("me prec test: %.5s \n", "abcdefg"); //printing a zero, null terminating char??
-	pf_putchar('\n');
-	printf ("pf prec and right pad: %-10.5s %c\n", "abcdefg", 's');
-	ft_printf ("me prec and right pad: %-10.5s %c\n", "abcdefg", 's'); //printing a zero, null terminating char??
-	pf_putchar('\n');
-	printf ("pf 10 pad: %10s \n", "abcdefg");
-	ft_printf ("me 10 pad: %10s \n", "abcdefg");
-	pf_putchar('\n');
-	printf ("pf string minus pad: %-10s%c\n", "A string",'c');
-	ft_printf ("me string minus pad: %-10s%c\n", "A string",'c');
-	pf_putchar('\n');
-	printf("pf: hello, %s \n" , "gavin");
-	ft_printf("me: hello, %s \n" , "gavin");
-	pf_putchar('\n');
-	pf_putchar('\n');
-	// printf ("printf: %lls \n", "abcdefg");
-	// ft_printf ("mine: %lls \n", "abcdefg");
 
 
 
@@ -181,13 +202,13 @@ int	main()
 
 
 
-	// ft_printf("Some different radices: %d %x %o %#x %#o \n", 100, 100, 100, 100, 100);
-	// printf ("Some different radices: %d %x %o %#x %#o \n", 100, 100, 100, 100, 100);
+	
+	// printf ("pf some different radices: %d %x %o %#x %#o \n", 100, 100, 100, 100, 100);
+	// ft_printf("me some different radices: %d %x %o %#x %#o \n", 100, 100, 100, 100, 100);
 
 
 
-
-	system("leaks test");
+	// system("leaks test");
 	return 0;
 }
 

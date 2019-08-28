@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/02 12:33:46 by ssettle           #+#    #+#             */
-/*   Updated: 2019/08/26 16:07:04 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/08/27 18:45:21 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,7 +100,11 @@ int			convert_octal(t_opts options, va_list ap)
 		free(new_str);
 	}
 	else 
+	{
+		if (options.flags.pound >= 1)
+			pf_putstr("0");
 		pf_putstr(str);
+	}
 	len = pf_strlen(str);
 	free(str);
 	return(len);
