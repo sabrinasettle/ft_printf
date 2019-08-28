@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/01 15:01:16 by ssettle           #+#    #+#             */
-/*   Updated: 2019/08/27 18:32:27 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/08/28 14:13:04 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define FT_PRINTF_H
 
 # include <stdio.h> //testing
-
 
 # include <stdarg.h>
 # include <unistd.h>
@@ -48,14 +47,6 @@ typedef struct				s_opts
 	uint32_t				content_size;
 	int						total_length_opts;
 }							t_opts;
-
-// //all added becuase of sam
-// typedef struct				s_env
-// {
-// 	int						total_length;
-// 	char					*whatever_you_want; //jk just messing with sam, suppose to be a GREAT large str??
-// 	t_opts					options;
-// }							t_env;
 
 typedef enum				e_bool //do I use this??
 {
@@ -103,16 +94,6 @@ int							convert_uint(t_opts options, va_list ap);
 int							convert_upper_hex(t_opts options, va_list ap);
 int							convert_upper_uint(t_opts options, va_list ap);
 
-
-/*
-** PADDING
-*/
-
-// char						*padding_octal(char *s, int len, t_opts options);
-// char						*padding_p(char *s, t_opts options);
-// char						*padding_l_an_u_h(char *s, int len, t_opts options);
-
-
 /*
 ** TOOLS
 */
@@ -129,8 +110,12 @@ void						pf_putchar(char c);
 void						*pf_memset(void *b, int c, size_t ln);
 void 						pf_putstr(char *str);
 char						*pf_itoa(int n);
+char						*pf_itoa_base(int value, int base);
 char						*pf_itoa_octal(int n);
 char						*pf_itoa_hex(int n);
+char						*pf_itoa_p(intptr_t value);
+char						*pf_strcat(char *dest, const char *src);
+char						*pf_strjoin(char const *s1, char const *s2);
 
 /*
 ** OPTION FUNCTION

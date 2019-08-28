@@ -198,7 +198,18 @@ int	main()
 	pf_putchar('\n');
 	int a = 42;
 	printf("The address of a is: %p\n", (void *) &a);
-
+	ft_printf("The address of a is: %p\n", (void *) &a);
+	pf_putchar('\n');
+	printf("conversion of 42: %p\n", (void *) 42);
+	ft_printf("conversion of 42: %p\n", (void *) 42);
+	pf_putchar('\n');
+	printf("conversion of null: %p\n", (void *) NULL);
+	ft_printf("conversion of null: %p\n", (void *) NULL);
+	pf_putchar('\n');
+  	printf("conversion of go: %p\n", &"go");
+	ft_printf("conversion of go: %p\n", &"go");
+	pf_putchar('\n');
+	pf_putchar('\n');
 
 
 

@@ -1,47 +1,68 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pf_itoa.c                                          :+:      :+:    :+:   */
+/*   pf_special_itoa.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/08/22 09:55:49 by ssettle           #+#    #+#             */
-/*   Updated: 2019/08/28 14:14:42 by ssettle          ###   ########.fr       */
+/*   Created: 2019/08/28 14:04:17 by ssettle           #+#    #+#             */
+/*   Updated: 2019/08/28 14:10:55 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
-/*
-** is taking the number and dividing/getting the reminder of the modolo 10
-** modolo will give you the number you lost ex. 126 will give you 6,
-** the other side of it
-**basiclly how long the string needs to be
-*/
 
-char			*pf_itoa_base(int value, int base)
+static int		get_nbr(uint64_t num)
+{
+	int			i;
+
+	i = 0;
+	while (num)
+	{
+		num /= 10;
+		i += 1;
+	}
+	return (i);
+}
+
+char			*pf_itoa_p(intptr_t value)
 {
 	int			len;
-	long		i;
+	intptr_t	ip;
 	char		*res;
 	static char	index[16] = "0123456789abcdef";
 
-	i = value;
+	if (value == 0)
+		return (pf_strdup("0"));
+	if (!(res = pf_strnew(get_nbr(value))))
+		return (NULL);
+	ip = value;
 	len = (value <= 0) ? 1 : 0;
-	while (i)
+	while (ip)
 	{
 		len++;
-		i /= base;
+		ip /= 16;
 	}
-	i = value;
-	if (i < 0)
-		i *= -1;
-	if (!(res = pf_strnew(len)))
-		return (0);
+	ip = value;
 	while (len--)
 	{
-		res[len] = index[i % base];
-		i /= base;
+		res[len] = index[ip % 16];
+		ip /= 16;
 	}
-	value < 0 && base == 10 ? res[0] = '-' : 0;
 	return (res);
+}
+
+char	*pf_itoa_hex(int n)
+{
+	return (pf_itoa_base(n, 16));
+}
+
+char	*pf_itoa(int n)
+{
+	return (pf_itoa_base(n, 10));
+}
+
+char	*pf_itoa_octal(int n)
+{
+	return (pf_itoa_base(n, 8));
 }

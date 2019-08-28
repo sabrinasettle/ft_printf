@@ -6,7 +6,7 @@
 #    By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/07/22 13:48:05 by ssettle           #+#    #+#              #
-#    Updated: 2019/08/28 09:44:10 by ssettle          ###   ########.fr        #
+#    Updated: 2019/08/28 14:14:03 by ssettle          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,11 +36,13 @@ TOOLS = tools/pf_atoi.c \
 		tools/pf_putchar.c \
 		tools/pf_strdup.c \
 		tools/pf_strcpy.c \
+		tools/pf_strjoin.c \
 		tools/pf_putstr.c \
 		tools/pf_strsub.c \
 		tools/pf_memset.c \
 		tools/pf_strncpy.c \
 		tools/pf_itoa.c \
+		tools/pf_special_itoa.c \
 		
 OBJ = *.o
 
