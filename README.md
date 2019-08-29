@@ -76,6 +76,7 @@ Some absolutely great references:
 - https://www.cypress.com/file/54441/download
 - https://stackoverflow.com/questions/14733761/printf-formatting-for-hex
 - https://www.lix.polytechnique.fr/~liberti/public/computing/prog/c/C/FUNCTIONS/format.html
+- https://wiki.sei.cmu.edu/confluence/display/c/FLP06-C.+Convert+integers+to+floating+point+for+floating-point+operations
 
 Great article on dispatch tables:
 - https://blog.alicegoldfuss.com/function-dispatch-tables/

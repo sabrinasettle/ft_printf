@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/02 12:33:44 by ssettle           #+#    #+#             */
-/*   Updated: 2019/08/28 15:49:14 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/08/28 17:19:55 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ int     convert_int(t_opts options, va_list ap)
 	char		*new_str;
 
 	// if (options.content_size > 0)
-		// str = content_sizing(options, ap);
+		// str = content_sizing(options, ap); //become a turaerny?
 	str = pf_itoa(va_arg(ap, int)); //abs?
 	len = pf_strlen(str);
 	if (options.precision > len)

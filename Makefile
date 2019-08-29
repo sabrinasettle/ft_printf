@@ -6,7 +6,7 @@
 #    By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/07/22 13:48:05 by ssettle           #+#    #+#              #
-#    Updated: 2019/08/28 15:51:05 by ssettle          ###   ########.fr        #
+#    Updated: 2019/08/28 17:20:46 by ssettle          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,8 +29,7 @@ CONVERT = conversions/convert_char.c \
 			conversions/convert_upper_hex.c \
 			conversions/convert_pointer.c \
 			conversions/convert_uint.c \
-			# conversions/convert_upper_uint.c \
-			#conversions/convert_float.c \
+			conversions/convert_float.c \
 
 TOOLS = tools/pf_atoi.c \
 		tools/pf_putchar.c \

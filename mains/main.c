@@ -244,16 +244,16 @@ int	main()
 	pf_putchar('\n');
 
 	printf("pf no flags: %f\n", 153.0);
-	// ft_printf("me no flags: %f\n", 153.0);
+	ft_printf("me no flags: %f\n", 153.0);
 	pf_putchar('\n');
 	printf("pf: %f\n", 4.5678);
-	// ft_printf("me: %f\n", 4.5678);
+	ft_printf("me: %f\n", 4.5678);
 	pf_putchar('\n');
 	printf("pf: %.4f\n", 4.5678);
-	// ft_printf("me: %.4f\n", 4.5678);
+	ft_printf("me: %.4f\n", 4.5678);
 	pf_putchar('\n');
 	printf("pf: %.4f\n", -4.5678);
-	// ft_printf("me: %.4f\n", -4.5678);
+	ft_printf("me: %.4f\n", -4.5678);
 	pf_putchar('\n');
 	printf("pf multiple: %f %.3f %.2f %.1f\n", 4.5678, 4.5678, 4.5678, 4.5678);
 	// ft_printf("me multiple: %f %.3f %.2f %.1f\n", 4.5678, 4.5678, 4.5678, 4.5678);

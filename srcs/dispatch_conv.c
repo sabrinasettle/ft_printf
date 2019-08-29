@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/07 13:41:32 by ssettle           #+#    #+#             */
-/*   Updated: 2019/07/29 17:34:20 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/08/28 17:42:51 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int		convert_args(const char **format , va_list ap)
 	options = getz_theoptionz(format, ap);
 	i = -1;
 	c = 0;
-	while(++i < 12) // this is the amount of converstions in the dispatch table
+	while(++i < 12) // this is the amount of converstions in the dispatch table or 
 	{
 		if (g_convert_table[i].form_convert == **format)
 			c = g_convert_table[i].convert(options, ap); //definately talks to options as the tests printed
