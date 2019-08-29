@@ -29,6 +29,39 @@
 // 
 // }
 
+// long double			get_float_number(va_list *ap, t_s fs)
+// {
+// 	if (fs.length == L_LENGTH)
+// 		return ((long double)va_arg(*ap, long double));
+// 	if (fs.length == l_LENGTH)
+// 		return ((double)va_arg(*ap, double));
+// 	else
+// 		return ((float)va_arg(*ap, double));
+// }
+
+// int					f_print(va_list *ap, t_s fs)
+// {
+// 	long double	f;
+// 	int			len;
+
+// 	f = get_float_number(ap, fs);
+// 	if (!fs.prec)
+// 		fs.prec = fs.dot ? 0 : 6;
+// 	fs.dot = (fs.prec || fs.hash);
+// 	len = ft_numlen(ABS((int)f), 10) +
+// 		fs.dot + fs.prec + is_sign(f < 0, fs);
+// 	if (!fs.minus && fs.zero)
+// 	{
+// 		sign_handler(f < 0, fs);
+// 		ft_make_width(fs.width - len, '0');
+// 	}
+// 	(!fs.minus && !fs.zero) ? ft_make_width(fs.width - len, ' ') : 0;
+// 	ft_put_float(f, fs);
+// 	fs.minus ? ft_make_width(fs.width - len, ' ') : 0;
+// 	return (get_big(len, fs.width));
+// }
+
+
 int		convert_float(t_opts options, va_list ap)
 {
     char    *str;
