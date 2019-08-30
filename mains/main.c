@@ -69,6 +69,52 @@ int	main()
 	// Ints and Ds 
 	printf("---------------------- I & D ----------------------------- \n");
 	pf_putchar('\n');
+	printf("pf: %i, %i\n", 42, 21);
+	ft_printf("me: %i, %i\n", 42, 21);
+	pf_putchar('\n');
+	printf("pf: %i\n", -42);
+	ft_printf("me: %i\n", -42);
+	pf_putchar('\n');
+	printf("pf: %i, %i, %i, %li\n", 42, -21, 69,  -2174963257925); 
+	ft_printf("me: %i, %i, %i, %li\n", 42, -21, 69, -2174963257925); //delivers a different alue than printf
+	pf_putchar('\n');
+	printf("pf: %03i\n", 1993);
+	ft_printf("pf: %.3i\n", 1993);
+	pf_putchar('\n');
+	printf("pf: %.3i\n", -1993);
+	ft_printf("pf: %.3i\n", -1993);
+	pf_putchar('\n');
+	printf ("pf: %i %li\n", 1977, 650000L);
+	ft_printf ("me: %i %li\n", 1977, 650000L);
+	pf_putchar('\n');
+	printf ("pf preceding with blanks: %10i \n", 1977);
+	ft_printf("me preceding with blanks: %10i \n", 1977);
+	pf_putchar('\n');
+	printf ("pf: %10i \n", -1977);
+	ft_printf("me: %10i \n", -1977);
+	pf_putchar('\n');
+	printf ("pf: %-10i \n", 1977);
+	ft_printf("me: %-10i \n", 1977);
+	pf_putchar('\n');
+	printf ("pf: %-10i \n", -1977);
+	ft_printf("me: %-10i \n", -1977);
+	pf_putchar('\n');
+	printf ("pf plus flag: %+i \n", 1977);
+	ft_printf("me plus flag: %+i \n", 1977);
+	pf_putchar('\n');
+	printf ("pf plus flag: %+10i \n", 1977);
+	ft_printf("me plus flag: %+10i \n", 1977);
+	pf_putchar('\n');
+	printf ("pf preceding with zeros: %010i \n", 1977);
+	ft_printf("me preceding with zeros: %010i \n", 1977);
+	pf_putchar('\n');
+	printf("pf prec: %.6i\n", 1993);
+	ft_printf("me prec: %.6i\n", 1993);
+	printf("pf l: %li\n", 9999999999);
+    ft_printf("me l: %li\n", 9999999999);
+	pf_putchar('\n');
+	pf_putchar('\n');
+
 	printf("pf: %d, %d\n", 42, 21);
 	ft_printf("me: %d, %d\n", 42, 21);
 	pf_putchar('\n');
@@ -110,8 +156,7 @@ int	main()
 	pf_putchar('\n');
 	printf("pf prec: %.6d\n", 1993);
 	ft_printf("me prec: %.6d\n", 1993);
-	pf_putchar('\n');
-	pf_putchar('\n');
+
 
 
 	//FLOATS

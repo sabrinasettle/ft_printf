@@ -78,5 +78,9 @@ Some absolutely great references:
 - https://www.lix.polytechnique.fr/~liberti/public/computing/prog/c/C/FUNCTIONS/format.html
 - https://wiki.sei.cmu.edu/confluence/display/c/FLP06-C.+Convert+integers+to+floating+point+for+floating-point+operations
 
+About Vaargs:
+- https://www.eskimo.com/~scs/cclass/int/sx11c.html
+- https://linux.die.net/man/3/va_arg
+
 Great article on dispatch tables:
 - https://blog.alicegoldfuss.com/function-dispatch-tables/

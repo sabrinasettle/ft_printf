@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/29 10:38:53 by ssettle           #+#    #+#             */
-/*   Updated: 2019/08/13 10:45:55 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/08/30 13:22:12 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,17 +112,17 @@ static int			getz_thesize(const char **format)
 	// while (IS_LEN_OPT(**format))
 	// {
 		if (**format == 'h' && (**format + 1) != 'h')
-			len = 'h';
+			len = (uint32_t)'h';
 		else if (**format == 'h' && (**format + 1) == 'h')
-			len = 'h' + 'h';
+			len = (uint32_t)'h' + 'h';
 		if (**format == 'l' && (**format + 1) != 'l')
 			len = (uint32_t)('l');
 		else if (**format == 'l' && (**format + 1) == 'l')
 			len = (uint32_t)('l' + 'l');
 		if (**format == 'j')
-			len = 'j';
+			len = (uint32_t)'j';
 		if (**format == 'z')
-			len = 'z';
+			len = (uint32_t)'z';
 		if (len > 0)
 			(*format) += (len >= 130 ? 2 : 1); //*format prints nothing, but maybe better than just c?
 	return (len);
