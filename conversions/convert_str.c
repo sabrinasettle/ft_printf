@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/02 12:33:59 by ssettle           #+#    #+#             */
-/*   Updated: 2019/08/27 18:49:24 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/08/31 06:13:56 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,13 @@
 // why did he cast as such????
 
 
-// char		change_data_type(t_opts options, va_list ap)
+// char		*change_data_type(t_opts options, va_list ap)
 // {
-// 	char *c;
-// 	c = (char *)va_arg(ap, char *);
-// 	if (options.content_size > 0)
-// 		c = (wchar_t)va_arg(ap, wchar_t);
-// 	return(&c); //return is wrong for the function
+	// char *c;
+	// c = (char *)va_arg(ap, char *);
+	// if (options.content_size == 108)
+		// c = (wchar_t)va_arg(ap, int);
+	// return(c); //return is wrong for the function
 // }
 
 
@@ -74,7 +74,6 @@ int		convert_str(t_opts options, va_list ap)
 	int32_t		len;
 	char		*new_str;
 	char		*str;
-	
 	
 	// if (options.content_size > 0) //dont need???
 		// str = change_data_type(options, ap);

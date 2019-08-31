@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/01 15:01:16 by ssettle           #+#    #+#             */
-/*   Updated: 2019/08/31 03:41:50 by ssettle          ###   ########.fr       */
+/*   Created: 2019/08/31 03:49:08 by ssettle           #+#    #+#             */
+/*   Updated: 2019/08/31 08:31:39 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ typedef struct				s_opts
 	t_flags					flags;
 	int						width_field;
 	int32_t					precision;
-	uint32_t				content_size;
+	int				        content_size;
 	int						total_length_opts;
 }							t_opts;
 
@@ -71,6 +71,11 @@ extern const				t_dispatch_table g_convert_table[];
 /*
 *******************************   FUNCTIONS   *******************************
 */
+
+
+int		is_content_flag(char c);
+
+
 
 void						add_flags(t_flags *flags, char c);
 int							convert_args(const char **format, va_list ap);
@@ -109,8 +114,9 @@ size_t						pf_strlen(const char *str);
 void						pf_putchar(char c);
 void						*pf_memset(void *b, int c, size_t ln);
 void 						pf_putstr(char *str);
-char	*ft_itoa(int n);
-char						*ft_itoa_base_i(int64_t value);
+char						*pf_itoa(int n);
+char			            *pf_itoa_base_l(long int value);
+char			            *pf_itoa_base_ll(long long value);
 char						*pf_itoa_base(int value, int base);
 char						*pf_itoa_octal(int n);
 char						*pf_itoa_hex(int n);

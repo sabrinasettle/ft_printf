@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/28 14:04:17 by ssettle           #+#    #+#             */
-/*   Updated: 2019/08/28 15:05:07 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/08/31 10:32:02 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,58 @@ char			*pf_itoa_p(intptr_t value)
 		res[len] = index[ip % 16];
 		ip /= 16;
 	}
+	return (res);
+}
+
+char			*pf_itoa_base_l(long value)
+{
+	long		len;
+	long		ip;
+	char		*res;
+	static char	index[10] = "0123456789";
+
+	ip = value;
+	len = (value <= 0) ? 1 : 0;
+	if (!(res = pf_strnew(get_nbr(value))))
+		return (NULL);
+	while (ip)
+	{
+		len++;
+		ip /= 10;
+	}
+	ip = value;
+	while (len--)
+	{
+		res[len] = index[ip % 10];
+		ip /= 10;
+	}
+	value < 0 ? res[0] = '-' : 0;
+	return (res);
+}
+
+char			*pf_itoa_base_ll(long long value)
+{
+	long long			len;
+	long long		ip;
+	char		*res;
+	static char	index[10] = "0123456789";
+
+	ip = value;
+	len = (value <= 0) ? 1 : 0;
+	if (!(res = pf_strnew(len)))
+		return (NULL);
+	while (ip)
+	{
+		len++;
+		ip /= 10;
+	}
+	ip = value;
+	while (len--)
+	{
+		res[len] = index[ip % 10];
+		ip /= 10;
+	}
+	value < 0 ? res[0] = '-' : 0;
 	return (res);
 }
 

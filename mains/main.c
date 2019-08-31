@@ -114,6 +114,14 @@ int	main()
 	printf("pf l: %li\n", 9999999999);
     ft_printf("me l: %li\n", 9999999999);
 	pf_putchar('\n');
+		long long int l = 2000;
+	printf("pf ll: %lli\n", l);
+    ft_printf("me ll: %lli\n", l);
+		intmax_t j = 2000;
+	pf_putchar('\n');
+	printf("pf j: %ji\n", j);
+    ft_printf("me j: %ji\n", j);
+	pf_putchar('\n');
 	pf_putchar('\n');
 
 	printf("pf: %d, %d\n", 42, 21);
@@ -123,7 +131,7 @@ int	main()
 	ft_printf("me: %d\n", -42);
 	pf_putchar('\n');
 	printf("pf: %d, %d, %d, %ld\n", 42, -21, 69,  -2174963257925); 
-	ft_printf("me: %d, %d, %d, %ld\n", 42, -21, 69, -2174963257925); //delivers a different alue than printf
+	ft_printf("me: %d, %d, %d, %ld\n", 42, -21, 69, -2174963257925); 
 	pf_putchar('\n');
 	printf("pf: %03d\n", 1993);
 	ft_printf("pf: %.3d\n", 1993);

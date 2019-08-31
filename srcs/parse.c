@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/18 09:34:34 by ssettle           #+#    #+#             */
-/*   Updated: 2019/07/25 17:17:39 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/08/31 05:58:03 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int v_parse(const char *format, va_list ap)
             // ft_coloring(options, format);
         else
             len += int_putchar(*format);
-        format++;
+        format += 1;
     }
     return(len);
 }

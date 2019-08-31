@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/07 13:41:32 by ssettle           #+#    #+#             */
-/*   Updated: 2019/08/28 17:42:51 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/08/31 10:16:17 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,43 +29,21 @@ int		convert_args(const char **format , va_list ap)
 	options = getz_theoptionz(format, ap);
 	i = -1;
 	c = 0;
-	while(++i < 12) // this is the amount of converstions in the dispatch table or 
+	while(++i < 13) // this is the amount of converstions in the dispatch table or 
 	{
 		if (g_convert_table[i].form_convert == **format)
-			c = g_convert_table[i].convert(options, ap); //definately talks to options as the tests printed
-		if (c)
-			break ;
-
-		// if(!(g_convert_table[i].form_convert))
-		// {
-		// 	write(1, "exiting\n", 8); //says putstr?
-		// 	exit(1);
-		// }
-		// pf_putchar(**format); //testing
-		// while(g_convert_table[i].form_convert && g_convert_table[i].form_convert != **format)
-		// 	i++;
-		// c = g_convert_table[i].convert(options, ap);
+		{
+			c = g_convert_table[i].convert(options, ap);
+		}
+			 //definately talks to options as the tests printed
+		if(!(g_convert_table[i].form_convert))
+		{
+			write(1, "exiting\n", 8); //says putstr?
+			exit(1);
+		}
 	}
-	// pf_putchar(**format); //testing
 	return (c); //should be returning options? length of options
 }
-
-
-
-// int			convert_args(const char **format, va_list ap)
-// {
-// 	int		i;
-// 	t_flag	flag;
-
-// 	i = 0;
-// 	flag = get_flags(format);
-// 	while (g_conv[i].format_conv && g_conv[i].format_conv != **format)
-// 		i++;
-// 	if (!g_conv[i].format_conv)
-// 		exit(1);
-// 	return (g_conv[i].f(ap, flag));
-// }
-
 
 
 

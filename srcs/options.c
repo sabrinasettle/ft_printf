@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/29 10:38:53 by ssettle           #+#    #+#             */
-/*   Updated: 2019/08/30 13:22:12 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/08/31 10:24:13 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,24 +109,51 @@ static int			getz_thesize(const char **format)
 	int		len;
 
 	len = 0;
-	// while (IS_LEN_OPT(**format))
+	// while (**format++)
 	// {
-		if (**format == 'h' && (**format + 1) != 'h')
-			len = (uint32_t)'h';
-		else if (**format == 'h' && (**format + 1) == 'h')
-			len = (uint32_t)'h' + 'h';
+		// if (**format == 'h' && ((**format + 1) != 'h'))
+		// 	len = (uint32_t)'h';
+		// if (**format == 'h' && ((**format + 1) == 'h'))
+		// 	len = (uint32_t)('h' + 'h');
 		if (**format == 'l' && (**format + 1) != 'l')
-			len = (uint32_t)('l');
-		else if (**format == 'l' && (**format + 1) == 'l')
-			len = (uint32_t)('l' + 'l');
+			len = ('l');
+		if (**format == 'l' && ((**format + 1) == 'l')) //doesnt continue after this 
+				len = ('l' + 'l');
 		if (**format == 'j')
 			len = (uint32_t)'j';
-		if (**format == 'z')
-			len = (uint32_t)'z';
-		if (len > 0)
-			(*format) += (len >= 130 ? 2 : 1); //*format prints nothing, but maybe better than just c?
+		// if (**format == 'z')
+			// len = (uint32_t)'z';
+		else if (len > 0)
+			(*format) += (len >= 'h' + 'h' ? 2 : 1); //*format prints nothing, but maybe better than just c?
+
+	// }
 	return (len);
 }
+
+
+
+// void	prt_get_length(t_print *p)
+// {
+// 	if (p->fmt[p->i] == 'h' && p->fmt[p->i + 1] == 'h' && (p->i += 2))
+// 		p->l_mod = "hh";
+// 	else if (p->fmt[p->i] == 'h' && (p->i++))
+// 		p->l_mod = "h";
+// 	else if (p->fmt[p->i] == 'l' && p->fmt[p->i + 1] == 'l' && (p->i += 2))
+// 		p->l_mod = "ll";
+// 	else if (p->fmt[p->i] == 'l' && (p->i++))
+// 		p->l_mod = "l";
+// 	else if (p->fmt[p->i] == 'j' && (p->i++))
+// 		p->l_mod = "j";
+// 	else if (p->fmt[p->i] == 'z' && (p->i++))
+// 		p->l_mod = "z";
+// }
+
+
+
+
+
+
+
 
 /*
 ** This function gets the flags and accesses the struct that contains them.

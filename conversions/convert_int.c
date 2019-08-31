@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/02 12:33:44 by ssettle           #+#    #+#             */
-/*   Updated: 2019/08/31 03:43:50 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/08/31 10:28:57 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,22 +24,25 @@
 // z = size_t 122
 
 
-int64_t    content_sizing(t_opts options, va_list ap)
+char   *content_sizing(t_opts options, va_list ap)
 {
-    if (options.content_size == 108) //does not work
-        return ((long)va_arg(ap, long int));
-    else if (options.content_size == 'h') //does not work
-        return ((short int)va_arg(ap, int));
-    else if (options.content_size == ('l'+'l')) //does not work
-        return ((long long)va_arg(ap, long long int));
-    else if (options.content_size == ('h'+'h')) //does not work
-        return ((signed char)va_arg(ap, int)); //same as signed char
-    // else if (options.content_size == 'j') //does not work
-        // c = va_arg(ap, intmax_t);
-    // else if (options.content_size == 'z') //does not work
+    char *c;
+
+    if (options.content_size == 'l')
+        c = pf_itoa_base_l((long)va_arg(ap, long int));
+    else if (options.content_size == ('l'+'l'))
+        c = pf_itoa_base_ll((long long)va_arg(ap, long long int));
+    // if (options.content_size == 'h') 
+        // c = ((short int)va_arg(ap, int));
+    // else if (options.content_size == ('h'+'h')) //does not work
+        // c = ((signed char)va_arg(ap, int)); //same as signed char
+    else if (options.content_size == 'j') //does not work
+        c = pf_itoa_base_l((long)va_arg(ap, intmax_t));
+    // if (options.content_size == 'z') //does not work
         // c = va_arg(ap, size_t);
 	else
-		return(va_arg(ap, int));
+        c = pf_itoa(va_arg(ap, int));
+    return(c);
 	
 }
 // prec works as such if number is greater than the len than it prints zeros
@@ -84,18 +87,14 @@ char    *padding_nbr(t_opts options, char *str)
     return(new_str);
 }
 
-// padding with zeros needs to happen as well
+
 int     convert_int(t_opts options, va_list ap)
 {
     char        *str;
     int         len;
     char        *new_str;
-	int64_t		num;
-   
-	num = content_sizing(options, ap);	
-	// {
-	printf("c_s: %lld", num);
-	str = pf_itoa_base_i(num);
+	
+    str = content_sizing(options, ap);
     len = pf_strlen(str);
     if (options.precision > len)
         write(1, "0", ((options.precision - len) + 1));
