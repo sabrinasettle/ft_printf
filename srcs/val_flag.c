@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/29 10:42:43 by ssettle           #+#    #+#             */
-/*   Updated: 2019/08/31 08:31:25 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/08/31 10:49:40 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,12 @@
 **		 even if no more digits follow.
 ** '0' : Left-pads the number with zeroes (0) instead of spaces when padding.
 */
+
+
+// int		prt_is_length(char c)
+// {
+// 	return (c == 'h' || c == 'l' || c == 'j' || c == 'z') ? (1) : (0);
+// }
 
 int		is_content_flag(char c)
 {

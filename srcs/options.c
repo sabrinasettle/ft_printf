@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/29 10:38:53 by ssettle           #+#    #+#             */
-/*   Updated: 2019/08/31 10:24:13 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/08/31 10:48:57 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,26 +107,24 @@ static int			getz_theprecision(const char **format, va_list ap)
 static int			getz_thesize(const char **format)
 {
 	int		len;
+	int		i = -1;
 
 	len = 0;
-	// while (**format++)
-	// {
+
 		// if (**format == 'h' && ((**format + 1) != 'h'))
 		// 	len = (uint32_t)'h';
 		// if (**format == 'h' && ((**format + 1) == 'h'))
 		// 	len = (uint32_t)('h' + 'h');
 		if (**format == 'l' && (**format + 1) != 'l')
 			len = ('l');
-		if (**format == 'l' && ((**format + 1) == 'l')) //doesnt continue after this 
-				len = ('l' + 'l');
+		else if (**format == 'l' && (*format[i + 1] == 'l')) //doesnt continue after this 
+			len = ('l' + 'l');
 		if (**format == 'j')
 			len = (uint32_t)'j';
 		// if (**format == 'z')
 			// len = (uint32_t)'z';
 		else if (len > 0)
 			(*format) += (len >= 'h' + 'h' ? 2 : 1); //*format prints nothing, but maybe better than just c?
-
-	// }
 	return (len);
 }
 
