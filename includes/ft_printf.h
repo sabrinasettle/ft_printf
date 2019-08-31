@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/01 15:01:16 by ssettle           #+#    #+#             */
-/*   Updated: 2019/08/28 15:49:06 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/08/31 03:41:50 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,14 +109,15 @@ size_t						pf_strlen(const char *str);
 void						pf_putchar(char c);
 void						*pf_memset(void *b, int c, size_t ln);
 void 						pf_putstr(char *str);
-char						*pf_itoa(int n);
+char	*ft_itoa(int n);
+char						*ft_itoa_base_i(int64_t value);
 char						*pf_itoa_base(int value, int base);
 char						*pf_itoa_octal(int n);
 char						*pf_itoa_hex(int n);
 char						*pf_itoa_p(intptr_t value);
 char						*pf_strcat(char *dest, const char *src);
 char						*pf_strjoin(char const *s1, char const *s2);
-char 						*pf_append(char *subject, char *insert, int pos); 
+char 						*pf_append(char *subject, char *insert, int pos);
 
 /*
 ** OPTION FUNCTION
