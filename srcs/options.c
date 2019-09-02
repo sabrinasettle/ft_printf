@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/29 10:38:53 by ssettle           #+#    #+#             */
-/*   Updated: 2019/08/31 10:48:57 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/09/01 19:38:27 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,31 +104,80 @@ static int			getz_theprecision(const char **format, va_list ap)
 ** ascii value of the flags together and creates the length from the addition
 */
 
-static int			getz_thesize(const char **format)
+static int			getz_thesize(const char **format1)
 {
 	int		len;
-	int		i = -1;
+	char **wat;
 
 	len = 0;
-
+	wat = (char **)&*format1;
 		// if (**format == 'h' && ((**format + 1) != 'h'))
 		// 	len = (uint32_t)'h';
 		// if (**format == 'h' && ((**format + 1) == 'h'))
-		// 	len = (uint32_t)('h' + 'h');
-		if (**format == 'l' && (**format + 1) != 'l')
-			len = ('l');
-		else if (**format == 'l' && (*format[i + 1] == 'l')) //doesnt continue after this 
-			len = ('l' + 'l');
-		if (**format == 'j')
-			len = (uint32_t)'j';
+			// len = (uint32_t)('h' + 'h');
+	if (**wat == 'l' && *(*wat + 1) != 'l')
+		len = ('l');
+	if (**wat == 'l' && *(*wat + 1) == 'l') //doesnt continue after this 
+		len = ('l' + 'l');
+	if (**wat == 'j')
+		len = (uint32_t)'j';
 		// if (**format == 'z')
 			// len = (uint32_t)'z';
-		else if (len > 0)
-			(*format) += (len >= 'h' + 'h' ? 2 : 1); //*format prints nothing, but maybe better than just c?
+	else if (len > 0)
+		(*wat) += (len >= 208 ? 2 : 1); //*this works??????????????
 	return (len);
+	free(wat);
 }
 
 
+// static int			getz_thesize(const char **format)
+// {
+// 	int		len;
+// 	char	**wat = (char **)&*format;
+// 	// int		i = -1;
+
+// 	len = 0;
+// 		// pf_putstr("format is: ");
+		
+		
+// 		// if (**format == 'h' && ((**format + 1) != 'h'))
+// 			// len = (uint32_t)'h';
+// 		// if (**format == 'h' && ((**format + 1) == 'h'))
+// 			// len = (uint32_t)('h' + 'h');
+// 		if ((**wat == 'l' && ((**wat + 1) != 'l')))
+// 		{
+// 			pf_putchar(**format);
+// 			pf_putchar('\n');
+// 			len = ('l');
+// 		}
+// 		// if ( **wat == 'l' && ((**wat + 1) == 'l')  //doesnt continue after this 
+// 		// {
+// 			// (*format) += 1;
+// 			// pf_putchar(**format);
+// 			// pf_putchar('\n');
+// 			// (*format) += 1;
+// 			// pf_putchar(**format);
+// 			// pf_putchar('\n');
+// 		// }
+// 		else if (**format == 'j')
+// 		{
+// 			(*format) += 1;
+// 			len = (uint32_t)'j';
+// 		}
+// 		else if (**format == 'z')
+// 		{
+// 			(*format) += 1;
+// 			len = (uint32_t)'z';
+// 		}
+// 		else
+// 		{
+// 			len = ('l' + 'l');
+// 		}
+		
+// 		// else if (len > 0)
+// 			// (*format) += (len >= 'h' + 'h' ? 2 : 1); //*format prints nothing, but maybe better than just c?
+// 	return (len);
+// }
 
 // void	prt_get_length(t_print *p)
 // {

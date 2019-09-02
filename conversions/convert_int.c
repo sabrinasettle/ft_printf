@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/02 12:33:44 by ssettle           #+#    #+#             */
-/*   Updated: 2019/08/31 10:28:57 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/09/01 20:25:45 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,26 +24,29 @@
 // z = size_t 122
 
 
-char   *content_sizing(t_opts options, va_list ap)
+char   *content_sizing(t_opts options, va_list ap) //ok so not being freed so its lleaking the mem into the next one?
 {
     char *c;
+    
 
-    if (options.content_size == 'l')
-        c = pf_itoa_base_l((long)va_arg(ap, long int));
-    else if (options.content_size == ('l'+'l'))
-        c = pf_itoa_base_ll((long long)va_arg(ap, long long int));
+    // c = (pf_itoa(va_arg(ap, int)));
+    if (options.content_size == 0)
+        c = (pf_itoa(va_arg(ap, int)));
+    if (options.content_size == 108)
+        c = (pf_itoa_base_l((long)va_arg(ap, long int)));
+    if (options.content_size == 216)
+        c = (pf_itoa_base_ll(va_arg(ap, long long int)));
+    
     // if (options.content_size == 'h') 
         // c = ((short int)va_arg(ap, int));
     // else if (options.content_size == ('h'+'h')) //does not work
         // c = ((signed char)va_arg(ap, int)); //same as signed char
-    else if (options.content_size == 'j') //does not work
-        c = pf_itoa_base_l((long)va_arg(ap, intmax_t));
+    // if (options.content_size == 'j') //does not work
+        // return (pf_itoa_base_l((long)va_arg(ap, intmax_t)));
     // if (options.content_size == 'z') //does not work
-        // c = va_arg(ap, size_t);
-	else
-        c = pf_itoa(va_arg(ap, int));
-    return(c);
-	
+        // c = (pf_itoa(size_t)va_arg(ap, size_t));
+    
+    return (c);
 }
 // prec works as such if number is greater than the len than it prints zeros
 char    *pf_append_int(char *subject, char *insert, int pos) 
@@ -93,7 +96,7 @@ int     convert_int(t_opts options, va_list ap)
     char        *str;
     int         len;
     char        *new_str;
-	
+    
     str = content_sizing(options, ap);
     len = pf_strlen(str);
     if (options.precision > len)
