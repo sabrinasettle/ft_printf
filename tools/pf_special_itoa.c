@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/28 14:04:17 by ssettle           #+#    #+#             */
-/*   Updated: 2019/09/01 20:28:06 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/09/02 13:00:10 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ char			*pf_itoa_base_ll(long long value)
 
 	ip = value;
 	len = (value <= 0) ? 1 : 0;
-	if (!(res = pf_strnew(len)))
+	if (!(res = pf_strnew(get_nbr(value))))
 		return (NULL);
 	while (ip)
 	{

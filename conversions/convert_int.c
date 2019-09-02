@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/02 12:33:44 by ssettle           #+#    #+#             */
-/*   Updated: 2019/09/01 20:25:45 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/09/02 13:02:10 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,19 +24,15 @@
 // z = size_t 122
 
 
-char   *content_sizing(t_opts options, va_list ap) //ok so not being freed so its lleaking the mem into the next one?
+char  *content_sizing(t_opts options, va_list ap) //ok so not being freed so its leaking the mem into the next one?
 {
-    char *c;
-    
-
-    // c = (pf_itoa(va_arg(ap, int)));
-    if (options.content_size == 0)
-        c = (pf_itoa(va_arg(ap, int)));
+    // c =(pf_itoa(va_arg(ap, int)));
+    // if (options.content_size == 0)
+        // c = (pf_itoa(va_arg(ap, int)));
     if (options.content_size == 108)
-        c = (pf_itoa_base_l((long)va_arg(ap, long int)));
-    if (options.content_size == 216)
-        c = (pf_itoa_base_ll(va_arg(ap, long long int)));
-    
+        return (pf_itoa_base_l((long)va_arg(ap, long int))); //doesnt work with min neg, may have to hard code?
+    else if (options.content_size == 216)
+        return (pf_itoa_base_ll((long long)va_arg(ap, long long int)));
     // if (options.content_size == 'h') 
         // c = ((short int)va_arg(ap, int));
     // else if (options.content_size == ('h'+'h')) //does not work
@@ -45,9 +41,10 @@ char   *content_sizing(t_opts options, va_list ap) //ok so not being freed so it
         // return (pf_itoa_base_l((long)va_arg(ap, intmax_t)));
     // if (options.content_size == 'z') //does not work
         // c = (pf_itoa(size_t)va_arg(ap, size_t));
-    
-    return (c);
+    else 
+        return (pf_itoa(va_arg(ap, int)));
 }
+
 // prec works as such if number is greater than the len than it prints zeros
 char    *pf_append_int(char *subject, char *insert, int pos) 
 {
@@ -65,6 +62,7 @@ char    *pf_append_int(char *subject, char *insert, int pos)
     free(buf);
     return(new_str);
 }
+
 char    *padding_nbr(t_opts options, char *str)
 {
     int     wd_len;
@@ -90,14 +88,13 @@ char    *padding_nbr(t_opts options, char *str)
     return(new_str);
 }
 
-
 int     convert_int(t_opts options, va_list ap)
 {
     char        *str;
     int         len;
     char        *new_str;
     
-    str = content_sizing(options, ap);
+    str = options.content_size > 0 ? content_sizing(options, ap) : pf_itoa(va_arg(ap, int));
     len = pf_strlen(str);
     if (options.precision > len)
         write(1, "0", ((options.precision - len) + 1));
@@ -109,7 +106,7 @@ int     convert_int(t_opts options, va_list ap)
         pf_putstr(new_str);
         free(new_str);
     }
-    else 
+    else
         pf_putstr(str);
     len = pf_strlen(str);
     free(str);

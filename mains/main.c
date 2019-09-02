@@ -331,7 +331,7 @@ int	main()
 
 
 
-	// system("leaks test");
+	system("leaks test");
 	return 0;
 }
 

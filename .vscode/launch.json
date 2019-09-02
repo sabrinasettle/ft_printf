@@ -9,7 +9,6 @@
             "type": "cppdbg",
             "request": "launch",
             "program": " ${workspaceFolder}/test",
-            "args": [],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}",
             "environment": [],

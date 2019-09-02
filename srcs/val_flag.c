@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/29 10:42:43 by ssettle           #+#    #+#             */
-/*   Updated: 2019/08/31 10:49:40 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/09/01 20:57:26 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,12 +29,6 @@
 // 	return (c == 'h' || c == 'l' || c == 'j' || c == 'z') ? (1) : (0);
 // }
 
-int		is_content_flag(char c)
-{
-	if (c == 'l')
-		return(1);
-	return(0);
-}
 
 int		is_special_flag(char c)
 {
