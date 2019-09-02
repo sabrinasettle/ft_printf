@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/02 12:33:44 by ssettle           #+#    #+#             */
-/*   Updated: 2019/09/02 13:02:10 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/09/02 13:06:10 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ char  *content_sizing(t_opts options, va_list ap) //ok so not being freed so its
     // if (options.content_size == 0)
         // c = (pf_itoa(va_arg(ap, int)));
     if (options.content_size == 108)
-        return (pf_itoa_base_l((long)va_arg(ap, long int))); //doesnt work with min neg, may have to hard code?
+        return (pf_itoa_base_l((long)va_arg(ap, long int))); //doesnt work perfectly
     else if (options.content_size == 216)
         return (pf_itoa_base_ll((long long)va_arg(ap, long long int)));
     // if (options.content_size == 'h') 
