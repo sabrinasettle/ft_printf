@@ -221,8 +221,8 @@ int	main()
 	printf("pf: %-x \n", 1600);
 	ft_printf("me: %-x \n", 1600);
 	pf_putchar('\n');
-	printf("pf: %.7x \n", 1600);
-	ft_printf("me: %.7x \n", 1600);
+	printf("pf prec: %.7x \n", 1600);
+	ft_printf("me prec: %.7x \n", 1600);
 	pf_putchar('\n');
 	printf("pf: %-5x %c \n", 1600, '.');
 	ft_printf("me: %-5x %c \n", 1600, '.');
@@ -282,8 +282,8 @@ int	main()
   	printf("conversion of go: %p\n", &"go");
 	ft_printf("conversion of go: %p\n", &"go");
 	pf_putchar('\n');
-	// printf("The address of a is: %5p\n", (void *) 0);
-	// ft_printf("The address of a is: %5p\n", (void *) 0);
+	printf("The address of a is: %5p\n", (void *) 0);
+	ft_printf("The address of a is: %5p\n", (void *) 0);
 	pf_putchar('\n');
 	printf("The address of a is: %5p\n", (void *) 2);
 	ft_printf("The address of a is: %5p\n", (void *) 2);

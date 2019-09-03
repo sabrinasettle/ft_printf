@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/02 12:33:46 by ssettle           #+#    #+#             */
-/*   Updated: 2019/08/28 15:48:13 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/09/03 14:29:13 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,9 +87,15 @@ int			convert_octal(t_opts options, va_list ap)
 	int			len;
 	char		*new_str;
 	
-	str = pf_itoa_octal(va_arg(ap, int)); //abs?
+
+	// str = options.content_size > 0 ? 
+        // pf_itoa_base_l(va_arg(ap, uint64_t)) : pf_itoa(va_arg(ap, uint32_t)); //uint64t in my itoa
 	// if (options.content_size > 0)
 		// str = content_sizing(options, ap);
+
+		
+	str = pf_itoa_octal(va_arg(ap, int)); //abs?
+	
 	len = pf_strlen(str);
 	if (options.precision > len)
 		write(1, "0", ((options.precision - len) + 1));

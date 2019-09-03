@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/02 12:33:39 by ssettle           #+#    #+#             */
-/*   Updated: 2019/08/28 14:17:29 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/09/03 15:47:55 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,6 @@ char		*padding_hex(t_opts options, char *str)
 		(void)options.flags.minus;	
 		if (options.flags.pound >= 1)
 		{
-			// pf_putstr("0x");
 			wd_len -= 2;
 			pf_memset(new_str, '0', wd_len);
 		}
@@ -74,14 +73,20 @@ int			convert_hex(t_opts options, va_list ap)
 	// if (options.content_size > 0)
 		// str = content_sizing(options, ap);
 	str = pf_itoa_hex(va_arg(ap, int)); //abs?
+	if (options.flags.pound >= 1)
+		str = pf_append(str, "0x", 0);
 	len = pf_strlen(str);
 	if (options.precision > len)
-		write(1, "0", ((options.precision - len) + 1));
-	if (options.flags.pound >= 1)
-		pf_putstr("0x");
+	{
+		new_str = pf_memset(str, '0', (options.precision));
+		// char *sstr = pf_strjoin(new_str, str);
+		pf_putstr(new_str);
+	}
 	if (options.width_field > len)
 	{
 		new_str = padding_hex(options, str);
+		if (options.flags.pound >= 1)
+			new_str = pf_strjoin("0x", new_str);
 		pf_putstr(new_str);
 		free(new_str);
 	}

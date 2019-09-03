@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/02 12:33:44 by ssettle           #+#    #+#             */
-/*   Updated: 2019/09/03 14:16:47 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/09/03 14:26:30 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,37 +16,7 @@
 ** Conversion for i and d. Really only has a difference if you are using scanf.
 */
 
-// hh = signed char 208 ch
-// h = short int 104 ch
-// l = long int 108 ch
-// ll = long long int 216 ch
-// j = intmax_t 106
-// z = size_t 122
-
-
-// char  *content_sizing(t_opts options, va_list ap) //ok so not being freed so its leaking the mem into the next one?
-// {
-    // c =(pf_itoa(va_arg(ap, int)));
-    // if (options.content_size == 0)
-        // c = (pf_itoa(va_arg(ap, int)));
-    // if (options.content_size == 108)
-        // return (pf_itoa_base_l(va_arg(ap, int64_t))); //doesnt work perfectly
-    // else if (options.content_size == 216)
-        // return (pf_itoa_base_l(va_arg(ap, int64_t)));
-    // if (options.content_size == 'h') 
-        // c = ((short int)va_arg(ap, int));
-    // else if (options.content_size == ('h'+'h')) //does not work
-        // c = ((signed char)va_arg(ap, int)); //same as signed char
-    // if (options.content_size == 'j') //does not work
-        // return (pf_itoa_base_l((long)va_arg(ap, intmax_t)));
-    // if (options.content_size == 'z') //does not work
-        // c = (pf_itoa(size_t)va_arg(ap, size_t));
-    // else 
-        // return (pf_itoa(va_arg(ap, int)));
-// }
-
-// prec works as such if number is greater than the len than it prints zeros
-char    *pf_append_int(char *subject, char *insert, int pos) 
+char    *pf_append_int(char *subject, char *insert, int pos) // never used
 {
     char    *new_str;
     char    *buf;
@@ -99,6 +69,7 @@ int     convert_int(t_opts options, va_list ap)
     len = pf_strlen(str);
     if (options.precision > len) //??
         write(1, "0", ((options.precision - len) + 1)); //strjoin
+        // new_str = pf_strjoin("0x", str);
     if (options.flags.plus == 1)
         pf_append(str, "+", 0);
     if (options.width_field > len)

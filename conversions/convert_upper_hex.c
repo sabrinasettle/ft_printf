@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/02 12:34:06 by ssettle           #+#    #+#             */
-/*   Updated: 2019/08/28 09:34:27 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/09/03 14:48:52 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ int				convert_upper_hex(t_opts options, va_list ap)
 	if (options.precision > len)
 		write(1, "0", ((options.precision - len) + 1));
 	if (options.flags.pound >= 1)
-		pf_putstr("0X");
+		pf_strjoin("0X", str);
 	if (options.width_field > len)
 	{
 		new_str = padding_upper_hex(options, str);
