@@ -76,7 +76,7 @@ int	main()
 	ft_printf("me: %i\n", -42);
 	pf_putchar('\n');
 	printf("pf: %i, %i, %i, %li\n", 42, -21, 69,  -2174963257925); 
-	ft_printf("me: %i, %i, %i, %li\n", 42, -21, 69, -2174963257925); //delivers a different alue than printf
+	ft_printf("me: %i, %i, %i, %li\n", 42, -21, 69, -2174963257925); //eli says stop testing
 	pf_putchar('\n');
 	printf("pf: %03i\n", 1993);
 	ft_printf("pf: %.3i\n", 1993);
@@ -141,7 +141,7 @@ int	main()
 	ft_printf("me: %d\n", -42);
 	pf_putchar('\n');
 	printf("pf: %d, %d, %d, %ld\n", 42, -21, 69,  -2174963257925); 
-	ft_printf("me: %d, %d, %d, %ld\n", 42, -21, 69, -2174963257925); 
+	ft_printf("me: %d, %d, %d, %ld\n", 42, -21, 69, -2174963257925); //eli says top testing
 	pf_putchar('\n');
 	printf("pf: %03d\n", 1993);
 	ft_printf("pf: %.3d\n", 1993);
@@ -269,6 +269,7 @@ int	main()
 	printf("---------------------- POINTER ----------------------------- \n");
 	pf_putchar('\n');
 	int a = 42;
+	int b = 2;
 	printf("The address of a is: %p\n", (void *) &a);
 	ft_printf("The address of a is: %p\n", (void *) &a);
 	pf_putchar('\n');
@@ -280,6 +281,15 @@ int	main()
 	pf_putchar('\n');
   	printf("conversion of go: %p\n", &"go");
 	ft_printf("conversion of go: %p\n", &"go");
+	pf_putchar('\n');
+	// printf("The address of a is: %5p\n", (void *) 0);
+	// ft_printf("The address of a is: %5p\n", (void *) 0);
+	pf_putchar('\n');
+	printf("The address of a is: %5p\n", (void *) 2);
+	ft_printf("The address of a is: %5p\n", (void *) 2);
+	pf_putchar('\n');
+  	printf("The address of a is: %-5p %c\n", (void *) 2, '.');
+	ft_printf("The address of a is: %-5p %c\n",(void *) 2, '.');
 	pf_putchar('\n');
 	pf_putchar('\n');
 

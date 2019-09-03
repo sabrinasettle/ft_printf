@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/02 12:33:44 by ssettle           #+#    #+#             */
-/*   Updated: 2019/09/02 13:06:10 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/09/03 14:16:47 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,15 +24,15 @@
 // z = size_t 122
 
 
-char  *content_sizing(t_opts options, va_list ap) //ok so not being freed so its leaking the mem into the next one?
-{
+// char  *content_sizing(t_opts options, va_list ap) //ok so not being freed so its leaking the mem into the next one?
+// {
     // c =(pf_itoa(va_arg(ap, int)));
     // if (options.content_size == 0)
         // c = (pf_itoa(va_arg(ap, int)));
-    if (options.content_size == 108)
-        return (pf_itoa_base_l((long)va_arg(ap, long int))); //doesnt work perfectly
-    else if (options.content_size == 216)
-        return (pf_itoa_base_ll((long long)va_arg(ap, long long int)));
+    // if (options.content_size == 108)
+        // return (pf_itoa_base_l(va_arg(ap, int64_t))); //doesnt work perfectly
+    // else if (options.content_size == 216)
+        // return (pf_itoa_base_l(va_arg(ap, int64_t)));
     // if (options.content_size == 'h') 
         // c = ((short int)va_arg(ap, int));
     // else if (options.content_size == ('h'+'h')) //does not work
@@ -41,9 +41,9 @@ char  *content_sizing(t_opts options, va_list ap) //ok so not being freed so its
         // return (pf_itoa_base_l((long)va_arg(ap, intmax_t)));
     // if (options.content_size == 'z') //does not work
         // c = (pf_itoa(size_t)va_arg(ap, size_t));
-    else 
-        return (pf_itoa(va_arg(ap, int)));
-}
+    // else 
+        // return (pf_itoa(va_arg(ap, int)));
+// }
 
 // prec works as such if number is greater than the len than it prints zeros
 char    *pf_append_int(char *subject, char *insert, int pos) 
@@ -94,10 +94,11 @@ int     convert_int(t_opts options, va_list ap)
     int         len;
     char        *new_str;
     
-    str = options.content_size > 0 ? content_sizing(options, ap) : pf_itoa(va_arg(ap, int));
+    str = options.content_size > 0 ? 
+        pf_itoa_base_l(va_arg(ap, int64_t)) : pf_itoa(va_arg(ap, int32_t));
     len = pf_strlen(str);
-    if (options.precision > len)
-        write(1, "0", ((options.precision - len) + 1));
+    if (options.precision > len) //??
+        write(1, "0", ((options.precision - len) + 1)); //strjoin
     if (options.flags.plus == 1)
         pf_append(str, "+", 0);
     if (options.width_field > len)
