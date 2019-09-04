@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/02 12:33:39 by ssettle           #+#    #+#             */
-/*   Updated: 2019/09/03 15:47:55 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/09/03 22:04:10 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,18 @@
 // 		c = va_arg(ap, size_t);
 //     return(c);
 // }
+
+char		*prec_hex(t_opts options, char *str)
+{
+	char *new_str;
+	int len;
+
+	new_str = pf_strdup(str);
+	len = pf_strlen(str);
+	if (options.precision > len)
+		new_str = pf_memset(new_str, '0', (options.precision - len));
+	return(new_str);
+}
 
 char		*padding_hex(t_opts options, char *str)
 {
@@ -70,16 +82,17 @@ int			convert_hex(t_opts options, va_list ap)
 	int			len;
 	char		*new_str;
 	
+	// just need to have a regular 0x and its done
+	
 	// if (options.content_size > 0)
 		// str = content_sizing(options, ap);
 	str = pf_itoa_hex(va_arg(ap, int)); //abs?
-	if (options.flags.pound >= 1)
-		str = pf_append(str, "0x", 0);
 	len = pf_strlen(str);
 	if (options.precision > len)
 	{
-		new_str = pf_memset(str, '0', (options.precision));
-		// char *sstr = pf_strjoin(new_str, str);
+		new_str = prec_hex(options, str);
+		if (options.flags.pound >= 1)
+			new_str = pf_strjoin("0x", new_str);
 		pf_putstr(new_str);
 	}
 	if (options.width_field > len)
