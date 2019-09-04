@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/02 12:33:39 by ssettle           #+#    #+#             */
-/*   Updated: 2019/09/03 22:04:10 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/09/04 13:51:14 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,13 @@ char		*prec_hex(t_opts options, char *str)
 	len = pf_strlen(str);
 	if (options.precision > len)
 		new_str = pf_memset(new_str, '0', (options.precision - len));
+	if (options.flags.pound != 0)
+	{
+		str = pf_strjoin("0x", str);
+		new_str = pf_append(str, new_str, 2);
+	}
+	else 
+		new_str = pf_strjoin(new_str, str);
 	return(new_str);
 }
 
@@ -76,35 +83,38 @@ char		*padding_hex(t_opts options, char *str)
 	return(new_str);
 }
 
+char *print_reg(t_opts options, char *str)
+{
+	char *new_str;
+	
+	if (options.precision == 0 && options.width_field == 0 && options.flags.pound != 0)
+		new_str = pf_strjoin("0x", str);
+	else 
+		return(str);
+	return(new_str);
+}
+
 int			convert_hex(t_opts options, va_list ap)
 {
 	char		*str;
 	int			len;
-	char		*new_str;
+	// char		*new_str;
 	
 	// just need to have a regular 0x and its done
 	
-	// if (options.content_size > 0)
-		// str = content_sizing(options, ap);
+	// options.content_size > 0 ? content_sizing(options, ap) : pf_itoa_hex(va_arg(ap, int));
 	str = pf_itoa_hex(va_arg(ap, int)); //abs?
 	len = pf_strlen(str);
 	if (options.precision > len)
-	{
-		new_str = prec_hex(options, str);
-		if (options.flags.pound >= 1)
-			new_str = pf_strjoin("0x", new_str);
-		pf_putstr(new_str);
-	}
+		str = prec_hex(options, str);
 	if (options.width_field > len)
 	{
-		new_str = padding_hex(options, str);
+		str = padding_hex(options, str);
 		if (options.flags.pound >= 1)
-			new_str = pf_strjoin("0x", new_str);
-		pf_putstr(new_str);
-		free(new_str);
+			str = pf_strjoin("0x", str);
 	}
-	else 
-		pf_putstr(str);
+	str = print_reg(options, str);
+	pf_putstr(str);
 	len = pf_strlen(str);
 	free(str);
 	return(len);
