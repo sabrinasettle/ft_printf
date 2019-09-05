@@ -6,11 +6,13 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/02 12:34:04 by ssettle           #+#    #+#             */
-/*   Updated: 2019/09/04 16:30:22 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/09/05 14:02:23 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
+
+//space flag undefined
 
 // int     content_sizing(t_opts options, va_list ap)
 // {

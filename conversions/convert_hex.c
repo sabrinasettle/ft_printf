@@ -6,32 +6,11 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/02 12:33:39 by ssettle           #+#    #+#             */
-/*   Updated: 2019/09/05 12:47:38 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/09/05 15:20:44 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
-
-// int     content_sizing(t_opts options, va_list ap)
-// {
-//     char c;
-    
-// 	if (options.content_size == 0)
-// 		c = va_arg(ap, unsigned int);
-// 	else if (options.content_size == 108) //does not work
-// 		c = va_arg(ap, unsigned long int);
-//     else if (options.content_size == 104) //does not work
-// 		c = va_arg(ap, unsigned short int);
-//     else if (options.content_size == 216) //does not work
-// 		c = va_arg(ap, unsigned long long int);
-// 	else if (options.content_size == 208) //does not work
-// 		c = va_arg(ap, unsigned char); //same as signed char
-// 	else if (options.content_size == 106) //does not work
-// 		c = va_arg(ap, uintmax_t);
-// 	else if (options.content_size == 122) //does not work
-// 		c = va_arg(ap, size_t);
-//     return(c);
-// }
 
 char		*prec_hex(t_opts options, char *str)
 {
@@ -104,10 +83,9 @@ int			convert_hex(t_opts options, va_list ap)
 {
 	char		*str;
 	int			len;
-	// dont need to do space flag
 	
-	// options.content_size > 0 ? content_sizing(options, ap) : pf_itoa_hex(va_arg(ap, int));
-	str = pf_itoa_hex(va_arg(ap, int)); //abs?
+	str = options.content_size == 'l' || options.content_size == 'l' + 'l' ?
+		pf_itoa_hex(va_arg(ap, uint64_t)) : pf_itoa_hex(va_arg(ap, uint32_t));
 	len = pf_strlen(str);
 	if (options.precision > len)
 		str = prec_hex(options, str);
@@ -115,7 +93,7 @@ int			convert_hex(t_opts options, va_list ap)
 	{
 		str = padding_hex(options, str);
 		if (options.flags.pound >= 1)
-			str = pf_append(str, "0x", 0); //leaks here
+			str = pf_append(str, "0x", 0);
 	}
 	str = print_reg(options, str);
 	pf_putstr(str);
@@ -123,88 +101,3 @@ int			convert_hex(t_opts options, va_list ap)
 	free(str);
 	return(len);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// https://github.com/spitox/ft_printf/blob/master/srcs/print_x.c
-// https://github.com/cbg119/42-ft_printf/blob/master/conversions/convert_x.c
-// https://github.com/spitox/ft_printf/blob/master/padding/print_x_option.c
-// https://github.com/MagicHatJo/-42-ft_printf/blob/master/type/d_x.c

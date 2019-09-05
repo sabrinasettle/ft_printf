@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/29 10:38:53 by ssettle           #+#    #+#             */
-/*   Updated: 2019/09/02 11:28:28 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/09/05 13:57:13 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,14 +117,17 @@ static int			getz_thesize(const char **format1)
 			// len = (uint32_t)('h' + 'h');
 	if (**wat == 'l' && *(*wat + 1) != 'l')
 		len = ('l');
-	else if (**wat == 'l' && *(*wat + 1) == 'l') //doesnt continue after this 
+	else if (**wat == 'l' && *(*wat + 1) == 'l')
 		len = ('l' + 'l');
 	if (**wat == 'j')
-		len = (uint32_t)'j';
-	if (**wat == 'z')
-		len = (uint32_t)'z';
+		len = 'j';
+	if (**wat == 'z') //does not work properly FUCCCCCKKKK
+	{
+		len = 'z';
+		(*wat) += 1;
+	}
 	else if (len > 0)
-		(*wat) += (len >= 208 ? 2 : 1); //*this works??????????????
+		(*wat) += (len >= 208 ? 2 : 1);
 	return (len);
 	free(wat);
 }

@@ -105,37 +105,37 @@ int	main()
 	// printf ("pf plus flag: %+10i \n", 1977);
 	// ft_printf("me plus flag: %+10i \n", 1977);
 	// pf_putchar('\n');
-	// printf ("pf preceding with zeros: %010i \n", 1977);
-	// ft_printf("me preceding with zeros: %010i \n", 1977);
-	// pf_putchar('\n');
-	// printf("pf prec: %.6i\n", 1993);
-	// ft_printf("me prec: %.6i\n", 1993);
-	// pf_putchar('\n');
-	// printf("pf l: %li\n", 9999999999);
-    // ft_printf("me l: %li\n", 9999999999);
-	// pf_putchar('\n');
-	// 	long long int l = 2000;
-	// printf("pf ll: %lli\n", l);
-    // ft_printf("me ll: %lli\n", l);
-	// pf_putchar('\n');
-	// 	long long int m = 3000;
-	// printf("pf ll: %lli\n", m);
-    // ft_printf("me ll: %lli\n", m);
-	// pf_putchar('\n');
-	// 	long long int n = 4000;
-	// printf("pf ll: %lli\n", n);
-    // ft_printf("me ll: %lli\n", n);
-	// 	// intmax_t j = 2000;
-	// pf_putchar('\n');
-	// printf("pf l: %li\n", 9999999999);
-    // ft_printf("me l: %li\n", 9999999999);
-	// // printf("pf j: %ji\n", j);
-    // // ft_printf("me j: %ji\n", j);
+	printf ("pf preceding with zeros: %010i \n", 1977);
+	ft_printf("me preceding with zeros: %010i \n", 1977);
 	pf_putchar('\n');
-	printf("pf prec: %  i\n", 5000);
-	ft_printf("me prec: %  i\n", 5000);
+	printf("pf prec: %.6i\n", 1993);
+	ft_printf("me prec: %.6i\n", 1993);
 	pf_putchar('\n');
-	// pf_putchar('\n');
+	printf("pf l: %li\n", 9999999999);
+    ft_printf("me l: %li\n", 9999999999);
+	pf_putchar('\n');
+		long long int l = 2000;
+	printf("pf ll: %lli\n", l);
+    ft_printf("me ll: %lli\n", l);
+	pf_putchar('\n');
+		long long int m = 3000;
+	printf("pf ll: %lli\n", m);
+    ft_printf("me ll: %lli\n", m);
+	pf_putchar('\n');
+		long long int n = 4000;
+	printf("pf ll: %lli\n", n);
+    ft_printf("me ll: %lli\n", n);
+		// intmax_t j = 2000;
+	pf_putchar('\n');
+	printf("pf l: %li\n", 9999999999);
+    ft_printf("me l: %li\n", 9999999999);
+	// printf("pf j: %ji\n", j);
+    // ft_printf("me j: %ji\n", j);
+	pf_putchar('\n');
+	printf("pf space f: %  i\n", 5000);
+	ft_printf("me space f: %  i\n", 5000);
+	pf_putchar('\n');
+	pf_putchar('\n');
 
 	// printf("pf: %d, %d\n", 42, 21);
 	// ft_printf("me: %d, %d\n", 42, 21);
@@ -187,10 +187,10 @@ int	main()
 	// pf_putchar('\n');
 	// printf("pf prec: %.6d\n", 5000);
 	// ft_printf("me prec: %.6d\n", 5000);
-	pf_putchar('\n');
-	printf("pf prec: % d\n", 5000);
-	ft_printf("me prec: % d\n", 5000);
-	pf_putchar('\n');
+	// pf_putchar('\n');
+	// printf("pf space f: % d\n", 5000);
+	// ft_printf("me space f: % d\n", 5000);
+	// pf_putchar('\n');
 	// pf_putchar('\n');
 
 	// //FLOATS
@@ -202,89 +202,88 @@ int	main()
 	// // printf ("Width trick: %*d \n", 5, 10);
 
 	// // //OCT
-	printf("---------------------- OCT ----------------------------- \n");
-	pf_putchar('\n');
-	printf("pf: %o \n", 1977);
-	ft_printf("me: %o \n", 1977);
-	pf_putchar('\n');
-	printf("pf: %.2o \n", 1977);
-	ft_printf("me: %.2o \n", 1977);
-	pf_putchar('\n');
-	printf("pf neg: %-5o %c\n", 1977, '.');
-	ft_printf("me neg: %-5o %c\n", 1977, '.');
-	pf_putchar('\n');
-	printf("pf: %o \n", -2);
-	ft_printf("me: %o \n", -2); //delivers wrong ouput so so bad
-	pf_putchar('\n');
-	printf("pf: %010o\n", 7);
-	ft_printf("me: %010o\n", 7);
-	pf_putchar('\n');
-	printf("pf: 0x%08o\n", 7);
-	ft_printf("me: 0x%08o\n", 7);
-	pf_putchar('\n');
-	printf("pf hash: %#8o\n", 7);
-	ft_printf("me hash: %#8o\n", 7);
-	pf_putchar('\n');
-	printf ("pf: %#o \n", 100);
-	ft_printf("me: %#o \n", 100);
-	pf_putchar('\n');
-	pf_putchar('\n');
+	// printf("---------------------- OCT ----------------------------- \n");
+	// pf_putchar('\n');
+	// printf("pf: %o \n", 1977);
+	// ft_printf("me: %o \n", 1977);
+	// pf_putchar('\n');
+	// printf("pf: %.2o \n", 1977);
+	// ft_printf("me: %.2o \n", 1977);
+	// pf_putchar('\n');
+	// printf("pf neg: %-5o %c\n", 1977, '.');
+	// ft_printf("me neg: %-5o %c\n", 1977, '.');
+	// pf_putchar('\n');
+	// printf("pf: %o \n", -2);
+	// ft_printf("me: %o \n", -2); //delivers wrong ouput so so bad
+	// pf_putchar('\n');
+	// printf("pf: %010o\n", 7);
+	// ft_printf("me: %010o\n", 7);
+	// pf_putchar('\n');
+	// printf("pf: 0x%08o\n", 7);
+	// ft_printf("me: 0x%08o\n", 7);
+	// pf_putchar('\n');
+	// printf("pf hash: %#8o\n", 7);
+	// ft_printf("me hash: %#8o\n", 7);
+	// pf_putchar('\n');
+	// printf ("pf: %#o \n", 100);
+	// ft_printf("me: %#o \n", 100);
+	// pf_putchar('\n');
+	// pf_putchar('\n');
 
 	// //HEX
-	// printf("---------------------- HEX ----------------------------- \n");
-	// pf_putchar('\n');
-	// printf("pf: %-7x %c\n", 1600, '.');
-	// ft_printf("me: %-7x %c\n", 1600, '.');
-	// pf_putchar('\n');
-	// printf("pf prec 7: %.7x \n", 1600);
-	// ft_printf("me prec 7: %.7x \n", 1600);
-	// pf_putchar('\n');
-	// printf("pf prec 5: %.5x \n", 2);
-	// ft_printf("me prec 5: %.5x \n", 2);
-	// pf_putchar('\n');
-	// printf("pf prec hash: %.4x \n", 20);
-	// ft_printf("me prec hash: %.4x \n", 20);
-	// pf_putchar('\n');
-	// printf("pf prec hash: %#.7x \n", 1600);
-	// ft_printf("me prec hash: %#.7x \n", 1600);
-	// pf_putchar('\n');
-	// printf("pf prec hash: %#.5x \n", 2);
-	// ft_printf("me prec hash: %#.5x \n", 2);
-	// pf_putchar('\n');
-	// printf("pf: %-5x %c \n", 1600, '.');
-	// ft_printf("me: %-5x %c \n", 1600, '.');
-	// pf_putchar('\n');
-	// printf("pf: %#x \n", 1600);
-	// ft_printf("me: %#x \n", 1600);
-	// pf_putchar('\n');
-	// printf("pf: %#-x \n", 1600);
-	// ft_printf("me: %#-x \n", 1600);
-	// pf_putchar('\n');
-	// printf("pf just zeros: %010x\n", 7);
-	// ft_printf("me just zeros: %010x\n", 7);
-	// pf_putchar('\n');
-	// printf("pf pre 0x str: 0x%08x\n", 7);
-	// ft_printf("me pre 0x str: 0x%08x\n", 7);
-	// pf_putchar('\n');
-	// printf("pf: %#010x\n", 7);
-	// ft_printf("me: %#010x\n", 7);
-	// pf_putchar('\n');
-	// printf("pf: %#08x\n", 7);
-	// ft_printf("me: %#08x\n", 7);
-	// pf_putchar('\n');
-	// pf_putchar('\n');
-
-	// //UINT
-	// // printf("---------------------- UINT ----------------------------- \n");
-	// // pf_putchar('\n');
-
-
-	// // printf("%15s\n", "STRINGS\n");
-
-
+	printf("---------------------- HEX ----------------------------- \n");
+	pf_putchar('\n');
+	printf("pf: %-7x %c\n", 1600, '.');
+	ft_printf("me: %-7x %c\n", 1600, '.');
+	pf_putchar('\n');
+	printf("pf prec 7: %.7x \n", 1600);
+	ft_printf("me prec 7: %.7x \n", 1600);
+	pf_putchar('\n');
+	printf("pf prec 5: %.5x \n", 2);
+	ft_printf("me prec 5: %.5x \n", 2);
+	pf_putchar('\n');
+	printf("pf prec hash: %.4x \n", 20);
+	ft_printf("me prec hash: %.4x \n", 20);
+	pf_putchar('\n');
+	printf("pf prec hash: %#.7x \n", 1600);
+	ft_printf("me prec hash: %#.7x \n", 1600);
+	pf_putchar('\n');
+	printf("pf prec hash: %#.5x \n", 2);
+	ft_printf("me prec hash: %#.5x \n", 2);
+	pf_putchar('\n');
+	printf("pf: %-5x %c \n", 1600, '.');
+	ft_printf("me: %-5x %c \n", 1600, '.');
+	pf_putchar('\n');
+	printf("pf: %#x \n", 1600);
+	ft_printf("me: %#x \n", 1600);
+	pf_putchar('\n');
+	printf("pf: %#-x \n", 1600);
+	ft_printf("me: %#-x \n", 1600);
+	pf_putchar('\n');
+	printf("pf just zeros: %010x\n", 7);
+	ft_printf("me just zeros: %010x\n", 7);
+	pf_putchar('\n');
+	printf("pf pre 0x str: 0x%08x\n", 7);
+	ft_printf("me pre 0x str: 0x%08x\n", 7);
+	pf_putchar('\n');
+	printf("pf: %#010x\n", 7);
+	ft_printf("me: %#010x\n", 7);
+	pf_putchar('\n');
+	printf("pf: %#08x\n", 7);
+	ft_printf("me: %#08x\n", 7);
+	pf_putchar('\n');
+	unsigned long f = 70;
+	printf("pf l flag: %lx\n", f);
+	ft_printf("me l flag: %lx\n", f);
+	pf_putchar('\n');
+	unsigned long long e = 7000;
+	printf("pf ll flag: %llx\n", e);
+	ft_printf("me ll flag: %llx\n", e);
+	pf_putchar('\n');
+	pf_putchar('\n');
+	pf_putchar('\n');
 
 	// // percent sign
-	// // printf("%15s", "PERCENT");
 	// printf("---------------------- PERCENT ----------------------------- \n");
 	// pf_putchar('\n');
 	// printf("pf percent: %%\n");
@@ -319,10 +318,10 @@ int	main()
 	// pf_putchar('\n');
 	// pf_putchar('\n');
 
-	// //UINT
-	// printf("---------------------- UINT ----------------------------- \n");
+	//UINT
+	printf("---------------------- UINT ----------------------------- \n");
 	// pf_putchar('\n');
-
+	size_t s = 153;
 	// printf("pf no flags: %u\n", 153);
 	// ft_printf("me no flags: %u\n", 153);
 	// pf_putchar('\n');
@@ -337,10 +336,14 @@ int	main()
 	// pf_putchar('\n');
    	// printf("pf minus: %-5u %c\n", 153, '.');
     // ft_printf("me minus: %-5u %c\n", 153, '.');
-    // // printf("pf l: %lu\n", 9999999999);
-    // // ft_printf("me l: %lu\n", 9999999999);
 	// pf_putchar('\n');
-	// pf_putchar('\n');
+	printf("pf z flag: %zu\n", s);
+    ft_printf("me z flag: %zu\n", s);
+	pf_putchar('\n');
+    // printf("pf l: %lu\n", 9999999999);
+    // ft_printf("me l: %lu\n", 9999999999);
+	pf_putchar('\n');
+	pf_putchar('\n');
 
 	printf("---------------------- FLOATS ----------------------------- \n");
 	// pf_putchar('\n');
@@ -348,8 +351,8 @@ int	main()
 	// printf("pf no flags: %f\n", 153.0);
 	// ft_printf("me no flags: %f\n", 153.0);
 	// pf_putchar('\n');
-	// printf("pf: %f\n", 4.5678);
-	// ft_printf("me: %f\n", 4.5678);
+	printf("pf: %f\n", 4.5678);
+	ft_printf("me: %f\n", 4.5678);
 	// pf_putchar('\n');
 	// printf("pf space f: % f\n", 4.5678);
 	// ft_printf("me space f: % f\n", 4.5678);
@@ -370,7 +373,7 @@ int	main()
 
 
 
-	system("leaks test");
+	// system("leaks test");
 	return 0;
 }
 
