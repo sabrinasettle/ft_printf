@@ -6,11 +6,13 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/02 12:33:59 by ssettle           #+#    #+#             */
-/*   Updated: 2019/08/31 06:13:56 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/09/05 13:05:30 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
+
+//no space flag
 
 /*
 ** The only flag for str is l which creates a wchar_t.

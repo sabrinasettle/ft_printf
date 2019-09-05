@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/02 12:33:46 by ssettle           #+#    #+#             */
-/*   Updated: 2019/09/03 14:29:13 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/09/05 12:44:11 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,28 @@
 //     return(c);
 // }
 
-char *pf_append_oct(char *subject, char *insert, int pos) 
+char		*prec_oct(t_opts options, char *str)
+{
+	char *new_str;
+	int len;
+    int z_len;
+	int new_len;
+
+	new_str = pf_strdup(str);
+	len = pf_strlen(str);
+    z_len = options.precision;
+	new_str[z_len] = '\0';
+	if (options.precision > len)
+    {
+		pf_memset(new_str, '0', z_len);
+		new_len = z_len - len;
+        pf_strncpy(&new_str[new_len], str, len);
+    }
+	free(str);
+	return(new_str);
+}
+
+char	*pf_append_oct(char *subject, char *insert, int pos) 
 {
 	char *new_str;
     char *buf;
@@ -49,7 +70,6 @@ char *pf_append_oct(char *subject, char *insert, int pos)
 	free(buf);
 	return(new_str);
 }
-
 
 char		*padding_oct(t_opts options, char *str)
 {
@@ -94,11 +114,11 @@ int			convert_octal(t_opts options, va_list ap)
 		// str = content_sizing(options, ap);
 
 		
-	str = pf_itoa_octal(va_arg(ap, int)); //abs?
-	
+	str = pf_itoa_octal(va_arg(ap, int)); //this itoa is inaccurate also turnery
+	// dont need to do space flag
 	len = pf_strlen(str);
 	if (options.precision > len)
-		write(1, "0", ((options.precision - len) + 1));
+		str = prec_oct(options, str);
 	if (options.width_field > len)
 	{
 		new_str = padding_oct(options, str);
@@ -110,7 +130,7 @@ int			convert_octal(t_opts options, va_list ap)
 	else 
 	{
 		if (options.flags.pound >= 1)
-			pf_putstr("0");
+			pf_append(str, "0", 0);
 		pf_putstr(str);
 	}
 	len = pf_strlen(str);

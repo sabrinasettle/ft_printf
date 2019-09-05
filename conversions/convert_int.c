@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/02 12:33:44 by ssettle           #+#    #+#             */
-/*   Updated: 2019/09/03 14:26:30 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/09/05 13:00:25 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,27 @@
 /*
 ** Conversion for i and d. Really only has a difference if you are using scanf.
 */
+
+char		*prec(t_opts options, char *str)
+{
+	char *new_str;
+	int len;
+    int z_len;
+	int new_len;
+
+	new_str = pf_strdup(str);
+	len = pf_strlen(str);
+    z_len = options.precision;
+	new_str[z_len] = '\0';
+	if (options.precision > len)
+    {
+		pf_memset(new_str, '0', z_len);
+		new_len = z_len - len;
+        pf_strncpy(&new_str[new_len], str, len);
+    }
+	free(str);
+	return(new_str);
+}
 
 char    *pf_append_int(char *subject, char *insert, int pos) // never used
 {
@@ -29,7 +50,7 @@ char    *pf_append_int(char *subject, char *insert, int pos) // never used
     len += pf_strlen(insert);
     pf_strcpy(buf + len, subject + pos);
     new_str = pf_strcpy(subject, buf);
-    free(buf);
+	free(subject);
     return(new_str);
 }
 
@@ -39,6 +60,7 @@ char    *padding_nbr(t_opts options, char *str)
     int     len;
     int     new_len;
     char    *new_str;
+	
     new_len = 0;
     len = pf_strlen(str);
     wd_len = options.width_field;
@@ -55,31 +77,28 @@ char    *padding_nbr(t_opts options, char *str)
     else
         new_len = wd_len - len;
         pf_strncpy(&new_str[new_len], str, len);
+	free(str);
     return(new_str);
 }
 
 int     convert_int(t_opts options, va_list ap)
 {
     char        *str;
+	// char		*new_str;
     int         len;
-    char        *new_str;
     
     str = options.content_size > 0 ? 
         pf_itoa_base_l(va_arg(ap, int64_t)) : pf_itoa(va_arg(ap, int32_t));
     len = pf_strlen(str);
-    if (options.precision > len) //??
-        write(1, "0", ((options.precision - len) + 1)); //strjoin
-        // new_str = pf_strjoin("0x", str);
+	if (options.flags.space == 1)
+		str = pf_append(str, " ", 0);
+    if (options.precision > len)
+		str = prec(options, str);
     if (options.flags.plus == 1)
         pf_append(str, "+", 0);
     if (options.width_field > len)
-    {
-        new_str = padding_nbr(options, str);
-        pf_putstr(new_str);
-        free(new_str);
-    }
-    else
-        pf_putstr(str);
+        str  = padding_nbr(options, str);
+    pf_putstr(str);
     len = pf_strlen(str);
     free(str);
     return(len);

@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/29 10:53:40 by ssettle           #+#    #+#             */
-/*   Updated: 2019/08/31 03:52:25 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/09/05 13:04:13 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@
 /*
 ** You have to manage the following conversion: f with the following flags : l and L
 */
+
+//DOES TAKE THE SPACE FLAG
 
 // long double     content_sizing(t_opts options, va_list ap)
 // {

@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/02 12:33:52 by ssettle           #+#    #+#             */
-/*   Updated: 2019/09/03 14:13:27 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/09/05 13:03:01 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 // no hash no plus, but spaces if width is defined and - as well
 // The address of a is: (nil) ==== %p 0
+
+//no space flag
 
 char		*padding_point(t_opts options, char *str)
 {
