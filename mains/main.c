@@ -33,11 +33,25 @@ int	main()
 	// printf("Return value: %d\n", i);
 	// i = ft_printf("|%c|\n", '\0');
 	// printf("Return value: %d\n", i);
+	printf("----------- Char 42FC--------------- \n");
+	pf_putchar('\n');
+	printf("pf: %5c\n", 42); 
+	ft_printf("me: %5c\n", 42);
+	pf_putchar('\n');
+	printf("pf: %-5c\n", 42); 
+	ft_printf("me: %-5c\n", 42);                        
+	pf_putchar('\n');
+	printf("pf: %c\n", 0);  
+	ft_printf("me: %c\n", 0);               
+	pf_putchar('\n');
+	printf("pf: %2c\n", 0);  
+	ft_printf("me: %2c\n", 0);                          
+	pf_putchar('\n');
 	// pf_putchar('\n');
 	// pf_putchar('\n');
 
-	printf("---------------------- STRINGS ----------------------------- \n");
-	pf_putchar('\n');
+	// printf("---------------------- STRINGS ----------------------------- \n");
+	// pf_putchar('\n');
 	// printf ("pf a simple string: %s \n", "A string");
 	// ft_printf ("me a simple string: %s \n", "A string"); //printing a zero, null terminating char??
 	// pf_putchar('\n');
@@ -47,8 +61,8 @@ int	main()
 	// printf ("pf prec and right pad: %-10.5s %c\n", "abcdefg", 's');
 	// ft_printf ("me prec and right pad: %-10.5s %c\n", "abcdefg", 's'); //printing a zero, null terminating char??
 	// pf_putchar('\n');
-	printf ("pf 10 pad: %10s \n", "abcdefg");
-	ft_printf ("me 10 pad: %10s \n", "abcdefg");
+	// printf ("pf 10 pad: %10s \n", "abcdefg");
+	// ft_printf ("me 10 pad: %10s \n", "abcdefg");
 	// pf_putchar('\n');
 	// printf ("pf string minus pad: %-10s%c\n", "A string",'c');
 	// ft_printf ("me string minus pad: %-10s%c\n", "A string",'c');
@@ -72,32 +86,29 @@ int	main()
 	// pf_putchar('\n');
 	// printf("pf: %10s is a string\n", "");
   	// ft_printf("me: %10s is a string\n", "");
-	i = printf("pf: %10s is a string\n", "this");
-	printf("Return value: pf %d\n", i);
-	i = ft_printf("me: %10s is a string\n", "this");
-	printf("Return value: me %d\n", i);
-	i = printf("pf: %-10s is a string\n", "this");
-	printf("Return value: pf %d\n", i);
-	i = ft_printf("me: %-10s is a string\n", "this");
-	printf("Return value: me %d\n", i);
 	// pf_putchar('\n');
-	// i = printf("pf: %.2s is a string\n", "this");
-	// printf("Return value: pf %d\n", i);
-	// i = ft_printf("me: %.2s is a string\n", "this");
-	// printf("Return value: me %d\n", i);
-	pf_putchar('\n');
-	i = printf("%5.2s is a string\n", "this");
-	printf("Return value: pf %d\n", i);
-	i = ft_printf("%5.2s is a string\n", "this");
-	printf("Return value: me %d\n", i);
-	pf_putchar('\n');
-	pf_putchar('\n');
-	// printf ("printf: %lls \n", "abcdefg");
-	// ft_printf ("mine: %lls \n", "abcdefg");
+	// printf("pf: %10s is a string\n", "this");
+	// ft_printf("me: %10s is a string\n", "this");
+	// pf_putchar('\n');
+	// printf("pf: %-10s is a string\n", "this");
+	// ft_printf("me: %-10s is a string\n", "this");
+	// pf_putchar('\n');
+	// printf("pf minus 10: %-10s is a string\n", "this");
+	// ft_printf("me minus 10: %-10s is a string\n", "this");
+	// pf_putchar('\n');	
+	// printf("pf: %.2s is a string\n", "this");
+	// ft_printf("me: %.2s is a string\n", "this");
+	// pf_putchar('\n');
+	// printf("pf: %5.2s is a string\n", "this");
+	// ft_printf("me: %5.2s is a string\n", "this");
+	// pf_putchar('\n');
+	// pf_putchar('\n');
+	// // printf ("printf: %lls \n", "abcdefg");
+	// // ft_printf ("mine: %lls \n", "abcdefg");
 
 
-	// // Ints and Ds 
-	printf("---------------------- I & D ----------------------------- \n");
+	// // // Ints and Ds 
+	// printf("---------------------- I & D ----------------------------- \n");
 	// pf_putchar('\n');
 	// printf("pf: %i, %i\n", 42, 21);
 	// ft_printf("me: %i, %i\n", 42, 21);
@@ -225,8 +236,86 @@ int	main()
 	// ft_printf("me:%+ d\n", 42);
 	// pf_putchar('\n');
 	// pf_putchar('\n');
+	// printf("----------- D&I 42FC--------------- \n");
+	// pf_putchar('\n');
+	// printf("% d", -42);
+	// ft_printf("% d", -42);
+	// pf_putchar('\n');
+	// printf("%+d", -42);
+	// ft_printf("%+d", -42);
+	// pf_putchar('\n');
+	// // printf("%+d", 4242424242424242424242); //error
+	// // ft_printf("%+d", 4242424242424242424242); //error
+	// pf_putchar('\n');
+	// printf("% +d", -42);
+	// ft_printf("% +d", -42);
+	// pf_putchar('\n');
+	// printf("%+ d", -42);
+	// ft_printf("%+ d", -42);
+	// pf_putchar('\n');
+	// printf("%  +d", -42);
+	// ft_printf("%  +d", -42);
+	// pf_putchar('\n');
+	// printf("%+  d", -42);
+	// ft_printf("%+  d", -42);
+	// pf_putchar('\n');
+	// printf("% ++d", -42);
+	// ft_printf("% ++d", -42);
+	// pf_putchar('\n');
+	// printf("%++ d", -42);
+	// ft_printf("%++ d", -42);
+	// pf_putchar('\n');
+	// printf("%0+5d", 42);
+	// ft_printf("%0+5d", 42);
+	// pf_putchar('\n');
+	// printf("%05d", -42);
+	// ft_printf("%05d", -42);
+	// pf_putchar('\n');
+	// printf("%0+5d", -42);
+	// ft_printf("%0+5d", -42);
+	// pf_putchar('\n');
+	// printf("%-05d", 42);
+	// ft_printf("%-05d", 42);
+	// pf_putchar('\n');
+	// printf("%-05d", -42);
+	// ft_printf("%-05d", -42);
+	// pf_putchar('\n');
+	// printf("%hd", 32767);                 
+ 	// ft_printf("%hd", 32767);
+	// pf_putchar('\n');
+	// // printf("%hd", −32768);   
+ 	// // ft_printf("%hd", −32768);
+	// pf_putchar('\n');
+	// printf("%hd", 32768);            
+ 	// ft_printf("%hd", 32768);
+	// pf_putchar('\n');
+	// // printf("%hd", −32769);
+ 	// // ft_printf("%hd", −32769);
+	// pf_putchar('\n');
+	// // printf("%hhd", 127);
+	// // ft_printf("%hhd", 127);
+	// pf_putchar('\n');
+	// // printf("%hhd", 128);
+ 	// // ft_printf("%hhd", 128);
+	// pf_putchar('\n');
+	// // printf("%hhd", -128);
+ 	// // ft_printf("%hhd", -128);
+	// pf_putchar('\n');
+	// // printf("%hhd", -129);  
+	// // ft_printf("%hhd", -129);  
+	// ft_printf("%4.15d", 42);
 
-	
+	// ft_printf("%03.2d", 0);
+
+	// ft_printf("%03.2d", 1);
+
+	// ft_printf("%03.2d", -1);
+
+	// pf_putchar('\n');	
+
+
+
+
 	// // // //OCT
 	// printf("---------------------- OCT ----------------------------- \n");
 	// pf_putchar('\n');
@@ -261,6 +350,26 @@ int	main()
 	// unsigned long long c = 7000;
 	// printf("pf ll flag: %llo\n", c);
 	// ft_printf("me ll flag: %llo\n", c);
+	// printf("----------- Octal 42FC--------------- \n");
+	// pf_putchar('\n');
+
+	// ft_printf("%5o\n", 41); 
+	// pf_putchar('\n');
+
+  	// ft_printf("%05o\n", 42);
+	// pf_putchar('\n');
+
+  	// ft_printf("%-5o\n", 2500);
+	// pf_putchar('\n');
+
+	// ft_printf("%#6o\n", 2500);
+	// pf_putchar('\n');
+
+	// ft_printf("%-#6o\n", 2500);
+	// pf_putchar('\n');
+
+	// ft_printf("%-05o\n", 2500);
+	// pf_putchar('\n');                     
 	// pf_putchar('\n');
 	// pf_putchar('\n');
 	
@@ -315,6 +424,29 @@ int	main()
 	// printf("pf ll flag: %llx\n", e);
 	// ft_printf("me ll flag: %llx\n", e);
 	// pf_putchar('\n');
+	// printf("----------- HEX 42FC--------------- \n");
+	// pf_putchar('\n');
+	// printf("pf :%#8x\n", 42); //this doesnt work
+	// ft_printf("me :%#8x\n", 42); //this doesnt work
+	// pf_putchar('\n');
+	// printf("pf -42 :%x\n", -42);
+	// ft_printf("me -42:%x\n", -42);
+	// pf_putchar('\n');
+	// printf("pf lx:%lx\n", 4294967296);
+	// ft_printf("me lx:%lx\n", 4294967296);
+	// pf_putchar('\n');
+	// printf("pf hx:%hx\n", 4294967296);
+	// ft_printf("me hx:%hx\n", 4294967296);
+	// pf_putchar('\n');
+	// printf("pf #08: %#08x\n", 42);
+	// ft_printf("me #08: %#08x\n", 42);
+	// // printf("pf :%#-08x\n", 42); //undefined behavior
+	// // ft_printf("me :%#-08x\n", 42); //undefined behavior
+	// pf_putchar('\n');
+	// printf("pf #0:%#x\n", 0);
+	// ft_printf("me #0:%#x\n", 0);
+
+	// pf_putchar('\n');
 	// pf_putchar('\n');
 
 	// printf("---------------------- UPPER HEX ----------------------------- \n");
@@ -365,6 +497,11 @@ int	main()
 	// unsigned long long p = 7000;
 	// printf("pf ll flag: %llX\n", p);
 	// ft_printf("me ll flag: %llX\n", p);
+	printf("----------- Upper Hex 42FC--------------- \n");
+	ft_printf("%llX", 4294967296);
+	ft_printf("%X", 42);
+	ft_printf("%X", -42);
+	ft_printf("%hhX", 4294967296);
 	// pf_putchar('\n');
 	// pf_putchar('\n');
 
@@ -430,6 +567,62 @@ int	main()
     // ft_printf("me l: %lu\n", g);
 	// pf_putchar('\n');
 	// pf_putchar('\n');
+	printf("----------- Unit 42FC--------------- \n");
+	pf_putchar('\n');
+
+	ft_printf("%u", -1);          
+	pf_putchar('\n');            
+
+	ft_printf("%u", 4294967295);                  
+	pf_putchar('\n');
+	
+	ft_printf("%u", 4294967296);                  
+	pf_putchar('\n');
+	
+	ft_printf("%5u", 4294967295);                 
+	pf_putchar('\n');
+	
+	ft_printf("%15u", 4294967295);                
+	pf_putchar('\n');
+	
+	ft_printf("%-15u", 4294967295);               
+	pf_putchar('\n');
+	
+	ft_printf("%015u", 4294967295);               
+	pf_putchar('\n');
+	
+	ft_printf("% u", 4294967295);
+	pf_putchar('\n');
+	                 
+	ft_printf("%+u", 4294967295);
+	pf_putchar('\n');          
+
+	ft_printf("%lu", 4294967295);
+	pf_putchar('\n');           
+
+	ft_printf("%lu", 4294967296);
+	pf_putchar('\n');  
+
+	ft_printf("%lu", -42);
+	pf_putchar('\n');
+
+	ft_printf("%llu", 4999999999);
+	pf_putchar('\n');           
+
+	ft_printf("%ju", 4999999999);
+	pf_putchar('\n');
+
+	ft_printf("%ju", 4294967296);
+	pf_putchar('\n');
+
+	ft_printf("%U", 4294967295);
+	pf_putchar('\n'); 
+
+	ft_printf("%hU", 4294967296);
+	pf_putchar('\n');
+
+	ft_printf("%U", 4294967296);                  
+	pf_putchar('\n');
 
 	// printf("---------------------- FLOATS ----------------------------- \n");
 	// // pf_putchar('\n');

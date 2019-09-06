@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/02 12:33:39 by ssettle           #+#    #+#             */
-/*   Updated: 2019/09/05 15:20:44 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/09/06 15:28:17 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,8 +70,9 @@ char		*padding_hex(t_opts options, char *str) //is 28 lines :(
 char *print_reg(t_opts options, char *str)
 {
 	char *new_str;
-	
-	if (!options.precision && !options.width_field && options.flags.pound)
+
+	if (!options.precision && !options.width_field && !options.flags.zero 
+		&& options.flags.pound && !(str[0] == 48 && str[1] == '\0'))
 		new_str = pf_strjoin("0x", str);
 	else 
 		return(str);
@@ -90,9 +91,9 @@ int			convert_hex(t_opts options, va_list ap)
 	if (options.precision > len)
 		str = prec_hex(options, str);
 	if (options.width_field > len)
-	{
+	{ //order is incorect but very tired so not interested in correcting on friday
 		str = padding_hex(options, str);
-		if (options.flags.pound >= 1)
+		if (options.flags.pound >= 1) //
 			str = pf_append(str, "0x", 0);
 	}
 	str = print_reg(options, str);
