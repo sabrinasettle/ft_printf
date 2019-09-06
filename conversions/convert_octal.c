@@ -6,32 +6,11 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/02 12:33:46 by ssettle           #+#    #+#             */
-/*   Updated: 2019/09/05 12:44:11 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/09/05 16:18:29 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
-
-// int     content_sizing(t_opts options, va_list ap)
-// {
-//     char c;
-    
-// 	if (options.content_size == 0)
-// 		c = va_arg(ap, unsigned int);
-// 	else if (options.content_size == 108) //does not work
-// 		c = va_arg(ap, unsigned long int);
-//     else if (options.content_size == 104) //does not work
-// 		c = va_arg(ap, unsigned short int);
-//     else if (options.content_size == 216) //does not work
-// 		c = va_arg(ap, unsigned long long int);
-// 	else if (options.content_size == 208) //does not work
-// 		c = va_arg(ap, unsigned char); //same as signed char
-// 	else if (options.content_size == 106) //does not work
-// 		c = va_arg(ap, uintmax_t);
-// 	else if (options.content_size == 122) //does not work
-// 		c = va_arg(ap, size_t);
-//     return(c);
-// }
 
 char		*prec_oct(t_opts options, char *str)
 {
@@ -62,7 +41,7 @@ char	*pf_append_oct(char *subject, char *insert, int pos)
 	
 	buf = pf_strnew(pf_strlen(subject));
     pf_strncpy(buf, subject, (pos - 1)); 
-    len = strlen(buf);
+    len = pf_strlen(buf);
     pf_strcpy(buf + len, insert);
     len += pf_strlen(insert);
 	pf_strcpy(buf + len, subject + pos);
@@ -107,15 +86,8 @@ int			convert_octal(t_opts options, va_list ap)
 	int			len;
 	char		*new_str;
 	
-
-	// str = options.content_size > 0 ? 
-        // pf_itoa_base_l(va_arg(ap, uint64_t)) : pf_itoa(va_arg(ap, uint32_t)); //uint64t in my itoa
-	// if (options.content_size > 0)
-		// str = content_sizing(options, ap);
-
-		
-	str = pf_itoa_octal(va_arg(ap, int)); //this itoa is inaccurate also turnery
-	// dont need to do space flag
+	str = pf_itoa_o(options.content_size == 'l' || options.content_size == 216 ?
+		(va_arg(ap, unsigned long long)) : (va_arg(ap, unsigned long)));
 	len = pf_strlen(str);
 	if (options.precision > len)
 		str = prec_oct(options, str);

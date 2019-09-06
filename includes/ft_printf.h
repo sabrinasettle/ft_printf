@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/31 03:49:08 by ssettle           #+#    #+#             */
-/*   Updated: 2019/08/31 08:31:39 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/09/05 15:53:48 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,7 +118,7 @@ char						*pf_itoa(int n);
 char			            *pf_itoa_base_l(long int value);
 char			            *pf_itoa_base_ll(long long value);
 char						*pf_itoa_base(int value, int base);
-char						*pf_itoa_octal(int n);
+char						*pf_itoa_o(int n);
 char						*pf_itoa_hex(int n);
 char						*pf_itoa_p(intptr_t value);
 char						*pf_strcat(char *dest, const char *src);

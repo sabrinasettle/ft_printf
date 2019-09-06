@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/29 10:38:53 by ssettle           #+#    #+#             */
-/*   Updated: 2019/09/05 13:57:13 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/09/05 16:20:53 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,7 @@ static int			getz_min_width(const char **format, va_list ap)
 	int		width;
 
 	width = 0;
-	// if (!IS_DIGIT(*format));
-	if (IS_DIGIT(**format)) //so it sees the digit 
+	if (IS_DIGIT(**format))
 	{
 		width = pf_atoi(*format);
 		while (IS_DIGIT(**format))
@@ -45,7 +44,6 @@ static int			getz_min_width(const char **format, va_list ap)
 		(*format)++;
 		width = va_arg(ap, int);
 	}
-	// printf("\nThe Value of width is: %d ", width);
 	return (width);
 }
 
@@ -69,23 +67,17 @@ static int			getz_theprecision(const char **format, va_list ap)
 	prec = -1;
 	if (**format != '.')
 	{
-		// printf("precision no flag detected\n");
 		return (false);
 	}
 	if (**format == '.')
 	{
-		// printf("precision flag detected\n");
 		prec = 0;
 		(*format)++;
 		if (IS_DIGIT(**format))
 		{
-			prec = atoi(*format);
-			// printf("found a digit\n");
+			prec = pf_atoi(*format);
 			while (IS_DIGIT(**format))
-			{
 				(*format)++;
-				// prec++; //is now counting the digits found, but only that so how to get the value of that digit to be applied???
-			}
 		}
 		// else if (**format == '*')
 		// {
@@ -93,7 +85,6 @@ static int			getz_theprecision(const char **format, va_list ap)
 		// 	(*format)++;
 		// }
 	}
-	// printf("prec: %d", prec); //comes back correct
 	return (prec);
 }
 
@@ -153,8 +144,6 @@ static t_flags		getz_theflagz(const char **format)
 		add_flags(&flags, **format);
 		(*format)++;
 	}
-	// printf("\nThe value of test is: %d ", flags.minus);
-	// pf_putstr("test for special flag read");
 	return (flags);
 }
 
@@ -163,10 +152,9 @@ t_opts				getz_theoptionz(const char **format, va_list ap)
 	t_opts	options;
 	
 	options.flags = getz_theflagz(format);
-	options.width_field = getz_min_width(format, ap); //maybe wont work because of the double pointer in the parameters
+	options.width_field = getz_min_width(format, ap);
 	options.precision = getz_theprecision(format, ap);
 	options.content_size = getz_thesize(format);
-	//something that gets the the total length of specifiers
 	return (options);
 }
 

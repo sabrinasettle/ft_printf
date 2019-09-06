@@ -6,32 +6,35 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/02 12:34:06 by ssettle           #+#    #+#             */
-/*   Updated: 2019/09/03 14:48:52 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/09/05 16:26:12 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-// int     content_sizing(t_opts options, va_list ap)
-// {
-//     char c;
-    
-// 	if (options.content_size == 0)
-// 		c = va_arg(ap, unsigned int);
-// 	else if (options.content_size == 108) //does not work
-// 		c = va_arg(ap, unsigned long int);
-//     else if (options.content_size == 104) //does not work
-// 		c = va_arg(ap, unsigned short int);
-//     else if (options.content_size == 216) //does not work
-// 		c = va_arg(ap, unsigned long long int);
-// 	else if (options.content_size == 208) //does not work
-// 		c = va_arg(ap, unsigned char); //same as signed char
-// 	else if (options.content_size == 106) //does not work
-// 		c = va_arg(ap, uintmax_t);
-// 	else if (options.content_size == 122) //does not work
-// 		c = va_arg(ap, size_t);
-//     return(c);
-// }
+char		*prec_u_hex(t_opts options, char *str)
+{
+	char *new_str;
+	int len;
+    int z_len;
+	int new_len;
+
+	new_str = pf_strdup(str);
+	len = pf_strlen(str);
+    z_len = options.precision;
+	new_str[z_len] = '\0';
+	if (options.precision > len)
+    {
+		pf_memset(new_str, '0', z_len);
+		new_len = z_len - len;
+        pf_strncpy(&new_str[new_len], str, len);
+		if (options.flags.pound != 0)
+			new_str = pf_append(new_str, "0X", 0);
+    }
+	free(str);
+	return(new_str);
+}
+
 
 char		*padding_upper_hex(t_opts options, char *str)
 {
@@ -47,11 +50,10 @@ char		*padding_upper_hex(t_opts options, char *str)
 	pf_memset(new_str, ' ', wd_len);
 	new_str[wd_len] = '\0';
 	if (options.flags.zero >= 1)
-	{
-		(void)options.flags.minus;	
+	{	
+		(void)options.flags.minus;
 		if (options.flags.pound >= 1)
 		{
-			pf_putstr("0X");
 			wd_len -= 2;
 			pf_memset(new_str, '0', wd_len);
 		}
@@ -62,31 +64,41 @@ char		*padding_upper_hex(t_opts options, char *str)
 	else
 		new_len = wd_len - len;
 		pf_strncpy(&new_str[new_len], str, len);
+	free(str);
 	return(new_str);
 }
 
-int				convert_upper_hex(t_opts options, va_list ap)
+char *print_reg_X(t_opts options, char *str)
+{
+	char *new_str;
+	
+	if (!options.precision && !options.width_field && options.flags.pound)
+		new_str = pf_strjoin("0X", str);
+	else 
+		return(str);
+	free(str);
+	return(new_str);
+}
+
+// itoa is not correct because of it doesnt do the uppercase
+int			convert_upper_hex(t_opts options, va_list ap)
 {
 	char		*str;
 	int			len;
-	char		*new_str;
 	
-	// if (options.content_size > 0)
-		// str = content_sizing(options, ap);
-	str = pf_itoa_hex(va_arg(ap, int)); //abs?
+	str = options.content_size == 'l' || options.content_size == 'l' + 'l' ?
+		pf_itoa_hex(va_arg(ap, uint64_t)) : pf_itoa_hex(va_arg(ap, uint32_t));
 	len = pf_strlen(str);
 	if (options.precision > len)
-		write(1, "0", ((options.precision - len) + 1));
-	if (options.flags.pound >= 1)
-		pf_strjoin("0X", str);
+		str = prec_u_hex(options, str);
 	if (options.width_field > len)
 	{
-		new_str = padding_upper_hex(options, str);
-		pf_putstr(new_str);
-		free(new_str);
+		str = padding_upper_hex(options, str);
+		if (options.flags.pound >= 1)
+			str = pf_append(str, "0X", 0);
 	}
-	else 
-		pf_putstr(str);
+	str = print_reg_X(options, str);
+	pf_putstr(str);
 	len = pf_strlen(str);
 	free(str);
 	return(len);

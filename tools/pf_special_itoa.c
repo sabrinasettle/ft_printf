@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/28 14:04:17 by ssettle           #+#    #+#             */
-/*   Updated: 2019/09/05 12:38:17 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/09/05 15:53:43 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,7 +109,7 @@ char	*pf_itoa_hex(int n)
 	return (pf_itoa_base(n, 16));
 }
 
-char	*pf_itoa_octal(int n) //ok may need to have somehting completely differnt here
+char	*pf_itoa_o(int n) //ok may need to have somehting completely differnt here
 {
 	return (pf_itoa_base(n, 8));
 }

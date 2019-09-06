@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/02 12:33:59 by ssettle           #+#    #+#             */
-/*   Updated: 2019/09/05 13:05:30 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/09/05 17:47:19 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,45 +59,39 @@ char		*padding_str(t_opts options, char *str)
 	return(new_str);
 }
 
-void	padding_and_prec(t_opts options, char *str)
-{
-	char *p_str;
-	char *new_str2;
+// void	padding_and_prec(t_opts options, char *str)
+// {
+// 	char *p_str;
+// 	char *new_str2;
 	
-	p_str = (pf_strsub(str, 0, options.precision));
-	new_str2 = padding_str(options, p_str);
-	pf_putstr(new_str2);
-	free(p_str);
-	free(new_str2);
-}
+// 	p_str = (pf_strsub(str, 0, options.precision));
+// 	new_str2 = padding_str(options, p_str);
+// 	pf_putstr(new_str2);
+// 	free(p_str);
+// 	free(new_str2);
+// }
+
+//print (nil) needed
 
 int		convert_str(t_opts options, va_list ap)
 {
 	int32_t		len;
-	char		*new_str;
+	// char		*new_str;
 	char		*str;
 	
 	// if (options.content_size > 0) //dont need???
 		// str = change_data_type(options, ap);
 	str = (char *)va_arg(ap, char *);
 	len = pf_strlen(str);
-	if (options.width_field > len)
-	{
-		new_str = padding_str(options, str);
-		(options.precision <= len && options.precision) ? 
-			padding_and_prec(options, str) : pf_putstr(new_str);
-		free(new_str);
-	}
-	else if (options.precision <= len && options.precision)
-	{
+	//if strcmp is == 1 when given NULL print  str = (null)
+	if (options.precision <= len && options.precision)
 		(void)options.flags.minus;
-		new_str = (pf_strsub(str, 0, options.precision));
-		pf_putstr(new_str);
-		free(new_str);
-	}
-	else 
-		pf_putstr(str);
+		str = pf_strsub(str, 0, options.precision);
+	if (options.width_field > len)
+		str = padding_str(options, str);
+	pf_putstr(str);
 	len = pf_strlen(str);
+	// free(str);
 	return (len);
 }
 // printf("content size: %d", options.content_size); //testing

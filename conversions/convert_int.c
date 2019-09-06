@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/02 12:33:44 by ssettle           #+#    #+#             */
-/*   Updated: 2019/09/05 15:24:55 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/09/05 16:42:03 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ char    *pf_append_int(char *subject, char *insert, int pos) // never used
     
     buf = pf_strnew(pf_strlen(subject));
     pf_strncpy(buf, subject, pos); 
-    len = strlen(buf);
+    len = pf_strlen(buf);
     pf_strcpy(buf + len, insert);
     len += pf_strlen(insert);
     pf_strcpy(buf + len, subject + pos);
@@ -68,10 +68,7 @@ char    *padding_nbr(t_opts options, char *str)
     pf_memset(new_str, ' ', wd_len);
     new_str[wd_len] = '\0';
     if (options.flags.zero >= 1)
-    {
-        (void)options.flags.minus;
         pf_memset(new_str, '0', wd_len);    
-    }
     if (options.flags.minus >= 1)
         pf_strncpy(new_str, str, len);
     else
@@ -90,12 +87,12 @@ int     convert_int(t_opts options, va_list ap)
     str = options.content_size > 0 ? 
         pf_itoa_base_l(va_arg(ap, int64_t)) : pf_itoa(va_arg(ap, int32_t));
     len = pf_strlen(str);
-	if (options.flags.space == 1)
-		str = pf_append(str, " ", 0);
     if (options.precision > len)
 		str = prec(options, str);
     if (options.flags.plus == 1)
         pf_append(str, "+", 0);
+	else if (options.flags.space == 1)
+		str = pf_append(str, " ", 0);
     if (options.width_field > len)
         str  = padding_nbr(options, str);
     pf_putstr(str);
