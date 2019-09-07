@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/02 12:33:44 by ssettle           #+#    #+#             */
-/*   Updated: 2019/09/05 16:42:03 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/09/07 16:35:15 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,7 @@ char    *padding_nbr(t_opts options, char *str)
     new_str = pf_strdup(str);
     pf_memset(new_str, ' ', wd_len);
     new_str[wd_len] = '\0';
+    wd_len = options.flags.plus ? wd_len - 1 : wd_len;
     if (options.flags.zero >= 1)
         pf_memset(new_str, '0', wd_len);    
     if (options.flags.minus >= 1)
@@ -78,23 +79,47 @@ char    *padding_nbr(t_opts options, char *str)
     return(new_str);
 }
 
+void	pf_putnbr(int n)
+{
+	if (n == -2147483648)
+	{
+		pf_putstr("-2147483648");
+		return ;
+	}
+	if (n < 0)
+	{
+		n = -n;
+		pf_putchar('-');
+	}
+	if (n >= 10)
+	{
+		pf_putnbr(n / 10);
+		pf_putnbr(n % 10);
+	}
+	else
+		pf_putchar(n + 48);
+}
+
 int     convert_int(t_opts options, va_list ap)
 {
     char        *str;
 	// char		*new_str;
     int         len;
-    
+    int32_t     num;
+
+    num = options.content_size > 0 ? va_arg(ap, int64_t) : va_arg(ap, int32_t);
     str = options.content_size > 0 ? 
-        pf_itoa_base_l(va_arg(ap, int64_t)) : pf_itoa(va_arg(ap, int32_t));
+        pf_itoa_base_l(num) : pf_itoa_i(num);
     len = pf_strlen(str);
     if (options.precision > len)
 		str = prec(options, str);
-    if (options.flags.plus == 1)
-        pf_append(str, "+", 0);
-	else if (options.flags.space == 1)
-		str = pf_append(str, " ", 0);
     if (options.width_field > len)
         str  = padding_nbr(options, str);
+    if (options.flags.plus == 1 && num > 0)
+        pf_append(str, "+", 0);
+	else if (options.flags.space == 1 && num > 0)
+		str = pf_append(str, " ", 0);
+    // num < 0 ?  pf_putstr(pf_append(str, "-", 0)) : 
     pf_putstr(str);
     len = pf_strlen(str);
     free(str);

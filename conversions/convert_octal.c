@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/02 12:33:46 by ssettle           #+#    #+#             */
-/*   Updated: 2019/09/05 16:18:29 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/09/07 14:03:43 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,8 @@ char		*padding_oct(t_opts options, char *str)
 	len = pf_strlen(str);
 	wd_len = options.width_field;
 	new_str = pf_strdup(str);
+	if (options.flags.pound >= 1)
+			new_str = pf_append(new_str, "0", 0);
 	pf_memset(new_str, ' ', wd_len);
 	new_str[wd_len] = '\0';
 	if (options.flags.zero >= 1)
@@ -84,27 +86,27 @@ int			convert_octal(t_opts options, va_list ap)
 {
 	char		*str;
 	int			len;
-	char		*new_str;
+	// char		*new_str;
 	
 	str = pf_itoa_o(options.content_size == 'l' || options.content_size == 216 ?
 		(va_arg(ap, unsigned long long)) : (va_arg(ap, unsigned long)));
 	len = pf_strlen(str);
+	if (options.flags.pound >= 1)
+			pf_append(str, "0", 0);
 	if (options.precision > len)
 		str = prec_oct(options, str);
 	if (options.width_field > len)
 	{
-		new_str = padding_oct(options, str);
-		if (options.flags.pound >= 1)
-			new_str = pf_append_oct(new_str, "0" , pf_strlen(new_str) - 1);
-		pf_putstr(new_str);
-		free(new_str);
+		str = padding_oct(options, str);
+		// if (options.flags.pound >= 1)
+			// new_str = pf_append_oct(new_str, "0" , pf_strlen(new_str) - 1);
+		// pf_putstr(new_str);
+		// free(new_str);
 	}
-	else 
-	{
-		if (options.flags.pound >= 1)
-			pf_append(str, "0", 0);
+	// else 
+	// {
 		pf_putstr(str);
-	}
+	// }
 	len = pf_strlen(str);
 	free(str);
 	return(len);

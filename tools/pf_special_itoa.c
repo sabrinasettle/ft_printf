@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/28 14:04:17 by ssettle           #+#    #+#             */
-/*   Updated: 2019/09/07 11:57:28 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/09/07 15:49:40 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ char			*pf_itoa_base_l(long value)
 		res[len] = index[ip % 10];
 		ip /= 10;
 	}
-	value < 0 ? res[0] = '-' : 0;
+	// value < 0 ? res[0] = '-' : 0;
 	return (res);
 }
 

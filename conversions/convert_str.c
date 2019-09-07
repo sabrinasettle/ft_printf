@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/02 12:33:59 by ssettle           #+#    #+#             */
-/*   Updated: 2019/09/07 11:54:27 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/09/07 14:52:54 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,10 +66,11 @@ int		convert_str(t_opts options, va_list ap)
 	int32_t		len;
 	// char		*new_str;
 	char		*str;
+	(void)options;
 	
 	str = (char *)va_arg(ap, char *);
-	// if (ft_strcmp(str, "NULL") == 1)
-		// str = pf_strdup("(null)");
+	if (ft_strcmp(str, "NULL") == 1)
+		str = pf_strdup("(null)");
 	// if (options.content_size > 0) //dont need??? 
 		// str = change_data_type(options, ap);
 	len = pf_strlen(str);
