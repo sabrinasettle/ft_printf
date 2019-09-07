@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/22 09:55:49 by ssettle           #+#    #+#             */
-/*   Updated: 2019/08/31 04:05:04 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/09/07 12:24:39 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,35 +18,108 @@
 **basiclly how long the string needs to be
 */
 
-char	*pf_itoa(int n)
+// char			*pf_itoa_base(int value, int base)
+// {
+// 	int			len;
+// 	long		i;
+// 	char		*res;
+// 	static char	index[16] = "0123456789abcdef";
+
+// 	i = value;
+// 	len = (value <= 0) ? 1 : 0;
+// 	while (i)
+// 	{
+// 		len++;
+// 		i /= base;
+// 	}
+// 	i = value;
+// 	if (i < 0)
+// 		i *= -1;
+// 	if (!(res = pf_strnew(len)))
+// 		return (0);
+// 	while (len--)
+// 	{
+// 		res[len] = index[i % base];
+// 		i /= base;
+// 	}
+// 	value < 0 && base == 10 ? res[0] = '-' : 0;
+// 	return (res);
+// }
+
+static int		get_signed_nbr(int64_t num)
 {
-	return (pf_itoa_base(n, 10));
+	int			i;
+
+	i = 0;
+	while (num)
+	{
+		num /= 10;
+		i += 1;
+	}
+	return (i);
 }
 
-char			*pf_itoa_base(int value, int base)
+char	*pf_itoa(int64_t value) //maybe change this to just be a itoa rather than using itoa base
 {
-	int			len;
-	long		i;
+	long		len;
+	long		ip;
 	char		*res;
-	static char	index[16] = "0123456789abcdef";
+	static char	index[10] = "0123456789";
 
-	i = value;
+	ip = value;
 	len = (value <= 0) ? 1 : 0;
-	while (i)
+	if (!(res = pf_strnew(get_signed_nbr(value))))
+		return (NULL);
+	while (ip)
 	{
 		len++;
-		i /= base;
+		ip /= 10;
 	}
-	i = value;
-	if (i < 0)
-		i *= -1;
-	if (!(res = pf_strnew(len)))
-		return (0);
+	ip = value;
 	while (len--)
 	{
-		res[len] = index[i % base];
-		i /= base;
+		res[len] = index[ip % 10];
+		ip /= 10;
 	}
-	value < 0 && base == 10 ? res[0] = '-' : 0;
+	value < 0 ? res[0] = '-' : 0;
+	return (res);
+}
+
+static int		get_u_nbr(uint64_t num)
+{
+	int			i;
+
+	i = 0;
+	while (num)
+	{
+		num /= 10;
+		i += 1;
+	}
+	return (i);
+}
+
+char	*pf_itoa_unsigned(uint64_t value) //maybe change this to just be a itoa rather than using itoa base
+{
+	long		len;
+	long		ip;
+	char		*res;
+	static char	index[10] = "0123456789";
+
+	ip = value;
+	len = (value <= 0) ? 1 : 0;
+	if (!(res = pf_strnew(get_u_nbr(value))))
+		return (NULL);
+	while (ip)
+	{
+		len++;
+		ip /= 10;
+	}
+	ip = value;
+	while (len--)
+	{
+		res[len] = index[ip % 10];
+		ip /= 10;
+	}
+	value < 0 ? res[0] = '-' : 0;
 	return (res);
 }

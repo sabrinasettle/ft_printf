@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/28 14:04:17 by ssettle           #+#    #+#             */
-/*   Updated: 2019/09/05 15:53:43 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/09/07 11:57:28 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,38 +78,84 @@ char			*pf_itoa_base_l(long value)
 	return (res);
 }
 
-// char			*pf_itoa_base_ll(long long value)
-// {
-// 	long long			len;
-// 	long long		ip;
-// 	char		*res;
-// 	static char	index[10] = "0123456789";
 
-// 	ip = value;
-// 	len = (value <= 0) ? 1 : 0;
-// 	if (!(res = pf_strnew(get_nbr(value))))
-// 		return (NULL);
-// 	while (ip)
-// 	{
-// 		len++;
-// 		ip /= 10;
-// 	}
-// 	ip = value;
-// 	while (len--)
-// 	{
-// 		res[len] = index[ip % 10];
-// 		ip /= 10;
-// 	}
-// 	value < 0 ? res[0] = '-' : 0;
-// 	return (res);
-// }
-
-char	*pf_itoa_hex(int n)
+char	*pf_itoa_hex(uint64_t value)
 {
-	return (pf_itoa_base(n, 16));
+	int			len;
+	intptr_t	ip;
+	char		*res;
+	static char	index[16] = "0123456789abcdef";
+
+	if (value == 0)
+		return (pf_strdup("0"));
+	if (!(res = pf_strnew(get_nbr(value))))
+		return (NULL);
+	ip = value;
+	len = (value <= 0) ? 1 : 0;
+	while (ip)
+	{
+		len++;
+		ip /= 16;
+	}
+	ip = value;
+	while (len--)
+	{
+		res[len] = index[ip % 16];
+		ip /= 16;
+	}
+	return (res);
 }
 
-char	*pf_itoa_o(int n) //ok may need to have somehting completely differnt here
+char	*pf_itoa_upper_hex(uint64_t value)
 {
-	return (pf_itoa_base(n, 8));
+	int			len;
+	intptr_t	ip;
+	char		*res;
+	static char	index[16] = "0123456789ABCDEF";
+
+	if (value == 0)
+		return (pf_strdup("0"));
+	if (!(res = pf_strnew(get_nbr(value))))
+		return (NULL);
+	ip = value;
+	len = (value <= 0) ? 1 : 0;
+	while (ip)
+	{
+		len++;
+		ip /= 16;
+	}
+	ip = value;
+	while (len--)
+	{
+		res[len] = index[ip % 16];
+		ip /= 16;
+	}
+	return (res);
+}
+
+char	*pf_itoa_o(uint64_t value) //ok may need to have somehting completely differnt here
+{
+	int			len;
+	intptr_t	ip;
+	char		*res;
+	static char	index[8] = "01234567";
+
+	if (value == 0)
+		return (pf_strdup("0"));
+	if (!(res = pf_strnew(get_nbr(value))))
+		return (NULL);
+	ip = value;
+	len = (value <= 0) ? 1 : 0;
+	while (ip)
+	{
+		len++;
+		ip /= 8;
+	}
+	ip = value;
+	while (len--)
+	{
+		res[len] = index[ip % 8];
+		ip /= 8;
+	}
+	return (res);
 }

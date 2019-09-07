@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/02 12:34:06 by ssettle           #+#    #+#             */
-/*   Updated: 2019/09/05 16:26:12 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/09/07 12:12:33 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,8 +86,8 @@ int			convert_upper_hex(t_opts options, va_list ap)
 	char		*str;
 	int			len;
 	
-	str = options.content_size == 'l' || options.content_size == 'l' + 'l' ?
-		pf_itoa_hex(va_arg(ap, uint64_t)) : pf_itoa_hex(va_arg(ap, uint32_t));
+	str = pf_itoa_upper_hex(options.content_size == 'l' || options.content_size == 'l' + 'l' ?
+		(va_arg(ap, uint64_t)) : (va_arg(ap, uint32_t)));
 	len = pf_strlen(str);
 	if (options.precision > len)
 		str = prec_u_hex(options, str);

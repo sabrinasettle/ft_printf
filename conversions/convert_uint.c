@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/02 12:34:04 by ssettle           #+#    #+#             */
-/*   Updated: 2019/09/05 16:02:29 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/09/07 12:25:43 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,8 +88,8 @@ int				convert_uint(t_opts options, va_list ap)
     char *new_str;
     int len;
     
-	str = options.content_size > 0 ? 
-        pf_itoa(va_arg(ap, uint64_t)) : pf_itoa(va_arg(ap, uint32_t));
+	str = pf_itoa_unsigned(options.content_size > 0 ? 
+        (va_arg(ap, uint64_t)) : (va_arg(ap, uint32_t)));
     len = pf_strlen(str);
     if (options.precision > len)
 		str = prec_u(options, str);

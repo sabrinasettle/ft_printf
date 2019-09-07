@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/02 12:33:59 by ssettle           #+#    #+#             */
-/*   Updated: 2019/09/06 14:04:11 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/09/07 11:54:27 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,22 @@ char		*padding_str(t_opts options, char *str)
 	return(new_str);
 }
 
+int		ft_strcmp(const char *s1, const char *s2)
+{
+	unsigned char *tmp1;
+	unsigned char *tmp2;
+
+	tmp1 = (unsigned char *)s1;
+	tmp2 = (unsigned char *)s2;
+	while (*tmp1 && (*tmp1 == *tmp2))
+	{
+		tmp1++;
+		tmp2++;
+	}
+	return (*tmp1 - *tmp2);
+}
+
+
 
 //print (nil) needed
 
@@ -51,11 +67,12 @@ int		convert_str(t_opts options, va_list ap)
 	// char		*new_str;
 	char		*str;
 	
-	// if (options.content_size > 0) //dont need???
-		// str = change_data_type(options, ap);
 	str = (char *)va_arg(ap, char *);
+	// if (ft_strcmp(str, "NULL") == 1)
+		// str = pf_strdup("(null)");
+	// if (options.content_size > 0) //dont need??? 
+		// str = change_data_type(options, ap);
 	len = pf_strlen(str);
-	//if strcmp is == 1 when given NULL print  str = (null)
 	if (options.precision <= len && options.precision)
 		str = pf_strsub(str, 0, options.precision);
 	if (options.width_field > len)
