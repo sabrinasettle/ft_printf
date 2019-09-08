@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/02 12:33:52 by ssettle           #+#    #+#             */
-/*   Updated: 2019/09/05 13:03:01 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/09/07 17:41:07 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,24 +35,22 @@ char		*padding_point(t_opts options, char *str)
 	else
 		new_len = wd_len - len;
 		pf_strncpy(&new_str[new_len], str, len);
+	free(str);
 	return(new_str);
 }
 
 int			convert_pointer(t_opts options, va_list ap)
 {
 	char *str;
-    char *new_str;
     int len;
-    (void)options;
+    // (void)options;
     
     str = pf_itoa_p(va_arg(ap, intptr_t));
-    new_str = pf_strjoin("0x", str);
-     len = pf_strlen(new_str);
+	str = pf_append(str, "0x", 0);
+    len = pf_strlen(str);
     if (options.width_field > len)
-        new_str = padding_point(options, new_str);
-    len = pf_strlen(new_str);
-    pf_putstr(new_str);
-    free(new_str);
-    free(str);
+        str = padding_point(options, str);
+	pf_putstr(str);
+	free(str);
     return(len);
 }
