@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/02 12:33:44 by ssettle           #+#    #+#             */
-/*   Updated: 2019/09/07 16:35:15 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/09/07 17:11:18 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,7 +109,7 @@ int     convert_int(t_opts options, va_list ap)
 
     num = options.content_size > 0 ? va_arg(ap, int64_t) : va_arg(ap, int32_t);
     str = options.content_size > 0 ? 
-        pf_itoa_base_l(num) : pf_itoa_i(num);
+        pf_itoa_l(num) : pf_itoa(num);
     len = pf_strlen(str);
     if (options.precision > len)
 		str = prec(options, str);
