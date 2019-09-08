@@ -48,7 +48,6 @@ int	main()
 	// ft_printf("me: %2c\n", 0);                          
 	// pf_putchar('\n');
 	// pf_putchar('\n');
-	// pf_putchar('\n');
 
 	// printf("---------------------- STRINGS ----------------------------- \n");
 	// pf_putchar('\n');
@@ -113,15 +112,15 @@ int	main()
 	// pf_putchar('\n');
 	// pf_putchar('\n');
 
-	// // // Ints and Ds 
-	printf("---------------------- I & D ----------------------------- \n");
+	// // // // Ints and Ds 
+	// printf("---------------------- I & D ----------------------------- \n");
+	// // pf_putchar('\n');
+	// // printf("pf: %i, %i\n", 42, 21);
+	// // ft_printf("me: %i, %i\n", 42, 21);
 	// pf_putchar('\n');
-	// printf("pf: %i, %i\n", 42, 21);
-	// ft_printf("me: %i, %i\n", 42, 21);
-	pf_putchar('\n');
-	printf("pf: %i\n", -42);
-	ft_printf("me: %i\n", -42);
-	pf_putchar('\n');
+	// printf("pf: %i\n", -42);
+	// ft_printf("me: %i\n", -42);
+	// pf_putchar('\n');
 	// printf("pf: %i, %i, %i, %li\n", 42, -21, 69,  -2174963257925); 
 	// ft_printf("me: %i, %i, %i, %li\n", 42, -21, 69, -2174963257925); //eli says stop testing
 	// pf_putchar('\n');
@@ -355,7 +354,7 @@ int	main()
 	// // ft_printf("%-05o\n", 2500);
 	// pf_putchar('\n');                     
 	// pf_putchar('\n');
-	// // pf_putchar('\n');
+	// pf_putchar('\n');
 	
 
 	// // //HEX

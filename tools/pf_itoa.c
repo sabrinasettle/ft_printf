@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/22 09:55:49 by ssettle           #+#    #+#             */
-/*   Updated: 2019/09/07 17:14:13 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/09/08 13:45:55 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,6 +91,6 @@ char	*pf_itoa_unsigned(uint64_t value) //maybe change this to just be a itoa rat
 		res[len] = index[ip % 10];
 		ip /= 10;
 	}
-	value < 0 ? res[0] = '-' : 0;
+	// value < 0 ? res[0] = '-' : 0;
 	return (res);
 }
