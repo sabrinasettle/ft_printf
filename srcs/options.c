@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/29 10:38:53 by ssettle           #+#    #+#             */
-/*   Updated: 2019/09/07 12:46:00 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/09/08 17:09:07 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -139,6 +139,7 @@ static t_flags		getz_theflagz(const char **format)
 	flags.pound = 0;
 	flags.space = 0;
 	flags.zero = 0;
+	flags.dot = 0;
 	while (is_special_flag(**format))
 	{
 		add_flags(&flags, **format);

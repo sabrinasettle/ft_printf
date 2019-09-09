@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/31 03:49:08 by ssettle           #+#    #+#             */
-/*   Updated: 2019/09/07 17:11:08 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/09/08 17:07:51 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ typedef struct				s_flags
 	int						space;
 	int						zero;
 	int						pound;
+	int						dot;
 }							t_flags;
 
 typedef struct				s_opts

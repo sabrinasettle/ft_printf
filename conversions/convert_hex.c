@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/02 12:33:39 by ssettle           #+#    #+#             */
-/*   Updated: 2019/09/08 15:29:12 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/09/08 18:04:05 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,9 +50,9 @@ char		*padding_hex(t_opts options, char *str)
 		wd_len -= 2;
 	pf_memset(new_str, ' ', wd_len);
 	new_str[wd_len] = '\0';
-	if (options.flags.zero >= 1)
+	if (options.flags.zero > 0)
 		pf_memset(new_str, '0', wd_len);
-	if (options.flags.minus >= 1)
+	if (options.flags.minus > 0)
 		pf_strncpy(new_str, str, len);
 	else
 	{
@@ -76,6 +76,17 @@ char		*print_reg(t_opts options, char *str)
 	return (new_str);
 }
 
+// int	fucking_zeros(t_opts options, char *str, int len)
+// {
+// 	// (void)len;
+// 	if ((str[0] == 48 && str[1] == '\0') && !options.precision && options.flags.dot == 1)
+// 		len = 0;
+// 		// str = NULL;
+// 	// else if ((str[0] == 48 && str[1] == '\0') && (options.flags.pound == 1 || options.flags.zero == 1) && !options.flags.dot)
+// 		// return (str);
+// 	return (len);
+// }
+
 int			convert_hex(t_opts options, va_list ap)
 {
 	char		*str;
@@ -88,7 +99,7 @@ int			convert_hex(t_opts options, va_list ap)
 		str = prec_hex(options, str);
 	if (options.width_field > len)
 	{
-		if (options.flags.pound >= 1 && options.width_field
+		if (options.flags.pound > 0 && options.width_field
 			&& !options.flags.zero)
 			str = pf_append(str, "0x", 0);
 		str = padding_hex(options, str);
@@ -96,8 +107,9 @@ int			convert_hex(t_opts options, va_list ap)
 			str = pf_append(str, "0x", 0);
 	}
 	str = print_reg(options, str);
-	pf_putstr(str);
 	len = pf_strlen(str);
+	(str[0] == 48 && str[1] == '\0') && options.flags.dot && !options.precision
+		? len = 0 : pf_putstr(str);
 	free(str);
 	return (len);
 }
