@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/02 12:33:46 by ssettle           #+#    #+#             */
-/*   Updated: 2019/09/07 14:03:43 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/09/09 11:19:39 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,22 +33,22 @@ char		*prec_oct(t_opts options, char *str)
 	return(new_str);
 }
 
-char	*pf_append_oct(char *subject, char *insert, int pos) 
-{
-	char *new_str;
-    char *buf;
-	int len;
+// char	*pf_append_oct(char *subject, char *insert, int pos) 
+// {
+// 	char *new_str;
+//     char *buf;
+// 	int len;
 	
-	buf = pf_strnew(pf_strlen(subject));
-    pf_strncpy(buf, subject, (pos - 1)); 
-    len = pf_strlen(buf);
-    pf_strcpy(buf + len, insert);
-    len += pf_strlen(insert);
-	pf_strcpy(buf + len, subject + pos);
-    new_str = pf_strcpy(subject, buf);
-	free(buf);
-	return(new_str);
-}
+// 	buf = pf_strnew(pf_strlen(subject));
+//     pf_strncpy(buf, subject, (pos - 1)); 
+//     len = pf_strlen(buf);
+//     pf_strcpy(buf + len, insert);
+//     len += pf_strlen(insert);
+// 	pf_strcpy(buf + len, subject + pos);
+//     new_str = pf_strcpy(subject, buf);
+// 	free(buf);
+// 	return(new_str);
+// }
 
 char		*padding_oct(t_opts options, char *str)
 {
@@ -78,9 +78,23 @@ char		*padding_oct(t_opts options, char *str)
 	return(new_str);
 }
 
-// minus numbers does somehting interesting, dont understand it at all for the most part
-// pf neg: 37777774107
-// me neg: 3671
+char		*print_reg_o(t_opts options, char *str, int len)
+{
+	char	*new_str;
+	(void)len;
+	
+	if ((str[len - 1] == 48) && options.flags.dot && !options.precision 
+		&& options.width_field)
+		pf_memset(str, ' ', len);
+	if (!options.precision && !options.width_field && !options.flags.zero
+		&& options.flags.pound && !(str[0] == 48 && str[1] == '\0') 
+		&& !options.flags.dot)
+		new_str = pf_strjoin("0", str);
+	else
+		return (str);
+	free(str);
+	return (new_str);
+}
 
 int			convert_octal(t_opts options, va_list ap)
 {
@@ -91,57 +105,28 @@ int			convert_octal(t_opts options, va_list ap)
 	str = pf_itoa_o(options.content_size == 'l' || options.content_size == 216 ?
 		(va_arg(ap, unsigned long long)) : (va_arg(ap, unsigned long)));
 	len = pf_strlen(str);
-	if (options.flags.pound >= 1)
-			pf_append(str, "0", 0);
+	// if (options.flags.pound >= 1)
+	// 	pf_append(str, "0", 0);
 	if (options.precision > len)
 		str = prec_oct(options, str);
 	if (options.width_field > len)
 	{
+		if (options.flags.pound > 0 && options.width_field && !options.flags.dot
+			&& !options.flags.zero)
+			str = pf_append(str, "0", 0);
 		str = padding_oct(options, str);
-		// if (options.flags.pound >= 1)
-			// new_str = pf_append_oct(new_str, "0" , pf_strlen(new_str) - 1);
+		if (options.flags.pound && options.flags.zero && !options.flags.dot)
+			str = pf_append(str, "0" , 0);
 		// pf_putstr(new_str);
 		// free(new_str);
 	}
+	
 	// else 
 	// {
-		pf_putstr(str);
+	str = print_reg_o(options, str, len);
 	// }
 	len = pf_strlen(str);
+	pf_putstr(str);
 	free(str);
 	return(len);
 }
-
-
-// if (!(str = ft_itoa_base(num, 8, 'a')))
-// 		exit(-1);
-
-// str = pf_itoa(n, param, sign);
-
-// char			*ft_itoa_base(int value, int base)
-// others take three parameters looks like , intmax_t, a number or struct, and a char
-
-
-
-
-
-// char	*octal_create(iptr_t int_ptr) //correct parameters???
-// {
-// 	// int		i;
-// 	char	*res;
-// 	char	*octal;
-
-// 	if(!(res = (char *)malloc(sizeof(char*))))
-// 		return(-1);
-// 	octal = "01234567";
-// 	if (!int_ptr)
-// 		res[i] = '0';
-// 	while (int_ptr)
-// 	{
-// 		res[i] = octal[int_ptr % 8];
-// 		int_ptr /= 8;
-// 		i++;
-// 	}
-// 	res = ft_strlen(res);
-// 	return (res);
-// }

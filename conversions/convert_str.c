@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/02 12:33:59 by ssettle           #+#    #+#             */
-/*   Updated: 2019/09/09 09:50:09 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/09/09 10:30:09 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,19 +26,19 @@ char		*padding_str(t_opts options, char *str)
 	char *new_str;
 
 	new_len = 0;
-	len = pf_strlen(str); // no malloc
+	len = pf_strlen(str);
 	wd_len = options.width_field;
-	new_str = pf_strdup(str); //malloc
-	pf_memset(new_str, ' ', wd_len); //no malloc
+	new_str = pf_strdup(str);
+	pf_memset(new_str, ' ', wd_len);
 	new_str[wd_len] = '\0';
 	if (options.flags.minus >= 1)
-		pf_strncpy(new_str, str, len); //no malloc
+		pf_strncpy(new_str, str, len);
 	else
 	{
 		new_len = wd_len - len;
-		pf_strncpy(&new_str[new_len], str, len); //no malloc
+		pf_strncpy(&new_str[new_len], str, len);
 	}
-	free(str); //doesnt work and breaks
+	free(str);
 	return(new_str);
 }
 
