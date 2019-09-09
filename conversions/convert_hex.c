@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/02 12:33:39 by ssettle           #+#    #+#             */
-/*   Updated: 2019/09/09 09:30:02 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/09/09 15:46:28 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,8 +66,8 @@ char		*padding_hex(t_opts options, char *str)
 char		*print_reg(t_opts options, char *str, int len)
 {
 	char	*new_str;
-	
-	if ((str[len - 1] == 48) && options.flags.dot && !options.precision 
+
+	if ((str[len - 1] == 48) && options.flags.dot && !options.precision
 		&& options.width_field)
 		pf_memset(str, ' ', len);
 	if (!options.precision && !options.width_field && !options.flags.zero
@@ -102,7 +102,7 @@ int			convert_hex(t_opts options, va_list ap)
 	len = pf_strlen(str);
 	str = print_reg(options, str, len);
 	len = pf_strlen(str);
-	(str[0] == 48 && str[1] == '\0') && options.flags.dot && !options.precision //does work
+	(str[0] == 48 && str[1] == '\0') && options.flags.dot && !options.precision
 		? len = 0 : pf_putstr(str);
 	free(str);
 	return (len);
