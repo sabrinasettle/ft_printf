@@ -534,6 +534,17 @@ int	main()
 	// printf("pf percent: %%\n");
 	// ft_printf("me percent: %%\n");
 	// pf_putchar('\n');
+	// i = printf("pf: %5%\n");
+	// printf("%d\n", i);
+	// i = printf("me: %5%\n");
+	// printf("%d\n", i);
+	// pf_putchar('\n');
+	// i = printf("pf: %-5% %c\n", '.');
+	// printf("%d\n", i);
+	// i = printf("me: %-5% %c\n", '.');
+	// printf("%d\n", i);
+	// pf_putchar('\n');
+	// pf_putchar('\n');
 	// pf_putchar('\n');
 
 	// printf("---------------------- POINTER ----------------------------- \n");
