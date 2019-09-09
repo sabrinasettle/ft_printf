@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/02 12:33:39 by ssettle           #+#    #+#             */
-/*   Updated: 2019/09/08 19:46:02 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/09/09 08:24:57 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,10 +66,10 @@ char		*padding_hex(t_opts options, char *str)
 char		*print_reg(t_opts options, char *str, int len)
 {
 	char	*new_str;
-	if ((str[len - 1] == 48 && str[1] == '\0') && options.flags.dot && !options.precision)
-		pf_memset(str, ' ', len); //does not work
+	if ((str[len - 1] == 48) && options.flags.dot && !options.precision)
+		pf_memset(str, '.', len); //does not work
 	if (!options.precision && !options.width_field && !options.flags.zero
-		&& options.flags.pound && !(str[0] == 48 && str[1] == '\0'))
+		&& options.flags.pound && !(str[0] == 48 && str[1] == '\0') && !options.flags.dot)
 		new_str = pf_strjoin("0x", str);
 	else
 		return (str);
@@ -100,11 +100,11 @@ int			convert_hex(t_opts options, va_list ap)
 		str = prec_hex(options, str);
 	if (options.width_field > len)
 	{
-		if (options.flags.pound > 0 && options.width_field
+		if (options.flags.pound > 0 && options.width_field && !options.flags.dot
 			&& !options.flags.zero)
 			str = pf_append(str, "0x", 0);
 		str = padding_hex(options, str);
-		if (options.flags.pound >= 1 && options.flags.zero)
+		if (options.flags.pound && options.flags.zero && !options.flags.dot)
 			str = pf_append(str, "0x", 0);
 	}
 	len = pf_strlen(str);

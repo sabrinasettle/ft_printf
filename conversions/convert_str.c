@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/02 12:33:59 by ssettle           #+#    #+#             */
-/*   Updated: 2019/09/07 17:45:59 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/09/09 08:05:39 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,46 +42,27 @@ char		*padding_str(t_opts options, char *str)
 	return(new_str);
 }
 
-int		ft_strcmp(const char *s1, const char *s2)
-{
-	unsigned char *tmp1;
-	unsigned char *tmp2;
-
-	tmp1 = (unsigned char *)s1;
-	tmp2 = (unsigned char *)s2;
-	while (*tmp1 && (*tmp1 == *tmp2))
-	{
-		tmp1++;
-		tmp2++;
-	}
-	return (*tmp1 - *tmp2);
-}
-
-
-
 //print (nil) needed
 
 int		convert_str(t_opts options, va_list ap)
 {
 	int32_t		len;
-	// char		*new_str;
+	char		*new_str;
 	char		*str;
 	(void)options;
 	
 	str = (char *)va_arg(ap, char *);
-	int i = ft_strcmp(str, "NULL");
-	if (i == 1)
-		str = pf_strdup("(null)");
-	// if (options.content_size > 0) //dont need??? 
-		// str = change_data_type(options, ap);
-	len = pf_strlen(str);
+	if (!str)
+		str = "(null)";
+	new_str = pf_strdup(str);
+	len = pf_strlen(new_str);
 	if (options.precision <= len && options.precision)
-		str = pf_strsub(str, 0, options.precision);
+		new_str = pf_strsub(str, 0, options.precision);
 	if (options.width_field > len)
-		str = padding_str(options, str); //leakinggggggg
-	pf_putstr(str);
-	len = pf_strlen(str);
-	// free(str);
+		new_str = padding_str(options, new_str); //leakinggggggg
+	pf_putstr(new_str);
+	len = pf_strlen(new_str);
+	free(new_str);
 	return (len);
 }
 // printf("content size: %d", options.content_size); //testing
