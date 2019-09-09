@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/02 12:33:59 by ssettle           #+#    #+#             */
-/*   Updated: 2019/09/09 08:05:39 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/09/09 09:50:09 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,11 +38,18 @@ char		*padding_str(t_opts options, char *str)
 		new_len = wd_len - len;
 		pf_strncpy(&new_str[new_len], str, len); //no malloc
 	}
-	// free(str); //doesnt work and breaks
+	free(str); //doesnt work and breaks
 	return(new_str);
 }
 
-//print (nil) needed
+char		*prec_str(t_opts options, char *str)
+{
+	char	*new_str;
+
+	new_str = pf_strsub(str, 0, options.precision);
+	free(str);
+	return(new_str);
+}
 
 int		convert_str(t_opts options, va_list ap)
 {
@@ -57,7 +64,7 @@ int		convert_str(t_opts options, va_list ap)
 	new_str = pf_strdup(str);
 	len = pf_strlen(new_str);
 	if (options.precision <= len && options.precision)
-		new_str = pf_strsub(str, 0, options.precision);
+		new_str = prec_str(options, new_str);
 	if (options.width_field > len)
 		new_str = padding_str(options, new_str); //leakinggggggg
 	pf_putstr(new_str);

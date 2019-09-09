@@ -80,8 +80,8 @@ int	main()
 	// printf("pf: %10s is a string\n", "this");
 	// ft_printf("me: %10s is a string\n", "this");
 	// pf_putchar('\n');
-	printf("pf: %.2s is a string\n", "this");
-	ft_printf("me: %.2s is a string\n", "this");
+	// printf("pf: %.2s is a string\n", "this");
+	// ft_printf("me: %.2s is a string\n", "this");
 	// pf_putchar('\n');
 	// printf("pf: %5.2s is a string\n", "this");
 	// ft_printf("me: %5.2s is a string\n", "this");
@@ -333,7 +333,7 @@ int	main()
 	// unsigned long long c = 7000;
 	// printf("pf ll flag: %llo\n", c);
 	// ft_printf("me ll flag: %llo\n", c);
-	// printf("----------- Octal 42FC--------------- \n");
+	printf("----------- Octal 42FC--------------- \n");
 	// pf_putchar('\n');
 	// printf("pf: %5o\n", 41); 
 	// ft_printf("me: %5o\n", 41); 
@@ -352,13 +352,22 @@ int	main()
 	// pf_putchar('\n');
 	// // printf("%-05o\n", 2500);
 	// // ft_printf("%-05o\n", 2500);
-	// pf_putchar('\n');                     
+	pf_putchar('\n');     
+	printf("me: %.o %.0o\n", 0, 0);
+	ft_printf("me: %.o %.0o\n", 0, 0);
+	pf_putchar('\n');     
+	printf("me: %5.o %5.0o\n", 0, 0);
+  	ft_printf("me: %5.o %5.0o\n", 0, 0);
+	pf_putchar('\n');     
+	printf("me: %#.o %#.0o\n", 0, 0);
+  	ft_printf("me: %#.o %#.0o\n", 0, 0);
+	pf_putchar('\n');                     
 	// pf_putchar('\n');
 	// pf_putchar('\n');
 	
 
 	// // //HEX
-	printf("---------------------- HEX ----------------------------- \n");
+	// printf("---------------------- HEX ----------------------------- \n");
 	// // pf_putchar('\n');
 	// printf("pf: %-7x %c\n", 1600, '.');
 	// ft_printf("me: %-7x %c\n", 1600, '.');
@@ -429,26 +438,26 @@ int	main()
 	// pf_putchar('\n');
 	// printf("pf hx: %hx\n", 4294967296);
 	// ft_printf("me hx: %hx\n", 4294967296);
-	pf_putchar('\n');
-	printf("pf #0: %#x\n", 0);
-	ft_printf("me #0: %#x\n", 0);
-	pf_putchar('\n');
-	i = printf("pf not fine: %#.x %#.0x\n", 0, 0);
-	printf("%d\n", i);
-	i = ft_printf("me not fine: %#.x %#.0x\n", 0, 0); //doesnt do the correct thing
-	printf("%d\n", i);
-	pf_putchar('\n');
-	i = printf("pf not fine: %.x %.0x\n", 0, 0);
-	printf("%d\n", i);
-	i = ft_printf("me not fine: %.x %.0x\n", 0, 0);
-	printf("%d\n", i);
-	pf_putchar('\n');
-	i = printf("pf fine: %5.x %5.0x\n", 0, 0);
-	printf("%d\n", i);
-	i = ft_printf("me fine: %5.x %5.0x\n", 0, 0);
-	printf("%d\n", i);
-	pf_putchar('\n');
-	pf_putchar('\n');
+	// pf_putchar('\n');
+	// printf("pf #0: %#x\n", 0);
+	// ft_printf("me #0: %#x\n", 0);
+	// pf_putchar('\n');
+	// i = printf("pf not fine: %#.x %#.0x\n", 0, 0);
+	// printf("%d\n", i);
+	// i = ft_printf("me not fine: %#.x %#.0x\n", 0, 0); //doesnt do the correct thing
+	// printf("%d\n", i);
+	// pf_putchar('\n');
+	// i = printf("pf not fine: %.x %.0x\n", 0, 0);
+	// printf("%d\n", i);
+	// i = ft_printf("me not fine: %.x %.0x\n", 0, 0);
+	// printf("%d\n", i);
+	// pf_putchar('\n');
+	// i = printf("pf fine: %5.x %5.0x\n", 0, 0);
+	// printf("%d\n", i);
+	// i = ft_printf("me fine: %5.x %5.0x\n", 0, 0);
+	// printf("%d\n", i);
+	// pf_putchar('\n');
+	// pf_putchar('\n');
 
 	// printf("---------------------- UPPER HEX ----------------------------- \n");
 	// pf_putchar('\n');

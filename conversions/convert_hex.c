@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/02 12:33:39 by ssettle           #+#    #+#             */
-/*   Updated: 2019/09/09 09:25:25 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/09/09 09:30:02 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,27 +67,18 @@ char		*print_reg(t_opts options, char *str, int len)
 {
 	char	*new_str;
 	
-	if ((str[len - 1] == 48) && options.flags.dot && !options.precision && options.width_field)
-		pf_memset(str, ' ', len); //does not work
+	if ((str[len - 1] == 48) && options.flags.dot && !options.precision 
+		&& options.width_field)
+		pf_memset(str, ' ', len);
 	if (!options.precision && !options.width_field && !options.flags.zero
-		&& options.flags.pound && !(str[0] == 48 && str[1] == '\0') && !options.flags.dot)
+		&& options.flags.pound && !(str[0] == 48 && str[1] == '\0') 
+		&& !options.flags.dot)
 		new_str = pf_strjoin("0x", str);
 	else
 		return (str);
 	free(str);
 	return (new_str);
 }
-
-// int	fucking_zeros(t_opts options, char *str, int len)
-// {
-// 	// (void)len;
-// 	if ((str[0] == 48 && str[1] == '\0') && !options.precision && options.flags.dot == 1)
-// 		len = 0;
-// 		// str = NULL;
-// 	// else if ((str[0] == 48 && str[1] == '\0') && (options.flags.pound == 1 || options.flags.zero == 1) && !options.flags.dot)
-// 		// return (str);
-// 	return (len);
-// }
 
 int			convert_hex(t_opts options, va_list ap)
 {
