@@ -6,13 +6,13 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/28 14:04:17 by ssettle           #+#    #+#             */
-/*   Updated: 2019/09/07 15:49:40 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/09/09 15:49:50 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-static int		get_nbr(uint64_t num)
+static uint64_t		get_nbr(uint64_t num)
 {
 	int			i;
 
@@ -136,7 +136,7 @@ char	*pf_itoa_upper_hex(uint64_t value)
 char	*pf_itoa_o(uint64_t value) //ok may need to have somehting completely differnt here
 {
 	int			len;
-	intptr_t	ip;
+	uint64_t	ip;
 	char		*res;
 	static char	index[8] = "01234567";
 
