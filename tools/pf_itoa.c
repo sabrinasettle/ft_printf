@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/22 09:55:49 by ssettle           #+#    #+#             */
-/*   Updated: 2019/09/08 13:45:55 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/09/09 16:08:59 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ char *pf_itoa_l(int value)
 	return(pf_itoa_base((int64_t)value, 10));
 }
 
-static int		get_u_nbr(uint64_t num)
+static uint64_t		get_u_nbr(uint64_t num)
 {
 	int			i;
 
@@ -72,7 +72,7 @@ static int		get_u_nbr(uint64_t num)
 char	*pf_itoa_unsigned(uint64_t value) //maybe change this to just be a itoa rather than using itoa base
 {
 	long		len;
-	long		ip;
+	uint64_t	ip;
 	char		*res;
 	static char	index[10] = "0123456789";
 
