@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/02 12:33:39 by ssettle           #+#    #+#             */
-/*   Updated: 2019/09/08 18:04:05 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/09/08 19:35:12 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,10 +63,11 @@ char		*padding_hex(t_opts options, char *str)
 	return (new_str);
 }
 
-char		*print_reg(t_opts options, char *str)
+char		*print_reg(t_opts options, char *str, int len)
 {
 	char	*new_str;
-
+	if ((str[len - 1] == 48 && str[1] == '\0') && options.flags.dot && !options.precision)
+		pf_memset(str, ' ', len);
 	if (!options.precision && !options.width_field && !options.flags.zero
 		&& options.flags.pound && !(str[0] == 48 && str[1] == '\0'))
 		new_str = pf_strjoin("0x", str);
@@ -106,10 +107,11 @@ int			convert_hex(t_opts options, va_list ap)
 		if (options.flags.pound >= 1 && options.flags.zero)
 			str = pf_append(str, "0x", 0);
 	}
-	str = print_reg(options, str);
 	len = pf_strlen(str);
+	str = print_reg(options, str, len);
 	(str[0] == 48 && str[1] == '\0') && options.flags.dot && !options.precision
 		? len = 0 : pf_putstr(str);
+	len = pf_strlen(str);
 	free(str);
 	return (len);
 }

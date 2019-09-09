@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/29 10:42:43 by ssettle           #+#    #+#             */
-/*   Updated: 2019/09/08 17:08:41 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/09/08 19:36:12 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@
 
 int		is_special_flag(char c)
 {
-	if (c == '#' || c == '-' || c == '+' || c == ' ' || c == '0' || c == '.')
+	if (c == '#' || c == '-' || c == '+' || c == ' ' || c == '0')
 		return(1);
 	return(0);
 }
@@ -49,6 +49,4 @@ void	add_flags(t_flags *flags, char c)
 		flags->space = 1;
 	else if (c == '0')
 		flags->zero = 1;
-	else if (c == '.')
-		flags->dot = 1;
 }
