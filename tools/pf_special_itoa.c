@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/28 14:04:17 by ssettle           #+#    #+#             */
-/*   Updated: 2019/09/09 16:07:22 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/09/10 14:45:20 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,31 +53,31 @@ char			*pf_itoa_p(intptr_t value)
 }
 
 // for l I seem to be using itoa_base
-// char			*pf_itoa_base_l(long value)
-// {
-// 	long		len;
-// 	long		ip;
-// 	char		*res;
-// 	static char	index[10] = "0123456789";
+char			*pf_itoa_base_l(long int value)
+{
+	long		len;
+	long		ip;
+	char		*res;
+	static char	index[10] = "0123456789";
 
-// 	ip = value;
-// 	len = (value <= 0) ? 1 : 0;
-// 	if (!(res = pf_strnew(get_nbr(value))))
-// 		return (NULL);
-// 	while (ip)
-// 	{
-// 		len++;
-// 		ip /= 10;
-// 	}
-// 	ip = value;
-// 	while (len--)
-// 	{
-// 		res[len] = index[ip % 10];
-// 		ip /= 10;
-// 	}
-// 	// value < 0 ? res[0] = '-' : 0;
-// 	return (res);
-// }
+	ip = value;
+	len = (value <= 0) ? 1 : 0;
+	if (!(res = pf_strnew(get_nbr(value))))
+		return (NULL);
+	while (ip)
+	{
+		len++;
+		ip /= 10;
+	}
+	ip = value;
+	while (len--)
+	{
+		res[len] = index[ip % 10];
+		ip /= 10;
+	}
+	value < 0 ? res[0] = '-' : 0;
+	return (res);
+}
 
 
 char	*pf_itoa_hex(uint64_t value)

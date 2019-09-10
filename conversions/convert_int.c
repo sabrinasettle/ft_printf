@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/02 12:33:44 by ssettle           #+#    #+#             */
-/*   Updated: 2019/09/07 17:11:18 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/09/10 14:46:19 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,37 +79,18 @@ char    *padding_nbr(t_opts options, char *str)
     return(new_str);
 }
 
-void	pf_putnbr(int n)
-{
-	if (n == -2147483648)
-	{
-		pf_putstr("-2147483648");
-		return ;
-	}
-	if (n < 0)
-	{
-		n = -n;
-		pf_putchar('-');
-	}
-	if (n >= 10)
-	{
-		pf_putnbr(n / 10);
-		pf_putnbr(n % 10);
-	}
-	else
-		pf_putchar(n + 48);
-}
-
 int     convert_int(t_opts options, va_list ap)
 {
     char        *str;
 	// char		*new_str;
+	int			is_neg;
     int         len;
-    int32_t     num;
+    int64_t     num;
 
     num = options.content_size > 0 ? va_arg(ap, int64_t) : va_arg(ap, int32_t);
+	is_neg = (num < 0) ? true : false;
     str = options.content_size > 0 ? 
-        pf_itoa_l(num) : pf_itoa(num);
+        pf_itoa_base_l(num) : pf_itoa(num);
     len = pf_strlen(str);
     if (options.precision > len)
 		str = prec(options, str);
@@ -119,7 +100,6 @@ int     convert_int(t_opts options, va_list ap)
         pf_append(str, "+", 0);
 	else if (options.flags.space == 1 && num > 0)
 		str = pf_append(str, " ", 0);
-    // num < 0 ?  pf_putstr(pf_append(str, "-", 0)) : 
     pf_putstr(str);
     len = pf_strlen(str);
     free(str);
