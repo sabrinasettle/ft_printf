@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/31 03:49:08 by ssettle           #+#    #+#             */
-/*   Updated: 2019/09/10 14:45:17 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/09/10 16:42:19 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ typedef struct				s_opts
 {
 	t_flags					flags;
 	int						width_field;
-	int32_t					precision;
+	int						precision;
 	int				        content_size;
 	int						total_length_opts;
 }							t_opts;
@@ -115,6 +115,7 @@ size_t						pf_strlen(const char *str);
 void						pf_putchar(char c);
 void						*pf_memset(void *b, int c, size_t ln);
 void 						pf_putstr(char *str);
+int 						pf_putstr_i(char *str);
 // static int					get_nbr(uint64_t num);
 char						*pf_itoa(int value);
 char						*pf_itoa_l(int value);
