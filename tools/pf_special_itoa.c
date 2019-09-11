@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/28 14:04:17 by ssettle           #+#    #+#             */
-/*   Updated: 2019/09/10 21:52:28 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/09/10 22:00:16 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,20 @@ static uint64_t		get_nbr(uint64_t num)
 	}
 	return (i);
 }
+
+// static int64_t		signed_get_nbr(int64_t num)
+// {
+// 	int			i;
+
+// 	i = 0;
+// 	while (num)
+// 	{
+// 		num /= 10;
+// 		i += 1;
+// 	}
+// 	return (i);
+// }
+
 
 char			*pf_itoa_p(intptr_t value)
 {
@@ -62,7 +76,7 @@ char			*pf_itoa_l_2(int64_t value)
 
 	ip = value;
 	len = (value <= 0) ? 1 : 0;
-	if (!(res = pf_strnew(get_nbr(value))))
+	if (!(res = pf_strnew(len)))
 		return (NULL);
 	while (ip)
 	{

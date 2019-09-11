@@ -354,10 +354,10 @@ int	main()
 	pf_putchar('\n');
 	printf("pf: %++ d\n", -42);  
 	ft_printf("me: %++ d\n", -42);                      
-
-
-
-
+	pf_putchar('\n');
+	printf("pf: %.10d\n", -42);
+	printf("me: %.10d\n", -42);
+	pf_putchar('\n');
 	pf_putchar('\n');
 	pf_putchar('\n');	
 
@@ -525,8 +525,8 @@ int	main()
 	// printf("%d\n", i);
 	// i = ft_printf("me fine: %5.x %5.0x\n", 0, 0);
 	// printf("%d\n", i);
-	printf("pf: %#-08x\n", 42);
-	ft_printf("me: %#-08x\n", 42);
+	// printf("pf: %#-08x\n", 42);
+	// ft_printf("me: %#-08x\n", 42);
 	// pf_putchar('\n');
 	// pf_putchar('\n');
 
@@ -763,7 +763,7 @@ int	main()
 	// // printf ("Width trick: %*d \n", 5, 10);
 
 
-	system("leaks test");
+	// system("leaks test");
 	return 0;
 }
 

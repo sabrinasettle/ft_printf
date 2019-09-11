@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/02 12:33:44 by ssettle           #+#    #+#             */
-/*   Updated: 2019/09/10 21:54:15 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/09/10 21:59:27 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -128,3 +128,25 @@ int     convert_int(t_opts options, va_list ap)
     return(len);
 }
 
+// int     convert_int(t_opts options, va_list ap)
+// {
+//     char        *str;
+// 	int			is_neg;
+//     int         len;
+//     int64_t     num;
+
+//     num = options.content_size == (216 | 108 ? va_arg(ap, int64_t) : va_arg(ap, int32_t);
+// 	is_neg = (num < 0) ? true : false;
+//     str = pf_itoa(num);
+// 	len = pf_strlen(str);
+// 	if (is_neg == true)
+// 		str = neg_pad_prec(options, str, len);
+// 	str = print_reg_nbr(options, str, len, is_neg);
+// 	if ((str[(len = pf_strlen(str)) - 1] == 48) && options.flags.dot && !options.precision
+// 		&& options.width_field && !options.flags.zero)
+// 		pf_memset(str, ' ', len);
+// 	len = ((str[(len = pf_strlen(str)) - 1] == 48) && options.flags.dot && !options.precision
+// 	&& !options.flags.zero) ? 0 : pf_putstr_i(str);
+//     free(str);
+//     return(len);
+// }
