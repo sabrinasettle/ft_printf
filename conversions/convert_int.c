@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/02 12:33:44 by ssettle           #+#    #+#             */
-/*   Updated: 2019/09/10 17:22:56 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/09/10 18:25:38 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,13 +47,14 @@ char    *padding_nbr(t_opts options, char *str, int len)
     pf_memset(new_str, ' ', wd_len);
     new_str[wd_len] = '\0';
     // wd_len = options.flags.plus ? wd_len - 1 : wd_len;
-    if (options.flags.zero >= 1)
+    if (options.flags.zero)
 	{
 		// wd_len = options.flags.plus ? wd_len - 1 : wd_len;
         pf_memset(new_str, '0', wd_len);
 		new_str[0] = options.flags.plus ? '+': '0';
 	}
-	if (options.flags.minus >= 1)
+	// pump is_neg in here andthen check before and then add in? I mean then its rededuent doen below
+	if (options.flags.minus)
         pf_strncpy(new_str, str, len);
     else
 	{
@@ -69,12 +70,24 @@ char	*neg_pad_prec(t_opts options, char *str, int len)
     char    *new_str;
 	
    	new_str = pf_strdup(str);
-	new_str[0] = '0';
 	// len += 1;
-	new_str = padding_nbr(options, new_str, len);
+	new_str[0] = '0';
+	if (!options.flags.zero && options.width_field)
+	{
+		new_str[0] = '-';
+		new_str = padding_nbr(options, new_str, len); 
+	}
+	else
+	{ 
+		new_str = padding_nbr(options, new_str, len); //is adding the minus to the edge of this str when just padding
+		new_str[0] = '-';
+	}
 	len = pf_strlen(new_str);
-	new_str = prec(options, new_str, len);
-	new_str[0] = '-';
+	if (options.flags.dot)
+	{
+		new_str = prec(options, new_str, len);
+		new_str[0] = '-';	
+	}
 	return (new_str);
 }
 
@@ -100,7 +113,7 @@ int     convert_int(t_opts options, va_list ap)
 		if (options.flags.space && !options.flags.plus)
 			str = pf_append(str, " ", 0);
 	}
-	else
+	else //if zero then no, if padding then just pad it
 		str = neg_pad_prec(options, str, len);
     len = pf_putstr_i(str);
     free(str);

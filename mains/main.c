@@ -113,7 +113,7 @@ int	main()
 	// pf_putchar('\n');
 
 	// // // // Ints and Ds 
-	// printf("---------------------- I & D ----------------------------- \n");
+	printf("---------------------- I & D ----------------------------- \n");
 	// // pf_putchar('\n');
 	// // printf("pf: %i, %i\n", 42, 21);
 	// // ft_printf("me: %i, %i\n", 42, 21);
@@ -183,29 +183,29 @@ int	main()
 	// pf_putchar('\n');
 	// pf_putchar('\n');
 
-	// printf("pf: %d, %d\n", 42, 21);
-	// ft_printf("me: %d, %d\n", 42, 21);
-	// pf_putchar('\n');
-	// printf("pf: %d\n", -42);
-	// ft_printf("me: %d\n", -42);
-	// pf_putchar('\n');
-	// printf("pf: %d, %d, %d, %ld\n", 42, -21, 69,  -2174963257925); 
-	// ft_printf("me: %d, %d, %d, %ld\n", 42, -21, 69, -2174963257925); //eli says top testing
-	// pf_putchar('\n');
-	// printf("pf: %03d\n", 1993);
-	// ft_printf("pf: %.3d\n", 1993);
-	// pf_putchar('\n');
-	// printf("pf: %.3d\n", -1993);
-	// ft_printf("pf: %.3d\n", -1993);
-	// pf_putchar('\n');
-	// printf ("pf d and ld: %d %ld\n", 1977, 650000L);
-	// ft_printf ("me d and ld: %d %ld\n", 1977, 650000L);
-	// pf_putchar('\n');
-	// printf ("pf preceding with blanks: %10d \n", 1977);
-	// ft_printf("me preceding with blanks: %10d \n", 1977);
-	// pf_putchar('\n');
-	// printf ("pf: %10d \n", -1977);
-	// ft_printf("me: %10d \n", -1977);
+	printf("pf: %d, %d\n", 42, 21);
+	ft_printf("me: %d, %d\n", 42, 21);
+	pf_putchar('\n');
+	printf("pf: %d\n", -42);
+	ft_printf("me: %d\n", -42);
+	pf_putchar('\n');
+	printf("pf: %d, %d, %d, %ld\n", 42, -21, 69); 
+	ft_printf("me: %d, %d, %d, %ld\n", 42, -21, 69); //eli says top testing
+	pf_putchar('\n');
+	printf("pf: %03d\n", 1993);
+	ft_printf("pf: %.3d\n", 1993);
+	pf_putchar('\n');
+	printf("pf: %.3d\n", -1993);
+	ft_printf("pf: %.3d\n", -1993);
+	pf_putchar('\n');
+	printf ("pf d and ld: %d %ld\n", 1977, 650000L);
+	ft_printf ("me d and ld: %d %ld\n", 1977, 650000L);
+	pf_putchar('\n');
+	printf ("pf preceding with blanks: %10d \n", 1977);
+	ft_printf("me preceding with blanks: %10d \n", 1977);
+	pf_putchar('\n');
+	printf ("pf: %10d \n", -1977);
+	ft_printf("me: %10d \n", -1977);
 	pf_putchar('\n');
 	printf ("pf: %-10d \n", 1977);
 	ft_printf("me: %-10d \n", 1977);
@@ -242,6 +242,12 @@ int	main()
 	pf_putchar('\n');
 	pf_putchar('\n');
 	printf("----------- D&I 42FC--------------- \n");
+	pf_putchar('\n');
+	printf("pf: %5d\n", -42);
+	ft_printf("me: %5d\n", -42);
+	pf_putchar('\n');
+	printf("pf: %05d\n", -42);
+	ft_printf("me: %05d\n", -42);
 	pf_putchar('\n');
 	printf("pf space -42: % d\n", -42);
 	ft_printf("me space -42: % d\n", -42);
