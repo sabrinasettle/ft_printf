@@ -320,6 +320,11 @@ int	main()
 	pf_putchar('\n');
 	printf("pf: %5.d %5.0d\n", 0, 0);
  	ft_printf("me: %5.d %5.0d\n", 0, 0);
+	 
+	printf("%-05d\n", 42);  //pour qui???
+	ft_printf("%-05d\n", 42);   
+
+
 	pf_putchar('\n');
 	pf_putchar('\n');	
 
