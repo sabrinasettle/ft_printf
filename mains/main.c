@@ -114,7 +114,7 @@ int	main()
 
 	// // // // Ints and Ds 
 	printf("---------------------- I & D ----------------------------- \n");
-	// // pf_putchar('\n');
+	pf_putchar('\n');
 	// // printf("pf: %i, %i\n", 42, 21);
 	// // ft_printf("me: %i, %i\n", 42, 21);
 	// pf_putchar('\n');
@@ -189,8 +189,8 @@ int	main()
 	printf("pf: %d\n", -42);
 	ft_printf("me: %d\n", -42);
 	pf_putchar('\n');
-	printf("pf: %d, %d, %d, %ld\n", 42, -21, 69); 
-	ft_printf("me: %d, %d, %d, %ld\n", 42, -21, 69); //eli says top testing
+	printf("pf: %d, %d, %d\n", 42, -21, 69); 
+	ft_printf("me: %d, %d, %d\n", 42, -21, 69); //eli says top testing
 	pf_putchar('\n');
 	printf("pf: %03d\n", 1993);
 	ft_printf("pf: %.3d\n", 1993);
@@ -291,14 +291,35 @@ int	main()
 	printf("pf: %4.15d\n", 42); 
 	ft_printf("me: %4.15d\n", 42);
 	pf_putchar('\n');
-	printf("pf: %03.2d\n", 0);
-	ft_printf("me: %03.2d\n", 0);
+	i = printf("pf: % 10.5d\n", 4242);
+	printf("%d\n", i);
+	i = ft_printf("me: % 10.5d\n", 4242);
+	printf("%d\n", i);
 	pf_putchar('\n');
-	printf("pf: %03.2d\n", 1);
-	ft_printf("me: %03.2d\n", 1);
+	printf("pf: %+10.5d\n", 4242);       
+	ft_printf("me: %+10.5d\n", 4242);                   
+	pf_putchar('\n');
+	printf("pf: %-+10.5d\n", 4242);  
+	ft_printf("me: %-+10.5d\n", 4242);                  
+	pf_putchar('\n');
+	i = printf("pf: %03.2d\n", 0);
+	printf("%d\n", i);
+	i =ft_printf("me: %03.2d\n", 0);
+	printf("%d\n", i);
+	pf_putchar('\n');
+	i = printf("pf: %03.2d\n", 1);
+	printf("%d\n", i);
+	i = ft_printf("me: %03.2d\n", 1);
+	printf("%d\n", i);
 	pf_putchar('\n');
 	printf("pf: %03.2d\n", -1);
 	ft_printf("me: %03.2d\n", -1);
+	pf_putchar('\n');
+	printf("pf: %.d %.0d\n", 0, 0);
+	ft_printf("me: %.d %.0d\n", 0, 0);
+	pf_putchar('\n');
+	printf("pf: %5.d %5.0d\n", 0, 0);
+ 	ft_printf("me: %5.d %5.0d\n", 0, 0);
 	pf_putchar('\n');
 	pf_putchar('\n');	
 
