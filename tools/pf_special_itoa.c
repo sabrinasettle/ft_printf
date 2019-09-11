@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/28 14:04:17 by ssettle           #+#    #+#             */
-/*   Updated: 2019/09/10 22:00:16 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/09/11 15:08:49 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,21 +25,7 @@ static uint64_t		get_nbr(uint64_t num)
 	return (i);
 }
 
-// static int64_t		signed_get_nbr(int64_t num)
-// {
-// 	int			i;
-
-// 	i = 0;
-// 	while (num)
-// 	{
-// 		num /= 10;
-// 		i += 1;
-// 	}
-// 	return (i);
-// }
-
-
-char			*pf_itoa_p(intptr_t value)
+char				*pf_itoa_p(intptr_t value)
 {
 	int			len;
 	intptr_t	ip;
@@ -66,38 +52,10 @@ char			*pf_itoa_p(intptr_t value)
 	return (res);
 }
 
-// for l I seem to be using itoa_base
-char			*pf_itoa_l_2(int64_t value)
-{
-	int64_t		len;
-	int64_t		ip;
-	char		*res;
-	static char	index[10] = "0123456789";
-
-	ip = value;
-	len = (value <= 0) ? 1 : 0;
-	if (!(res = pf_strnew(len)))
-		return (NULL);
-	while (ip)
-	{
-		len++;
-		ip /= 10;
-	}
-	ip = value;
-	while (len--)
-	{
-		res[len] = index[ip % 10];
-		ip /= 10;
-	}
-	value < 0 ? res[0] = '-' : 0;
-	return (res);
-}
-
-
-char	*pf_itoa_hex(uint64_t value)
+char				*pf_itoa_hex(uint64_t value)
 {
 	int			len;
-	intptr_t	ip; //change???
+	intptr_t	ip;
 	char		*res;
 	static char	index[16] = "0123456789abcdef";
 
@@ -121,10 +79,10 @@ char	*pf_itoa_hex(uint64_t value)
 	return (res);
 }
 
-char	*pf_itoa_upper_hex(uint64_t value)
+char				*pf_itoa_upper_hex(uint64_t value)
 {
 	int			len;
-	intptr_t	ip; //change??
+	intptr_t	ip;
 	char		*res;
 	static char	index[16] = "0123456789ABCDEF";
 
@@ -148,12 +106,12 @@ char	*pf_itoa_upper_hex(uint64_t value)
 	return (res);
 }
 
-char	*pf_itoa_o(uint64_t value) //ok may need to have somehting completely differnt here
+char				*pf_itoa_o(uint64_t value)
 {
-	int			len;
+	uint64_t	len;
 	uint64_t	ip;
 	char		*res;
-	static char	index[8] = "01234567";
+	static char	index[] = "01234567";
 
 	if (value == 0)
 		return (pf_strdup("0"));

@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/29 10:39:33 by ssettle           #+#    #+#             */
-/*   Updated: 2019/09/06 16:13:54 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/09/10 22:30:06 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,10 +37,7 @@ int		contentsize_width_and_convert(t_opts options, va_list ap)
 	int		length;
 
 	length = 0;
-	if (options.content_size == 0)
-		c = va_arg(ap, int);
-	else if (options.content_size == 108)
-		c = va_arg(ap, wchar_t);
+	c = options.content_size == 108 ? va_arg(ap, wchar_t) : va_arg(ap, int); 
 	while (options.width_field > 1 && !options.flags.minus)
 	{
 		pf_putchar(' ');

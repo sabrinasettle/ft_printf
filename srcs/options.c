@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/29 10:38:53 by ssettle           #+#    #+#             */
-/*   Updated: 2019/09/08 19:44:06 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/09/11 15:20:32 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,6 @@ static int			getz_theprecision(const char **format, va_list ap)
 	}
 	if (**format == '.')
 	{
-		// options.flags.dot = 1; //added in maybe works??
 		prec = 0;
 		(*format)++;
 		if (IS_DIGIT(**format))
@@ -141,7 +140,7 @@ static t_flags		getz_theflagz(const char **format)
 	flags.space = 0;
 	flags.zero = 0;
 	flags.dot = 0;
-	while (is_special_flag(**format)) //tried previously to make the dot increment here
+	while (is_special_flag(**format))
 	{
 		add_flags(&flags, **format);
 		(*format)++;
@@ -161,44 +160,3 @@ t_opts				getz_theoptionz(const char **format, va_list ap)
 	options.content_size = getz_thesize(format);
 	return (options);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// interesting way to do length to tke note on
-//https://github.com/roblabla42/ft_printf/blob/master/src/utils/get_unsigned_from_length.c

@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/31 03:49:08 by ssettle           #+#    #+#             */
-/*   Updated: 2019/09/10 21:52:34 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/09/11 14:35:36 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,11 +73,6 @@ extern const				t_dispatch_table g_convert_table[];
 *******************************   FUNCTIONS   *******************************
 */
 
-
-int		is_content_flag(char c);
-
-
-
 void						add_flags(t_flags *flags, char c);
 int							convert_args(const char **format, va_list ap);
 int							ft_printf(const char *format, ...);
@@ -116,9 +111,9 @@ void						pf_putchar(char c);
 void						*pf_memset(void *b, int c, size_t ln);
 void 						pf_putstr(char *str);
 int 						pf_putstr_i(char *str);
-// static int					get_nbr(uint64_t num);
+static uint64_t				get_nbr(uint64_t num);
 char						*pf_itoa(int value);
-// char						*pf_itoa_l(int value);
+char						*pf_itoa_l(int value);
 char						*pf_itoa_unsigned(uint64_t value); 
 char			            *pf_itoa_l_2(int64_t value);
 char			            *pf_itoa_base_ll(long long value);

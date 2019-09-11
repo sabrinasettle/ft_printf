@@ -6,11 +6,12 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/22 09:55:49 by ssettle           #+#    #+#             */
-/*   Updated: 2019/09/10 21:52:23 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/09/11 15:13:50 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
+
 /*
 ** is taking the number and dividing/getting the reminder of the modolo 10
 ** modolo will give you the number you lost ex. 126 will give you 6,
@@ -18,7 +19,7 @@
 **basiclly how long the string needs to be
 */
 
-char			*pf_itoa_base(int value, int base)
+char				*pf_itoa_base(int value, int base)
 {
 	int			len;
 	long		i;
@@ -46,17 +47,12 @@ char			*pf_itoa_base(int value, int base)
 	return (res);
 }
 
-char *pf_itoa(int value)
+char				*pf_itoa(int value)
 {
-	return(pf_itoa_base(value, 10));
+	return (pf_itoa_base(value, 10));
 }
 
-char *pf_itoa_l(int value)
-{
-	return(pf_itoa_base((int64_t)value, 10));
-}
-
-static uint64_t		get_u_nbr(uint64_t num)
+static int64_t		signed_get_nbr(int64_t num)
 {
 	int			i;
 
@@ -69,7 +65,33 @@ static uint64_t		get_u_nbr(uint64_t num)
 	return (i);
 }
 
-char	*pf_itoa_unsigned(uint64_t value) //maybe change this to just be a itoa rather than using itoa base
+char				*pf_itoa_l_2(int64_t value)
+{
+	int64_t		len;
+	int64_t		ip;
+	char		*res;
+	static char	index[10] = "0123456789";
+
+	ip = value;
+	len = (value <= 0) ? 1 : 0;
+	if (!(res = pf_strnew(signed_get_nbr(value))))
+		return (NULL);
+	while (ip)
+	{
+		len++;
+		ip /= 10;
+	}
+	ip = value;
+	while (len--)
+	{
+		res[len] = index[ip % 10];
+		ip /= 10;
+	}
+	value < 0 ? res[0] = '-' : 0;
+	return (res);
+}
+
+char				*pf_itoa_unsigned(uint64_t value)
 {
 	long		len;
 	uint64_t	ip;
@@ -91,6 +113,5 @@ char	*pf_itoa_unsigned(uint64_t value) //maybe change this to just be a itoa rat
 		res[len] = index[ip % 10];
 		ip /= 10;
 	}
-	// value < 0 ? res[0] = '-' : 0;
 	return (res);
 }

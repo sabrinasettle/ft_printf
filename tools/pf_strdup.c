@@ -6,14 +6,13 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/14 09:04:49 by ssettle           #+#    #+#             */
-/*   Updated: 2019/08/26 13:09:35 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/09/11 15:11:45 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-
-size_t	pf_strlen(const char *str)
+size_t		pf_strlen(const char *str)
 {
 	int c;
 

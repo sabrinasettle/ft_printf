@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/02 12:33:46 by ssettle           #+#    #+#             */
-/*   Updated: 2019/09/09 15:47:12 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/09/11 13:49:58 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ char		*padding_oct(t_opts options, char *str)
 	new_str = pf_strdup(str);
 	pf_memset(new_str, ' ', wd_len);
 	new_str[wd_len] = '\0';
-	if (options.flags.zero >= 1)
+	if (options.flags.zero && !options.flags.minus)
 		pf_memset(new_str, '0', wd_len);	
 	if (options.flags.minus >= 1)
 		pf_strncpy(new_str, str, len);
@@ -59,13 +59,10 @@ char		*padding_oct(t_opts options, char *str)
 	return (new_str);
 }
 
-char		*print_reg_o(t_opts options, char *str, int len)
+char		*print_reg_o(t_opts options, char *str)
 {
 	char	*new_str;
 	
-	if ((str[len - 1] == 48 || str[0] == 48) && options.flags.dot
-		&& !options.flags.pound)
-		pf_memset(str, ' ', len);
 	if (!options.precision && !options.width_field
 		&& options.flags.pound && !(str[0] == 48 && str[1] == '\0')
 		&& !options.flags.dot)
@@ -82,11 +79,10 @@ int			convert_octal(t_opts options, va_list ap)
 	int			len;
 
 	str = pf_itoa_o(options.content_size == 'l' || options.content_size == 216 ?
-		(va_arg(ap, unsigned long long)) : (va_arg(ap, unsigned long)));
-	len = pf_strlen(str);
-	if (options.precision > len)
+		(va_arg(ap, uint64_t)) : (va_arg(ap, unsigned long)));
+	if (options.precision > (len = pf_strlen(str)))
 		str = prec_oct(options, str);
-	if (options.width_field > len)
+	if (options.width_field > (len = pf_strlen(str)))
 	{
 		if (options.flags.pound > 0 && options.width_field && !options.flags.dot
 			&& !options.flags.zero)
@@ -95,12 +91,12 @@ int			convert_octal(t_opts options, va_list ap)
 		if (options.flags.pound && options.flags.zero && !options.flags.dot)
 			str = pf_append(str, "0" , 0);
 	}
-	len = pf_strlen(str);
-	str = print_reg_o(options, str, len);
-	len = pf_strlen(str);
-	(str[0] == ' ') && options.flags.dot && !options.flags.pound
-	 	&& !options.width_field	&& !options.precision
-		 ? len = 0 : pf_putstr(str);
+	str = print_reg_o(options, str);
+	if ((str[(len = pf_strlen(str)) - 1] == 48) && options.flags.dot 
+	&& !options.precision && options.width_field && !options.flags.zero)
+		pf_memset(str, ' ', len);
+	len = ((str[(len = pf_strlen(str)) - 1] == 48) && options.flags.dot 
+	&& !options.precision && !options.flags.pound) ? 0 : pf_putstr_i(str);
 	free(str);
 	return (len);
 }
