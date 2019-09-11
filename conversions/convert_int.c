@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/02 12:33:44 by ssettle           #+#    #+#             */
-/*   Updated: 2019/09/10 16:47:55 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/09/10 17:22:56 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,10 +93,10 @@ int     convert_int(t_opts options, va_list ap)
 	len = pf_strlen(str);
 	if (is_neg == 0)
 	{
-		if (options.width_field > len)
-			str = padding_nbr(options, str, len);
 		if (options.precision > (len = pf_strlen(str)))
 			str = prec(options, str, len);
+		if (options.width_field > (len = pf_strlen(str)))
+			str = padding_nbr(options, str, len);
 		if (options.flags.space && !options.flags.plus)
 			str = pf_append(str, " ", 0);
 	}
