@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/28 14:04:17 by ssettle           #+#    #+#             */
-/*   Updated: 2019/09/10 14:45:20 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/09/10 21:52:28 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,10 +53,10 @@ char			*pf_itoa_p(intptr_t value)
 }
 
 // for l I seem to be using itoa_base
-char			*pf_itoa_base_l(long int value)
+char			*pf_itoa_l_2(int64_t value)
 {
-	long		len;
-	long		ip;
+	int64_t		len;
+	int64_t		ip;
 	char		*res;
 	static char	index[10] = "0123456789";
 

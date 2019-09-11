@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/31 03:49:08 by ssettle           #+#    #+#             */
-/*   Updated: 2019/09/10 16:42:19 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/09/10 21:52:34 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,9 +118,9 @@ void 						pf_putstr(char *str);
 int 						pf_putstr_i(char *str);
 // static int					get_nbr(uint64_t num);
 char						*pf_itoa(int value);
-char						*pf_itoa_l(int value);
+// char						*pf_itoa_l(int value);
 char						*pf_itoa_unsigned(uint64_t value); 
-char			            *pf_itoa_base_l(long int value);
+char			            *pf_itoa_l_2(int64_t value);
 char			            *pf_itoa_base_ll(long long value);
 char						*pf_itoa_o(uint64_t value);
 char						*pf_itoa_hex(uint64_t value);

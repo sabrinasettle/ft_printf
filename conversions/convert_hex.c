@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/02 12:33:39 by ssettle           #+#    #+#             */
-/*   Updated: 2019/09/09 15:46:28 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/09/10 21:41:53 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ char		*padding_hex(t_opts options, char *str)
 		wd_len -= 2;
 	pf_memset(new_str, ' ', wd_len);
 	new_str[wd_len] = '\0';
-	if (options.flags.zero > 0)
+	if (options.flags.zero && !options.flags.minus)
 		pf_memset(new_str, '0', wd_len);
 	if (options.flags.minus > 0)
 		pf_strncpy(new_str, str, len);
@@ -99,11 +99,10 @@ int			convert_hex(t_opts options, va_list ap)
 		if (options.flags.pound && options.flags.zero && !options.flags.dot)
 			str = pf_append(str, "0x", 0);
 	}
-	len = pf_strlen(str);
-	str = print_reg(options, str, len);
-	len = pf_strlen(str);
-	(str[0] == 48 && str[1] == '\0') && options.flags.dot && !options.precision
-		? len = 0 : pf_putstr(str);
+	str = print_reg(options, str, (len = pf_strlen(str)));
+	// len = pf_strlen(str); //maybe this can go, see if it breaks
+	len = (str[0] == 48 && str[1] == '\0') && options.flags.dot 
+		&& !options.precision ? 0 : pf_putstr_i(str);
 	free(str);
 	return (len);
 }

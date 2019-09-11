@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/02 12:33:44 by ssettle           #+#    #+#             */
-/*   Updated: 2019/09/10 19:15:52 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/09/10 21:54:15 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ char    *padding_nbr(t_opts options, char *str, int len)
     new_str = pf_strdup(str);
     pf_memset(new_str, ' ', wd_len);
     new_str[wd_len] = '\0';
-    if (options.flags.zero)
+    if (options.flags.zero && !options.flags.minus && !options.precision)
 	{
         pf_memset(new_str, '0', wd_len);
 		new_str[0] = options.flags.plus ? '+': '0';
@@ -64,7 +64,7 @@ char    *padding_nbr(t_opts options, char *str, int len)
     return(new_str);
 }
 
-char	*neg_pad_prec(t_opts options, char *str, int len, int is_neg)
+char	*neg_pad_prec(t_opts options, char *str, int len)
 {
     char    *new_str;
 	
@@ -79,10 +79,29 @@ char	*neg_pad_prec(t_opts options, char *str, int len, int is_neg)
 	{ 
 		new_str = padding_nbr(options, new_str, 
 			(len = pf_strlen(new_str)));
-		new_str = prec(options, new_str, (len = pf_strlen(new_str)), is_neg);
 		new_str[0] = '-';
 	}
-	//free(str);
+	free(str);
+	return (new_str);
+}
+
+
+char		*print_reg_nbr(t_opts options, char *str, int len, int is_neg)
+{
+	char	*new_str;
+
+	new_str = pf_strdup(str);
+	if (options.flags.plus && !options.flags.zero && !options.precision 
+	&& is_neg == false)
+		pf_append(new_str, "+", 0);
+	if (options.precision > (len = pf_strlen(new_str))) //issue here with prec and 0
+		new_str = prec(options, new_str, len, is_neg);
+	if (options.width_field > (len = pf_strlen(new_str)))
+		new_str = padding_nbr(options, new_str, len);
+	if (options.flags.space && !options.flags.plus && !options.precision 
+		&& is_neg == false)
+		new_str = pf_append(new_str, " ", 0);
+	free(str);
 	return (new_str);
 }
 
@@ -95,22 +114,17 @@ int     convert_int(t_opts options, va_list ap)
 
     num = options.content_size > 0 ? va_arg(ap, int64_t) : va_arg(ap, int32_t);
 	is_neg = (num < 0) ? true : false;
-    str = options.content_size > 0 ? pf_itoa_base_l(num) : pf_itoa(num);
+    str = options.content_size > 0 ? pf_itoa_l_2(num) : pf_itoa(num);
 	len = pf_strlen(str);
-	if (is_neg == false)
-	{
-		if (options.flags.plus && !options.flags.zero && !options.precision)
-			pf_append(str, "+", 0);
-		if (options.precision > (len = pf_strlen(str)))
-			str = prec(options, str, len, is_neg);
-		if (options.width_field > (len = pf_strlen(str)))
-			str = padding_nbr(options, str, len);
-		if (options.flags.space && !options.flags.plus && !options.precision)
-			str = pf_append(str, " ", 0);
-	}
-	else
-		str = neg_pad_prec(options, str, len, is_neg);
-    len = pf_putstr_i(str);
+	if (is_neg == true)
+		str = neg_pad_prec(options, str, len);
+	str = print_reg_nbr(options, str, len, is_neg);
+	if ((str[(len = pf_strlen(str)) - 1] == 48) && options.flags.dot && !options.precision
+		&& options.width_field && !options.flags.zero)
+		pf_memset(str, ' ', len);
+	len = ((str[(len = pf_strlen(str)) - 1] == 48) && options.flags.dot && !options.precision
+	&& !options.flags.zero) ? 0 : pf_putstr_i(str);
     free(str);
     return(len);
 }
+
