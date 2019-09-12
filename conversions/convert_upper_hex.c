@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/02 12:34:06 by ssettle           #+#    #+#             */
-/*   Updated: 2019/09/08 15:38:51 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/09/11 16:11:55 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ char		*padding_upper_hex(t_opts options, char *str)
 	return (new_str);
 }
 
-char	*print_reg_X(t_opts options, char *str)
+char		*print_reg_ux(t_opts options, char *str)
 {
 	char	*new_str;
 
@@ -80,9 +80,10 @@ int			convert_upper_hex(t_opts options, va_list ap)
 {
 	char		*str;
 	int			len;
-	
-	str = pf_itoa_upper_hex(options.content_size == 'l' || options.content_size == 'l' + 'l' ?
-		(va_arg(ap, uint64_t)) : (va_arg(ap, uint32_t)));
+
+	str = pf_itoa_upper_hex(options.content_size == 'l' ||
+	options.content_size == 'l' + 'l' ? (va_arg(ap, uint64_t))
+	: (va_arg(ap, uint32_t)));
 	len = pf_strlen(str);
 	if (options.precision > len)
 		str = prec_u_hex(options, str);
@@ -95,7 +96,7 @@ int			convert_upper_hex(t_opts options, va_list ap)
 		if (options.flags.pound >= 1 && options.flags.zero)
 			str = pf_append(str, "0X", 0);
 	}
-	str = print_reg_X(options, str);
+	str = print_reg_ux(options, str);
 	pf_putstr(str);
 	len = pf_strlen(str);
 	free(str);

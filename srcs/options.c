@@ -6,12 +6,11 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/29 10:38:53 by ssettle           #+#    #+#             */
-/*   Updated: 2019/09/11 15:20:32 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/09/11 15:47:27 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
-#include <stdio.h>
 
 /*
 ** The field width: An optional decimal digit string (with nonzero first
@@ -28,7 +27,7 @@
 ** to contain the conversion result.
 */
 
-static int			getz_min_width(const char **format, va_list ap)
+static int			getz_min_width(const char **format)
 {
 	int		width;
 
@@ -38,11 +37,6 @@ static int			getz_min_width(const char **format, va_list ap)
 		width = pf_atoi(*format);
 		while (IS_DIGIT(**format))
 			(*format)++;
-	}
-	else if (**format == '*')
-	{
-		(*format)++;
-		width = va_arg(ap, int);
 	}
 	return (width);
 }
@@ -59,11 +53,10 @@ static int			getz_min_width(const char **format, va_list ap)
 ** ex: ft_printf("%8.2f", 10.3456) = '   10.35'
 */
 
-static int			getz_theprecision(const char **format, va_list ap)
+static int			getz_theprecision(const char **format)
 {
 	int		prec;
-	(void)ap; //testing
-	// t_opts options;
+
 	prec = -1;
 	if (**format != '.')
 	{
@@ -79,11 +72,6 @@ static int			getz_theprecision(const char **format, va_list ap)
 			while (IS_DIGIT(**format))
 				(*format)++;
 		}
-		// else if (**format == '*')
-		// {
-		// 	mod_prec = va_arg(ap, int);
-		// 	(*format)++;
-		// }
 	}
 	return (prec);
 }
@@ -98,7 +86,7 @@ static int			getz_theprecision(const char **format, va_list ap)
 static int			getz_thesize(const char **format)
 {
 	int		len;
-	char **wat;
+	char	**wat;
 
 	len = 0;
 	wat = (char **)&*format;
@@ -148,15 +136,15 @@ static t_flags		getz_theflagz(const char **format)
 	return (flags);
 }
 
-t_opts				getz_theoptionz(const char **format, va_list ap)
+t_opts				getz_theoptionz(const char **format)
 {
 	t_opts	options;
-	
+
 	options.flags = getz_theflagz(format);
-	options.width_field = getz_min_width(format, ap);
+	options.width_field = getz_min_width(format);
 	if (**format == '.')
 		options.flags.dot = 1;
-	options.precision = getz_theprecision(format, ap);
+	options.precision = getz_theprecision(format);
 	options.content_size = getz_thesize(format);
 	return (options);
 }

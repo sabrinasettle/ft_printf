@@ -6,13 +6,13 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/28 14:04:17 by ssettle           #+#    #+#             */
-/*   Updated: 2019/09/11 15:08:49 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/09/11 16:26:59 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-static uint64_t		get_nbr(uint64_t num)
+uint64_t		get_nbr(uint64_t num)
 {
 	int			i;
 
@@ -25,7 +25,7 @@ static uint64_t		get_nbr(uint64_t num)
 	return (i);
 }
 
-char				*pf_itoa_p(intptr_t value)
+char			*pf_itoa_p(intptr_t value)
 {
 	int			len;
 	intptr_t	ip;
@@ -52,7 +52,7 @@ char				*pf_itoa_p(intptr_t value)
 	return (res);
 }
 
-char				*pf_itoa_hex(uint64_t value)
+char			*pf_itoa_hex(uint64_t value)
 {
 	int			len;
 	intptr_t	ip;
@@ -79,7 +79,7 @@ char				*pf_itoa_hex(uint64_t value)
 	return (res);
 }
 
-char				*pf_itoa_upper_hex(uint64_t value)
+char			*pf_itoa_upper_hex(uint64_t value)
 {
 	int			len;
 	intptr_t	ip;
@@ -106,7 +106,7 @@ char				*pf_itoa_upper_hex(uint64_t value)
 	return (res);
 }
 
-char				*pf_itoa_o(uint64_t value)
+char			*pf_itoa_o(uint64_t value)
 {
 	uint64_t	len;
 	uint64_t	ip;

@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/29 10:42:43 by ssettle           #+#    #+#             */
-/*   Updated: 2019/09/08 19:36:12 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/09/11 15:24:35 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,18 +23,11 @@
 ** '0' : Left-pads the number with zeroes (0) instead of spaces when padding.
 */
 
-
-// int		prt_is_length(char c)
-// {
-// 	return (c == 'h' || c == 'l' || c == 'j' || c == 'z') ? (1) : (0);
-// }
-
-
 int		is_special_flag(char c)
 {
 	if (c == '#' || c == '-' || c == '+' || c == ' ' || c == '0')
-		return(1);
-	return(0);
+		return (1);
+	return (0);
 }
 
 void	add_flags(t_flags *flags, char c)

@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/02 12:12:04 by ssettle           #+#    #+#             */
-/*   Updated: 2019/08/28 17:42:23 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/09/11 17:45:11 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,5 @@ const	t_dispatch_table	g_convert_table[] = {
 	{'u', &convert_uint},
 	{'x', &convert_hex},
 	{'X', &convert_upper_hex},
-	{'f', &convert_float},
 	{'%', &convert_percent}
 };

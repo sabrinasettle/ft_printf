@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/29 10:39:33 by ssettle           #+#    #+#             */
-/*   Updated: 2019/09/10 22:30:06 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/09/11 15:54:51 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,27 +17,13 @@
 ** a space AND the c. The only flag for char is l which creates a wint_t.
 */
 
-// ft_printf("%5c", 42);
-//   1. (    1) -->    *<--
-//   2. (    5) -->    *<--
-
-// # 0078 (char)
-//   ft_printf("%-5c", 42);
-//   1. (    1) -->*    <--
-//   2. (    5) -->*    <--
-
-// # 0080 (char)
-//   ft_printf("%2c", 0);
-//   1. (    1) --> ^@<--
-//   2. (    2) --> ^@<--
-
 int		contentsize_width_and_convert(t_opts options, va_list ap)
 {
 	char	c;
 	int		length;
 
 	length = 0;
-	c = options.content_size == 108 ? va_arg(ap, wchar_t) : va_arg(ap, int); 
+	c = options.content_size == 108 ? va_arg(ap, wchar_t) : va_arg(ap, int);
 	while (options.width_field > 1 && !options.flags.minus)
 	{
 		pf_putchar(' ');

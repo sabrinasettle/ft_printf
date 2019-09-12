@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/02 12:33:46 by ssettle           #+#    #+#             */
-/*   Updated: 2019/09/11 13:49:58 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/09/11 16:10:37 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,19 +16,19 @@ char		*prec_oct(t_opts options, char *str)
 {
 	char	*new_str;
 	int		len;
-    int		z_len;
+	int		z_len;
 	int		new_len;
 
 	new_str = pf_strdup(str);
 	len = pf_strlen(str);
-    z_len = options.precision;
+	z_len = options.precision;
 	new_str[z_len] = '\0';
 	if (options.precision > len)
-    {
+	{
 		pf_memset(new_str, '0', z_len);
 		new_len = z_len - len;
-        pf_strncpy(&new_str[new_len], str, len);
-    }
+		pf_strncpy(&new_str[new_len], str, len);
+	}
 	free(str);
 	return (new_str);
 }
@@ -47,7 +47,7 @@ char		*padding_oct(t_opts options, char *str)
 	pf_memset(new_str, ' ', wd_len);
 	new_str[wd_len] = '\0';
 	if (options.flags.zero && !options.flags.minus)
-		pf_memset(new_str, '0', wd_len);	
+		pf_memset(new_str, '0', wd_len);
 	if (options.flags.minus >= 1)
 		pf_strncpy(new_str, str, len);
 	else
@@ -62,7 +62,7 @@ char		*padding_oct(t_opts options, char *str)
 char		*print_reg_o(t_opts options, char *str)
 {
 	char	*new_str;
-	
+
 	if (!options.precision && !options.width_field
 		&& options.flags.pound && !(str[0] == 48 && str[1] == '\0')
 		&& !options.flags.dot)
@@ -89,13 +89,13 @@ int			convert_octal(t_opts options, va_list ap)
 			str = pf_append(str, "0", 0);
 		str = padding_oct(options, str);
 		if (options.flags.pound && options.flags.zero && !options.flags.dot)
-			str = pf_append(str, "0" , 0);
+			str = pf_append(str, "0", 0);
 	}
 	str = print_reg_o(options, str);
-	if ((str[(len = pf_strlen(str)) - 1] == 48) && options.flags.dot 
+	if ((str[(len = pf_strlen(str)) - 1] == 48) && options.flags.dot
 	&& !options.precision && options.width_field && !options.flags.zero)
 		pf_memset(str, ' ', len);
-	len = ((str[(len = pf_strlen(str)) - 1] == 48) && options.flags.dot 
+	len = ((str[(len - 1)] == 48) && options.flags.dot
 	&& !options.precision && !options.flags.pound) ? 0 : pf_putstr_i(str);
 	free(str);
 	return (len);

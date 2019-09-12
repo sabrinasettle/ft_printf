@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/02 12:33:39 by ssettle           #+#    #+#             */
-/*   Updated: 2019/09/10 21:41:53 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/09/11 16:14:54 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ char		*print_reg(t_opts options, char *str, int len)
 		&& options.width_field)
 		pf_memset(str, ' ', len);
 	if (!options.precision && !options.width_field && !options.flags.zero
-		&& options.flags.pound && !(str[0] == 48 && str[1] == '\0') 
+		&& options.flags.pound && !(str[0] == 48 && str[1] == '\0')
 		&& !options.flags.dot)
 		new_str = pf_strjoin("0x", str);
 	else
@@ -99,9 +99,9 @@ int			convert_hex(t_opts options, va_list ap)
 		if (options.flags.pound && options.flags.zero && !options.flags.dot)
 			str = pf_append(str, "0x", 0);
 	}
-	str = print_reg(options, str, (len = pf_strlen(str)));
-	// len = pf_strlen(str); //maybe this can go, see if it breaks
-	len = (str[0] == 48 && str[1] == '\0') && options.flags.dot 
+	str = print_reg(options, str,
+		(len = pf_strlen(str)));
+	len = (str[0] == 48 && str[1] == '\0') && options.flags.dot
 		&& !options.precision ? 0 : pf_putstr_i(str);
 	free(str);
 	return (len);

@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/22 09:55:49 by ssettle           #+#    #+#             */
-/*   Updated: 2019/09/11 15:13:50 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/09/12 14:09:55 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ char				*pf_itoa_l_2(int64_t value)
 	int64_t		len;
 	int64_t		ip;
 	char		*res;
-	static char	index[10] = "0123456789";
+	static char	index[] = "0123456789";
 
 	ip = value;
 	len = (value <= 0) ? 1 : 0;
@@ -100,7 +100,7 @@ char				*pf_itoa_unsigned(uint64_t value)
 
 	ip = value;
 	len = (value <= 0) ? 1 : 0;
-	if (!(res = pf_strnew(get_u_nbr(value))))
+	if (!(res = pf_strnew(get_nbr(value))))
 		return (NULL);
 	while (ip)
 	{
