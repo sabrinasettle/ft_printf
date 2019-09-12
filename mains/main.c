@@ -115,9 +115,6 @@ int	main()
 	printf("pf: %5.2s is a string\n", "this");
 	ft_printf("me: %5.2s is a string\n", "this");
 	pf_putchar('\n');
-	// printf ("printf: %lls \n", "abcdefg");
-	// ft_printf ("mine: %lls \n", "abcdefg");
-	pf_putchar('\n');
 	printf("pf: %s %s\n", NULL, "string");
 	ft_printf("me: %s %s\n", NULL, "string");
 	pf_putchar('\n');
@@ -745,6 +742,20 @@ int	main()
 
 	printf("---------------------- THE END ----------------------------- \n");
 
+	pf_putchar('\n');
+	system("leaks test");
+	return 0;
+}
+
+
+
+
+
+
+
+
+
+
 
 	// printf("---------------------- FLOATS ----------------------------- \n");
 	// // pf_putchar('\n');
@@ -782,9 +793,3 @@ int	main()
 
 	// // ft_printf("Width trick: %*d \n", 5, 10);
 	// // printf ("Width trick: %*d \n", 5, 10);
-
-	pf_putchar('\n');
-	system("leaks test");
-	return 0;
-}
-
