@@ -6,7 +6,7 @@
 /*   By: ssettle <ssettle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/02 12:33:44 by ssettle           #+#    #+#             */
-/*   Updated: 2019/09/12 14:14:08 by ssettle          ###   ########.fr       */
+/*   Updated: 2019/09/11 16:01:54 by ssettle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,7 +111,6 @@ int				convert_int(t_opts options, va_list ap)
 	int			len;
 	int64_t		num;
 
-	// num = get_num(options.content_size, ap);
 	num = options.content_size == 'l' || options.content_size == 216
 		? va_arg(ap, int64_t) : va_arg(ap, int32_t);
 	is_neg = (num < 0) ? true : false;
